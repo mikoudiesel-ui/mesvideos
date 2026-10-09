@@ -1,0 +1,6 @@
+snapshots/
+.hyperframes/
+node_modules/
+*.log
+renders/*
+!renders/daya-livraison-iso-tiktok.mp4

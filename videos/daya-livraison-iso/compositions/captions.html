@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="captions-template">
+      <style>
+        @font-face {
+          font-family: "Unbounded";
+          src: url("assets/fonts/unbounded-latin-800-normal.woff2") format("woff2");
+          font-weight: 800;
+        }
+        @font-face {
+          font-family: "Unbounded";
+          src: url("assets/fonts/unbounded-latin-900-normal.woff2") format("woff2");
+          font-weight: 900;
+        }
+        @font-face {
+          font-family: "Fraunces";
+          src: url("assets/fonts/fraunces-latin-700-italic.woff2") format("woff2");
+          font-weight: 700;
+          font-style: italic;
+        }
+        #captions-root {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+        }
+        /* TikTok-native stickers: a sans line + an italic serif line */
+        #captions-root .cap {
+          position: absolute;
+          left: 70px;
+          right: 70px;
+          top: 200px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+        }
+        #captions-root .lbl {
+          display: inline-block;
+          opacity: 0;
+          background: #ffffff;
+          color: #2a1b3d;
+          font-family: "Unbounded", sans-serif;
+          font-weight: 800;
+          font-size: 76px;
+          line-height: 1.08;
+          letter-spacing: -0.035em;
+          padding: 12px 30px 18px;
+          border-radius: 30px;
+          box-shadow: 0 12px 0 rgba(42, 27, 61, 0.12);
+          white-space: nowrap;
+        }
+        #captions-root .lbl.hot {
+          background: #ec3b64;
+          color: #ffffff;
+          font-family: "Fraunces", serif;
+          font-style: italic;
+          font-weight: 700;
+          font-size: 104px;
+          line-height: 1;
+          letter-spacing: -0.02em;
+          padding: 10px 38px 22px 30px;
+          box-shadow: 0 12px 0 rgba(214, 47, 85, 0.35);
+        }
+        #captions-root .num {
+          font-family: "Unbounded", sans-serif;
+          font-style: normal;
+          font-weight: 900;
+          font-size: 92px;
+          color: #ffffff;
+        }
+        #captions-root .check {
+          display: inline-block;
+          width: 84px;
+          height: 84px;
+          vertical-align: -6px;
+          margin-left: 10px;
+        }
+      </style>
+      <div id="captions-root" data-composition-id="captions" data-width="1080" data-height="1920">
+        <div id="cap1" class="cap">
+          <span class="lbl">Ton bikini,</span>
+          <span class="lbl hot">en <span class="num">1</span> clic.</span>
+        </div>
+        <div id="cap2" class="cap">
+          <span class="lbl">Les commandes</span>
+          <span class="lbl hot">arrivent…</span>
+        </div>
+        <div id="cap3" class="cap">
+          <span class="lbl">Préparé</span>
+          <span class="lbl hot">avec soin</span>
+        </div>
+        <div id="cap4" class="cap">
+          <span class="lbl">Emballé</span>
+          <span class="lbl hot">avec amour</span>
+        </div>
+        <div id="cap5" class="cap">
+          <span class="lbl">C'est parti,</span>
+          <span class="lbl hot">en route !</span>
+        </div>
+        <div id="cap6" class="cap">
+          <span class="lbl">De porte</span>
+          <span class="lbl hot">en porte</span>
+        </div>
+        <div id="cap7" class="cap">
+          <span class="lbl">Livré</span>
+          <span class="lbl hot"
+            >chez toi<svg class="check" viewBox="0 0 84 84" aria-hidden="true">
+              <circle cx="42" cy="42" r="38" fill="#FFFFFF" />
+              <path d="M24 43 L37 56 L61 30" fill="none" stroke="#EC3B64" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" /></svg
+          ></span>
+        </div>
+        <div id="cap8" class="cap">
+          <span class="lbl">Ton été</span>
+          <span class="lbl hot">commence ici.</span>
+        </div>
+      </div>
+      <script>
+        (() => {
+          const tl = gsap.timeline({ paused: true });
+          // [caption, in, out, resting tilt per line] — times are film seconds (slot starts at 0)
+          const caps = [
+            ["#cap1", 0.2, 4.3, [-3, 2]],
+            ["#cap2", 6.95, 9.95, [-2, 2.5]],
+            ["#cap3", 11.05, 14.0, [2, -2.5]],
+            ["#cap4", 14.1, 17.0, [-2, 2]],
+            ["#cap5", 18.15, 20.45, [2, -2]],
+            ["#cap6", 20.75, 24.55, [-2.5, 2]],
+            ["#cap7", 27.45, 31.35, [2, -2]],
+            ["#cap8", 32.75, 35.75, [-2, 2.5]],
+          ];
+          caps.forEach(([sel, a, b, rot]) => {
+            const items = document.querySelector(sel).querySelectorAll(".lbl");
+            items.forEach((el, i) => {
+              const from = i === 0 ? { x: -120, y: 0, rotation: rot[i] - 10 } : { x: 0, y: 70, rotation: rot[i] + 8 };
+              tl.fromTo(el, { ...from, scale: 0.35, opacity: 0 }, { x: 0, y: 0, rotation: rot[i], scale: 1, opacity: 1, duration: 0.55, ease: i === 0 ? "back.out(2.2)" : "back.out(2.8)" }, a + 0.12 + i * 0.16);
+              // settle bump on the accent line, on the beat
+              if (i === 1) tl.to(el, { scale: 1.05, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, a + 0.9);
+            });
+            if (sel === "#cap1") {
+              // the hook rushes at the viewer as the camera dives into the phone
+              tl.to(items, { scale: 1.35, y: -60, opacity: 0, duration: 0.45, ease: "power3.in", stagger: 0.05 }, b - 0.75);
+            } else {
+              tl.to(items, { y: -50, opacity: 0, scale: 0.92, duration: 0.32, ease: "power2.in", stagger: 0.06 }, b - 0.42);
+            }
+          });
+          window.__timelines["captions"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

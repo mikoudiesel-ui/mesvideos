@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="endcard-template">
+      <style>
+        @font-face {
+          font-family: "Unbounded";
+          src: url("assets/fonts/unbounded-latin-700-normal.woff2") format("woff2");
+          font-weight: 700;
+        }
+        @font-face {
+          font-family: "Unbounded";
+          src: url("assets/fonts/unbounded-latin-800-normal.woff2") format("woff2");
+          font-weight: 800;
+        }
+        @font-face {
+          font-family: "Unbounded";
+          src: url("assets/fonts/unbounded-latin-900-normal.woff2") format("woff2");
+          font-weight: 900;
+        }
+        @font-face {
+          font-family: "Fraunces";
+          src: url("assets/fonts/fraunces-latin-700-italic.woff2") format("woff2");
+          font-weight: 700;
+          font-style: italic;
+        }
+        #endcard-root {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+        }
+        #endcard {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 196px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          font-family: "Unbounded", sans-serif;
+        }
+        #kicker {
+          display: inline-block;
+          font-weight: 700;
+          font-size: 34px;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: #d62f55;
+          margin-bottom: 18px;
+        }
+        #handle {
+          display: flex;
+          font-weight: 900;
+          font-size: 98px;
+          letter-spacing: -0.045em;
+          line-height: 1.05;
+          color: #2a1b3d;
+          overflow: hidden;
+          padding: 0 10px 8px;
+        }
+        #handle span {
+          display: inline-block;
+        }
+        #handle .at {
+          color: #d62f55;
+        }
+        #tagline {
+          display: inline-block;
+          font-family: "Fraunces", serif;
+          font-style: italic;
+          font-weight: 700;
+          font-size: 74px;
+          color: #d62f55;
+          margin-top: 4px;
+          letter-spacing: -0.015em;
+        }
+        #cta {
+          display: inline-flex;
+          align-items: center;
+          gap: 22px;
+          margin-top: 40px;
+          padding: 26px 46px 30px 34px;
+          border-radius: 999px;
+          background: #2a1b3d;
+          color: #ffffff;
+          font-weight: 800;
+          font-size: 42px;
+          letter-spacing: -0.02em;
+          box-shadow: 0 14px 0 rgba(42, 27, 61, 0.18);
+        }
+        #cta .note {
+          display: inline-block;
+          width: 64px;
+          height: 64px;
+          border-radius: 50%;
+          background: #ff4f70;
+          padding: 12px;
+        }
+        #cta .note svg {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+        #confetti {
+          position: absolute;
+          left: 540px;
+          top: 420px;
+          width: 0;
+          height: 0;
+        }
+        #confetti i {
+          position: absolute;
+          display: block;
+          width: 18px;
+          height: 30px;
+          border-radius: 5px;
+          opacity: 0;
+        }
+      </style>
+      <div id="endcard-root" data-composition-id="endcard" data-width="1080" data-height="1920">
+        <div id="confetti" data-layout-ignore></div>
+        <div id="endcard">
+          <span id="kicker">Bikinis · livraison à domicile</span>
+          <div id="handle"></div>
+          <span id="tagline">livrés à ta porte</span>
+          <div id="cta">
+            <span class="note"
+              ><svg viewBox="0 0 40 40" aria-hidden="true">
+                <path
+                  d="M24 4 C25 9 29 12 34 12 L34 18 C30 18 27 17 24 15 L24 27 C24 32.5 19.5 37 14 37 C8.5 37 4 32.5 4 27 C4 21.5 8.5 17 14 17 L15 17 L15 23 C14.6 22.9 14.3 22.9 14 22.9 C11.7 22.9 9.9 24.7 9.9 27 C9.9 29.3 11.7 31.1 14 31.1 C16.3 31.1 18.1 29.3 18.1 27 L18.1 4 Z"
+                  fill="#FFFFFF"
+                /></svg></span
+            ><span>Commande sur TikTok</span>
+          </div>
+        </div>
+      </div>
+      <script>
+        (() => {
+          // handle split per letter (built once, deterministic)
+          const handleEl = document.getElementById("handle");
+          "@daya_na990".split("").forEach((ch, i) => {
+            const s = document.createElement("span");
+            s.textContent = ch;
+            if (i === 0) s.className = "at";
+            handleEl.appendChild(s);
+          });
+          // confetti pieces with index-seeded launch values
+          const conf = document.getElementById("confetti");
+          const cols = ["#FF4F70", "#FFC93C", "#16A6A0", "#FFFFFF", "#FF8FA3"];
+          const pieces = [];
+          for (let i = 0; i < 28; i++) {
+            const el = document.createElement("i");
+            el.style.background = cols[i % cols.length];
+            conf.appendChild(el);
+            const a = -Math.PI / 2 + (i / 27 - 0.5) * 2.6 + Math.sin(i * 12.9898) * 0.15;
+            const v = 820 + ((i * 37) % 9) * 70;
+            pieces.push({ el, vx: Math.cos(a) * v, vy: Math.sin(a) * v, spin: ((i * 53) % 7) - 3 });
+          }
+          // slot starts at film 36.4 s — times below are slot-local
+          const tl = gsap.timeline({ paused: true });
+          tl.fromTo("#kicker", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.15);
+          tl.fromTo("#handle span", { yPercent: 115, rotation: 8 }, { yPercent: 0, rotation: 0, duration: 0.6, ease: "back.out(1.9)", stagger: 0.035 }, 0.3);
+          tl.fromTo("#tagline", { y: 50, opacity: 0, scale: 0.8 }, { y: 0, opacity: 1, scale: 1, duration: 0.6, ease: "back.out(2.4)" }, 0.8);
+          tl.fromTo("#cta", { scale: 0.2, opacity: 0, rotation: -6 }, { scale: 1, opacity: 1, rotation: 0, duration: 0.65, ease: "back.out(2.6)" }, 1.2);
+          tl.to("#cta", { scale: 1.06, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 3 }, 1.95);
+          tl.fromTo("#cta .note", { rotation: -12 }, { rotation: 12, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 7 }, 1.6);
+          // confetti: one ballistic driver, every piece a pure function of time
+          const drv = { t: 0 };
+          tl.fromTo(
+            drv,
+            { t: 0 },
+            {
+              t: 2.6,
+              duration: 2.6,
+              ease: "none",
+              onUpdate: () => {
+                const tt = drv.t;
+                pieces.forEach((p) => {
+                  const x = p.vx * tt * 0.55;
+                  const y = p.vy * tt * 0.55 + 0.5 * 1500 * tt * tt * 0.55;
+                  p.el.style.transform = "translate(" + x + "px, " + y + "px) rotate(" + p.spin * tt * 180 + "deg)";
+                  p.el.style.opacity = tt <= 0 ? 0 : Math.max(0, 1 - tt / 2.6);
+                });
+              },
+            },
+            0.35,
+          );
+          window.__timelines["endcard"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>
