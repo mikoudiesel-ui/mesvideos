@@ -1,0 +1,7 @@
+snapshots/
+.hyperframes/
+node_modules/
+package-lock.json
+*.log
+renders/*
+!renders/daya-bikinis-shop-tiktok.mp4

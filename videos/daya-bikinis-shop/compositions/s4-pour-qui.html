@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s4-template">
+      <style>
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-500-normal.woff2") format("woff2"); font-weight: 500; }
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-700-normal.woff2") format("woff2"); font-weight: 700; }
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-800-normal.woff2") format("woff2"); font-weight: 800; }
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-900-normal.woff2") format("woff2"); font-weight: 900; }
+        @font-face { font-family: "Fraunces"; src: url("assets/fonts/fraunces-latin-600-italic.woff2") format("woff2"); font-weight: 600; font-style: italic; }
+        @font-face { font-family: "Fraunces"; src: url("assets/fonts/fraunces-latin-700-italic.woff2") format("woff2"); font-weight: 700; font-style: italic; }
+        #s4-root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          font-family: "Unbounded", sans-serif;
+          color: #24121c;
+        }
+        #s4-head {
+          position: absolute;
+          left: 80px;
+          right: 120px;
+          top: 180px;
+        }
+        .s4-line {
+          display: block;
+          font-weight: 900;
+          font-size: 80px;
+          line-height: 1.08;
+          letter-spacing: -0.04em;
+        }
+        #s4-shine {
+          position: relative;
+          display: inline-block;
+          font-family: "Fraunces", serif;
+          font-style: italic;
+          font-weight: 700;
+          font-size: 176px;
+          line-height: 1.1;
+          letter-spacing: -0.03em;
+        }
+        .s4-sp {
+          position: absolute;
+          display: block;
+          width: 80px;
+          height: 80px;
+        }
+        .s4-sp svg,
+        .s4-ic svg {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+        #s4-row {
+          position: absolute;
+          left: 70px;
+          top: 780px;
+          width: 890px;
+          display: flex;
+          justify-content: space-between;
+        }
+        .s4-card {
+          position: relative;
+          display: block;
+          width: 280px;
+          height: 640px;
+        }
+        .s4-arch {
+          position: absolute;
+          left: 0;
+          top: 60px;
+          width: 280px;
+          height: 470px;
+          border-radius: 140px 140px 30px 30px;
+          overflow: hidden;
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+          box-shadow: 0 16px 0 rgba(36, 18, 28, 0.2);
+        }
+        .s4-arch img {
+          display: block;
+          height: 380px;
+          width: auto;
+          margin-bottom: -4px;
+          filter: drop-shadow(4px 0 0 #fff3e4) drop-shadow(-4px 0 0 #fff3e4) drop-shadow(0 -4px 0 #fff3e4);
+        }
+        .s4-ic {
+          position: absolute;
+          left: 80px;
+          top: 0;
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          background: #fff3e4;
+          padding: 14px;
+          box-shadow: 0 8px 0 rgba(36, 18, 28, 0.2);
+          z-index: 2;
+        }
+        .s4-lab {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 556px;
+          display: block;
+          padding: 16px 0 20px;
+          border-radius: 999px;
+          background: #24121c;
+          color: #fff3e4;
+          font-weight: 800;
+          font-size: 34px;
+          text-align: center;
+          letter-spacing: 0.02em;
+        }
+      </style>
+      <div id="s4-root" data-composition-id="s4" data-start="0" data-duration="5.6" data-width="1080" data-height="1920">
+        <div id="s4-head">
+          <div class="s4-line" id="s4-a">Pour toutes</div>
+          <div class="s4-line" id="s4-b">les femmes qui veulent</div>
+          <div id="s4-shine">
+            briller
+            <i class="s4-sp" id="s4-sp1" style="right: -70px; top: 0px"></i>
+            <i class="s4-sp" id="s4-sp2" style="right: -110px; top: 100px; width: 50px; height: 50px"></i>
+          </div>
+        </div>
+        <div id="s4-row">
+          <div class="s4-card" id="s4-k1">
+            <div class="s4-arch" style="background: #12a89a"><img src="assets/img/m/turquoise.png" alt="" /></div>
+            <i class="s4-ic" id="s4-i1"></i>
+            <div class="s4-lab">PLAGE</div>
+          </div>
+          <div class="s4-card" id="s4-k2">
+            <div class="s4-arch" style="background: #2f6fd6"><img src="assets/img/m/bleu-fleuri.png" alt="" /></div>
+            <i class="s4-ic" id="s4-i2"></i>
+            <div class="s4-lab">PISCINE</div>
+          </div>
+          <div class="s4-card" id="s4-k3">
+            <div class="s4-arch" style="background: #ff2e7e"><img src="assets/img/m/papillons.png" alt="" /></div>
+            <i class="s4-ic" id="s4-i3"></i>
+            <div class="s4-lab">VACANCES</div>
+          </div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const A = window.ART;
+          document.getElementById("s4-i1").innerHTML = A.icon("beach");
+          document.getElementById("s4-i2").innerHTML = A.icon("pool");
+          document.getElementById("s4-i3").innerHTML = A.icon("plane");
+          ["s4-sp1", "s4-sp2"].forEach((id) => (document.getElementById(id).innerHTML = A.icon("sparkle")));
+          const tl = gsap.timeline({ paused: true });
+          tl.fromTo("#s4-a", { y: 90, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0.05);
+          tl.fromTo("#s4-b", { y: 90, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0.45);
+          tl.fromTo("#s4-shine", { scale: 0.2, opacity: 0, rotation: -10, transformOrigin: "20% 60%" }, { scale: 1, opacity: 1, rotation: -3, duration: 0.5, ease: "back.out(2)" }, 1.0);
+          tl.fromTo(["#s4-sp1", "#s4-sp2"], { scale: 0, rotation: -120 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.5)", stagger: 0.1 }, 1.2);
+          tl.to(["#s4-sp1", "#s4-sp2"], { scale: 0.6, rotation: 60, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 5 }, 1.7);
+          // plage / piscine / vacances on the voice
+          [1.5, 2.48, 3.35].forEach((t, i) => {
+            const k = "#s4-k" + (i + 1);
+            tl.fromTo(k, { y: 900, rotation: (i - 1) * 10 }, { y: 0, rotation: 0, duration: 0.5, ease: "back.out(1.3)" }, t - 0.15);
+            tl.fromTo("#s4-i" + (i + 1), { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.4, ease: "back.out(2.5)" }, t + 0.15);
+            tl.to(k, { y: -16, duration: 0.9, ease: "sine.inOut", yoyo: true, repeat: 1 }, t + 0.4);
+          });
+          // exit
+          tl.to("#s4-row", { y: 1200, duration: 0.4, ease: "power3.in" }, 5.2);
+          tl.to("#s4-head", { y: -700, duration: 0.4, ease: "power3.in" }, 5.2);
+          window.__timelines["s4"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

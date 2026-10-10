@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s3-template">
+      <style>
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-500-normal.woff2") format("woff2"); font-weight: 500; }
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-700-normal.woff2") format("woff2"); font-weight: 700; }
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-800-normal.woff2") format("woff2"); font-weight: 800; }
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-900-normal.woff2") format("woff2"); font-weight: 900; }
+        @font-face { font-family: "Fraunces"; src: url("assets/fonts/fraunces-latin-600-italic.woff2") format("woff2"); font-weight: 600; font-style: italic; }
+        @font-face { font-family: "Fraunces"; src: url("assets/fonts/fraunces-latin-700-italic.woff2") format("woff2"); font-weight: 700; font-style: italic; }
+        #s3-root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          font-family: "Unbounded", sans-serif;
+          color: #24121c;
+        }
+        #s3-title {
+          position: absolute;
+          left: 80px;
+          right: 120px;
+          top: 180px;
+          font-weight: 900;
+          font-size: 100px;
+          line-height: 1;
+          letter-spacing: -0.04em;
+        }
+        #s3-title em {
+          font-family: "Fraunces", serif;
+          font-style: italic;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+        }
+        #s3-arch {
+          position: absolute;
+          left: 70px;
+          top: 430px;
+          width: 540px;
+          height: 820px;
+          border-radius: 270px 270px 40px 40px;
+          background: #ff2e7e;
+          overflow: hidden;
+          box-shadow: 0 22px 0 rgba(36, 18, 28, 0.22);
+        }
+        #s3-arch-glow {
+          position: absolute;
+          left: 20px;
+          top: 120px;
+          width: 500px;
+          height: 500px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(255, 220, 160, 0.85), rgba(255, 46, 126, 0) 70%);
+        }
+        .s3-look {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+          opacity: 0;
+        }
+        .s3-look img {
+          display: block;
+          height: 660px;
+          width: auto;
+          margin-bottom: -6px;
+          filter: drop-shadow(5px 0 0 #fff3e4) drop-shadow(-5px 0 0 #fff3e4) drop-shadow(0 -5px 0 #fff3e4);
+        }
+        #s3-cats {
+          position: absolute;
+          left: 640px;
+          top: 470px;
+          width: 330px;
+          display: flex;
+          flex-direction: column;
+          gap: 26px;
+        }
+        .s3-cat {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          padding: 22px 24px;
+          border-radius: 28px;
+          background: #fff3e4;
+          font-weight: 800;
+          font-size: 33px;
+          letter-spacing: -0.02em;
+          white-space: nowrap;
+          box-shadow: 0 10px 0 rgba(36, 18, 28, 0.18);
+        }
+        .s3-cat i {
+          display: block;
+          flex: 0 0 auto;
+          width: 46px;
+          height: 46px;
+          border-radius: 50%;
+          background: #24121c;
+          position: relative;
+        }
+        .s3-cat i::after {
+          content: "";
+          position: absolute;
+          left: 15px;
+          top: 9px;
+          width: 12px;
+          height: 22px;
+          border: solid #fff3e4;
+          border-width: 0 6px 6px 0;
+          transform: rotate(45deg);
+        }
+        #s3-stamp {
+          position: absolute;
+          left: 300px;
+          top: 1200px;
+          width: 680px;
+          padding: 26px 36px 30px;
+          border-radius: 30px;
+          background: #f4b533;
+          border: 6px solid #24121c;
+          font-weight: 900;
+          font-size: 46px;
+          line-height: 1.12;
+          letter-spacing: -0.02em;
+          text-align: center;
+        }
+        #s3-stamp em {
+          display: block;
+          font-family: "Fraunces", serif;
+          font-style: italic;
+          font-weight: 700;
+          font-size: 54px;
+        }
+      </style>
+      <div id="s3-root" data-composition-id="s3" data-start="0" data-duration="6" data-width="1080" data-height="1920">
+        <div id="s3-title">Tout pour <em>l'été</em></div>
+        <div id="s3-arch">
+          <div id="s3-arch-glow"></div>
+          <div class="s3-look" id="s3-l1"><img src="assets/img/m/rose-crochet.png" alt="" /></div>
+          <div class="s3-look" id="s3-l2"><img src="assets/img/m/une-piece.png" alt="" /></div>
+          <div class="s3-look" id="s3-l3"><img src="assets/img/m/orange-pareo.png" alt="" /></div>
+          <div class="s3-look" id="s3-l4"><img src="assets/img/m/turquoise-top.png" alt="" /></div>
+          <div class="s3-look" id="s3-l5"><img src="assets/img/m/bleu-hibiscus.png" alt="" /></div>
+          <div class="s3-look" id="s3-l6"><img src="assets/img/m/noir-leopard.png" alt="" /></div>
+          <div class="s3-look" id="s3-l7"><img src="assets/img/m/papillons.png" alt="" /></div>
+          <div class="s3-look" id="s3-l8"><img src="assets/img/m/dore-leopard.png" alt="" /></div>
+          <div class="s3-look" id="s3-l9"><img src="assets/img/m/rouge.png" alt="" /></div>
+          <div class="s3-look" id="s3-l10"><img src="assets/img/m/turquoise.png" alt="" /></div>
+        </div>
+        <div id="s3-cats">
+          <div class="s3-cat" id="s3-c1"><i></i>Bikinis</div>
+          <div class="s3-cat" id="s3-c2"><i></i>Une pièce</div>
+          <div class="s3-cat" id="s3-c3"><i></i>Paréos</div>
+          <div class="s3-cat" id="s3-c4"><i></i>Hauts tops</div>
+        </div>
+        <div id="s3-stamp">Nouveaux modèles <em>à chaque arrivage</em></div>
+      </div>
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          tl.fromTo("#s3-title", { y: -60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0.05);
+          tl.fromTo("#s3-arch", { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.5, ease: "power4.out" }, 0.0);
+          tl.fromTo("#s3-arch-glow", { scale: 0.85 }, { scale: 1.1, duration: 1.5, ease: "sine.inOut", yoyo: true, repeat: 3 }, 0);
+          // looks: each swap = old one drops out, new one springs up from the plinth
+          const at = [0.15, 0.75, 1.8, 2.4, 2.75, 3.1, 3.45, 3.8, 4.15, 4.5];
+          at.forEach((t, i) => {
+            const el = "#s3-l" + (i + 1);
+            tl.fromTo(el, { opacity: 0, y: 260, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.32, ease: "back.out(1.6)" }, t);
+            if (i < at.length - 1) tl.to(el, { opacity: 0, y: -40, scale: 1.05, duration: 0.18, ease: "power2.in" }, at[i + 1]);
+          });
+          // categories tick in on the voice
+          [0.15, 0.75, 1.8, 2.4].forEach((t, i) => {
+            const c = "#s3-c" + (i + 1);
+            tl.fromTo(c, { x: 420, rotation: 8 }, { x: 0, rotation: 0, duration: 0.42, ease: "back.out(1.5)" }, t);
+            tl.fromTo(c + " i", { scale: 0 }, { scale: 1, duration: 0.3, ease: "back.out(3)" }, t + 0.25);
+          });
+          // "de nouveaux modèles à chaque arrivage" — stamp slams
+          tl.fromTo("#s3-stamp", { scale: 2.4, opacity: 0, rotation: -14 }, { scale: 1, opacity: 1, rotation: -4, duration: 0.35, ease: "power4.out" }, 2.75);
+          tl.to("#s3-stamp", { rotation: -2, scale: 1.04, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 3 }, 3.15);
+          // exit
+          tl.to("#s3-arch", { y: 1300, rotation: -8, duration: 0.4, ease: "power3.in" }, 5.6);
+          tl.to(["#s3-cats", "#s3-stamp", "#s3-title"], { x: 900, duration: 0.4, ease: "power3.in", stagger: 0.04 }, 5.55);
+          window.__timelines["s3"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

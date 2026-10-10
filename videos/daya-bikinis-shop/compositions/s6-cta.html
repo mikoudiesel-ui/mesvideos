@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s6-template">
+      <style>
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-500-normal.woff2") format("woff2"); font-weight: 500; }
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-700-normal.woff2") format("woff2"); font-weight: 700; }
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-800-normal.woff2") format("woff2"); font-weight: 800; }
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-900-normal.woff2") format("woff2"); font-weight: 900; }
+        @font-face { font-family: "Fraunces"; src: url("assets/fonts/fraunces-latin-600-italic.woff2") format("woff2"); font-weight: 600; font-style: italic; }
+        @font-face { font-family: "Fraunces"; src: url("assets/fonts/fraunces-latin-700-italic.woff2") format("woff2"); font-weight: 700; font-style: italic; }
+        #s6-root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          font-family: "Unbounded", sans-serif;
+          color: #24121c;
+        }
+        #s6-stack {
+          position: absolute;
+          left: 70px;
+          width: 880px;
+          top: 160px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        #s6-av {
+          display: block;
+          width: 250px;
+          height: 250px;
+          border-radius: 50%;
+          border: 10px solid #fff3e4;
+          box-shadow: 0 0 0 10px #ff2e7e;
+          background: url("assets/img/avatar.png") center / cover;
+        }
+        #s6-name {
+          display: block;
+          margin-top: 26px;
+          font-family: "Fraunces", serif;
+          font-style: italic;
+          font-weight: 700;
+          font-size: 150px;
+          line-height: 1.02;
+          letter-spacing: -0.03em;
+        }
+        #s6-handle {
+          display: block;
+          margin-top: 10px;
+          font-weight: 800;
+          font-size: 50px;
+          letter-spacing: -0.02em;
+        }
+        #s6-btn {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 18px;
+          margin-top: 40px;
+          width: 560px;
+          height: 120px;
+          border-radius: 30px;
+          background: #c4165e;
+          color: #fff3e4;
+          font-weight: 900;
+          font-size: 50px;
+          box-shadow: 0 12px 0 #7e0e3c;
+        }
+        #s6-b1,
+        #s6-b2 {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        #s6-b2 {
+          opacity: 0;
+        }
+        #s6-callk {
+          display: block;
+          margin-top: 54px;
+          font-weight: 700;
+          font-size: 40px;
+        }
+        #s6-tel {
+          display: flex;
+          align-items: center;
+          gap: 26px;
+          margin-top: 18px;
+          padding: 26px 46px 30px 30px;
+          border-radius: 999px;
+          background: #24121c;
+          color: #fff3e4;
+          box-shadow: 0 14px 0 rgba(36, 18, 28, 0.25);
+        }
+        #s6-tel i {
+          display: block;
+          width: 92px;
+          height: 92px;
+          border-radius: 50%;
+          background: #12a89a;
+          padding: 16px;
+        }
+        #s6-tel svg,
+        #s6-pin svg {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+        #s6-num {
+          display: flex;
+          gap: 22px;
+          font-weight: 900;
+          font-size: 74px;
+          letter-spacing: -0.03em;
+          font-variant-numeric: tabular-nums;
+        }
+        #s6-num span {
+          display: inline-block;
+        }
+        #s6-shelf {
+          position: absolute;
+          left: 40px;
+          right: 40px;
+          top: 1480px;
+          height: 26px;
+          border-radius: 13px;
+          background: #24121c;
+          transform-origin: 50% 50%;
+        }
+        .s6-m {
+          position: absolute;
+          bottom: 440px;
+          display: block;
+          height: 300px;
+          width: auto;
+          filter: drop-shadow(4px 0 0 #fff3e4) drop-shadow(-4px 0 0 #fff3e4) drop-shadow(0 -4px 0 #fff3e4);
+        }
+        #s6-pin {
+          position: absolute;
+          left: 360px;
+          top: 1530px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 10px 26px 12px 14px;
+          border-radius: 999px;
+          background: #fff3e4;
+          font-weight: 800;
+          font-size: 32px;
+        }
+        #s6-pin i {
+          display: block;
+          width: 50px;
+          height: 50px;
+        }
+        .s6-pet {
+          position: absolute;
+          left: 540px;
+          top: 860px;
+          display: block;
+          width: 70px;
+          height: 70px;
+        }
+        .s6-pet svg {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+      </style>
+      <div id="s6-root" data-composition-id="s6" data-start="0" data-duration="8" data-width="1080" data-height="1920">
+        <div id="s6-burst"></div>
+        <div id="s6-stack">
+          <i id="s6-av"></i>
+          <div id="s6-name">Bikini Shop</div>
+          <div id="s6-handle">@daya_na990</div>
+          <div id="s6-btn"><span id="s6-b1">S'abonner</span><span id="s6-b2">Abonnée !</span></div>
+          <div id="s6-callk">Commande au</div>
+          <div id="s6-tel">
+            <i id="s6-call"></i>
+            <div id="s6-num"><span id="s6-d1">07</span><span id="s6-d2">99</span><span id="s6-d3">00</span><span id="s6-d4">45</span><span id="s6-d5">50</span></div>
+          </div>
+        </div>
+        <img class="s6-m" id="s6-m1" src="assets/img/m/rose-crochet.png" style="left: 30px" alt="" />
+        <img class="s6-m" id="s6-m2" src="assets/img/m/noir-leopard.png" style="left: 250px" alt="" />
+        <img class="s6-m" id="s6-m3" src="assets/img/m/bleu-hibiscus.png" style="left: 420px" alt="" />
+        <img class="s6-m" id="s6-m4" src="assets/img/m/turquoise.png" style="left: 690px" alt="" />
+        <img class="s6-m" id="s6-m5" src="assets/img/m/orange-pareo.png" style="left: 830px" alt="" />
+        <div id="s6-shelf"></div>
+        <div id="s6-pin"><i id="s6-pin-ic"></i>Yop, Abidjan</div>
+      </div>
+      <script>
+        (function () {
+          const A = window.ART;
+          document.getElementById("s6-call").innerHTML = A.icon("call");
+          document.getElementById("s6-pin-ic").innerHTML = A.icon("pin");
+          const root = document.getElementById("s6-burst");
+          const R = A.rng(3);
+          const pets = [];
+          const cols = ["#FF2E7E", "#F4B533", "#12A89A", "#FFF3E4", "#C4165E"];
+          for (let i = 0; i < 16; i++) {
+            const e = document.createElement("i");
+            e.className = "s6-pet";
+            e.innerHTML = i % 3 === 0 ? A.hibiscus({ id: "s6p" + i }) : A.icon("sparkle");
+            if (i % 3 !== 0) e.querySelector("path").setAttribute("fill", cols[i % cols.length]);
+            root.appendChild(e);
+            const a = (i / 16) * Math.PI * 2 + R() * 0.3;
+            pets.push({ e, x: Math.cos(a) * (380 + R() * 260), y: Math.sin(a) * (300 + R() * 300) - 150, r: (R() - 0.5) * 720 });
+          }
+          const tl = gsap.timeline({ paused: true });
+          tl.fromTo("#s6-av", { scale: 0, rotation: -180 }, { scale: 1, rotation: 0, duration: 0.55, ease: "back.out(1.7)" }, 0.0);
+          tl.fromTo("#s6-name", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0.12);
+          tl.fromTo("#s6-handle", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0.22);
+          // "Abonne-toi" — button lands, gets pressed, flips to subscribed
+          tl.fromTo("#s6-btn", { scale: 0 }, { scale: 1, duration: 0.4, ease: "back.out(2.4)" }, 0.25);
+          tl.to("#s6-btn", { scale: 0.92, y: 10, duration: 0.09, ease: "power1.in" }, 0.85);
+          tl.to("#s6-btn", { scale: 1, y: 0, backgroundColor: "#24121c", duration: 0.4, ease: "back.out(3)" }, 0.94);
+          tl.to("#s6-b1", { opacity: 0, duration: 0.12 }, 0.9);
+          tl.to("#s6-b2", { opacity: 1, duration: 0.12 }, 0.95);
+          pets.forEach((p, i) => {
+            tl.fromTo(p.e, { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { x: p.x, y: p.y, scale: 1, rotation: p.r, duration: 1.1, ease: "power3.out" }, 0.9 + i * 0.01);
+            tl.to(p.e, { opacity: 0, y: p.y + 260, duration: 0.8, ease: "power1.in" }, 1.8 + i * 0.01);
+          });
+          // "et commande dès maintenant au …" — number dictated group by group
+          tl.fromTo("#s6-callk", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, 1.15);
+          tl.fromTo("#s6-tel", { scaleX: 0.2, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.45, ease: "back.out(1.5)" }, 1.4);
+          tl.fromTo("#s6-call", { rotation: -25 }, { rotation: 25, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: 7 }, 1.8);
+          [2.3, 3.26, 3.95, 4.6, 5.35].forEach((t, i) => {
+            tl.fromTo("#s6-d" + (i + 1), { y: 70, opacity: 0, scale: 1.5 }, { y: 0, opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.2)" }, t);
+          });
+          tl.to("#s6-tel", { scale: 1.06, duration: 0.35, ease: "sine.inOut", yoyo: true, repeat: 3 }, 6.0);
+          // the shop window lines up
+          tl.fromTo("#s6-shelf", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 0.4);
+          ["#s6-m1", "#s6-m2", "#s6-m3", "#s6-m4", "#s6-m5"].forEach((m, i) => {
+            tl.fromTo(m, { y: 360, scale: 0.6, transformOrigin: "50% 100%" }, { y: 0, scale: 1, duration: 0.5, ease: "back.out(1.8)" }, 0.6 + i * 0.1);
+            tl.to(m, { y: -12, duration: 0.8, ease: "sine.inOut", yoyo: true, repeat: 3 }, 1.4 + i * 0.15);
+          });
+          tl.fromTo("#s6-pin", { y: 120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "back.out(2)" }, 1.3);
+          window.__timelines["s6"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

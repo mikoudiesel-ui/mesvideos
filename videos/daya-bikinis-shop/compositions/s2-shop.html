@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s2-template">
+      <style>
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-500-normal.woff2") format("woff2"); font-weight: 500; }
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-700-normal.woff2") format("woff2"); font-weight: 700; }
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-800-normal.woff2") format("woff2"); font-weight: 800; }
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-900-normal.woff2") format("woff2"); font-weight: 900; }
+        @font-face { font-family: "Fraunces"; src: url("assets/fonts/fraunces-latin-600-italic.woff2") format("woff2"); font-weight: 600; font-style: italic; }
+        @font-face { font-family: "Fraunces"; src: url("assets/fonts/fraunces-latin-700-italic.woff2") format("woff2"); font-weight: 700; font-style: italic; }
+        #s2-root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          font-family: "Unbounded", sans-serif;
+          color: #24121c;
+        }
+        #s2-head {
+          position: absolute;
+          left: 80px;
+          right: 120px;
+          top: 170px;
+        }
+        #s2-k {
+          display: block;
+          font-weight: 800;
+          font-size: 88px;
+          letter-spacing: -0.03em;
+          line-height: 1;
+        }
+        #s2-name {
+          display: block;
+          font-family: "Fraunces", serif;
+          font-style: italic;
+          font-weight: 700;
+          font-size: 132px;
+          line-height: 1.05;
+          white-space: nowrap;
+          letter-spacing: -0.03em;
+          margin-top: 6px;
+        }
+        #s2-card {
+          position: absolute;
+          left: 80px;
+          width: 880px;
+          top: 560px;
+          height: 600px;
+          border-radius: 56px;
+          background: #fff3e4;
+          box-shadow: 0 24px 0 rgba(36, 18, 28, 0.22);
+          padding: 56px 56px 0;
+        }
+        #s2-top {
+          display: flex;
+          align-items: center;
+          gap: 40px;
+        }
+        #s2-av {
+          display: block;
+          width: 230px;
+          height: 230px;
+          border-radius: 50%;
+          border: 10px solid #ff2e7e;
+          flex: 0 0 auto;
+          background: url("assets/img/avatar.png") center / cover;
+        }
+        #s2-id {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+        #s2-title {
+          display: block;
+          font-weight: 800;
+          font-size: 58px;
+          letter-spacing: -0.03em;
+          line-height: 1.05;
+        }
+        #s2-handle {
+          display: block;
+          font-weight: 500;
+          font-size: 38px;
+          color: #6b4a3c;
+        }
+        #s2-stats {
+          display: flex;
+          gap: 60px;
+          margin-top: 50px;
+        }
+        .s2-stat b {
+          display: block;
+          font-weight: 900;
+          font-size: 76px;
+          letter-spacing: -0.04em;
+          line-height: 1;
+          font-variant-numeric: tabular-nums;
+        }
+        .s2-stat span {
+          display: block;
+          font-weight: 500;
+          font-size: 32px;
+          color: #6b4a3c;
+          margin-top: 8px;
+        }
+        #s2-follow {
+          position: absolute;
+          right: 56px;
+          bottom: 60px;
+          display: block;
+          padding: 22px 50px 26px;
+          border-radius: 22px;
+          background: #c4165e;
+          color: #fff3e4;
+          font-weight: 800;
+          font-size: 40px;
+        }
+        #s2-fan {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 1200px;
+          height: 330px;
+        }
+        .s2-ph {
+          position: absolute;
+          top: 0;
+          display: block;
+          width: 220px;
+          height: 270px;
+          border-radius: 26px;
+          border: 8px solid #fff3e4;
+          background-size: cover;
+          background-position: center;
+          box-shadow: 0 14px 0 rgba(36, 18, 28, 0.2);
+        }
+        #s2-chip {
+          position: absolute;
+          left: 80px;
+          top: 1110px;
+          display: flex;
+          align-items: center;
+          gap: 18px;
+          padding: 18px 34px 20px 20px;
+          border-radius: 999px;
+          background: #24121c;
+          color: #fff3e4;
+          font-weight: 700;
+          font-size: 36px;
+          z-index: 2;
+        }
+        #s2-chip i {
+          display: block;
+          width: 60px;
+          height: 60px;
+        }
+        #s2-chip svg {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+      </style>
+      <div id="s2-root" data-composition-id="s2" data-start="0" data-duration="6.2" data-width="1080" data-height="1920">
+        <div id="s2-head">
+          <div id="s2-k">Découvre</div>
+          <div id="s2-name">Bikini Shop</div>
+        </div>
+        <div id="s2-fan">
+          <i class="s2-ph" id="s2-p1" style="left: 60px; background-image: url('assets/img/t-a1.jpg')"></i>
+          <i class="s2-ph" id="s2-p2" style="left: 240px; background-image: url('assets/img/t-b4.jpg')"></i>
+          <i class="s2-ph" id="s2-p3" style="left: 430px; background-image: url('assets/img/t-a2.jpg')"></i>
+          <i class="s2-ph" id="s2-p4" style="left: 620px; background-image: url('assets/img/t-d6.jpg')"></i>
+          <i class="s2-ph" id="s2-p5" style="left: 800px; background-image: url('assets/img/t-c1.jpg')"></i>
+        </div>
+        <div id="s2-card">
+          <div id="s2-top">
+            <i id="s2-av"></i>
+            <div id="s2-id">
+              <div id="s2-title">Bikinis shop</div>
+              <div id="s2-handle">@daya_na990</div>
+            </div>
+          </div>
+          <div id="s2-stats">
+            <div class="s2-stat"><b id="s2-n1">2 863</b><span>Followers</span></div>
+            <div class="s2-stat"><b id="s2-n2">14,5K</b><span>J'aime</span></div>
+          </div>
+          <div id="s2-follow">Suivre</div>
+        </div>
+        <div id="s2-chip"><i id="s2-chip-ic"></i>Maillots de bain sur TikTok</div>
+      </div>
+      <script>
+        (function () {
+          document.getElementById("s2-chip-ic").innerHTML = window.ART.icon("heart");
+          const tl = gsap.timeline({ paused: true });
+          const fmt = (n) => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+          tl.fromTo("#s2-k", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0.12);
+          tl.fromTo("#s2-name", { scale: 0.4, opacity: 0, rotation: -8, transformOrigin: "0% 60%" }, { scale: 1, opacity: 1, rotation: 0, duration: 0.55, ease: "back.out(1.7)" }, 1.25);
+          tl.fromTo("#s2-card", { y: 900, rotation: 6 }, { y: 0, rotation: 0, duration: 0.7, ease: "power4.out" }, 0.35);
+          tl.fromTo("#s2-av", { scale: 0, rotation: -120 }, { scale: 1, rotation: 0, duration: 0.6, ease: "back.out(1.8)" }, 0.75);
+          tl.fromTo(["#s2-title", "#s2-handle"], { x: 60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, ease: "power2.out", stagger: 0.12 }, 0.95);
+          // stats count up (seek-safe proxies)
+          const n1 = { v: 0 },
+            n2 = { v: 0 };
+          const e1 = document.getElementById("s2-n1"),
+            e2 = document.getElementById("s2-n2");
+          tl.fromTo(n1, { v: 0 }, { v: 2863, duration: 1.3, ease: "power2.out", onUpdate: () => (e1.textContent = fmt(n1.v)) }, 1.4);
+          tl.fromTo(n2, { v: 0 }, { v: 14.5, duration: 1.3, ease: "power2.out", immediateRender: false, onUpdate: () => (e2.textContent = n2.v.toFixed(1).replace(".", ",") + "K") }, 1.55);
+          tl.fromTo(".s2-stat", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power2.out", stagger: 0.15 }, 1.4);
+          tl.fromTo("#s2-follow", { scale: 0 }, { scale: 1, duration: 0.45, ease: "back.out(2.2)" }, 2.0);
+          tl.to("#s2-follow", { scale: 0.9, duration: 0.1, ease: "power1.in" }, 4.2);
+          tl.to("#s2-follow", { scale: 1, backgroundColor: "#24121c", duration: 0.35, ease: "back.out(3)" }, 4.3);
+          // "la boutique de maillots de bain de Daya, sur TikTok"
+          tl.fromTo("#s2-chip", { x: -900 }, { x: 0, duration: 0.5, ease: "power3.out" }, 2.35);
+          const rot = [-10, -4, 2, 6, 11];
+          ["#s2-p1", "#s2-p2", "#s2-p3", "#s2-p4", "#s2-p5"].forEach((p, i) => {
+            tl.fromTo(p, { y: 520, rotation: 0 }, { y: 70 + Math.abs(i - 2) * 26, rotation: rot[i], duration: 0.6, ease: "back.out(1.4)" }, 2.7 + i * 0.09);
+            tl.to(p, { y: 50 + Math.abs(i - 2) * 26, duration: 1.2, ease: "sine.inOut", yoyo: true, repeat: 1 }, 3.4 + i * 0.09);
+          });
+          // exit
+          tl.to(["#s2-card", "#s2-chip"], { scale: 0.85, opacity: 0, duration: 0.35, ease: "power2.in" }, 5.8);
+          tl.to("#s2-head", { y: -200, opacity: 0, duration: 0.35, ease: "power2.in" }, 5.8);
+          window.__timelines["s2"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

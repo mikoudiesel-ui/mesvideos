@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s1-template">
+      <style>
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-500-normal.woff2") format("woff2"); font-weight: 500; }
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-700-normal.woff2") format("woff2"); font-weight: 700; }
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-800-normal.woff2") format("woff2"); font-weight: 800; }
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-900-normal.woff2") format("woff2"); font-weight: 900; }
+        @font-face { font-family: "Fraunces"; src: url("assets/fonts/fraunces-latin-600-italic.woff2") format("woff2"); font-weight: 600; font-style: italic; }
+        @font-face { font-family: "Fraunces"; src: url("assets/fonts/fraunces-latin-700-italic.woff2") format("woff2"); font-weight: 700; font-style: italic; }
+        #s1-root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          font-family: "Unbounded", sans-serif;
+          color: #24121c;
+        }
+        #s1-flower {
+          position: absolute;
+          left: 190px;
+          top: 250px;
+          width: 700px;
+          height: 700px;
+        }
+        #s1-flower svg {
+          display: block;
+          width: 100%;
+          height: 100%;
+          overflow: visible;
+        }
+        #s1-shades {
+          position: absolute;
+          left: 610px;
+          top: 230px;
+          width: 300px;
+          height: 300px;
+        }
+        #s1-shades svg,
+        .s1-spark svg {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+        .s1-spark {
+          position: absolute;
+          display: block;
+          width: 90px;
+          height: 90px;
+        }
+        #s1-words {
+          position: absolute;
+          left: 70px;
+          right: 120px;
+          top: 1010px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 14px;
+        }
+        #s1-w1 {
+          display: block;
+          font-weight: 900;
+          font-size: 132px;
+          line-height: 1;
+          letter-spacing: -0.04em;
+        }
+        #s1-w2 {
+          display: block;
+          padding: 10px 40px 22px;
+          border-radius: 999px;
+          background: #24121c;
+          color: #fff3e4;
+          font-family: "Fraunces", serif;
+          font-style: italic;
+          font-weight: 700;
+          font-size: 104px;
+          line-height: 1.05;
+          letter-spacing: -0.02em;
+        }
+        #s1-w3 {
+          position: relative;
+          display: block;
+          font-weight: 900;
+          font-size: 156px;
+          line-height: 1;
+          letter-spacing: -0.045em;
+        }
+        #s1-mark {
+          position: absolute;
+          left: -10px;
+          right: -16px;
+          bottom: -8px;
+          height: 40px;
+          display: block;
+          border-radius: 20px;
+          background: #ff2e7e;
+          transform-origin: left center;
+        }
+        #s1-w3t {
+          position: relative;
+          display: inline-block;
+          font-weight: 900;
+        }
+        #s1-w3 span {
+          position: relative;
+          isolation: isolate;
+          display: inline-block;
+        }
+      </style>
+      <div id="s1-root" data-composition-id="s1" data-start="0" data-duration="4.2" data-width="1080" data-height="1920">
+        <div id="s1-flower"></div>
+        <div id="s1-shades"></div>
+        <i class="s1-spark" id="s1-sp1" style="left: 140px; top: 260px"></i>
+        <i class="s1-spark" id="s1-sp2" style="left: 860px; top: 800px; width: 64px; height: 64px"></i>
+        <i class="s1-spark" id="s1-sp3" style="left: 220px; top: 880px; width: 56px; height: 56px"></i>
+        <div id="s1-words">
+          <div id="s1-w1">CET ÉTÉ,</div>
+          <div id="s1-w2">tous les regards</div>
+          <div id="s1-w3"><span><i id="s1-mark"></i><b id="s1-w3t">SUR TOI.</b></span></div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const A = window.ART;
+          document.getElementById("s1-flower").innerHTML = A.hibiscus({ id: "s1h" });
+          document.getElementById("s1-shades").innerHTML = A.icon("shades");
+          ["s1-sp1", "s1-sp2", "s1-sp3"].forEach((id) => (document.getElementById(id).innerHTML = A.icon("sparkle")));
+          const petals = document.querySelectorAll("#s1-flower .s1h-petal");
+          const tl = gsap.timeline({ paused: true });
+          // bloom: each petal unfolds from the heart (svg transform origin = flower centre)
+          petals.forEach((p, i) => {
+            tl.fromTo(p, { scale: 0, svgOrigin: "200 200" }, { scale: 1, svgOrigin: "200 200", duration: 0.55, ease: "back.out(1.8)" }, 0.08 + i * 0.07);
+          });
+          tl.fromTo("#s1-flower .s1h-stamen", { opacity: 0, scale: 0.4, svgOrigin: "200 200" }, { opacity: 1, scale: 1, svgOrigin: "200 200", duration: 0.4, ease: "back.out(2.4)" }, 0.5);
+          tl.fromTo("#s1-flower", { rotation: -40 }, { rotation: 30, duration: 4.2, ease: "power1.out" }, 0);
+          // words slam on the voice
+          tl.fromTo("#s1-w1", { scale: 1.8, opacity: 0, transformOrigin: "0% 50%" }, { scale: 1, opacity: 1, duration: 0.32, ease: "power4.out" }, 0.55);
+          tl.fromTo("#s1-w2", { x: -700, rotation: -6 }, { x: 0, rotation: -2, duration: 0.42, ease: "back.out(1.4)" }, 1.12);
+          tl.fromTo("#s1-shades", { y: -420, rotation: -30, scale: 0.6 }, { y: 0, rotation: 8, scale: 1, duration: 0.5, ease: "bounce.out" }, 1.25);
+          tl.fromTo("#s1-w3", { y: 220, opacity: 0, rotation: 6 }, { y: 0, opacity: 1, rotation: 0, duration: 0.4, ease: "power3.out" }, 1.95);
+          tl.fromTo("#s1-mark", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power2.inOut" }, 2.3);
+          [["#s1-sp1", 0.3], ["#s1-sp2", 1.4], ["#s1-sp3", 2.2]].forEach(([s, at]) => {
+            tl.fromTo(s, { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.2)" }, at);
+            tl.to(s, { scale: 0.75, rotation: 45, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 1 }, at + 0.5);
+          });
+          // exit: the flower rushes the lens as the wipe closes
+          tl.to("#s1-flower", { scale: 2.6, duration: 0.5, ease: "power3.in" }, 3.7);
+          tl.to("#s1-words", { x: -260, opacity: 0, duration: 0.35, ease: "power2.in" }, 3.72);
+          tl.to("#s1-shades", { y: -300, opacity: 0, duration: 0.35, ease: "power2.in" }, 3.72);
+          window.__timelines["s1"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

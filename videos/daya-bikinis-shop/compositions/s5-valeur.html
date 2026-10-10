@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s5-template">
+      <style>
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-500-normal.woff2") format("woff2"); font-weight: 500; }
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-700-normal.woff2") format("woff2"); font-weight: 700; }
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-800-normal.woff2") format("woff2"); font-weight: 800; }
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-900-normal.woff2") format("woff2"); font-weight: 900; }
+        @font-face { font-family: "Fraunces"; src: url("assets/fonts/fraunces-latin-600-italic.woff2") format("woff2"); font-weight: 600; font-style: italic; }
+        @font-face { font-family: "Fraunces"; src: url("assets/fonts/fraunces-latin-700-italic.woff2") format("woff2"); font-weight: 700; font-style: italic; }
+        #s5-root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          font-family: "Unbounded", sans-serif;
+          color: #24121c;
+        }
+        .s5-beat {
+          position: absolute;
+          inset: 0;
+        }
+        .s5-h {
+          position: absolute;
+          left: 80px;
+          right: 120px;
+          top: 180px;
+          font-weight: 900;
+          font-size: 96px;
+          line-height: 1.02;
+          letter-spacing: -0.04em;
+        }
+        .s5-h em {
+          font-family: "Fraunces", serif;
+          font-style: italic;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+        }
+        svg {
+          display: block;
+        }
+        /* ---- A: prices */
+        #s5-burst {
+          position: absolute;
+          left: 220px;
+          top: 470px;
+          width: 640px;
+          height: 640px;
+        }
+        #s5-burst svg {
+          width: 100%;
+          height: 100%;
+        }
+        #s5-price {
+          position: absolute;
+          left: 220px;
+          top: 470px;
+          width: 640px;
+          height: 640px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+        }
+        #s5-des {
+          display: block;
+          font-family: "Fraunces", serif;
+          font-style: italic;
+          font-weight: 700;
+          font-size: 76px;
+          line-height: 1;
+        }
+        #s5-num {
+          display: block;
+          font-weight: 900;
+          font-size: 150px;
+          letter-spacing: -0.05em;
+          line-height: 1.05;
+          font-variant-numeric: tabular-nums;
+        }
+        #s5-cur {
+          display: block;
+          font-weight: 800;
+          font-size: 50px;
+          letter-spacing: 0.04em;
+        }
+        .s5-man {
+          position: absolute;
+          top: 1060px;
+          display: block;
+          height: 440px;
+          width: auto;
+          filter: drop-shadow(5px 0 0 #fff3e4) drop-shadow(-5px 0 0 #fff3e4) drop-shadow(0 -5px 0 #fff3e4);
+        }
+        .s5-tag {
+          position: absolute;
+          display: block;
+          padding: 12px 22px 14px;
+          border-radius: 16px;
+          background: #fff3e4;
+          border: 4px solid #24121c;
+          font-weight: 900;
+          font-size: 36px;
+          transform-origin: 50% 0%;
+        }
+        /* ---- B: live + message */
+        #s5-phone {
+          position: absolute;
+          left: 250px;
+          top: 470px;
+          width: 560px;
+          height: 1000px;
+          border-radius: 70px;
+          background: #24121c;
+          padding: 22px;
+          box-shadow: 0 26px 0 rgba(36, 18, 28, 0.25);
+        }
+        #s5-screen {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          border-radius: 50px;
+          overflow: hidden;
+          background: #ffb27a;
+        }
+        #s5-live,
+        #s5-chat {
+          position: absolute;
+          inset: 0;
+        }
+        #s5-live {
+          background: radial-gradient(circle at 50% 40%, #ffd3a8 0%, #f58a45 75%);
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+        }
+        #s5-live img {
+          display: block;
+          height: 760px;
+          width: auto;
+          margin-bottom: -10px;
+        }
+        #s5-badge {
+          position: absolute;
+          left: 30px;
+          top: 36px;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 10px 22px 12px 16px;
+          border-radius: 14px;
+          background: #c4165e;
+          color: #fff3e4;
+          font-weight: 900;
+          font-size: 36px;
+          letter-spacing: 0.06em;
+        }
+        #s5-dot {
+          display: block;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: #fff3e4;
+        }
+        #s5-cmt {
+          position: absolute;
+          left: 26px;
+          bottom: 40px;
+          display: block;
+          max-width: 380px;
+          padding: 14px 22px 16px;
+          border-radius: 22px;
+          background: rgba(36, 18, 28, 0.82);
+          color: #fff3e4;
+          font-weight: 700;
+          font-size: 28px;
+          line-height: 1.25;
+        }
+        .s5-heart {
+          position: absolute;
+          right: 30px;
+          bottom: 120px;
+          display: block;
+          width: 70px;
+          height: 70px;
+        }
+        .s5-heart svg,
+        .s5-ic svg {
+          width: 100%;
+          height: 100%;
+        }
+        #s5-chat {
+          background: #fff3e4;
+          padding: 120px 26px 0;
+        }
+        #s5-chat-top {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          height: 100px;
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          padding: 0 26px;
+          background: #24121c;
+          color: #fff3e4;
+          font-weight: 800;
+          font-size: 30px;
+        }
+        #s5-chat-top i {
+          display: block;
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          background: url("assets/img/avatar.png") center / cover;
+        }
+        .s5-msg {
+          display: block;
+          max-width: 400px;
+          margin-bottom: 22px;
+          padding: 20px 24px 22px;
+          border-radius: 28px;
+          font-weight: 700;
+          font-size: 31px;
+          line-height: 1.3;
+        }
+        .s5-me {
+          margin-left: auto;
+          background: #c4165e;
+          color: #fff3e4;
+          border-bottom-right-radius: 8px;
+        }
+        .s5-them {
+          background: #ffd9bd;
+          color: #24121c;
+          border-bottom-left-radius: 8px;
+        }
+        #s5-pic {
+          display: block;
+          width: 240px;
+          height: 270px;
+          margin: 0 0 22px auto;
+          border-radius: 24px;
+          background: url("assets/img/t-d4.jpg") center / cover;
+          border: 6px solid #c4165e;
+        }
+        /* ---- C: delivery */
+        #s5-map {
+          position: absolute;
+          left: 0;
+          top: 560px;
+          width: 1080px;
+          height: 900px;
+        }
+        .s5-ic {
+          position: absolute;
+          display: block;
+          width: 200px;
+          height: 200px;
+        }
+        #s5-box {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 150px;
+          height: 150px;
+        }
+        .s5-lbl {
+          position: absolute;
+          display: block;
+          padding: 12px 24px 14px;
+          border-radius: 999px;
+          background: #24121c;
+          color: #fff3e4;
+          font-weight: 800;
+          font-size: 32px;
+        }
+      </style>
+      <div id="s5-root" data-composition-id="s5" data-start="0" data-duration="10" data-width="1080" data-height="1920">
+        <!-- A · des prix doux -->
+        <div class="s5-beat" id="s5-A">
+          <div class="s5-h" id="s5-hA">Des prix <em>doux</em></div>
+          <div id="s5-burst"></div>
+          <div id="s5-price">
+            <span id="s5-des">dès</span>
+            <span id="s5-num">1 000</span>
+            <span id="s5-cur">FCFA</span>
+          </div>
+          <img class="s5-man" id="s5-m1" src="assets/img/m/rouge.png" style="left: 60px" alt="" />
+          <img class="s5-man" id="s5-m2" src="assets/img/m/dore-leopard.png" style="left: 620px" alt="" />
+        </div>
+        <!-- B · live, then message -->
+        <div class="s5-beat" id="s5-B">
+          <div class="s5-h" id="s5-hB1">Arrivages <em>en live</em></div>
+          <div class="s5-h" id="s5-hB2">Commande <em>en un message</em></div>
+          <div id="s5-phone">
+            <div id="s5-screen">
+              <div id="s5-live">
+                <img src="assets/img/m/noir-leopard.png" alt="" />
+                <div id="s5-badge"><i id="s5-dot"></i>LIVE</div>
+                <div id="s5-cmt">Nouvel arrivage, regardez ça !</div>
+              </div>
+              <div id="s5-chat">
+                <div id="s5-chat-top"><i></i>Bikinis shop</div>
+                <div class="s5-msg s5-me" id="s5-q">Bonjour, je veux ce modèle !</div>
+                <div id="s5-pic"></div>
+                <div class="s5-msg s5-them" id="s5-a">Dispo ! On te le livre.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- C · livraison -->
+        <div class="s5-beat" id="s5-C">
+          <div class="s5-h" id="s5-hC">Livré <em>chez toi</em></div>
+          <div id="s5-map">
+            <svg width="1080" height="900" viewBox="0 0 1080 900">
+              <defs>
+                <mask id="s5-reveal" maskUnits="userSpaceOnUse">
+                  <path id="s5-route-m" d="M190 640 C 300 160, 760 120, 860 560" fill="none" stroke="#fff" stroke-width="40" stroke-linecap="round" />
+                </mask>
+              </defs>
+              <path d="M190 640 C 300 160, 760 120, 860 560" fill="none" stroke="#24121c" stroke-width="14" stroke-dasharray="4 30" stroke-linecap="round" mask="url(#s5-reveal)" />
+            </svg>
+            <i class="s5-ic" id="s5-shop" style="left: 90px; top: 560px"></i>
+            <i class="s5-ic" id="s5-home" style="left: 760px; top: 520px"></i>
+            <i id="s5-box"></i>
+            <span class="s5-lbl" id="s5-l1" style="left: 70px; top: 790px">Bikini Shop</span>
+            <span class="s5-lbl" id="s5-l2" style="left: 770px; top: 750px">Chez toi</span>
+          </div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const A = window.ART;
+          // starburst price badge
+          let pts = "";
+          for (let i = 0; i < 36; i++) {
+            const r = i % 2 ? 300 : 260;
+            const a = (i / 36) * Math.PI * 2;
+            pts += (320 + r * Math.cos(a)).toFixed(1) + "," + (320 + r * Math.sin(a)).toFixed(1) + " ";
+          }
+          document.getElementById("s5-burst").innerHTML = '<svg viewBox="0 0 640 640"><polygon points="' + pts + '" fill="#F4B533" stroke="#24121C" stroke-width="8" stroke-linejoin="round"/></svg>';
+          document.getElementById("s5-shop").innerHTML = A.icon("pin");
+          document.getElementById("s5-home").innerHTML = A.icon("house");
+          document.getElementById("s5-box").innerHTML = A.icon("box");
+          // hearts for the live
+          const live = document.getElementById("s5-live");
+          const hearts = [];
+          for (let i = 0; i < 9; i++) {
+            const h = document.createElement("i");
+            h.className = "s5-heart";
+            h.innerHTML = A.icon("heart");
+            live.appendChild(h);
+            hearts.push(h);
+          }
+          const tl = gsap.timeline({ paused: true });
+
+          // ---------- A (0 – 2.1)
+          tl.fromTo("#s5-hA", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0.05);
+          tl.fromTo("#s5-burst", { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.55, ease: "back.out(1.6)" }, 0.2);
+          tl.to("#s5-burst", { rotation: 20, duration: 1.8, ease: "none" }, 0.75);
+          tl.fromTo("#s5-price", { scale: 0.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(2)" }, 0.75);
+          const num = document.getElementById("s5-num");
+          const p = { v: 0 };
+          tl.fromTo(p, { v: 0 }, { v: 1000, duration: 0.7, ease: "power2.out", onUpdate: () => (num.textContent = Math.round(p.v) >= 1000 ? "1 000" : String(Math.round(p.v))) }, 0.8);
+          tl.fromTo("#s5-num", { scale: 0.7 }, { scale: 1, duration: 0.7, ease: "power2.out" }, 0.8);
+          tl.fromTo("#s5-m1", { y: 600, rotation: -12 }, { y: 0, rotation: -4, duration: 0.5, ease: "back.out(1.4)" }, 0.3);
+          tl.fromTo("#s5-m2", { y: 600, rotation: 12 }, { y: 0, rotation: 4, duration: 0.5, ease: "back.out(1.4)" }, 0.42);
+          tl.to("#s5-A", { scale: 0.6, opacity: 0, duration: 0.3, ease: "power2.in" }, 1.85);
+
+          // ---------- B (2.1 – 7.1)
+          tl.fromTo("#s5-B", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 2.05);
+          tl.fromTo("#s5-hB1", { x: -900 }, { x: 0, duration: 0.45, ease: "power3.out" }, 2.15);
+          tl.fromTo("#s5-phone", { y: 1300, rotation: 10 }, { y: 0, rotation: -2, duration: 0.6, ease: "back.out(1.2)" }, 2.1);
+          tl.fromTo("#s5-badge", { scale: 0 }, { scale: 1, duration: 0.35, ease: "back.out(3)" }, 2.75);
+          tl.fromTo("#s5-dot", { opacity: 1 }, { opacity: 0.2, duration: 0.35, ease: "steps(1)", yoyo: true, repeat: 6 }, 2.9);
+          tl.fromTo("#s5-cmt", { y: 120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 3.4);
+          const R = A.rng(5);
+          hearts.forEach((h, i) => {
+            const t0 = 3.0 + i * 0.22;
+            const dx = -40 - R() * 120;
+            tl.fromTo(h, { y: 0, x: 0, scale: 0.3, opacity: 0 }, { y: -560 - R() * 160, x: dx, scale: 0.8 + R() * 0.6, opacity: 1, duration: 1.6, ease: "power1.out" }, t0);
+            tl.to(h, { opacity: 0, duration: 0.4, ease: "none" }, t0 + 1.2);
+          });
+          // "et tu commandes en un simple message" — header swaps, chat slides over the live
+          tl.to("#s5-hB1", { y: -300, opacity: 0, duration: 0.3, ease: "power2.in" }, 4.85);
+          tl.fromTo("#s5-hB2", { y: 140, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 5.05);
+          tl.fromTo("#s5-chat", { xPercent: 100 }, { xPercent: 0, duration: 0.4, ease: "power3.inOut" }, 4.95);
+          tl.to("#s5-live", { opacity: 0, duration: 0.15 }, 5.1);
+          tl.fromTo("#s5-q", { scale: 0, transformOrigin: "100% 100%" }, { scale: 1, duration: 0.35, ease: "back.out(2)" }, 5.4);
+          tl.fromTo("#s5-pic", { scale: 0, transformOrigin: "100% 0%" }, { scale: 1, duration: 0.35, ease: "back.out(2)" }, 5.75);
+          tl.fromTo("#s5-a", { scale: 0, transformOrigin: "0% 100%" }, { scale: 1, duration: 0.35, ease: "back.out(2)" }, 6.35);
+          tl.to("#s5-phone", { rotation: 2, duration: 2.2, ease: "sine.inOut" }, 4.7);
+          tl.to("#s5-B", { y: -1800, duration: 0.45, ease: "power3.in" }, 6.9);
+
+          // ---------- C (7.1 – 10)
+          tl.fromTo("#s5-C", { opacity: 0 }, { opacity: 1, duration: 0.01 }, 7.1);
+          tl.fromTo("#s5-hC", { scale: 0.4, opacity: 0, transformOrigin: "0% 50%" }, { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.8)" }, 7.3);
+          tl.fromTo(["#s5-shop", "#s5-home"], { scale: 0 }, { scale: 1, duration: 0.45, ease: "back.out(2.2)", stagger: 0.15 }, 7.2);
+          tl.fromTo(["#s5-l1", "#s5-l2"], { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power2.out", stagger: 0.15 }, 7.45);
+          const route = document.getElementById("s5-route-m");
+          const L = route.getTotalLength();
+          route.style.strokeDasharray = L + " " + L;
+          tl.fromTo(route, { strokeDashoffset: L }, { strokeDashoffset: 0, duration: 1.3, ease: "power1.inOut" }, 7.6);
+          // the parcel rides the route (cubic bezier sampled by hand)
+          const P = [
+            [190, 640],
+            [300, 160],
+            [760, 120],
+            [860, 560],
+          ];
+          const bz = (u, k) => (1 - u) ** 3 * P[0][k] + 3 * (1 - u) ** 2 * u * P[1][k] + 3 * (1 - u) * u * u * P[2][k] + u ** 3 * P[3][k];
+          const box = document.getElementById("s5-box");
+          const pr = { u: 0 };
+          const place = () => {
+            const u = pr.u;
+            box.style.transform = "translate(" + (bz(u, 0) - 75) + "px," + (bz(u, 1) - 140) + "px) rotate(" + (u * 360).toFixed(1) + "deg)";
+          };
+          tl.fromTo(pr, { u: 0 }, { u: 1, duration: 1.3, ease: "power1.inOut", immediateRender: false, onUpdate: place, onStart: place }, 7.6);
+          tl.fromTo("#s5-box", { opacity: 0 }, { opacity: 1, duration: 0.15 }, 7.6);
+          tl.to("#s5-home", { scale: 1.18, duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1 }, 8.9);
+          tl.to("#s5-box", { opacity: 0, duration: 0.2 }, 9.0);
+          window.__timelines["s5"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

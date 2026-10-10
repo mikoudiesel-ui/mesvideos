@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="bg-template">
+      <style>
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-500-normal.woff2") format("woff2"); font-weight: 500; }
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-700-normal.woff2") format("woff2"); font-weight: 700; }
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-800-normal.woff2") format("woff2"); font-weight: 800; }
+        @font-face { font-family: "Unbounded"; src: url("assets/fonts/unbounded-latin-900-normal.woff2") format("woff2"); font-weight: 900; }
+        @font-face { font-family: "Fraunces"; src: url("assets/fonts/fraunces-latin-600-italic.woff2") format("woff2"); font-weight: 600; font-style: italic; }
+        @font-face { font-family: "Fraunces"; src: url("assets/fonts/fraunces-latin-700-italic.woff2") format("woff2"); font-weight: 700; font-style: italic; }
+        #bg-root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          background: #f26b21;
+        }
+        #bg-glow {
+          position: absolute;
+          left: -260px;
+          top: 240px;
+          width: 1600px;
+          height: 1600px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(255, 196, 92, 0.75) 0%, rgba(255, 160, 70, 0.35) 38%, rgba(242, 107, 33, 0) 70%);
+        }
+        #bg-ghost {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 1080px;
+          height: 2600px;
+          display: block;
+          opacity: 0.22;
+        }
+        #bg-leaves {
+          position: absolute;
+          inset: 0;
+        }
+        #bg-leaves span {
+          position: absolute;
+          display: block;
+          width: 110px;
+          height: 110px;
+          opacity: 0.5;
+        }
+        #bg-leaves span svg {
+          transform-origin: 50% 50%;
+        }
+        #bg-leaves svg,
+        #bg-grain svg {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+        #bg-grain {
+          position: absolute;
+          inset: 0;
+          opacity: 0.16;
+          mix-blend-mode: multiply;
+        }
+      </style>
+      <div id="bg-root" data-composition-id="bg" data-start="0" data-duration="40" data-width="1080" data-height="1920">
+        <div id="bg-glow"></div>
+        <canvas id="bg-ghost" width="1080" height="2600" data-layout-allow-overflow></canvas>
+        <div id="bg-leaves" data-layout-allow-overflow></div>
+        <div id="bg-grain">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920"><filter id="bg-n"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="7" stitchTiles="stitch" /><feColorMatrix values="0 0 0 0 0.3  0 0 0 0 0.15  0 0 0 0 0.05  0 0 0 0.9 0" /></filter><rect width="1080" height="1920" filter="url(#bg-n)" /></svg>
+        </div>
+      </div>
+      <script>
+        (async function () {
+          const A = window.ART;
+          // ghost type is drawn into a canvas: pure decoration, kept out of the text audits
+          await document.fonts.load('900 300px "Unbounded"');
+          const cv = document.getElementById("bg-ghost");
+          const g = cv.getContext("2d");
+          g.fillStyle = "#c9471a";
+          g.font = '900 300px "Unbounded"';
+          g.textBaseline = "top";
+          const words = ["BIKINI", "SHOP", "BIKINI", "SHOP", "BIKINI", "SHOP", "BIKINI", "SHOP", "BIKINI"];
+          words.forEach((w, i) => g.fillText(w, i % 2 ? 140 : -60, 60 + i * 280));
+          const box = document.getElementById("bg-leaves");
+          const R = A.rng(11);
+          const leaves = [];
+          for (let i = 0; i < 9; i++) {
+            const s = document.createElement("span");
+            s.setAttribute("data-layout-allow-overflow", "");
+            s.innerHTML = A.icon("leaf");
+            s.style.left = 40 + ((i * 131) % 980) + "px";
+            s.style.top = -160 - R() * 300 + "px";
+            const sc = 0.6 + R() * 0.7;
+            s.style.width = s.style.height = 110 * sc + "px";
+            box.appendChild(s);
+            leaves.push({ el: s, svg: s.firstChild, delay: i * 4.1 + R() * 2, sway: 40 + R() * 60, spin: (R() - 0.5) * 540 });
+          }
+          const tl = gsap.timeline({ paused: true });
+          tl.fromTo("#bg-glow", { scale: 0.92 }, { scale: 1.08, duration: 5, ease: "sine.inOut", yoyo: true, repeat: 7 }, 0);
+          tl.fromTo("#bg-ghost", { y: 0 }, { y: -680, duration: 40, ease: "none" }, 0);
+          leaves.forEach((L) => {
+            tl.fromTo(L.el, { y: 0, x: 0 }, { y: 2400, x: L.sway, duration: 11, ease: "none" }, L.delay % 34);
+            tl.fromTo(L.svg, { rotation: 0 }, { rotation: L.spin, duration: 11, ease: "none" }, L.delay % 34);
+          });
+          window.__timelines["bg"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>
