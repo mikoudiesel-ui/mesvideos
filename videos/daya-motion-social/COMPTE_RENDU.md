@@ -23,7 +23,19 @@
 
 ## Contrôles
 
-<!-- complété après le rendu -->
+| Contrôle | Résultat |
+| --- | --- |
+| `hyperframes check` (CLI 0.8.143) | lint 0, exécution 0, mise en page 0, mouvement 0, contraste 24/24 conformes WCAG AA |
+| Carte d'animation | aucune zone morte |
+| Vidéo | H.264 (yuv420p), 1080×1920, 30 i/s, **794 images**, 26,467 s |
+| Audio | AAC 48 kHz stéréo ; **−16,0 LUFS** intégrés et crête vraie **−5,4 dBTP**, mesurés sur le MP4 encodé |
+| Décodage complet | sans erreur (`ffmpeg -f null`) |
+| Bouton « Écrivez-nous sur TikTok » | présent et net aux images 699, 714, 729, 744 et 759 (de 23,3 à 25,3 s) |
+| Raccords | vérifiés sur le MP4 : image avant, première image et image suivante de chaque coupe, boucle 793 → 0 (`captures/PLANCHE_B_raccords_*.jpg`) |
+| Rendu | 3 min 38 s, capture beginframe, GPU logiciel |
+
+Les planches A, B, C et D et les 14 captures sont tirées du MP4 final (`tools/verify_render.py`,
+`tools/review_sheets.py`).
 
 ## Maquette ou publicité finale
 

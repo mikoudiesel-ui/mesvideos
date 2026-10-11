@@ -83,7 +83,7 @@ def main():
 
     # planche de contrôle extraite du MP4 (milieux de scène + images 0 et 793)
     fonts = project / "assets" / "fonts"
-    font = ImageFont.truetype(str(fonts / "DejaVuSans-Bold.ttf"), 20)
+    font = ImageFont.truetype(str(fonts / "DejaVuSans-Bold.ttf"), 15)
     frames = [0] + MIDS + [793]
     w, h = 216, 384
     cols = 8
@@ -95,7 +95,7 @@ def main():
         x = 8 + (i % cols) * (w + 8)
         y = 8 + (i // cols) * (h + 34)
         sheet.paste(im, (x, y + 28))
-        d.text((x + 2, y + 2), f"MP4 image {n} · {n / 30:.2f} s", font=font, fill=(255, 220, 140))
+        d.text((x + 2, y + 6), f"img {n} · {n / 30:.2f} s", font=font, fill=(255, 220, 140))
     out = project / "captures" / "PLANCHE_D_controle_mp4.jpg"
     sheet.save(out, quality=88)
     report["contact_sheet"] = str(out)
