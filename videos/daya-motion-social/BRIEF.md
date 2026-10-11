@@ -31,8 +31,8 @@ Après les planches, l'utilisateur a validé le rendu (« vas y génère la vid�
 ## Customizations
 
 - Raccords demandés par le dossier entre chaque scène (halo → recherche, avatar → profil, vignette → carte, carte → message, photo → produit en profondeur, détail → widgets, téléphone → showroom, carte favorite → photo, vignette → Message, trace → signature) et S14 qui rejoint l'image 0.
-- Musique : « une music de base super stylé qui met en avant les détails de la vidéo ». Choix de l'utilisateur : composition originale (pas de compte HeyGen connecté). Afro-house tropical 120 BPM en la mineur, composée et synthétisée dans `tools/make_music.py`, calée à l'image près sur les coupes et les détails.
-- Bruitages d'interface synthétisés sur les cues du JSON (sans doubler les impacts et cloches de la musique), mix vers −16 LUFS intégrés et crête vraie ≤ −1 dBTP.
+- Musique : « une music de base super stylé qui met en avant les détails de la vidéo ». Choix de l'utilisateur : composition originale (pas de compte HeyGen connecté). Première version afro-house tropical en la mineur (`tools/make_music_afrohouse.py`) ; puis « change la musique de fond » : nu-disco / French touch 120 BPM en fa majeur, composée et synthétisée dans `tools/make_music_nudisco.py`, calée à l'image près sur les mêmes coupes et détails. L'afro-house reste disponible en alternative.
+- Bruitages d'interface synthétisés sur les cues du JSON (sans doubler les impacts et notes de signature de la musique) ; sous chaque bruitage les aigus de la musique s'effacent d'environ 6 dB ; mix vers −16 LUFS intégrés et crête vraie ≤ −1 dBTP.
 - « Auto-analyse et auto-correction » demandées avant le rendu : la passe appliquée est décrite dans STORYBOARD.md.
 - Marquage discret « MAQUETTE · VISUELS ILLUSTRATIFS » tant que les photos réelles manquent.
 

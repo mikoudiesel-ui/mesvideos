@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """Mix audio de la maquette BIKINIS SHOP / @daya_na990 (26,4667 s, 48 kHz stéréo).
 
-Base : assets/audio/musique_daya_afrohouse_120bpm.wav, la musique originale composée pour la vidéo
-(tools/make_music.py ; le son témoin du dossier reste dans reference/audio/). On y ajoute les bruitages
-d'interface synthétisés localement sur les cues de reference/TIMELINE_14_SCENES.json, recalés sur les
-animations réelles (saisie du handle, clics, widgets) ; les impacts et cloches déjà joués par la musique
-ne sont pas doublés. Puis gain vers −16 LUFS intégrés et limiteur true-peak (plafond −1,5 dBTP)
-pour garder ≤ −1 dBTP après AAC.
+Base : assets/audio/musique_daya_nudisco_120bpm.wav, la musique originale composée pour la vidéo
+(tools/make_music_nudisco.py). La première version afro-house reste disponible avec
+--bed assets/audio/musique_daya_afrohouse_120bpm.wav ; le son témoin du dossier reste dans reference/audio/.
+On y ajoute les bruitages d'interface synthétisés localement sur les cues de
+reference/TIMELINE_14_SCENES.json, recalés sur les animations réelles (saisie du handle, clics, widgets) ;
+les impacts et notes de signature déjà joués par la musique ne sont pas doublés. Puis gain vers −16 LUFS
+intégrés et limiteur true-peak (plafond −1,5 dBTP) pour garder ≤ −1 dBTP après AAC.
 
     python3 -I tools/make_mix.py --project videos/daya-motion-social
 """
@@ -20,6 +21,7 @@ import wave
 from pathlib import Path
 
 import numpy as np
+from scipy.ndimage import maximum_filter1d
 from scipy.signal import resample_poly
 
 SR = 48000
@@ -199,7 +201,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--project", required=True)
     ap.add_argument("--sfx-gain", type=float, default=1.3)
-    ap.add_argument("--bed", default="assets/audio/musique_daya_afrohouse_120bpm.wav")
+    ap.add_argument("--bed", default="assets/audio/musique_daya_nudisco_120bpm.wav")
     ap.add_argument("--stems", action="store_true", help="écrit aussi les pistes séparées dans .hyperframes/")
     args = ap.parse_args()
     project = Path(args.project).resolve()
@@ -230,7 +232,7 @@ def main():
     # S06 — produit héros
     place(sfx, souffle(0.7, 160, 900, 0.6), f(296) - 0.25, 0.5)
     # S07 — détails : souffle léger puis un pop par insert (images 360, 363, 366, puis 369)
-    place(sfx, souffle(0.3, 900, 3000, 0.35), f(360) - 0.1, 0.6, 0.3)  # les repères sont joués par les cloches de la musique
+    place(sfx, souffle(0.3, 900, 3000, 0.35), f(360) - 0.1, 0.6, 0.3)  # les repères sont joués par le célesta de la musique
     # S08 — widgets Modèle / Couleur / Disponibilité
     for fr, fq in ((435, 2300), (441, 2600), (447, 2900)):
         place(sfx, clic(fq, 0.45), f(fr), 1.0, 0.35)
@@ -243,24 +245,28 @@ def main():
     # S12 — clic Message, souffle de signature
     place(sfx, clic(2000, 0.6), f(672), 1.0)
     place(sfx, souffle(0.35, 1200, 3600, 0.4), f(684) - 0.1, 0.6)
-    # S13 — la signature sonore (cloches) est jouée par la musique
+    # S13 — la signature sonore (célesta) est jouée par la musique
     # S14 — souffle inversé vers la boucle
     place(sfx, souffle(0.55, 2400, 500, 0.4, reverse=True), f(777) - 0.35, 0.5)
 
-    # musique sous les accents : la base baisse d'environ 2,5 dB pendant chaque bruitage
-    env = np.abs(sfx).max(axis=0)
-    att, rel = math.exp(-1 / (0.005 * SR)), math.exp(-1 / (0.18 * SR))
+    # musique sous les accents : pendant chaque bruitage la base baisse d'environ 2 dB, et ses aigus
+    # (au-dessus de 1 kHz, là où vivent clics et frappes) d'environ 6 dB ; le grave et le groove restent.
+    # Crête tenue sur 40 ms, centrée : le creux est en place quand le clic frappe, même très bref.
+    env = maximum_filter1d(np.abs(sfx).max(axis=0), size=int(0.04 * SR))
+    att, rel = math.exp(-1 / (0.002 * SR)), math.exp(-1 / (0.15 * SR))
     follow = np.empty_like(env)
     acc = 0.0
     for i, v in enumerate(env):
         acc = v + (acc - v) * (att if v > acc else rel)
         follow[i] = acc
-    duck = 1 - (1 - 10 ** (-2.5 / 20)) * np.clip(follow / (0.5 * env.max()), 0, 1)
-    mix = bed * duck + sfx * args.sfx_gain
+    k = np.clip(follow / 0.15, 0, 1)
+    lows = band(bed, hi=1000, order=2)  # phase nulle : lows + (bed − lows) = bed
+    ducked = lows * (1 - (1 - 10 ** (-2 / 20)) * k) + (bed - lows) * (1 - (1 - 10 ** (-6 / 20)) * k)
+    mix = ducked + sfx * args.sfx_gain
     tmp = project / ".hyperframes" / "mix_tmp.wav"
     tmp.parent.mkdir(parents=True, exist_ok=True)
     if args.stems:
-        write_wav(project / ".hyperframes" / "stem_bed.wav", bed * duck)
+        write_wav(project / ".hyperframes" / "stem_bed.wav", ducked)
         write_wav(project / ".hyperframes" / "stem_sfx.wav", sfx * args.sfx_gain)
     out = project / "assets" / "audio" / "mix_daya_motion_social.wav"
     gain_db = 0.0

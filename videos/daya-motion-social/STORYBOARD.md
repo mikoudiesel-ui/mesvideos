@@ -24,16 +24,34 @@ trouvés (device-frame-stage, outline-draw, chat-message…) n'imposent pas la g
 les raccords ont besoin d'une scène à l'autre ; téléphone, néons et cartes sont donc construits à la
 main dans `assets/css/daya.css`.
 
-## Musique (tools/make_music.py)
+## Musique (tools/make_music_nudisco.py)
 
-Afro-house tropical originale, 120 BPM, la mineur (Am9 – Fmaj9 – Cmaj9 – G6/9, montée Dm9 – E7). Les
-mesures commencent à 1,8 s + 2 s·n, si bien que les coupes 1,8 / 3,8 / 7,8 / 11,8 / 17,8 s tombent sur un
-premier temps. Intro sans batterie, interface filtrée (S02–S03), groove complet sur la coupe de S04,
-pause et montée avant le produit héros (impact sur la coupe 9,6 s, drop au premier temps 9,8 s), respiration
-en S10–S11, montée en S12, impact et cloches de signature sur 23,0 s, drop final au premier temps 23,8 s
-(le bouton est en place dès 23,3 s), sortie filtrée dont les queues reviennent au début : la boucle TikTok
-est continue. Chaque détail a sa note : vignettes S03, inserts et repères S07, widgets S08, cœur S10,
-inserts S11, appui sur Message S12, reflet du bouton S13. Nappes et basse « pompent » sur la grosse caisse.
+Nu-disco / French touch originale, 120 BPM, fa majeur : boucle disco I – vi – ii – V (Fmaj9 – Dm9 – Gm9 –
+C9sus4 → C9), pause en IV – iii (Bbmaj9 – Am7), signature sur le I. Les mesures commencent à 1,8 s + 2 s·n :
+les coupes 1,8 / 3,8 / 7,8 / 11,8 / 17,8 s tombent sur un premier temps. Grosse caisse sur chaque temps,
+caisse claire et tambourin sur 2 et 4, charleston ouvert sur les contretemps, basse en octaves, guitare
+rythmique en double-croches étouffées, cordes « pompées » par la grosse caisse, accords cuivres en clave
+3-3-4-2 sur les drops.
+
+Déroulé : intro sur C9sus4 (glissando de harpe, chœur, montée de cordes jusqu'au premier temps 1,8 s) ;
+groove filtré façon French touch pendant la recherche et le profil (S02–S03), le filtre s'ouvre sur la coupe
+de S04 (5,3 s : syndrums, cymbale, montée de cordes) ; S05 s'allège, caisse claire puis syndrums en
+quintolets jusqu'à l'impact de 9,6 s, drop au premier temps 9,8 s (produit héros) ; contre-chant de cordes
+en S08 et montée vers le showroom (impact et harpe à 17,8 s) ; pause en S10–S11 (chœur, vibraphone,
+claquements de doigts) ; montée en S12, respiration à 22,8 s, signature au célesta (do – fa – la – do) sur
+23,0 s, descente de syndrums puis drop final au premier temps 23,8 s (le bouton est en place dès 23,3 s) ;
+S14 : glissando de harpe descendant et filtre qui se referme, les queues reviennent au début : la boucle
+TikTok est continue.
+
+Chaque détail a sa note, dans l'accord du moment : vibraphone (nom et handle S01, résultat S02, sélection
+S04, pulsation S08, cœur S10), pizzicati (vignettes S03, widgets S08), harpe (inserts S07 et S11), célesta
+(cœur S06, repères S07, halo du bouton S13), accord cuivres sur l'appui Message (S12). Dans les scènes
+d'interface ces notes sont sans écho, et sous chaque bruitage les aigus de la musique s'effacent d'environ
+6 dB (`tools/make_mix.py`) : clics et frappes restent lisibles.
+
+Première version, remplacée à la demande « change la musique de fond » : afro-house tropical en la mineur
+(`tools/make_music_afrohouse.py`), toujours disponible avec
+`make_mix.py --bed assets/audio/musique_daya_afrohouse_120bpm.wav`.
 
 ## Passe d'auto-correction avant le rendu final
 

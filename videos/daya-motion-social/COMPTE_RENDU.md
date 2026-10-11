@@ -9,7 +9,7 @@
 | Assets locaux | `assets/img/`, `assets/audio/`, `assets/fonts/`, `assets/vendor/gsap.min.js` |
 | 14 captures (milieux de scène) | `captures/S01_milieu_image027.jpg` … `S14_milieu_image779.jpg` |
 | Planches de revue | `captures/PLANCHE_A_14_scenes.jpg`, `PLANCHE_B_raccords_*.jpg`, `PLANCHE_C_detail_*.jpg`, `PLANCHE_D_controle_mp4.jpg` |
-| Musique originale | `assets/audio/musique_daya_afrohouse_120bpm.wav` (`tools/make_music.py`) |
+| Musique originale | `assets/audio/musique_daya_nudisco_120bpm.wav` (`tools/make_music_nudisco.py`) ; première version afro-house gardée en alternative (`musique_daya_afrohouse_120bpm.wav`, `tools/make_music_afrohouse.py`) |
 | Dossier source | `reference/` (plan, timeline JSON, prompt, planches, séquences, son témoin) |
 
 ## Ce qui a été construit
@@ -18,7 +18,7 @@
 - Textes et interfaces recomposés en éléments éditables (titres, téléphone, recherche, profil, cartes, widgets, carte favorite, bouton final) ; aucun PNG de planche n'est repris tel quel.
 - Raccords demandés par le dossier, vérifiés image par image de part et d'autre de chaque coupe (planches B), et boucle de l'image 793 vers l'image 0.
 - Caméra sur les parents, entrées sur les enfants ; timelines GSAP en pause, seek-safe, sans hasard ni horloge.
-- Musique originale composée pour la vidéo (afro-house tropical, 120 BPM, la mineur), calée sur les coupes et sur chaque détail ; bruitages d'interface ; mix à −16 LUFS.
+- Musique originale composée pour la vidéo : nu-disco / French touch, 120 BPM, fa majeur (basse en octaves, guitare rythmique, cordes pompées, cuivres en clave, syndrums, harpe et célesta sur les détails). Elle remplace la première version afro-house à la demande « change la musique de fond », avec le même calage à l'image près sur les coupes et sur chaque détail. Bruitages d'interface lisibles par-dessus (les aigus de la musique s'effacent sous chaque clic) ; mix à −16 LUFS.
 - Passe d'auto-analyse et d'auto-correction avant le rendu (détail dans `STORYBOARD.md`) : titres flou → net, reflets lumineux, pulsations sur la grosse caisse, aperçu S02 raccordé à la grille S03, scintillement des widgets, traits S07 renforcés, grain de pellicule.
 
 ## Contrôles
@@ -28,11 +28,12 @@
 | `hyperframes check` (CLI 0.8.143) | lint 0, exécution 0, mise en page 0, mouvement 0, contraste 24/24 conformes WCAG AA |
 | Carte d'animation | aucune zone morte |
 | Vidéo | H.264 (yuv420p), 1080×1920, 30 i/s, **794 images**, 26,467 s |
-| Audio | AAC 48 kHz stéréo ; **−16,0 LUFS** intégrés et crête vraie **−5,4 dBTP**, mesurés sur le MP4 encodé |
+| Audio | AAC 48 kHz stéréo ; **−16,1 LUFS** intégrés et crête vraie **−5,0 dBTP**, mesurés sur le MP4 encodé |
+| Changement de musique | images identiques au rendu précédent (16 images comparées, écart nul) ; seul le son change |
 | Décodage complet | sans erreur (`ffmpeg -f null`) |
 | Bouton « Écrivez-nous sur TikTok » | présent et net aux images 699, 714, 729, 744 et 759 (de 23,3 à 25,3 s) |
 | Raccords | vérifiés sur le MP4 : image avant, première image et image suivante de chaque coupe, boucle 793 → 0 (`captures/PLANCHE_B_raccords_*.jpg`) |
-| Rendu | 3 min 38 s, capture beginframe, GPU logiciel |
+| Rendu | 3 min 46 s, capture beginframe, GPU logiciel |
 
 Les planches A, B, C et D et les 14 captures sont tirées du MP4 final (`tools/verify_render.py`,
 `tools/review_sheets.py`).

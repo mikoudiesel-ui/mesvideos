@@ -9,7 +9,7 @@ Chaque détail visuel a sa note : vignettes S03, inserts S07, widgets S08, cœur
 bouton Message S12, signature S13. Les queues de réverbération de la fin sont repliées sur le début,
 ce qui rend la boucle TikTok continue.
 
-    python3 -I tools/make_music.py --project videos/daya-motion-social
+    python3 -I tools/make_music_afrohouse.py --project videos/daya-motion-social
     → assets/audio/musique_daya_afrohouse_120bpm.wav (+ pistes séparées dans .hyperframes/stems/)
 """
 
