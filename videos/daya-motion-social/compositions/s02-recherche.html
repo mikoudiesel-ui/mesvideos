@@ -167,6 +167,30 @@
           white-space: nowrap;
           transform-origin: 0 0;
         }
+        /* aperçu des trois modèles sous le résultat : il devient la grille du profil (S03) */
+        .s02-tile {
+          left: 0;
+          top: 0;
+          width: 630px;
+          height: 960px;
+          border-radius: 36px;
+          transform-origin: 0 0;
+        }
+        .s02-tile .hero-img {
+          left: 67.87px;
+          top: 27.34px;
+          width: 469.4px;
+          height: 900px;
+        }
+        .s02-tile .cover {
+          object-position: 50% 0%;
+        }
+        .s02-tile .shade {
+          position: absolute;
+          inset: 0;
+          border-radius: 36px;
+          background: linear-gradient(180deg, rgba(20, 10, 8, 0) 70%, rgba(20, 10, 8, 0.45) 100%);
+        }
         .s02-hero {
           position: absolute;
           left: 0;
@@ -208,6 +232,19 @@
           <svg id="s02-chev" class="ico" viewBox="0 0 24 24"><path d="M9 5 L16 12 L9 19" /></svg>
         </div>
 
+        <div class="photo-card s02-tile" id="s02-p-pink">
+          <img class="cover" src="assets/img/rose-photo.jpg" alt="Bikini rose (illustration)" />
+          <div class="shade"></div>
+        </div>
+        <div class="photo-card s02-tile" id="s02-p-green">
+          <img class="cover" src="assets/img/vert-photo.jpg" alt="Bikini vert (illustration)" />
+          <div class="shade"></div>
+        </div>
+        <div class="photo-card s02-tile" id="s02-p-blue" role="img" aria-label="Bikini bleu fleuri (illustration)">
+          <div class="bg studio"></div>
+          <div class="hero-img" style="position: absolute; background: url('assets/img/bleu-detoure.png') 0 0 / 469.4px 900px no-repeat"></div>
+          <div class="shade"></div>
+        </div>
         <div class="s02-hero" id="s02-avatar">
           <img src="assets/img/bleu-detoure.png" alt="Avatar BIKINIS SHOP (illustration)" />
         </div>
@@ -240,8 +277,8 @@
           tl.fromTo("#s02-phone", { opacity: 0, scale: 1.05, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: f(10), ease: "power3.out" }, 0);
           tl.fromTo(["#s02-head", "#s02-head-sub", "#s02-field", "#s02-ico-search", "#s02-placeholder"], { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: f(9), ease: "power3.out", stagger: f(1) }, f(3));
           tl.fromTo(["#s02-tabs", "#s02-tab-line", "#s02-tab-active"], { opacity: 0 }, { opacity: 1, duration: f(8), ease: "power2.out" }, f(6));
-          tl.fromTo("#s02-t1", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(2));
-          tl.fromTo("#s02-t2", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(5));
+          tl.fromTo("#s02-t1", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(2));
+          tl.fromTo("#s02-t2", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(5));
 
           // ---- 10–28 : saisie progressive du handle (clic de champ à l'image 12)
           const handle = "@daya_na990";
@@ -287,6 +324,14 @@
           tl.fromTo("#s02-handle", { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: f(8), ease: "power3.out" }, f(31));
           tl.fromTo("#s02-chev", { opacity: 0 }, { opacity: 1, duration: f(6), ease: "power2.out" }, f(32));
 
+          // ---- 30–36 : aperçu des modèles sous le résultat (2 images d'écart)
+          const STRIP = 190 / 630;
+          const PREV = { blue: { x: 205, y: 1185 }, pink: { x: 415, y: 1185 }, green: { x: 625, y: 1185 } };
+          const GRID_S03 = { blue: { x: 198, y: 1080 }, pink: { x: 410, y: 1080 }, green: { x: 622, y: 1080 } };
+          ["blue", "pink", "green"].forEach((k, i) => {
+            tl.fromTo(`#s02-p-${k}`, { x: PREV[k].x, y: PREV[k].y + 30, scale: STRIP, opacity: 0 }, { x: PREV[k].x, y: PREV[k].y, scale: STRIP, opacity: 1, duration: f(8), ease: "power3.out" }, f(30 + 2 * i));
+          });
+
           // ---- 50 : sélection (clic) puis 50–60 : le résultat s'agrandit vers le profil
           const T = f(50);
           tl.to("#s02-result", { scale: 0.97, duration: f(2), ease: "power1.in" }, T);
@@ -297,6 +342,9 @@
           tl.to("#s02-ring", { attr: { cx: 510, cy: 680, rx: 118, ry: 118 }, duration: f(10), ease: "power3.inOut" }, T);
           tl.to("#s02-name", { x: -98.4, y: -230, scale: 1.3, duration: f(10), ease: "power3.inOut" }, T);
           tl.to("#s02-handle", { x: 6.33, y: -222, color: "#fff3e8", duration: f(10), ease: "power3.inOut" }, T);
+          ["blue", "pink", "green"].forEach((k) => {
+            tl.to(`#s02-p-${k}`, { ...GRID_S03[k], scale: 200 / 630, duration: f(10), ease: "power3.inOut" }, T);
+          });
 
           window.__timelines["s02-recherche"] = tl;
         })();

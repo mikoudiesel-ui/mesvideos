@@ -76,6 +76,13 @@
           inset: 0;
           border-radius: 36px;
         }
+        .card-sheen {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(110deg, rgba(255, 246, 232, 0) 42%, rgba(255, 246, 232, 0.42) 50%, rgba(255, 246, 232, 0) 58%) 100% 0 / 300% 100% no-repeat;
+          mix-blend-mode: screen;
+          pointer-events: none;
+        }
         #s04-dots {
           position: absolute;
           left: 455px;
@@ -119,6 +126,7 @@
             <div class="bg studio"></div>
             <img class="hero-img" src="assets/img/bleu-detoure.png" alt="Bikini bleu fleuri (illustration)" />
             <div class="shade"></div>
+            <div class="card-sheen" id="s04-sheen"></div>
             <div class="neon-ov neon" id="s04-blue-neon"></div>
           </div>
         </div>
@@ -166,12 +174,14 @@
           tl.fromTo("#s04-dim", { opacity: 0 }, { opacity: 1, duration: f(18), ease: "power2.out" }, 0);
           tl.fromTo("#s04-plate", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: f(14), ease: "power3.out" }, f(4));
           tl.fromTo("#s04-dots", { opacity: 0 }, { opacity: 1, duration: f(8), ease: "power2.out" }, f(10));
-          tl.fromTo("#s04-t1", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(2));
-          tl.fromTo("#s04-t2", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(5));
+          tl.fromTo("#s04-t1", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(2));
+          tl.fromTo("#s04-t2", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(5));
 
           // ---- pose 18–63 : caméra douce sur le parent ; sélection douce à l'image 60
           tl.fromTo("#s04-cam", { scale: 1, y: 0, transformOrigin: "515px 980px" }, { scale: 1.025, y: -10, duration: f(45), ease: "sine.inOut" }, f(18));
           tl.to("#s04-blue-neon", { opacity: 0.55, duration: f(3), ease: "power1.in", yoyo: true, repeat: 1 }, f(56));
+
+          tl.fromTo("#s04-sheen", { backgroundPosition: "100% 0%" }, { backgroundPosition: "0% 0%", duration: f(12), ease: "power2.inOut" }, f(50));
 
           // ---- sortie 63–75 : la carte se réduit vers la photo jointe au message
           const T = f(63);
@@ -181,7 +191,7 @@
           tl.to("#s04-pink", { x: -160, opacity: 0, duration: f(9), ease: "power2.in" }, T);
           tl.to("#s04-green", { x: 820, opacity: 0, duration: f(9), ease: "power2.in" }, T);
           tl.to(["#s04-plate", "#s04-dots", "#s04-dim"], { opacity: 0, duration: f(9), ease: "power2.in" }, T);
-          tl.to(["#s04-t1", "#s04-t2"], { opacity: 0, y: -20, duration: f(7), ease: "power2.in", stagger: f(1) }, T);
+          tl.to(["#s04-t1", "#s04-t2"], { opacity: 0, y: -20, filter: "blur(10px)", duration: f(7), ease: "power2.in", stagger: f(1) }, T);
 
           window.__timelines["s04-galerie"] = tl;
         })();

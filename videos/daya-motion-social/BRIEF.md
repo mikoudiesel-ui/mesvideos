@@ -20,18 +20,20 @@ collection et inciter à écrire à la boutique sur TikTok ». Le dossier fixe l
 
 Consigne de l'utilisateur pendant la production : « envoie-moi les détails de la vidéo en images
 détaillées avant de générer la vidéo ; on va corriger les défauts avant de lancer la vidéo ».
-Le rendu MP4 attend donc sa validation des planches de `captures/`.
+Après les planches, l'utilisateur a validé le rendu (« vas y génère la vidéo »).
 
 ## Assets
 
 - reference/sequences/S01–S14.png, reference/planches/ — maquettes illustratives du dossier ; elles guident la composition et servent de source aux découpes produit (tools/prep_assets.py).
-- assets/audio/SON_TEMOIN_26S.wav — son témoin original du dossier (pas la musique TikTok), base du mix.
+- reference/audio/SON_TEMOIN_26S.wav — son témoin original du dossier (pas la musique TikTok), remplacé par la musique composée pour la vidéo.
 - assets/fonts/DejaVu* — substituts locaux livrés avec le dossier (titres en serif, interface en sans).
 
 ## Customizations
 
 - Raccords demandés par le dossier entre chaque scène (halo → recherche, avatar → profil, vignette → carte, carte → message, photo → produit en profondeur, détail → widgets, téléphone → showroom, carte favorite → photo, vignette → Message, trace → signature) et S14 qui rejoint l'image 0.
-- Bruitages synthétisés sur les cues du JSON, mix vers −16 LUFS intégrés et crête vraie ≤ −1 dBTP.
+- Musique : « une music de base super stylé qui met en avant les détails de la vidéo ». Choix de l'utilisateur : composition originale (pas de compte HeyGen connecté). Afro-house tropical 120 BPM en la mineur, composée et synthétisée dans `tools/make_music.py`, calée à l'image près sur les coupes et les détails.
+- Bruitages d'interface synthétisés sur les cues du JSON (sans doubler les impacts et cloches de la musique), mix vers −16 LUFS intégrés et crête vraie ≤ −1 dBTP.
+- « Auto-analyse et auto-correction » demandées avant le rendu : la passe appliquée est décrite dans STORYBOARD.md.
 - Marquage discret « MAQUETTE · VISUELS ILLUSTRATIFS » tant que les photos réelles manquent.
 
 ## Notes

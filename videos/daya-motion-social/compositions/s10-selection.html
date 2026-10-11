@@ -425,8 +425,8 @@
           tl.fromTo(["#s10-name", "#s10-handle"], { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: f(9), ease: "power3.out", stagger: f(2) }, f(5));
           tl.fromTo(["#s10-heart", "#s10-fav"], { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: f(8), ease: "power3.out", stagger: f(2) }, f(7));
           tl.fromTo("#s10-trace-path", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: f(8), ease: "power2.out" }, f(6));
-          tl.fromTo("#s10-t1", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(2));
-          tl.fromTo("#s10-t2", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(5));
+          tl.fromTo("#s10-t1", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(2));
+          tl.fromTo("#s10-t2", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(5));
 
           // ---- 18 : cœur animé une seule fois
           tl.to("#s10-heart", { scale: 1.35, duration: f(4), ease: "power2.out" }, f(18));
@@ -445,7 +445,7 @@
           tl.to("#s10-photo", { ...S11_CARD, duration: f(10), ease: "power3.inOut" }, T);
           tl.to(["#s10-card", "#s10-name", "#s10-handle", "#s10-heart", "#s10-fav", "#s10-trace"], { opacity: 0, duration: f(8), ease: "power2.in" }, T);
           tl.to("#s10-show", { opacity: 0, y: 120, duration: f(9), ease: "power2.in" }, T);
-          tl.to(["#s10-t1", "#s10-t2"], { opacity: 0, y: -20, duration: f(7), ease: "power2.in", stagger: f(1) }, T);
+          tl.to(["#s10-t1", "#s10-t2"], { opacity: 0, y: -20, filter: "blur(10px)", duration: f(7), ease: "power2.in", stagger: f(1) }, T);
 
           window.__timelines["s10-selection"] = tl;
         })();

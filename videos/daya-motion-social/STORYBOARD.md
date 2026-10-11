@@ -24,6 +24,27 @@ trouvés (device-frame-stage, outline-draw, chat-message…) n'imposent pas la g
 les raccords ont besoin d'une scène à l'autre ; téléphone, néons et cartes sont donc construits à la
 main dans `assets/css/daya.css`.
 
+## Musique (tools/make_music.py)
+
+Afro-house tropical originale, 120 BPM, la mineur (Am9 – Fmaj9 – Cmaj9 – G6/9, montée Dm9 – E7). Les
+mesures commencent à 1,8 s + 2 s·n, si bien que les coupes 1,8 / 3,8 / 7,8 / 11,8 / 17,8 s tombent sur un
+premier temps. Intro sans batterie, interface filtrée (S02–S03), groove complet sur la coupe de S04,
+pause et montée avant le produit héros (impact sur la coupe 9,6 s, drop au premier temps 9,8 s), respiration
+en S10–S11, montée en S12, impact et cloches de signature sur 23,0 s, drop final au premier temps 23,8 s
+(le bouton est en place dès 23,3 s), sortie filtrée dont les queues reviennent au début : la boucle TikTok
+est continue. Chaque détail a sa note : vignettes S03, inserts et repères S07, widgets S08, cœur S10,
+inserts S11, appui sur Message S12, reflet du bouton S13. Nappes et basse « pompent » sur la grosse caisse.
+
+## Passe d'auto-correction avant le rendu final
+
+- Titres : apparition flou → net (technique du composant `soft-blur-in` du catalogue), sortie en flou.
+- Reflets lumineux masqués par la silhouette sur le mannequin (S01, S06, S13), sur la carte sélectionnée (S04) et sur le bouton « Écrivez-nous sur TikTok » (S13) — technique du composant `shimmer-sweep`.
+- Halos et anneau qui pulsent sur la grosse caisse pendant les drops (S06, S09, S13).
+- S02 : aperçu des trois modèles sous le résultat ; il se range dans la grille du profil (raccord S02 → S03).
+- S08 : les coques des widgets scintillent pendant le chargement au lieu de rester vides.
+- S07 : traits et repères plus épais et plus lumineux.
+- Grain de pellicule très léger sur toute la vidéo (`assets/img/grain.png`, déplacé toutes les 2 images ; technique du composant `grain-overlay`, pilotée par GSAP).
+
 ## Géométrie partagée (raccords)
 
 Le mannequin (`assets/img/bleu-detoure.png`, 870×1668) est toujours placé par (x, y, échelle) depuis
@@ -65,7 +86,7 @@ identiques d'une scène à l'autre.
 - transition_in: match-cut (contour de recherche, avatar)
 - status: animated
 - src: compositions/s02-recherche.html
-- rules: discrete-text-sequence (saisie lissée du handle), press-release-spring (sélection), card-morph-anchor (vers le profil)
+- rules: discrete-text-sequence (saisie lissée du handle), grid-card-assemble (aperçu des modèles), press-release-spring (sélection), card-morph-anchor (vers le profil)
 - text: « TROUVEZ / VOTRE STYLE » · champ @daya_na990 · onglets Top / Utilisateurs / Vidéos / LIVE
 
 ## Frame 3 — Profil de la boutique
@@ -75,7 +96,7 @@ identiques d'une scène à l'autre.
 - transition_in: match-cut (avatar, nom, handle, téléphone)
 - status: animated
 - src: compositions/s03-profil.html
-- rules: grid-card-assemble (grille, 2 images d'écart), viewport-change (descente vers la grille)
+- rules: grille raccordée depuis l'aperçu de S02, viewport-change (descente vers la grille)
 - text: « BIKINIS. / COULEURS. STYLE. » · bouton Message · aucune statistique sociale
 
 ## Frame 4 — Sélection dans la galerie

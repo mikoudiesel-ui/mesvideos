@@ -288,17 +288,11 @@
           tl.fromTo(["#s03-back", "#s03-head", "#s03-bell", "#s03-dots"], { opacity: 0, y: -12 }, { opacity: 1, y: 0, duration: f(8), ease: "power3.out", stagger: f(1) }, 0);
           tl.fromTo(["#s03-msg", "#s03-more"], { opacity: 0, scale: 0.86 }, { opacity: 1, scale: 1, duration: f(8), ease: "back.out(1.6)", stagger: f(2) }, f(3));
           tl.fromTo("#s03-tabs", { opacity: 0 }, { opacity: 1, duration: f(8), ease: "power2.out" }, f(4));
-          ["blue", "pink", "green"].forEach((k, i) => {
-            tl.fromTo(
-              `#s03-${k}`,
-              { x: GRID[k].x, y: GRID[k].y + 46, scale: TILE, opacity: 0 },
-              { x: GRID[k].x, y: GRID[k].y, scale: TILE, opacity: 1, duration: f(10), ease: "power3.out" },
-              f(4 + 2 * i),
-            );
-          });
+          // la grille arrive de S02 (aperçu sous le résultat) : déjà en place à l'image 0
+          ["blue", "pink", "green"].forEach((k) => gsap.set(`#s03-${k}`, { x: GRID[k].x, y: GRID[k].y, scale: TILE }));
           tl.fromTo("#s03-nav", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: f(8), ease: "power2.out" }, f(6));
-          tl.fromTo("#s03-t1", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(2));
-          tl.fromTo("#s03-t2", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(5));
+          tl.fromTo("#s03-t1", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(2));
+          tl.fromTo("#s03-t2", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(5));
 
           // ---- sortie 35–45 : descente vers la grille, produit bleu mis en avant
           const T = f(35);

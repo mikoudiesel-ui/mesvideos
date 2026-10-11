@@ -140,6 +140,30 @@
           object-fit: cover;
           display: block;
         }
+        /* reflet lumineux qui glisse sur le mannequin (masqué par sa silhouette) */
+        .hero-sheen {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 870px;
+          height: 1668px;
+          background: linear-gradient(105deg, rgba(255, 244, 222, 0) 42%, rgba(255, 246, 228, 0.9) 50%, rgba(255, 244, 222, 0) 58%) 100% 0 / 300% 100% no-repeat;
+          -webkit-mask: url("assets/img/bleu-detoure.png") 0 0 / 870px 1668px no-repeat;
+          mask: url("assets/img/bleu-detoure.png") 0 0 / 870px 1668px no-repeat;
+          mix-blend-mode: screen;
+          opacity: 0.75;
+          pointer-events: none;
+        }
+        #s06-beat {
+          position: absolute;
+          left: 65px;
+          top: 360px;
+          width: 900px;
+          height: 1100px;
+          border-radius: 50%;
+          background: radial-gradient(ellipse, rgba(255, 66, 105, 0.34) 0%, rgba(255, 120, 90, 0.14) 38%, rgba(255, 66, 105, 0) 66%);
+          opacity: 0;
+        }
         #s06-floor-svg {
           opacity: 0;
         }
@@ -147,6 +171,7 @@
 
       <div id="s06-root" data-composition-id="s06-heros" data-width="1080" data-height="1920" data-duration="2.2">
         <div id="s06-stage" data-layout-allow-overflow>
+          <div id="s06-beat"></div>
           <div class="s06-place" id="s06-pink">
             <div class="photo-card s06-side" id="s06-pink-in">
               <img class="cover" src="assets/img/rose-photo.jpg" alt="Bikini rose (illustration)" />
@@ -163,7 +188,7 @@
           <div id="s06-card">
             <div class="bg studio" id="s06-bg"></div>
             <div id="s06-hero-layer">
-              <div id="s06-hero"><img src="assets/img/bleu-detoure.png" alt="Bikini bleu fleuri (illustration)" /></div>
+              <div id="s06-hero"><img src="assets/img/bleu-detoure.png" alt="Bikini bleu fleuri (illustration)" /><div class="hero-sheen" id="s06-sheen"></div></div>
             </div>
             <div id="s06-shade"></div>
             <div id="s06-neon" class="neon"></div>
@@ -238,15 +263,23 @@
             tl.fromTo(`#s06-r-${k}`, { opacity: 0 }, { opacity: 1, duration: f(8), ease: "power2.out" }, f(14 + 2 * i));
           });
           tl.fromTo("#s06-floor-svg", { opacity: 0 }, { opacity: 0.9, duration: f(14), ease: "power2.out" }, f(6));
-          tl.fromTo("#s06-t1", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(2));
-          tl.fromTo("#s06-t2", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(5));
+          tl.fromTo("#s06-t1", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(2));
+          tl.fromTo("#s06-t2", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(5));
+
+          // halo calé sur la grosse caisse du drop (9,8 / 10,3 / 10,8 / 11,3 s)
+          tl.fromTo("#s06-beat", { opacity: 0 }, { opacity: 1, duration: f(10), ease: "power2.out" }, f(6));
+          [6, 21, 36, 51].forEach((fr) => {
+            tl.fromTo("#s06-beat", { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.09, duration: f(2), ease: "power2.out", immediateRender: false }, f(fr));
+            tl.to("#s06-beat", { scale: 1, duration: f(8), ease: "power2.in" }, f(fr + 2));
+          });
+          tl.fromTo("#s06-sheen", { backgroundPosition: "100% 0%" }, { backgroundPosition: "0% 0%", duration: f(18), ease: "power2.inOut" }, f(20));
 
           // ---- sortie 54–66 : un détail de la carte basse devient le gros plan suivant
           const T = f(54);
           tl.to("#s06-stage", { rotationY: 0, rotationX: 0, duration: f(12), ease: "power3.inOut" }, T);
           tl.to("#s06-hero", { ...S07_PRODUCT, duration: f(12), ease: "power3.inOut" }, T);
           tl.to("#s06-hero-layer", { clipPath: CLIP_FREE, duration: f(6), ease: "power2.in" }, T);
-          tl.to(["#s06-bg", "#s06-shade", "#s06-neon", "#s06-heart"], { opacity: 0, duration: f(9), ease: "power2.inOut" }, T);
+          tl.to(["#s06-bg", "#s06-shade", "#s06-neon", "#s06-heart", "#s06-beat"], { opacity: 0, duration: f(9), ease: "power2.inOut" }, T);
           tl.to("#s06-pink", { x: -260, opacity: 0, duration: f(9), ease: "power2.in" }, T);
           tl.to("#s06-green", { x: 1000, opacity: 0, duration: f(9), ease: "power2.in" }, T);
           tl.to(["#s06-details", "#s06-dlabel", "#s06-dchev", "#s06-floor-svg"], { opacity: 0, duration: f(8), ease: "power2.in" }, T);
@@ -256,7 +289,7 @@
             tl.to(`#s06-th-${k}`, { x: tx - hx, y: ty - hy, duration: f(12 - i), ease: "power3.inOut" }, T + f(i)); // toutes arrivent à l'image 66
             tl.to(`#s06-r-${k}`, { attr: { cx: tx, cy: ty }, opacity: 0, duration: f(10), ease: "power3.inOut" }, T + f(i));
           });
-          tl.to(["#s06-t1", "#s06-t2"], { opacity: 0, y: -20, duration: f(7), ease: "power2.in", stagger: f(1) }, T);
+          tl.to(["#s06-t1", "#s06-t2"], { opacity: 0, y: -20, filter: "blur(10px)", duration: f(7), ease: "power2.in", stagger: f(1) }, T);
 
           window.__timelines["s06-heros"] = tl;
         })();

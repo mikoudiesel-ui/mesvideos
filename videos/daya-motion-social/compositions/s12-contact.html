@@ -285,8 +285,8 @@
           // ---- 0–6 : téléphone et vignette se placent
           tl.fromTo("#s12-phone", { opacity: 0, x: 90 }, { opacity: 1, x: 0, duration: f(7), ease: "power3.out" }, 0);
           tl.fromTo("#s12-trace-path", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: f(10), ease: "power2.out" }, f(2));
-          tl.fromTo("#s12-t1", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: f(9), ease: "power3.out" }, f(1));
-          tl.fromTo("#s12-t2", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: f(9), ease: "power3.out" }, f(3));
+          tl.fromTo("#s12-t1", { opacity: 0, y: 30, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(9), ease: "power3.out" }, f(1));
+          tl.fromTo("#s12-t2", { opacity: 0, y: 30, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(9), ease: "power3.out" }, f(3));
 
           // ---- 6–18 : le doigt rejoint le bouton, qui réagit (clic à l'image 15)
           tl.fromTo("#s12-finger", { x: PRESS.x + 300, y: PRESS.y + 430, scale: 0.9, opacity: 0 }, { ...PRESS, opacity: 1, duration: f(8), ease: "power3.out" }, f(6));
@@ -307,7 +307,7 @@
           tl.to("#s12-ring", { attr: { cx: 510, cy: 1270, rx: 280, ry: 48 }, duration: f(9), ease: "power3.inOut" }, T);
           tl.to(["#s12-vig", "#s12-shade"], { opacity: 0, duration: f(7), ease: "power2.inOut" }, T);
           tl.to("#s12-hero", { ...HERO_S13, duration: f(9), ease: "power3.inOut" }, T);
-          tl.to(["#s12-t1", "#s12-t2"], { opacity: 0, y: -20, duration: f(6), ease: "power2.in", stagger: f(1) }, T);
+          tl.to(["#s12-t1", "#s12-t2"], { opacity: 0, y: -20, filter: "blur(10px)", duration: f(6), ease: "power2.in", stagger: f(1) }, T);
 
           window.__timelines["s12-contact"] = tl;
         })();

@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Mix audio de la maquette BIKINIS SHOP / @daya_na990 (26,4667 s, 48 kHz stéréo).
 
-Base : assets/audio/SON_TEMOIN_26S.wav, le son témoin original du dossier (pulse 120 BPM,
-pas la musique TikTok). On y ajoute des bruitages synthétisés localement sur les cues de
-reference/TIMELINE_14_SCENES.json, recalés sur les animations réelles quand celles-ci
-le demandent (saisie du handle, ouverture des inserts, widgets). Puis gain vers −16 LUFS
-intégrés et limiteur true-peak (plafond −1,5 dBTP) pour garder ≤ −1 dBTP après AAC.
+Base : assets/audio/musique_daya_afrohouse_120bpm.wav, la musique originale composée pour la vidéo
+(tools/make_music.py ; le son témoin du dossier reste dans reference/audio/). On y ajoute les bruitages
+d'interface synthétisés localement sur les cues de reference/TIMELINE_14_SCENES.json, recalés sur les
+animations réelles (saisie du handle, clics, widgets) ; les impacts et cloches déjà joués par la musique
+ne sont pas doublés. Puis gain vers −16 LUFS intégrés et limiteur true-peak (plafond −1,5 dBTP)
+pour garder ≤ −1 dBTP après AAC.
 
     python3 -I tools/make_mix.py --project videos/daya-motion-social
 """
@@ -197,20 +198,20 @@ def place(bus, sig, at, gain=1.0, pan=0.0):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--project", required=True)
-    ap.add_argument("--sfx-gain", type=float, default=0.45)
+    ap.add_argument("--sfx-gain", type=float, default=1.3)
+    ap.add_argument("--bed", default="assets/audio/musique_daya_afrohouse_120bpm.wav")
     ap.add_argument("--stems", action="store_true", help="écrit aussi les pistes séparées dans .hyperframes/")
     args = ap.parse_args()
     project = Path(args.project).resolve()
     timeline = json.loads((project / "reference" / "TIMELINE_14_SCENES.json").read_text())
-    bed = read_wav(project / "assets" / "audio" / "SON_TEMOIN_26S.wav")
+    bed = read_wav(project / args.bed)
     total = timeline["total_frames"] / timeline["fps"]
     assert abs(bed.shape[1] / SR - total) < 1e-3
     sfx = np.zeros_like(bed)
 
     f = lambda frame: frame / FPS  # noqa: E731 — instants en images du master
-    # S01 — ouverture
-    place(sfx, impact_doux(), f(5), 0.75)
-    place(sfx, souffle(0.32, 700, 2600, 0.45), f(46) - 0.12, 1.0, 0.2)
+    # S01 — ouverture (l'impact est joué par la musique)
+    place(sfx, souffle(0.32, 700, 2600, 0.45), f(46) - 0.12, 0.6, 0.2)
     # S02 — recherche : clic de champ, saisie du handle (11 caractères, images 64→82), sélection
     place(sfx, clic(2400, 0.5), f(66), 1.0, -0.1)
     handle = "@daya_na990"
@@ -227,30 +228,26 @@ def main():
         place(sfx, touche(0.28 + 0.04 * (k % 4)), f(244) + k * 0.058, 1.0, 0.12 * ((k % 2) * 2 - 1))
     place(sfx, clic(2200, 0.5), f(276), 1.0)
     # S06 — produit héros
-    place(sfx, souffle(0.7, 160, 900, 0.6), f(296) - 0.25, 1.0)
-    place(sfx, impact_doux(), f(296) + 0.15, 0.35)
+    place(sfx, souffle(0.7, 160, 900, 0.6), f(296) - 0.25, 0.5)
     # S07 — détails : souffle léger puis un pop par insert (images 360, 363, 366, puis 369)
-    place(sfx, souffle(0.3, 900, 3000, 0.35), f(360) - 0.1, 1.0, 0.3)
-    for k, fr in enumerate((363, 366, 369)):
-        place(sfx, pop(880 + 110 * k, 0.32), f(fr), 1.0, 0.25 * (k - 1))
+    place(sfx, souffle(0.3, 900, 3000, 0.35), f(360) - 0.1, 0.6, 0.3)  # les repères sont joués par les cloches de la musique
     # S08 — widgets Modèle / Couleur / Disponibilité
     for fr, fq in ((435, 2300), (441, 2600), (447, 2900)):
         place(sfx, clic(fq, 0.45), f(fr), 1.0, 0.35)
     # S09 — showroom
-    place(sfx, souffle(0.5, 300, 2000, 0.55), f(538) - 0.15, 1.0)
+    place(sfx, souffle(0.5, 300, 2000, 0.55), f(538) - 0.15, 0.6)
     # S10 — favori
-    place(sfx, coeur(0.5), f(588), 1.0)
+    place(sfx, coeur(0.5), f(588), 0.9)
     # S11 — photo du modèle
-    place(sfx, souffle(0.3, 800, 2800, 0.4), f(627) - 0.1, 1.0, -0.2)
+    place(sfx, souffle(0.3, 800, 2800, 0.4), f(627) - 0.1, 0.7, -0.2)
     # S12 — clic Message, souffle de signature
     place(sfx, clic(2000, 0.6), f(672), 1.0)
-    place(sfx, souffle(0.35, 1200, 3600, 0.4), f(684) - 0.1, 1.0)
-    # S13 — signature sonore douce
-    place(sfx, carillon([76, 79, 83, 88], 0.08, 0.4), f(693), 1.0)
+    place(sfx, souffle(0.35, 1200, 3600, 0.4), f(684) - 0.1, 0.6)
+    # S13 — la signature sonore (cloches) est jouée par la musique
     # S14 — souffle inversé vers la boucle
-    place(sfx, souffle(0.55, 2400, 500, 0.4, reverse=True), f(777) - 0.35, 1.0)
+    place(sfx, souffle(0.55, 2400, 500, 0.4, reverse=True), f(777) - 0.35, 0.5)
 
-    # musique sous les accents : la base baisse d'environ 3,5 dB pendant chaque bruitage
+    # musique sous les accents : la base baisse d'environ 2,5 dB pendant chaque bruitage
     env = np.abs(sfx).max(axis=0)
     att, rel = math.exp(-1 / (0.005 * SR)), math.exp(-1 / (0.18 * SR))
     follow = np.empty_like(env)
@@ -258,7 +255,7 @@ def main():
     for i, v in enumerate(env):
         acc = v + (acc - v) * (att if v > acc else rel)
         follow[i] = acc
-    duck = 1 - (1 - 10 ** (-3.5 / 20)) * np.clip(follow / (0.5 * env.max()), 0, 1)
+    duck = 1 - (1 - 10 ** (-2.5 / 20)) * np.clip(follow / (0.5 * env.max()), 0, 1)
     mix = bed * duck + sfx * args.sfx_gain
     tmp = project / ".hyperframes" / "mix_tmp.wav"
     tmp.parent.mkdir(parents=True, exist_ok=True)

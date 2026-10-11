@@ -37,9 +37,9 @@
         #s07-lines path {
           fill: none;
           stroke: var(--coral);
-          stroke-width: 3;
+          stroke-width: 4.5;
           stroke-linecap: round;
-          filter: drop-shadow(0 0 6px rgba(255, 66, 105, 0.9));
+          filter: drop-shadow(0 0 10px rgba(255, 66, 105, 0.95));
         }
         #s07-lines circle {
           fill: var(--coral);
@@ -100,9 +100,9 @@
             <path id="s07-l-fleur" pathLength="1" d="M586.7 700.6 L618 650 L640 650" />
             <path id="s07-l-motif" pathLength="1" d="M509 1241.6 L600 1170 L640 1170" />
             <path id="s07-l-liens" pathLength="1" d="M230.6 1099.1 L218 1180 L218 1240" />
-            <circle id="s07-d-fleur" cx="586.7" cy="700.6" r="9" />
-            <circle id="s07-d-motif" cx="509" cy="1241.6" r="9" />
-            <circle id="s07-d-liens" cx="230.6" cy="1099.1" r="9" />
+            <circle id="s07-d-fleur" cx="586.7" cy="700.6" r="11" />
+            <circle id="s07-d-motif" cx="509" cy="1241.6" r="11" />
+            <circle id="s07-d-liens" cx="230.6" cy="1099.1" r="11" />
           </svg>
         </div>
 
@@ -152,8 +152,8 @@
             tl.fromTo(`#s07-l-${k}`, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: f(7), ease: "power2.out" }, f(9 + 2 * i));
             tl.fromTo(`#s07-d-${k}`, { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, duration: f(6), ease: "back.out(2)" }, f(8 + 2 * i));
           });
-          tl.fromTo("#s07-t1", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(2));
-          tl.fromTo("#s07-t2", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(5));
+          tl.fromTo("#s07-t1", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(2));
+          tl.fromTo("#s07-t2", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(5));
 
           // ---- pose 15–51 : zoom lent sur le produit (caméra parente), inserts stables
           tl.fromTo("#s07-cam", { scale: 1, transformOrigin: "430px 953px" }, { scale: 1.03, duration: f(36), ease: "sine.inOut" }, f(15));
@@ -170,7 +170,7 @@
             tl.to(`#s07-ins-${k} .shell`, { opacity: 1, duration: f(10), ease: "power2.inOut" }, T + f(2));
             tl.to(`#s07-ins-${k} img`, { opacity: 0, duration: f(10), ease: "power2.inOut" }, T + f(2));
           });
-          tl.to(["#s07-t1", "#s07-t2"], { opacity: 0, y: -20, duration: f(7), ease: "power2.in", stagger: f(1) }, T);
+          tl.to(["#s07-t1", "#s07-t2"], { opacity: 0, y: -20, filter: "blur(10px)", duration: f(7), ease: "power2.in", stagger: f(1) }, T);
 
           window.__timelines["s07-details"] = tl;
         })();

@@ -314,13 +314,18 @@
           tl.fromTo("#s09-niche-rose", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: f(9), ease: "power3.out" }, f(5));
           tl.fromTo("#s09-niche-vert", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: f(9), ease: "power3.out" }, f(6));
           tl.fromTo(["#s09-head", "#s09-menu", "#s09-bag"], { opacity: 0 }, { opacity: 1, duration: f(8), ease: "power2.out" }, f(4));
-          tl.fromTo("#s09-t1", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: f(10), ease: "power3.out" }, f(2));
-          tl.fromTo("#s09-t2", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: f(10), ease: "power3.out" }, f(4));
+          tl.fromTo("#s09-t1", { opacity: 0, y: 30, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(10), ease: "power3.out" }, f(2));
+          tl.fromTo("#s09-t2", { opacity: 0, y: 30, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(10), ease: "power3.out" }, f(4));
+
+          tl.to("#s09-halo", { scale: 1.07, duration: f(2), ease: "power2.out" }, f(15));
+          tl.to("#s09-halo", { scale: 1, duration: f(8), ease: "power2.in" }, f(17));
+          tl.to("#s09-halo", { scale: 1.06, duration: f(2), ease: "power2.out" }, f(30));
+          tl.to("#s09-halo", { scale: 1, duration: f(4), ease: "power2.in" }, f(32));
 
           // ---- sortie 27–36 : le showroom recule sous la future carte favorite (= état S10)
           const T = f(27);
           tl.to("#s09-cam", { scale: 0.62, y: 610, duration: f(9), ease: "power3.inOut" }, T);
-          tl.to(["#s09-t1", "#s09-t2"], { opacity: 0, y: -18, duration: f(6), ease: "power2.in", stagger: f(1) }, T);
+          tl.to(["#s09-t1", "#s09-t2"], { opacity: 0, y: -18, filter: "blur(10px)", duration: f(6), ease: "power2.in", stagger: f(1) }, T);
 
           window.__timelines["s09-showroom"] = tl;
         })();

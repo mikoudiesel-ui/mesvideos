@@ -61,6 +61,20 @@
         #s01-search {
           opacity: 0;
         }
+        /* reflet lumineux qui glisse sur le mannequin (masqué par sa silhouette) */
+        .hero-sheen {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 870px;
+          height: 1668px;
+          background: linear-gradient(105deg, rgba(255, 244, 222, 0) 42%, rgba(255, 246, 228, 0.9) 50%, rgba(255, 244, 222, 0) 58%) 100% 0 / 300% 100% no-repeat;
+          -webkit-mask: url("assets/img/bleu-detoure.png") 0 0 / 870px 1668px no-repeat;
+          mask: url("assets/img/bleu-detoure.png") 0 0 / 870px 1668px no-repeat;
+          mix-blend-mode: screen;
+          opacity: 0.75;
+          pointer-events: none;
+        }
         #s01-brand {
           position: absolute;
           left: 110px;
@@ -90,6 +104,7 @@
           </svg>
           <div class="s01-hero" id="s01-hero">
             <img src="assets/img/bleu-detoure.png" alt="Bikini bleu fleuri sur mannequin doré (illustration)" />
+            <div class="hero-sheen" id="s01-sheen"></div>
           </div>
           <svg class="fx-svg" id="s01-fx-front" viewBox="0 0 1080 1920">
             <rect id="s01-search" class="ring" x="70" y="460" width="880" height="880" rx="440" ry="440" />
@@ -128,19 +143,21 @@
           );
           tl.fromTo("#s01-shadow", { opacity: 0 }, { opacity: 1, duration: f(12), ease: "power2.out" }, 0);
           // titre en deux groupes, décalés de 3 images
-          tl.fromTo("#s01-t1", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(2));
-          tl.fromTo("#s01-t2", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(5));
+          tl.fromTo("#s01-t1", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(2));
+          tl.fromTo("#s01-t2", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(5));
           tl.fromTo("#s01-brand", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: f(14), ease: "power3.out" }, f(8));
           tl.fromTo("#s01-handle", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(11));
 
           // ---- pose 12–44 : produit stable, seul le halo respire
           tl.to("#s01-halo", { scale: 1.06, opacity: 0.85, duration: f(16), ease: "sine.inOut", yoyo: true, repeat: 1 }, f(12));
 
+          tl.fromTo("#s01-sheen", { backgroundPosition: "100% 0%" }, { backgroundPosition: "0% 0%", duration: f(20), ease: "power2.inOut" }, f(14));
+
           // ---- sortie 44–54 : le cercle de lumière devient le contour de la recherche,
           //      l'anneau au sol devient l'anneau de l'avatar, le produit se réduit dans le résultat.
           const T = f(44);
           const D = f(10);
-          tl.to(["#s01-t1", "#s01-t2"], { opacity: 0, y: -24, duration: f(6), ease: "power3.in", stagger: f(1) }, T);
+          tl.to(["#s01-t1", "#s01-t2"], { opacity: 0, y: -24, filter: "blur(10px)", duration: f(6), ease: "power3.in", stagger: f(1) }, T);
           tl.to(["#s01-brand", "#s01-handle"], { opacity: 0, y: 16, duration: f(6), ease: "power3.in" }, T);
           tl.to("#s01-shadow", { opacity: 0, duration: f(5), ease: "power2.in" }, T);
           tl.to("#s01-halo", { opacity: 0, scale: 0.55, duration: f(8), ease: "power2.in" }, T);

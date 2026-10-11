@@ -290,8 +290,8 @@
           tl.fromTo("#s05-composer", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: f(9), ease: "power3.out" }, f(4));
           tl.fromTo("#s05-kb", { opacity: 0, y: 90 }, { opacity: 1, y: 0, duration: f(10), ease: "power3.out" }, f(4));
           tl.fromTo(["#s05-example", "#s05-arrow"], { opacity: 0, scale: 0.92, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: f(8), ease: "power3.out" }, f(10));
-          tl.fromTo("#s05-t1", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(2));
-          tl.fromTo("#s05-t2", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(5));
+          tl.fromTo("#s05-t1", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(2));
+          tl.fromTo("#s05-t2", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(5));
 
           // ---- 10–34 : brouillon saisi progressivement (exemple, sans réponse de la boutique)
           const msg = "Bonjour, ce modèle est disponible ?";
@@ -339,7 +339,7 @@
           tl.to("#s05-header", { opacity: 0, y: -80, duration: f(8), ease: "power2.in" }, T);
           tl.to("#s05-kb", { opacity: 0, y: 200, duration: f(8), ease: "power2.in" }, T);
           tl.to("#s05-composer", { opacity: 0, y: 220, duration: f(9), ease: "power2.inOut" }, T);
-          tl.to(["#s05-t1", "#s05-t2"], { opacity: 0, y: -20, duration: f(7), ease: "power2.in", stagger: f(1) }, T);
+          tl.to(["#s05-t1", "#s05-t2"], { opacity: 0, y: -20, filter: "blur(10px)", duration: f(7), ease: "power2.in", stagger: f(1) }, T);
 
           window.__timelines["s05-message"] = tl;
         })();

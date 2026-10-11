@@ -178,6 +178,12 @@
           background: linear-gradient(160deg, rgba(48, 38, 52, 0.92) 0%, rgba(20, 16, 26, 0.94) 100%);
           border: 2px solid rgba(214, 162, 74, 0.55);
           box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+          overflow: hidden;
+        }
+        .s08-w .shim {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(105deg, rgba(255, 236, 214, 0) 38%, rgba(255, 236, 214, 0.16) 50%, rgba(255, 236, 214, 0) 62%) 100% 0 / 300% 100% no-repeat;
         }
         .s08-wc {
           position: absolute;
@@ -326,9 +332,9 @@
         </div>
 
         <!-- coques des widgets : présentes dès l'image 0 (raccord des inserts de S07) -->
-        <div class="s08-w" id="s08-w-modele" style="top: 620px"></div>
-        <div class="s08-w" id="s08-w-couleur" style="top: 890px"></div>
-        <div class="s08-w" id="s08-w-dispo" style="top: 1160px"></div>
+        <div class="s08-w" id="s08-w-modele" style="top: 620px"><div class="shim"></div></div>
+        <div class="s08-w" id="s08-w-couleur" style="top: 890px"><div class="shim"></div></div>
+        <div class="s08-w" id="s08-w-dispo" style="top: 1160px"><div class="shim"></div></div>
 
         <div class="s08-wc" id="s08-wc-modele" style="top: 620px">
           <svg class="ico wi" viewBox="0 0 24 24"><path d="M3 9 L8 17 L12 12 L16 17 L21 9" /><path d="M8 17 C 9 18, 11 18, 12 12 C 13 18, 15 18, 16 17" /></svg>
@@ -380,8 +386,14 @@
           // ---- 0–18 : le téléphone entre ; les coques de widgets attendent (raccord S07)
           tl.fromTo("#s08-phone", { x: -150, y: 80, rotation: -12, opacity: 0, transformOrigin: "50% 50%" }, { x: 0, y: 0, rotation: -4, opacity: 1, duration: f(18), ease: "power3.out" }, 0);
           tl.fromTo("#s08-floor", { opacity: 0 }, { opacity: 1, duration: f(12), ease: "power2.out" }, f(6));
-          tl.fromTo("#s08-t1", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(2));
-          tl.fromTo("#s08-t2", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(5));
+          tl.fromTo("#s08-t1", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(2));
+          tl.fromTo("#s08-t2", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(5));
+
+          // ---- chargement : un reflet balaie chaque coque vide jusqu'à l'arrivée de son contenu
+          [["#s08-w-modele", 18], ["#s08-w-couleur", 24], ["#s08-w-dispo", 30]].forEach(([w, fr], i) => {
+            tl.fromTo(`${w} .shim`, { backgroundPosition: "100% 0%" }, { backgroundPosition: "0% 0%", duration: f(12), ease: "sine.inOut" }, f(2 + 2 * i));
+            tl.to(`${w} .shim`, { opacity: 0, duration: f(4), ease: "power1.out" }, f(fr));
+          });
 
           // ---- widgets aux images 18, 24 et 30 (options de demande, sans confirmation de stock)
           [
@@ -404,7 +416,7 @@
           tl.to(["#s08-w-couleur", "#s08-wc-couleur"], { x: 220, opacity: 0, duration: f(11), ease: "power2.in" }, T + f(2));
           tl.to(["#s08-w-dispo", "#s08-wc-dispo"], { x: 220, opacity: 0, duration: f(11), ease: "power2.in" }, T + f(4));
           tl.to("#s08-floor", { opacity: 0, duration: f(10), ease: "power2.in" }, T);
-          tl.to(["#s08-t1", "#s08-t2"], { opacity: 0, y: -20, duration: f(8), ease: "power2.in", stagger: f(1) }, T);
+          tl.to(["#s08-t1", "#s08-t2"], { opacity: 0, y: -20, filter: "blur(10px)", duration: f(8), ease: "power2.in", stagger: f(1) }, T);
 
           window.__timelines["s08-choix"] = tl;
         })();
