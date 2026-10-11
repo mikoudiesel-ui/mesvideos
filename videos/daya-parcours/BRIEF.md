@@ -30,11 +30,12 @@ boutique **BIKINI SHOP** (compte TikTok **@daya_na990**).
 - Palette : nuit prune `#120a1c`, corail néon `#ff4f70` (même corail que la pub isométrique précédente), crème `#fff4e8`.
 - Typo : Unbounded (titres, déjà utilisée dans la pub isométrique) + Inter (interface TikTok).
 - Squelette prêt à recevoir les vrais médias : chaque photo/vidéo est un placeholder nommé dans `assets/photos/`.
+- Musique : « utilise une musique identique à celle de la vidéo pour l'ajouter à la vidéo de bikini shop ». La piste audio du TikTok de référence (4.roues) est reprise telle quelle et calée à 0 s, comme dans l'original.
 
 ## Notes
 
 - Aucun logo officiel fourni : le logo « BIKINI SHOP » est un wordmark recréé en SVG (`<template id="logo-tpl">` dans `index.html`).
 - Valeurs **provisoires** à remplacer par les vraies : compteurs du profil (Abonnements / Followers / J'aime), vues de la vidéo (13 k → 248 k), vues des tuiles de la grille, avis client (nom, texte, article).
 - On n'invente ni prix ni délai de livraison.
-- Pas d'audio : la piste de la vidéo de référence n'a pas été analysée. Une musique d'été peut être ajoutée ensuite.
+- Musique (`.media/audio/bgm/bgm_001.m4a`) : extraite du TikTok fourni (AAC 32 kb/s, 26,45 s, ~109 BPM, fondu de sortie 24 → 26 s qui sert la boucle). Les transitions mesurées dans la référence (1,9 s, 3,6 s, 6,1 s, 8,0 s, 17,7 s) tombent à ±0,1 s de notre timeline, donc la synchro est celle de l'original. Volume : la piste source est à -31,6 LUFS ; gain statique +17,5 dB + limiteur suréchantillonné → -14 LUFS, crête vraie -1,8 dBTP (pas de loudnorm dynamique, qui écraserait le fondu final). Voix non vérifiable automatiquement (modèle de transcription non téléchargeable depuis l'environnement) ; l'analyse spectrale ne montre que de la musique.
 - Le Studio (localhost) n'est pas joignable depuis l'app de l'utilisateur : la revue se fait sur le MP4 rendu.

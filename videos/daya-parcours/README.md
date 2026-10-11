@@ -18,6 +18,17 @@ placeholders (marqués « PLACEHOLDER ») à remplacer.
 | `tools/make_placeholders.py` | Régénère les placeholders |
 | `BRIEF.md`, `STORYBOARD.md` | Le brief et le découpage scène par scène |
 
+## Musique
+
+La musique est celle de la vidéo de référence (TikTok 4.roues) : piste extraite telle quelle et calée à 0 s,
+donc elle tombe sur les mêmes transitions que dans l'original. Elle est dans `.media/audio/bgm/bgm_001.m4a`,
+montée à -14 LUFS (le niveau habituel des réseaux sociaux), et branchée dans `index.html` (`<audio id="music">`).
+
+- **Changer de musique** : remplace le `src` de `<audio id="music">` par un fichier d'environ 26,5 s.
+- **Qualité** : la piste vient d'un TikTok téléchargé (AAC 32 kb/s). Avec le fichier original du son, remplace-le pour un rendu plus propre.
+- **Droits** : si c'est un son commercial, TikTok peut couper le son d'une vidéo publiée par un compte professionnel ou en pub.
+  Dans ce cas, publie la vidéo et ajoute le même son depuis la bibliothèque TikTok au moment de publier.
+
 ## Médias à fournir
 
 Dépose ton fichier dans `assets/photos/`, puis remplace le nom du placeholder dans `index.html`.

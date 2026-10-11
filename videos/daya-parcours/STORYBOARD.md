@@ -5,6 +5,8 @@ message: "BIKINI SHOP (@daya_na990) : tu trouves ton bikini sur TikTok, tu comma
 arc: Point → Logo → Recherche → Profil → Grille → Vidéo → DM → Préparation → Plan plage → Commande → Avis → Livraison → Conclusion → Signature → (boucle)
 mode: autonomous
 fps: 30
+bpm: ~109
+audio: musique de la vidéo de référence, calée à 0 s (.media/audio/bgm/bgm_001.m4a)
 ---
 
 Une seule composition (`index.html`) et une seule timeline GSAP (`assets/js/timeline.js`).
