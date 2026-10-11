@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s07-details-template">
+      <link rel="stylesheet" href="assets/css/daya.css" />
+      <style>
+        @font-face {
+          font-family: "Daya Serif";
+          src: url("assets/fonts/DejaVuSerif-Bold.ttf") format("truetype");
+          font-weight: 700;
+        }
+        #s07-root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        #s07-cam {
+          position: absolute;
+          inset: 0;
+        }
+        #s07-hero {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 870px;
+          height: 1668px;
+          transform-origin: 0 0;
+        }
+        #s07-hero img {
+          display: block;
+          width: 870px;
+          height: 1668px;
+        }
+        #s07-lines path {
+          fill: none;
+          stroke: var(--coral);
+          stroke-width: 3;
+          stroke-linecap: round;
+          filter: drop-shadow(0 0 6px rgba(255, 66, 105, 0.9));
+        }
+        #s07-lines circle {
+          fill: var(--coral);
+          stroke: #fff3e8;
+          stroke-width: 3;
+          filter: drop-shadow(0 0 8px rgba(255, 66, 105, 0.95));
+        }
+        .s07-ins {
+          position: absolute;
+          width: 250px;
+          height: 300px;
+        }
+        .s07-ins img {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+        .s07-ins .neon-ov {
+          position: absolute;
+          inset: 0;
+          border-radius: 24px;
+          opacity: 0;
+        }
+        /* coque de widget S08 en unités locales (÷ 1,2) : 300×220, bord 2 px, rayon 28 après échelle */
+        .s07-ins .shell {
+          position: absolute;
+          left: 0;
+          top: 58.333px;
+          width: 250px;
+          height: 183.333px;
+          border-radius: 23.333px;
+          background: linear-gradient(160deg, rgba(48, 38, 52, 0.92) 0%, rgba(20, 16, 26, 0.94) 100%);
+          border: 1.667px solid rgba(214, 162, 74, 0.55);
+          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+          opacity: 0;
+        }
+        #s07-ins-fleur {
+          left: 640px;
+          top: 450px;
+        }
+        #s07-ins-motif {
+          left: 640px;
+          top: 1000px;
+        }
+        #s07-ins-liens {
+          left: 95px;
+          top: 1240px;
+        }
+      </style>
+
+      <div id="s07-root" data-composition-id="s07-details" data-width="1080" data-height="1920" data-duration="2.1">
+        <div id="s07-cam" data-layout-allow-overflow>
+          <div id="s07-hero"><img src="assets/img/bleu-detoure.png" alt="Bikini bleu fleuri (illustration)" /></div>
+          <svg class="fx-svg" id="s07-lines" viewBox="0 0 1080 1920">
+            <path id="s07-l-fleur" pathLength="1" d="M586.7 700.6 L618 650 L640 650" />
+            <path id="s07-l-motif" pathLength="1" d="M509 1241.6 L600 1170 L640 1170" />
+            <path id="s07-l-liens" pathLength="1" d="M230.6 1099.1 L218 1180 L218 1240" />
+            <circle id="s07-d-fleur" cx="586.7" cy="700.6" r="9" />
+            <circle id="s07-d-motif" cx="509" cy="1241.6" r="9" />
+            <circle id="s07-d-liens" cx="230.6" cy="1099.1" r="9" />
+          </svg>
+        </div>
+
+        <div class="s07-ins" id="s07-ins-fleur">
+          <img src="assets/img/detail-fleur.jpg" alt="Fleur blanche (détail illustratif)" />
+          <div class="neon-ov neon"></div>
+          <div class="shell"></div>
+        </div>
+        <div class="s07-ins" id="s07-ins-motif">
+          <img src="assets/img/detail-motif.jpg" alt="Motif bleu (détail illustratif)" />
+          <div class="neon-ov neon"></div>
+          <div class="shell"></div>
+        </div>
+        <div class="s07-ins" id="s07-ins-liens">
+          <img src="assets/img/detail-liens.jpg" alt="Liens latéraux (détail illustratif)" />
+          <div class="neon-ov neon"></div>
+          <div class="shell"></div>
+        </div>
+
+        <h1 class="scene-title" id="s07-title" style="font-size: 80px">
+          <span class="ln" id="s07-t1">Les détails</span>
+          <span class="ln coral" id="s07-t2">font le style.</span>
+        </h1>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const f = (n) => n / 30;
+          const CIRCLE = "inset(75px 50px 75px 50px round 75px)"; // = vignette ronde de S06 (d 150)
+          const OPEN = "inset(0px 0px 0px 0px round 24px)";
+          const WIDGET = "inset(58.333px 0px 58.333px 0px round 23.333px)"; // 300×220 après ×1,2
+          // centre de l'insert → centre du widget S08 (620, 620/890/1160, 300×220)
+          const MOVE = {
+            fleur: { from: [765, 600], to: [770, 730] },
+            motif: { from: [765, 1150], to: [770, 1000] },
+            liens: { from: [220, 1390], to: [770, 1270] },
+          };
+          gsap.set("#s07-hero", { x: 133.5, y: 412.8, scale: 0.647482 }); // = fin de S06
+          ["fleur", "motif", "liens"].forEach((k) => gsap.set(`#s07-ins-${k}`, { clipPath: CIRCLE, transformOrigin: "50% 50%" }));
+          gsap.set(["#s07-l-fleur", "#s07-l-motif", "#s07-l-liens"], { strokeDasharray: 1, strokeDashoffset: 1 });
+
+          // ---- 0–15 : ouverture des inserts (3 images d'écart), traits dessinés après les cadres
+          ["fleur", "motif", "liens"].forEach((k, i) => {
+            tl.fromTo(`#s07-ins-${k}`, { clipPath: CIRCLE }, { clipPath: OPEN, duration: f(9), ease: "power3.out" }, f(3 * i));
+            tl.fromTo(`#s07-ins-${k} .neon-ov`, { opacity: 0 }, { opacity: 1, duration: f(7), ease: "power2.out" }, f(3 * i + 3));
+            tl.fromTo(`#s07-l-${k}`, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: f(7), ease: "power2.out" }, f(9 + 2 * i));
+            tl.fromTo(`#s07-d-${k}`, { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, duration: f(6), ease: "back.out(2)" }, f(8 + 2 * i));
+          });
+          tl.fromTo("#s07-t1", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(2));
+          tl.fromTo("#s07-t2", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(5));
+
+          // ---- pose 15–51 : zoom lent sur le produit (caméra parente), inserts stables
+          tl.fromTo("#s07-cam", { scale: 1, transformOrigin: "430px 953px" }, { scale: 1.03, duration: f(36), ease: "sine.inOut" }, f(15));
+
+          // ---- sortie 51–63 : les inserts se replient vers les widgets de choix (S08)
+          const T = f(51);
+          tl.to(["#s07-lines"], { opacity: 0, duration: f(5), ease: "power2.in" }, T);
+          tl.to("#s07-hero", { x: 290, y: 820, scale: 0.18, opacity: 0, duration: f(12), ease: "power3.inOut" }, T);
+          ["fleur", "motif", "liens"].forEach((k) => {
+            const [fx, fy] = MOVE[k].from;
+            const [tx, ty] = MOVE[k].to;
+            tl.to(`#s07-ins-${k}`, { x: tx - fx, y: ty - fy, scale: 1.2, clipPath: WIDGET, duration: f(12), ease: "power3.inOut" }, T);
+            tl.to(`#s07-ins-${k} .neon-ov`, { opacity: 0, duration: f(8), ease: "power2.inOut" }, T);
+            tl.to(`#s07-ins-${k} .shell`, { opacity: 1, duration: f(10), ease: "power2.inOut" }, T + f(2));
+            tl.to(`#s07-ins-${k} img`, { opacity: 0, duration: f(10), ease: "power2.inOut" }, T + f(2));
+          });
+          tl.to(["#s07-t1", "#s07-t2"], { opacity: 0, y: -20, duration: f(7), ease: "power2.in", stagger: f(1) }, T);
+
+          window.__timelines["s07-details"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

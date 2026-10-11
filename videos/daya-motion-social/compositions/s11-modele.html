@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s11-modele-template">
+      <link rel="stylesheet" href="assets/css/daya.css" />
+      <style>
+        @font-face {
+          font-family: "Daya Serif";
+          src: url("assets/fonts/DejaVuSerif-Bold.ttf") format("truetype");
+          font-weight: 700;
+        }
+        #s11-root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        .s11-card {
+          left: 0;
+          top: 0;
+          width: 620px;
+          height: 1120px;
+          border-radius: 36px;
+          transform-origin: 0 0;
+        }
+        .s11-card .hero-img {
+          left: 21.7px;
+          top: 13.6px;
+          width: 547.66px;
+          height: 1050px;
+        }
+        .s11-card .shade {
+          position: absolute;
+          inset: 0;
+          border-radius: 36px;
+          background: linear-gradient(180deg, rgba(20, 10, 8, 0) 70%, rgba(20, 10, 8, 0.45) 100%);
+        }
+        .s11-card .neon-ov {
+          position: absolute;
+          inset: 0;
+          border-radius: 36px;
+          opacity: 0;
+        }
+        .s11-ins {
+          position: absolute;
+          width: 180px;
+          border-radius: 24px;
+          overflow: hidden;
+        }
+        .s11-ins img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        #s11-ins-fleur {
+          left: 742px;
+          top: 600px;
+          height: 366px;
+        }
+        #s11-ins-liens {
+          left: 742px;
+          top: 1000px;
+          height: 409px;
+        }
+      </style>
+
+      <div id="s11-root" data-composition-id="s11-modele" data-width="1080" data-height="1920" data-duration="1.2">
+        <div class="photo-card s11-card" id="s11-card">
+          <div class="bg studio"></div>
+          <img class="hero-img" src="assets/img/bleu-detoure.png" alt="Bikini bleu fleuri (illustration)" />
+          <div class="shade"></div>
+          <div class="neon-ov neon" id="s11-neon"></div>
+        </div>
+        <div class="s11-ins gold-edge" id="s11-ins-fleur"><img src="assets/img/detail-fleur-anneau.jpg" alt="Fleur et anneau (détail illustratif)" /></div>
+        <div class="s11-ins gold-edge" id="s11-ins-liens"><img src="assets/img/detail-liens-cordon.jpg" alt="Liens et embouts dorés (détail illustratif)" /></div>
+
+        <h1 class="scene-title" id="s11-title" style="font-size: 80px">
+          <span class="ln" id="s11-t1">Le modèle</span>
+          <span class="ln coral" id="s11-t2">en détail</span>
+        </h1>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const f = (n) => n / 30;
+          const CARD = { x: 100, y: 450, scale: 1 }; // = fin de S10
+          const VIGNETTE = { x: 90, y: 600, scale: 230 / 620 }; // = vignette S12 (230×415)
+          gsap.set("#s11-card", CARD);
+
+          // ---- 0–10 : la grande carte s'installe (néon), deux inserts suivent avec 2 images d'écart
+          tl.fromTo("#s11-neon", { opacity: 0 }, { opacity: 1, duration: f(8), ease: "power2.out" }, 0);
+          tl.fromTo("#s11-ins-fleur", { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: f(10), ease: "power3.out" }, f(2));
+          tl.fromTo("#s11-ins-liens", { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: f(10), ease: "power3.out" }, f(4));
+          tl.fromTo("#s11-t1", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: f(10), ease: "power3.out" }, f(1));
+          tl.fromTo("#s11-t2", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: f(10), ease: "power3.out" }, f(3));
+
+          // ---- sortie 27–36 : la carte devient la miniature près du bouton Message (S12)
+          const T = f(27);
+          tl.to("#s11-card", { ...VIGNETTE, duration: f(9), ease: "power3.inOut" }, T);
+          tl.to("#s11-neon", { opacity: 0, duration: f(7), ease: "power2.inOut" }, T);
+          tl.to(["#s11-ins-fleur", "#s11-ins-liens"], { opacity: 0, x: 140, duration: f(7), ease: "power2.in", stagger: f(1) }, T);
+          tl.to(["#s11-t1", "#s11-t2"], { opacity: 0, y: -20, duration: f(6), ease: "power2.in", stagger: f(1) }, T);
+
+          window.__timelines["s11-modele"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

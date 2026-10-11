@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s02-recherche-template">
+      <link rel="stylesheet" href="assets/css/daya.css" />
+      <style>
+        @font-face {
+          font-family: "Daya Serif";
+          src: url("assets/fonts/DejaVuSerif-Bold.ttf") format("truetype");
+          font-weight: 700;
+        }
+        @font-face {
+          font-family: "Daya Sans";
+          src: url("assets/fonts/DejaVuSans.ttf") format("truetype");
+          font-weight: 400;
+        }
+        @font-face {
+          font-family: "Daya Sans";
+          src: url("assets/fonts/DejaVuSans-Bold.ttf") format("truetype");
+          font-weight: 700;
+        }
+        #s02-root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        #s02-phone {
+          left: 170px;
+          top: 420px;
+          width: 680px;
+          height: 1160px;
+        }
+        #s02-ui > * {
+          position: absolute;
+        }
+        #s02-head {
+          left: 215px;
+          top: 545px;
+          width: 580px;
+          font-size: 34px;
+          color: var(--ui-text);
+          line-height: 1;
+        }
+        #s02-head-sub {
+          left: 215px;
+          top: 600px;
+          width: 580px;
+          font-size: 26px;
+          color: var(--ui-muted);
+          line-height: 1;
+        }
+        #s02-field {
+          left: 215px;
+          top: 790px;
+          width: 580px;
+          height: 115px;
+          border-radius: 58px;
+          background: #1f1a26;
+        }
+        #s02-ico-search {
+          left: 246px;
+          top: 826px;
+          width: 44px;
+          height: 44px;
+          color: var(--ui-text);
+        }
+        #s02-ico-clear {
+          left: 738px;
+          top: 829px;
+          width: 38px;
+          height: 38px;
+          color: #8f8496;
+        }
+        #s02-placeholder {
+          left: 308px;
+          top: 827px;
+          font-size: 40px;
+          line-height: 1;
+          color: #8f8496;
+        }
+        #s02-typed-wrap {
+          left: 308px;
+          top: 827px;
+          font-size: 40px;
+          line-height: 1;
+          color: var(--cream);
+          white-space: nowrap;
+          display: flex;
+          align-items: center;
+        }
+        #s02-typed-wrap,
+        #s02-ico-clear {
+          opacity: 0;
+        }
+        #s02-caret {
+          display: inline-block;
+          width: 3px;
+          height: 46px;
+          margin-left: 3px;
+          background: var(--coral);
+        }
+        #s02-tabs {
+          left: 215px;
+          top: 936px;
+          width: 580px;
+          display: flex;
+          justify-content: space-between;
+          font-size: 28px;
+          line-height: 1;
+          color: var(--ui-muted);
+        }
+        #s02-tabs .on {
+          color: var(--ui-text);
+          font-weight: 700;
+        }
+        #s02-tab-line {
+          left: 215px;
+          top: 980px;
+          width: 580px;
+          height: 2px;
+          background: #2e2736;
+        }
+        #s02-tab-active {
+          left: 215px;
+          top: 978px;
+          width: 64px;
+          height: 5px;
+          border-radius: 3px;
+          background: var(--coral);
+        }
+        #s02-result {
+          left: 200px;
+          top: 1000px;
+          width: 620px;
+          height: 160px;
+          border-radius: 30px;
+          background: #1d1824;
+          border: 2px solid #2f2738;
+        }
+        #s02-chev {
+          left: 760px;
+          top: 1060px;
+          width: 40px;
+          height: 40px;
+          color: var(--ui-muted);
+        }
+        #s02-name {
+          position: absolute;
+          left: 390px;
+          top: 1030px;
+          font-size: 40px;
+          line-height: 1;
+          color: var(--cream);
+          white-space: nowrap;
+          transform-origin: 0 0;
+        }
+        #s02-handle {
+          position: absolute;
+          left: 390px;
+          top: 1088px;
+          font-size: 32px;
+          line-height: 1;
+          color: var(--ui-muted);
+          white-space: nowrap;
+          transform-origin: 0 0;
+        }
+        .s02-hero {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 870px;
+          height: 1668px;
+          transform-origin: 0 0;
+        }
+        .s02-hero img {
+          display: block;
+          width: 870px;
+          height: 1668px;
+        }
+      </style>
+
+      <div id="s02-root" data-composition-id="s02-recherche" data-width="1080" data-height="1920" data-duration="2">
+        <div class="phone" id="s02-phone">
+          <div class="screen">
+            <div class="statusbar" id="s02-status">
+              <span class="time">9:41</span>
+              <span class="icons"><span class="bars"><i style="height: 8px"></i><i style="height: 12px"></i><i style="height: 16px"></i><i style="height: 20px"></i></span><span class="batt"><i></i></span></span>
+            </div>
+          </div>
+          <div class="island"></div>
+        </div>
+
+        <div id="s02-ui">
+          <div id="s02-head" class="sans-b">Recherche</div>
+          <div id="s02-head-sub" class="sans">Comptes, vidéos, styles</div>
+          <div id="s02-field"></div>
+          <svg id="s02-ico-search" class="ico" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" /><path d="M15.5 15.5 L21 21" /></svg>
+          <div id="s02-placeholder" class="sans" data-layout-allow-overlap>Rechercher</div>
+          <div id="s02-typed-wrap" class="sans"><span id="s02-typed"></span><span id="s02-caret"></span></div>
+          <svg id="s02-ico-clear" class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#8f8496" stroke="none" /><path d="M8.5 8.5 L15.5 15.5 M15.5 8.5 L8.5 15.5" stroke="#1f1a26" stroke-width="2.6" /></svg>
+          <div id="s02-tabs" class="sans"><span class="on">Top</span><span>Utilisateurs</span><span>Vidéos</span><span>LIVE</span></div>
+          <div id="s02-tab-line"></div>
+          <div id="s02-tab-active"></div>
+          <div id="s02-result"></div>
+          <svg id="s02-chev" class="ico" viewBox="0 0 24 24"><path d="M9 5 L16 12 L9 19" /></svg>
+        </div>
+
+        <div class="s02-hero" id="s02-avatar">
+          <img src="assets/img/bleu-detoure.png" alt="Avatar BIKINIS SHOP (illustration)" />
+        </div>
+        <div id="s02-name" class="serif">BIKINIS SHOP</div>
+        <div id="s02-handle" class="sans">@daya_na990</div>
+
+        <svg class="fx-svg" id="s02-fx" viewBox="0 0 1080 1920">
+          <ellipse id="s02-ring" class="ring" cx="300" cy="1080" rx="70" ry="70" />
+          <rect id="s02-search" class="ring" x="215" y="790" width="580" height="115" rx="57.5" ry="57.5" />
+        </svg>
+
+        <h1 class="scene-title" id="s02-title" style="font-size: 80px">
+          <span class="ln" id="s02-t1">Trouvez</span>
+          <span class="ln coral" id="s02-t2">votre style</span>
+        </h1>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const f = (n) => n / 30;
+          const AVATAR = { x: 223.67, y: 1005, scale: 0.166667 }; // = fin de S01
+          const AVATAR_S03 = { x: 380.82, y: 553.08, scale: 0.282051 }; // = avatar du profil S03, centre (510, 680)
+          const CLIP_AVATAR = "circle(390px at 458px 450px)";
+
+          // ---- raccord : avatar, anneau et contour de recherche arrivent de S01 déjà en place
+          gsap.set("#s02-avatar", { ...AVATAR, clipPath: CLIP_AVATAR });
+
+          // ---- 0–10 : arrivée du téléphone autour des éléments raccordés
+          tl.fromTo("#s02-phone", { opacity: 0, scale: 1.05, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: f(10), ease: "power3.out" }, 0);
+          tl.fromTo(["#s02-head", "#s02-head-sub", "#s02-field", "#s02-ico-search", "#s02-placeholder"], { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: f(9), ease: "power3.out", stagger: f(1) }, f(3));
+          tl.fromTo(["#s02-tabs", "#s02-tab-line", "#s02-tab-active"], { opacity: 0 }, { opacity: 1, duration: f(8), ease: "power2.out" }, f(6));
+          tl.fromTo("#s02-t1", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(2));
+          tl.fromTo("#s02-t2", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(5));
+
+          // ---- 10–28 : saisie progressive du handle (clic de champ à l'image 12)
+          const handle = "@daya_na990";
+          const typed = document.getElementById("s02-typed");
+          const caret = document.getElementById("s02-caret");
+          tl.set("#s02-placeholder", { opacity: 0 }, f(10));
+          tl.set("#s02-typed-wrap", { opacity: 1 }, f(10));
+          tl.set("#s02-ico-clear", { opacity: 1 }, f(12));
+          const len = { v: 0 };
+          tl.fromTo(
+            len,
+            { v: 0 },
+            {
+              v: handle.length,
+              duration: f(18),
+              ease: "none",
+              onUpdate: () => {
+                typed.textContent = handle.substring(0, Math.min(handle.length, Math.floor(len.v + 0.001)));
+              },
+            },
+            f(10),
+          );
+          const blink = { t: 0 };
+          tl.fromTo(
+            blink,
+            { t: 0 },
+            {
+              t: f(60),
+              duration: f(60),
+              ease: "none",
+              onUpdate: () => {
+                const typing = blink.t >= f(10) && blink.t < f(28);
+                caret.style.opacity = typing || blink.t % 0.5 < 0.25 ? "1" : "0";
+              },
+            },
+            0,
+          );
+          tl.fromTo("#s02-search", { strokeWidth: 5 }, { strokeWidth: 8, duration: f(3), ease: "power2.out", yoyo: true, repeat: 1 }, f(12));
+
+          // ---- 28–36 : résultat révélé
+          tl.fromTo("#s02-result", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: f(8), ease: "power3.out" }, f(28));
+          tl.fromTo("#s02-name", { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: f(8), ease: "power3.out" }, f(29));
+          tl.fromTo("#s02-handle", { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: f(8), ease: "power3.out" }, f(31));
+          tl.fromTo("#s02-chev", { opacity: 0 }, { opacity: 1, duration: f(6), ease: "power2.out" }, f(32));
+
+          // ---- 50 : sélection (clic) puis 50–60 : le résultat s'agrandit vers le profil
+          const T = f(50);
+          tl.to("#s02-result", { scale: 0.97, duration: f(2), ease: "power1.in" }, T);
+          tl.to("#s02-result", { scale: 1, duration: f(4), ease: "back.out(2)" }, T + f(2));
+          tl.to(["#s02-ui", "#s02-title"], { opacity: 0, duration: f(7), ease: "power2.in" }, T);
+          tl.to("#s02-search", { opacity: 0, duration: f(6), ease: "power2.in" }, T);
+          tl.to("#s02-avatar", { ...AVATAR_S03, duration: f(10), ease: "power3.inOut" }, T);
+          tl.to("#s02-ring", { attr: { cx: 510, cy: 680, rx: 118, ry: 118 }, duration: f(10), ease: "power3.inOut" }, T);
+          tl.to("#s02-name", { x: -98.4, y: -230, scale: 1.3, duration: f(10), ease: "power3.inOut" }, T);
+          tl.to("#s02-handle", { x: 6.33, y: -222, color: "#fff3e8", duration: f(10), ease: "power3.inOut" }, T);
+
+          window.__timelines["s02-recherche"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

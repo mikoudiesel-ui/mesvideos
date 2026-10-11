@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="maquette-template">
+      <link rel="stylesheet" href="assets/css/daya.css" />
+      <style>
+        @font-face {
+          font-family: "Daya Serif";
+          src: url("assets/fonts/DejaVuSerif-Bold.ttf") format("truetype");
+          font-weight: 700;
+        }
+        @font-face {
+          font-family: "Daya Sans";
+          src: url("assets/fonts/DejaVuSans.ttf") format("truetype");
+          font-weight: 400;
+        }
+        @font-face {
+          font-family: "Daya Sans";
+          src: url("assets/fonts/DejaVuSans-Bold.ttf") format("truetype");
+          font-weight: 700;
+        }
+        #maquette-root {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+        }
+        /* Marquage discret demandé par le dossier tant que les visuels sont illustratifs.
+           22 px : volontairement discret, hors des zones de lecture. */
+        #maquette-label {
+          position: absolute;
+          left: 80px;
+          top: 62px;
+          font-size: 22px;
+          letter-spacing: 0.32em;
+          color: rgba(255, 243, 232, 0.62);
+          white-space: nowrap;
+        }
+      </style>
+      <div id="maquette-root" data-composition-id="maquette" data-width="1080" data-height="1920" data-duration="26.466666666666665">
+        <div id="maquette-label" class="sans">MAQUETTE · VISUELS ILLUSTRATIFS</div>
+      </div>
+      <script>
+        window.__timelines["maquette"] = gsap.timeline({ paused: true });
+      </script>
+    </template>
+  </body>
+</html>

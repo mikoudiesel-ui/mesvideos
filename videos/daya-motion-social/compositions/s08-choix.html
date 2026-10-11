@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s08-choix-template">
+      <link rel="stylesheet" href="assets/css/daya.css" />
+      <style>
+        @font-face {
+          font-family: "Daya Serif";
+          src: url("assets/fonts/DejaVuSerif-Bold.ttf") format("truetype");
+          font-weight: 700;
+        }
+        @font-face {
+          font-family: "Daya Sans";
+          src: url("assets/fonts/DejaVuSans.ttf") format("truetype");
+          font-weight: 400;
+        }
+        @font-face {
+          font-family: "Daya Sans";
+          src: url("assets/fonts/DejaVuSans-Bold.ttf") format("truetype");
+          font-weight: 700;
+        }
+        #s08-root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        #s08-phone {
+          left: 90px;
+          top: 540px;
+          width: 520px;
+          height: 1030px;
+          border-radius: 64px;
+        }
+        #s08-phone .screen {
+          inset: 12px;
+          border-radius: 52px;
+        }
+        #s08-phone .island {
+          width: 130px;
+          height: 36px;
+          margin-left: -65px;
+          top: 20px;
+          border-radius: 18px;
+        }
+        #s08-phone .statusbar {
+          font-size: 20px;
+          height: 70px;
+        }
+        #s08-phone .statusbar .time {
+          left: 46px;
+          top: 26px;
+        }
+        #s08-phone .statusbar .icons {
+          right: 40px;
+          top: 26px;
+          transform: scale(0.8);
+          transform-origin: 100% 0;
+        }
+        #s08-pc {
+          position: absolute;
+          inset: 0;
+        }
+        #s08-pc > * {
+          position: absolute;
+        }
+        .s08-hero {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 870px;
+          height: 1668px;
+          transform-origin: 0 0;
+          background: url("assets/img/bleu-detoure.png") 0 0 / 870px 1668px no-repeat;
+        }
+        .s08-hero img {
+          display: block;
+          width: 870px;
+          height: 1668px;
+        }
+        #s08-name {
+          left: 0;
+          top: 345px;
+          width: 520px;
+          text-align: center;
+          font-size: 36px;
+          line-height: 1;
+          color: var(--cream);
+        }
+        #s08-handle {
+          left: 0;
+          top: 392px;
+          width: 520px;
+          text-align: center;
+          font-size: 22px;
+          line-height: 1;
+          color: var(--ui-muted);
+        }
+        #s08-msg {
+          left: 120px;
+          top: 436px;
+          width: 200px;
+          height: 56px;
+          border-radius: 14px;
+          font-size: 24px;
+        }
+        #s08-more {
+          left: 332px;
+          top: 436px;
+          width: 56px;
+          height: 56px;
+          border-radius: 14px;
+          background: #2a2431;
+          color: var(--ui-text);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .s08-tab {
+          top: 530px;
+          width: 34px;
+          height: 34px;
+          color: var(--ui-muted);
+        }
+        #s08-tabbar {
+          left: 40px;
+          top: 574px;
+          width: 110px;
+          height: 4px;
+          border-radius: 2px;
+          background: var(--ui-text);
+        }
+        .s08-tile {
+          left: 0;
+          top: 0;
+          width: 630px;
+          height: 960px;
+          border-radius: 36px;
+          transform-origin: 0 0;
+        }
+        .s08-tile .hero-img {
+          left: 67.87px;
+          top: 27.34px;
+          width: 469.4px;
+          height: 900px;
+        }
+        .s08-tile .cover {
+          object-position: 50% 0%;
+        }
+        .s08-tile .neon-ov {
+          position: absolute;
+          inset: 0;
+          border-radius: 36px;
+          border-width: 12px;
+        }
+        #s08-nav {
+          left: 12px;
+          top: 900px;
+          width: 496px;
+          height: 104px;
+          border-top: 2px solid #241e2b;
+        }
+        #s08-nav svg {
+          position: absolute;
+          top: 26px;
+          width: 38px;
+          height: 38px;
+          color: var(--ui-text);
+        }
+        .s08-w {
+          position: absolute;
+          left: 620px;
+          width: 300px;
+          height: 220px;
+          border-radius: 28px;
+          background: linear-gradient(160deg, rgba(48, 38, 52, 0.92) 0%, rgba(20, 16, 26, 0.94) 100%);
+          border: 2px solid rgba(214, 162, 74, 0.55);
+          box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+        }
+        .s08-wc {
+          position: absolute;
+          left: 620px;
+          width: 300px;
+          height: 220px;
+          opacity: 0;
+        }
+        .s08-wc > * {
+          position: absolute;
+        }
+        .s08-wc .wi {
+          left: 24px;
+          top: 24px;
+          width: 40px;
+          height: 40px;
+          color: var(--cream);
+        }
+        .s08-wc .wl {
+          left: 76px;
+          top: 30px;
+          font-size: 29px;
+          line-height: 1;
+          color: var(--cream);
+          white-space: nowrap;
+        }
+        .s08-wc .wch {
+          left: 254px;
+          top: 28px;
+          width: 30px;
+          height: 30px;
+          color: var(--ui-muted);
+        }
+        .s08-mini {
+          left: 0;
+          top: 0;
+          width: 630px;
+          height: 960px;
+          border-radius: 36px;
+          transform-origin: 0 0;
+        }
+        .s08-mini .hero-img {
+          left: 67.87px;
+          top: 27.34px;
+          width: 469.4px;
+          height: 900px;
+        }
+        .s08-mini .cover {
+          object-position: 50% 0%;
+        }
+        .s08-mini .mini-hero {
+          position: absolute;
+          left: 67.87px;
+          top: 27.34px;
+          width: 469.4px;
+          height: 900px;
+          background: url("assets/img/bleu-detoure.png") 0 0 / 469.4px 900px no-repeat;
+        }
+        .s08-mini.mini-rose {
+          background: url("assets/img/rose-photo.jpg") 50% 0% / cover no-repeat;
+        }
+        .s08-mini.mini-vert {
+          background: url("assets/img/vert-photo.jpg") 50% 0% / cover no-repeat;
+        }
+        #s08-mini-sel {
+          left: 23px;
+          top: 85px;
+          width: 82px;
+          height: 122px;
+          border-radius: 10px;
+          border: 3px solid var(--coral);
+          box-shadow: 0 0 14px rgba(255, 66, 105, 0.8);
+        }
+        .s08-dot {
+          top: 104px;
+          width: 58px;
+          height: 58px;
+          border-radius: 50%;
+        }
+        #s08-dot-sel {
+          left: 33px;
+          top: 96px;
+          width: 74px;
+          height: 74px;
+          border-radius: 50%;
+          border: 4px solid var(--coral);
+          box-shadow: 0 0 14px rgba(255, 66, 105, 0.8);
+        }
+        .s08-wc .sub {
+          left: 76px;
+          top: 120px;
+          font-size: 26px;
+          line-height: 1;
+          color: #d8ccd6;
+          white-space: nowrap;
+        }
+        .s08-wc .subi {
+          left: 24px;
+          top: 112px;
+          width: 40px;
+          height: 40px;
+          color: var(--coral);
+        }
+        #s08-floor {
+          opacity: 0;
+        }
+      </style>
+
+      <div id="s08-root" data-composition-id="s08-choix" data-width="1080" data-height="1920" data-duration="3.9">
+        <svg class="fx-svg" id="s08-floor" viewBox="0 0 1080 1920"><ellipse class="ring" cx="350" cy="1612" rx="290" ry="40" /></svg>
+
+        <div class="phone" id="s08-phone">
+          <div class="screen">
+            <div class="statusbar">
+              <span class="time">9:41</span>
+              <span class="icons"><span class="bars"><i style="height: 8px"></i><i style="height: 12px"></i><i style="height: 16px"></i><i style="height: 20px"></i></span><span class="batt"><i></i></span></span>
+            </div>
+            <div id="s08-pc">
+              <div class="s08-hero" id="s08-avatar" role="img" aria-label="Avatar BIKINIS SHOP (illustration)"></div>
+              <svg viewBox="0 0 496 1006" style="left: 0; top: 0; width: 496px; height: 1006px; overflow: visible"><ellipse class="ring" cx="248" cy="218" rx="92" ry="92" style="fill: none; stroke: #ff4269; stroke-width: 4; filter: drop-shadow(0 0 8px rgba(255, 66, 105, 0.9))" /></svg>
+              <div id="s08-name" class="serif" style="width: 496px">BIKINIS SHOP</div>
+              <div id="s08-handle" class="sans" style="width: 496px" data-layout-allow-overlap>@daya_na990</div>
+              <div id="s08-msg" class="btn-coral">Message</div>
+              <div id="s08-more"><svg class="ico" viewBox="0 0 24 24" style="width: 26px; height: 26px"><path d="M6 9 L12 15 L18 9" /></svg></div>
+              <svg class="ico s08-tab" viewBox="0 0 24 24" style="left: 78px; color: #f1e7ee"><rect x="4" y="4" width="4" height="4" fill="currentColor" stroke="none" /><rect x="10" y="4" width="4" height="4" fill="currentColor" stroke="none" /><rect x="16" y="4" width="4" height="4" fill="currentColor" stroke="none" /><rect x="4" y="10" width="4" height="4" fill="currentColor" stroke="none" /><rect x="10" y="10" width="4" height="4" fill="currentColor" stroke="none" /><rect x="16" y="10" width="4" height="4" fill="currentColor" stroke="none" /><rect x="4" y="16" width="4" height="4" fill="currentColor" stroke="none" /><rect x="10" y="16" width="4" height="4" fill="currentColor" stroke="none" /><rect x="16" y="16" width="4" height="4" fill="currentColor" stroke="none" /></svg>
+              <svg class="ico s08-tab" viewBox="0 0 24 24" style="left: 231px"><path d="M5 8 H19 L18 20 H6 Z" /><path d="M9 8 V6.5 a3 3 0 0 1 6 0 V8" /></svg>
+              <svg class="ico s08-tab" viewBox="0 0 24 24" style="left: 384px"><path d="M12 20 C 5 15, 3 11.5, 3 8.5 a4.5 4.5 0 0 1 9 -1 a4.5 4.5 0 0 1 9 1 C 21 11.5, 19 15, 12 20 Z" /></svg>
+              <div id="s08-tabbar"></div>
+              <div class="photo-card s08-tile" id="s08-tile-blue">
+                <div class="bg studio"></div>
+                <img class="hero-img" src="assets/img/bleu-detoure.png" alt="Bikini bleu fleuri (illustration)" />
+                <div class="neon-ov neon" id="s08-tile-neon"></div>
+              </div>
+              <div class="photo-card s08-tile" id="s08-tile-pink"><img class="cover" src="assets/img/rose-photo.jpg" alt="Bikini rose (illustration)" /></div>
+              <div class="photo-card s08-tile" id="s08-tile-green"><img class="cover" src="assets/img/vert-photo.jpg" alt="Bikini vert (illustration)" /></div>
+              <div id="s08-nav">
+                <svg class="ico" viewBox="0 0 24 24" style="left: 36px"><path d="M4 11 L12 4 L20 11 V20 H14.5 V14.5 H9.5 V20 H4 Z" /></svg>
+                <svg class="ico" viewBox="0 0 24 24" style="left: 132px"><circle cx="10.5" cy="10.5" r="6.5" /><path d="M15.5 15.5 L21 21" /></svg>
+                <svg class="ico" viewBox="0 0 24 24" style="left: 229px"><rect x="3" y="6" width="18" height="12" rx="3" /><path d="M12 9 V15 M9 12 H15" /></svg>
+                <svg class="ico" viewBox="0 0 24 24" style="left: 326px"><path d="M4 5 H20 V16 H13 L8.5 20 V16 H4 Z" /></svg>
+                <svg class="ico" viewBox="0 0 24 24" style="left: 422px"><circle cx="12" cy="8" r="4" /><path d="M4.5 20 a7.5 7.5 0 0 1 15 0" /></svg>
+              </div>
+            </div>
+          </div>
+          <div class="island"></div>
+        </div>
+
+        <!-- coques des widgets : présentes dès l'image 0 (raccord des inserts de S07) -->
+        <div class="s08-w" id="s08-w-modele" style="top: 620px"></div>
+        <div class="s08-w" id="s08-w-couleur" style="top: 890px"></div>
+        <div class="s08-w" id="s08-w-dispo" style="top: 1160px"></div>
+
+        <div class="s08-wc" id="s08-wc-modele" style="top: 620px">
+          <svg class="ico wi" viewBox="0 0 24 24"><path d="M3 9 L8 17 L12 12 L16 17 L21 9" /><path d="M8 17 C 9 18, 11 18, 12 12 C 13 18, 15 18, 16 17" /></svg>
+          <div class="wl sans-b">Modèle</div>
+          <svg class="ico wch" viewBox="0 0 24 24"><path d="M9 5 L16 12 L9 19" /></svg>
+          <div class="photo-card s08-mini" id="s08-mini-blue" role="img" aria-label="Bleu fleuri"><div class="bg studio"></div><div class="mini-hero"></div></div>
+          <div class="photo-card s08-mini mini-rose" id="s08-mini-pink" role="img" aria-label="Rose"></div>
+          <div class="photo-card s08-mini mini-vert" id="s08-mini-green" role="img" aria-label="Vert"></div>
+          <div id="s08-mini-sel"></div>
+        </div>
+        <div class="s08-wc" id="s08-wc-couleur" style="top: 890px">
+          <svg class="ico wi" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" /></svg>
+          <div class="wl sans-b">Couleur</div>
+          <svg class="ico wch" viewBox="0 0 24 24"><path d="M9 5 L16 12 L9 19" /></svg>
+          <div class="s08-dot" style="left: 41px; background: #2f5fd8"></div>
+          <div class="s08-dot" style="left: 121px; background: #f0646e"></div>
+          <div class="s08-dot" style="left: 201px; background: #1f9a5c"></div>
+          <div id="s08-dot-sel"></div>
+        </div>
+        <div class="s08-wc" id="s08-wc-dispo" style="top: 1160px">
+          <svg class="ico wi" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2" /><path d="M4 10 H20 M8 3 V7 M16 3 V7" /></svg>
+          <div class="wl sans-b" style="font-size: 24px; top: 33px">Disponibilité</div>
+          <svg class="ico wch" viewBox="0 0 24 24"><path d="M9 5 L16 12 L9 19" /></svg>
+          <svg class="ico subi" viewBox="0 0 24 24"><path d="M4 5 H20 V16 H13 L8.5 20 V16 H4 Z" /></svg>
+          <div class="sub sans">Sur demande</div>
+        </div>
+
+        <h1 class="scene-title" id="s08-title" style="font-size: 80px">
+          <span class="ln" id="s08-t1">Votre style.</span>
+          <span class="ln coral" id="s08-t2">Votre choix.</span>
+        </h1>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const f = (n) => n / 30;
+          // avatar dans l'écran du téléphone (coordonnées de l'écran 496×1006) : centre (248, 218), rayon 85
+          gsap.set("#s08-avatar", { x: 248 - 458 * 0.217949, y: 218 - 450 * 0.217949, scale: 0.217949, clipPath: "circle(390px at 458px 450px)" });
+          const TILE = 152 / 630;
+          gsap.set("#s08-tile-blue", { x: 10, y: 600, scale: TILE });
+          gsap.set("#s08-tile-pink", { x: 172, y: 600, scale: TILE });
+          gsap.set("#s08-tile-green", { x: 334, y: 600, scale: TILE });
+          const MINI = 76 / 630;
+          gsap.set("#s08-mini-blue", { x: 26, y: 88, scale: MINI });
+          gsap.set("#s08-mini-pink", { x: 112, y: 88, scale: MINI });
+          gsap.set("#s08-mini-green", { x: 198, y: 88, scale: MINI });
+
+          // ---- 0–18 : le téléphone entre ; les coques de widgets attendent (raccord S07)
+          tl.fromTo("#s08-phone", { x: -150, y: 80, rotation: -12, opacity: 0, transformOrigin: "50% 50%" }, { x: 0, y: 0, rotation: -4, opacity: 1, duration: f(18), ease: "power3.out" }, 0);
+          tl.fromTo("#s08-floor", { opacity: 0 }, { opacity: 1, duration: f(12), ease: "power2.out" }, f(6));
+          tl.fromTo("#s08-t1", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(2));
+          tl.fromTo("#s08-t2", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(5));
+
+          // ---- widgets aux images 18, 24 et 30 (options de demande, sans confirmation de stock)
+          [
+            ["#s08-wc-modele", "#s08-mini-sel", 18],
+            ["#s08-wc-couleur", "#s08-dot-sel", 24],
+            ["#s08-wc-dispo", "#s08-wc-dispo .subi", 30],
+          ].forEach(([wc, sel, fr]) => {
+            tl.fromTo(wc, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: f(8), ease: "power3.out" }, f(fr));
+            tl.fromTo(sel, { scale: 0.6, transformOrigin: "50% 50%" }, { scale: 1, duration: f(8), ease: "back.out(1.8)" }, f(fr + 2));
+          });
+
+          // ---- pose 30–99 : seule la sélection bleue pulse brièvement
+          tl.to("#s08-tile-neon", { opacity: 0.35, duration: f(5), ease: "sine.inOut", yoyo: true, repeat: 1 }, f(60));
+
+          // ---- sortie 99–117 : la caméra avance, le téléphone devient le cadre du showroom
+          const T = f(99);
+          tl.to("#s08-phone", { x: 180, y: -19.1, scale: 1.06, rotation: 0, duration: f(18), ease: "power3.inOut" }, T);
+          tl.to("#s08-pc", { opacity: 0, duration: f(10), ease: "power2.in" }, T);
+          tl.to(["#s08-w-modele", "#s08-wc-modele"], { x: 220, opacity: 0, duration: f(11), ease: "power2.in" }, T);
+          tl.to(["#s08-w-couleur", "#s08-wc-couleur"], { x: 220, opacity: 0, duration: f(11), ease: "power2.in" }, T + f(2));
+          tl.to(["#s08-w-dispo", "#s08-wc-dispo"], { x: 220, opacity: 0, duration: f(11), ease: "power2.in" }, T + f(4));
+          tl.to("#s08-floor", { opacity: 0, duration: f(10), ease: "power2.in" }, T);
+          tl.to(["#s08-t1", "#s08-t2"], { opacity: 0, y: -20, duration: f(8), ease: "power2.in", stagger: f(1) }, T);
+
+          window.__timelines["s08-choix"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

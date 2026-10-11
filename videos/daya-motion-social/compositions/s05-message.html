@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s05-message-template">
+      <link rel="stylesheet" href="assets/css/daya.css" />
+      <style>
+        @font-face {
+          font-family: "Daya Serif";
+          src: url("assets/fonts/DejaVuSerif-Bold.ttf") format("truetype");
+          font-weight: 700;
+        }
+        @font-face {
+          font-family: "Daya Sans";
+          src: url("assets/fonts/DejaVuSans.ttf") format("truetype");
+          font-weight: 400;
+        }
+        @font-face {
+          font-family: "Daya Sans";
+          src: url("assets/fonts/DejaVuSans-Bold.ttf") format("truetype");
+          font-weight: 700;
+        }
+        #s05-root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        #s05-phone {
+          left: 170px;
+          top: 440px;
+          width: 680px;
+          height: 1180px;
+        }
+        #s05-header > *,
+        #s05-composer > * {
+          position: absolute;
+        }
+        #s05-back {
+          left: 200px;
+          top: 518px;
+          width: 40px;
+          height: 40px;
+          color: var(--ui-text);
+        }
+        .s05-hero {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 870px;
+          height: 1668px;
+          transform-origin: 0 0;
+          background: url("assets/img/bleu-detoure.png") 0 0 / 870px 1668px no-repeat;
+        }
+        .s05-hero img {
+          display: block;
+          width: 870px;
+          height: 1668px;
+        }
+        #s05-hname {
+          left: 352px;
+          top: 514px;
+          font-size: 28px;
+          line-height: 1;
+          color: var(--ui-text);
+        }
+        #s05-hhandle {
+          left: 352px;
+          top: 552px;
+          font-size: 24px;
+          line-height: 1;
+          color: var(--ui-muted);
+        }
+        #s05-call {
+          left: 692px;
+          top: 518px;
+          width: 40px;
+          height: 40px;
+          color: var(--ui-text);
+        }
+        #s05-hdots {
+          left: 760px;
+          top: 518px;
+          width: 40px;
+          height: 40px;
+          color: var(--ui-text);
+        }
+        #s05-hline {
+          left: 184px;
+          top: 600px;
+          width: 652px;
+          height: 2px;
+          background: #241e2b;
+        }
+        .s05-card {
+          left: 0;
+          top: 0;
+          width: 630px;
+          height: 960px;
+          border-radius: 36px;
+          transform-origin: 0 0;
+        }
+        .s05-card .hero-img {
+          left: 67.87px;
+          top: 27.34px;
+          width: 469.4px;
+          height: 900px;
+        }
+        .s05-card .shade {
+          position: absolute;
+          inset: 0;
+          border-radius: 36px;
+          background: linear-gradient(180deg, rgba(20, 10, 8, 0) 70%, rgba(20, 10, 8, 0.45) 100%);
+        }
+        #s05-field {
+          left: 205px;
+          top: 1110px;
+          width: 610px;
+          height: 105px;
+          border-radius: 32px;
+          background: #1f1a26;
+          border: 2px solid #3a3142;
+        }
+        #s05-bubble {
+          left: 226px;
+          top: 1142px;
+          width: 40px;
+          height: 40px;
+          color: var(--ui-muted);
+        }
+        #s05-text {
+          left: 284px;
+          top: 1126px;
+          width: 420px;
+          font-size: 30px;
+          line-height: 1.25;
+          color: var(--cream);
+        }
+        #s05-caret {
+          display: inline-block;
+          width: 3px;
+          height: 32px;
+          margin-left: 2px;
+          vertical-align: -5px;
+          background: var(--coral);
+        }
+        #s05-send {
+          left: 722px;
+          top: 1124px;
+          width: 76px;
+          height: 76px;
+          border-radius: 50%;
+        }
+        #s05-burst {
+          left: 712px;
+          top: 1114px;
+          width: 96px;
+          height: 96px;
+          border-radius: 50%;
+          border: 3px solid var(--coral);
+          opacity: 0;
+        }
+        #s05-example {
+          left: 330px;
+          top: 1240px;
+          width: 360px;
+          height: 50px;
+          border-radius: 25px;
+          border: 2px solid var(--coral);
+          color: #ff8ea6;
+          font-size: 22px;
+          letter-spacing: 0.14em;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 0 16px rgba(255, 66, 105, 0.45);
+          background: rgba(24, 20, 33, 0.85);
+        }
+        #s05-arrow {
+          left: 0;
+          top: 0;
+          width: 1080px;
+          height: 1920px;
+          overflow: visible;
+        }
+        #s05-kb {
+          position: absolute;
+          left: 184px;
+          top: 1308px;
+          width: 652px;
+          height: 298px;
+          background: #141018;
+          border-radius: 0 0 62px 62px;
+        }
+        #s05-kb .k {
+          position: absolute;
+          height: 58px;
+          border-radius: 10px;
+          background: #2b2531;
+          color: var(--cream);
+          font-size: 26px;
+          line-height: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      </style>
+
+      <div id="s05-root" data-composition-id="s05-message" data-width="1080" data-height="1920" data-duration="1.8">
+        <div id="s05-panels">
+          <div class="phone" id="s05-phone">
+            <div class="screen">
+              <div class="statusbar">
+                <span class="time">9:41</span>
+                <span class="icons"><span class="bars"><i style="height: 8px"></i><i style="height: 12px"></i><i style="height: 16px"></i><i style="height: 20px"></i></span><span class="batt"><i></i></span></span>
+              </div>
+            </div>
+            <div class="island"></div>
+          </div>
+          <div id="s05-header">
+            <svg id="s05-back" class="ico" viewBox="0 0 24 24"><path d="M15 5 L8 12 L15 19" /></svg>
+            <div class="s05-hero" id="s05-mini" role="img" aria-label="Avatar BIKINIS SHOP (illustration)"></div>
+            <svg class="fx-svg" viewBox="0 0 1080 1920"><ellipse class="ring" cx="300" cy="538" rx="40" ry="40" style="stroke-width: 3" /></svg>
+            <div id="s05-hname" class="sans-b">BIKINIS SHOP</div>
+            <div id="s05-hhandle" class="sans">@daya_na990</div>
+            <svg id="s05-call" class="ico" viewBox="0 0 24 24"><path d="M6.5 3.5 L9.5 3.5 L11 8 L9 9.5 C 10 12, 12 14, 14.5 15 L16 13 L20.5 14.5 L20.5 17.5 C 20.5 19, 19 20.5, 17.5 20.5 C 10 20, 4 14, 3.5 6.5 C 3.5 5, 5 3.5, 6.5 3.5 Z" /></svg>
+            <svg id="s05-hdots" class="ico" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.4" fill="currentColor" /><circle cx="12" cy="12" r="1.4" fill="currentColor" /><circle cx="12" cy="19" r="1.4" fill="currentColor" /></svg>
+            <div id="s05-hline"></div>
+          </div>
+          <div id="s05-composer">
+            <div id="s05-field"></div>
+            <svg id="s05-bubble" class="ico" viewBox="0 0 24 24"><path d="M4 5 H20 V16 H13 L8.5 20 V16 H4 Z" /></svg>
+            <div id="s05-text" class="sans"><span id="s05-typed"></span><span id="s05-caret"></span></div>
+            <div id="s05-burst"></div>
+            <div id="s05-send" class="btn-coral"><svg class="ico" viewBox="0 0 24 24" style="width: 38px; height: 38px; stroke-width: 2.6"><path d="M4 12 L20 4 L14 20 L11.5 13 Z" /><path d="M11.5 13 L20 4" /></svg></div>
+            <svg id="s05-arrow" viewBox="0 0 1080 1920"><path d="M335 1266 C 268 1266, 236 1252, 232 1222" fill="none" stroke="#ff4269" stroke-width="3" stroke-linecap="round" /><path d="M222 1232 L232 1220 L244 1231" fill="none" stroke="#ff4269" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            <div id="s05-example" class="sans-b">EXEMPLE DE MESSAGE</div>
+          </div>
+          <div id="s05-kb" class="sans"></div>
+        </div>
+
+        <div class="photo-card s05-card" id="s05-photo">
+          <div class="bg studio"></div>
+          <img class="hero-img" src="assets/img/bleu-detoure.png" alt="Bikini bleu fleuri (illustration)" />
+          <div class="shade"></div>
+        </div>
+
+        <h1 class="scene-title" id="s05-title" style="font-size: 80px">
+          <span class="ln" id="s05-t1">Un modèle</span>
+          <span class="ln coral" id="s05-t2">vous plaît ?</span>
+        </h1>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const f = (n) => n / 30;
+          // photo jointe = carte bleue de S04 réduite (630×960 × 0,444 → 280×427)
+          gsap.set("#s05-photo", { x: 230, y: 650, scale: 0.444444 });
+          // mini-avatar d'en-tête : centre (300, 538), rayon 38
+          gsap.set("#s05-mini", { x: 255.38, y: 494.15, scale: 0.097436, clipPath: "circle(390px at 458px 450px)" });
+
+          // clavier AZERTY (repère visuel, aucune touche active)
+          const kb = document.getElementById("s05-kb");
+          const rows = [
+            { y: 14, keys: "AZERTYUIOP".split("").map((c) => [c, 56]) },
+            { y: 82, keys: "QSDFGHJKLM".split("").map((c) => [c, 56]) },
+            { y: 150, keys: [["⇧", 86], ...("WXCVBN".split("").map((c) => [c, 56])), ["⌫", 86]] },
+            { y: 218, keys: [["123", 86], ["☺", 60], ["espace", 300], ["↵", 120]] },
+          ];
+          rows.forEach((row) => {
+            const total = row.keys.reduce((s, k) => s + k[1], 0) + 6 * (row.keys.length - 1);
+            let x = (652 - total) / 2;
+            row.keys.forEach(([label, w]) => {
+              const k = document.createElement("div");
+              k.className = "k";
+              k.textContent = label;
+              k.style.left = `${x}px`;
+              k.style.top = `${row.y}px`;
+              k.style.width = `${w}px`;
+              kb.appendChild(k);
+              x += w + 6;
+            });
+          });
+
+          // ---- 0–10 : photo (déjà en place) puis messagerie
+          tl.fromTo("#s05-phone", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: f(10), ease: "power3.out" }, 0);
+          tl.fromTo("#s05-header", { opacity: 0, y: -14 }, { opacity: 1, y: 0, duration: f(8), ease: "power3.out" }, f(2));
+          tl.fromTo("#s05-composer", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: f(9), ease: "power3.out" }, f(4));
+          tl.fromTo("#s05-kb", { opacity: 0, y: 90 }, { opacity: 1, y: 0, duration: f(10), ease: "power3.out" }, f(4));
+          tl.fromTo(["#s05-example", "#s05-arrow"], { opacity: 0, scale: 0.92, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: f(8), ease: "power3.out" }, f(10));
+          tl.fromTo("#s05-t1", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(2));
+          tl.fromTo("#s05-t2", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(5));
+
+          // ---- 10–34 : brouillon saisi progressivement (exemple, sans réponse de la boutique)
+          const msg = "Bonjour, ce modèle est disponible ?";
+          const typed = document.getElementById("s05-typed");
+          const caret = document.getElementById("s05-caret");
+          const len = { v: 0 };
+          tl.fromTo(
+            len,
+            { v: 0 },
+            {
+              v: msg.length,
+              duration: f(24),
+              ease: "power1.inOut",
+              onUpdate: () => {
+                typed.textContent = msg.substring(0, Math.min(msg.length, Math.floor(len.v + 0.001)));
+              },
+            },
+            f(10),
+          );
+          const blink = { t: 0 };
+          tl.fromTo(
+            blink,
+            { t: 0 },
+            {
+              t: f(54),
+              duration: f(54),
+              ease: "none",
+              onUpdate: () => {
+                const typing = blink.t >= f(10) && blink.t < f(34);
+                caret.style.opacity = typing || blink.t % 0.5 < 0.25 ? "1" : "0";
+              },
+            },
+            0,
+          );
+
+          // ---- 42 : appui sur le bouton d'envoi (retour visuel seulement)
+          tl.to("#s05-send", { scale: 0.86, duration: f(2), ease: "power1.in" }, f(42));
+          tl.to("#s05-send", { scale: 1, duration: f(5), ease: "back.out(2.2)" }, f(44));
+          tl.fromTo("#s05-burst", { opacity: 0, scale: 0.8 }, { opacity: 0.9, scale: 1.25, duration: f(4), ease: "power2.out", immediateRender: false }, f(44));
+          tl.to("#s05-burst", { opacity: 0, scale: 1.5, duration: f(5), ease: "power2.in" }, f(48));
+
+          // ---- sortie 44–54 : les panneaux se séparent de la photo pour le reveal
+          const T = f(44);
+          tl.to("#s05-phone", { opacity: 0, y: -40, scale: 1.04, transformOrigin: "50% 50%", duration: f(9), ease: "power2.in" }, T);
+          tl.to("#s05-header", { opacity: 0, y: -80, duration: f(8), ease: "power2.in" }, T);
+          tl.to("#s05-kb", { opacity: 0, y: 200, duration: f(8), ease: "power2.in" }, T);
+          tl.to("#s05-composer", { opacity: 0, y: 220, duration: f(9), ease: "power2.inOut" }, T);
+          tl.to(["#s05-t1", "#s05-t2"], { opacity: 0, y: -20, duration: f(7), ease: "power2.in", stagger: f(1) }, T);
+
+          window.__timelines["s05-message"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s13-signature-template">
+      <link rel="stylesheet" href="assets/css/daya.css" />
+      <style>
+        @font-face {
+          font-family: "Daya Serif";
+          src: url("assets/fonts/DejaVuSerif-Bold.ttf") format("truetype");
+          font-weight: 700;
+        }
+        @font-face {
+          font-family: "Daya Sans";
+          src: url("assets/fonts/DejaVuSans.ttf") format("truetype");
+          font-weight: 400;
+        }
+        @font-face {
+          font-family: "Daya Sans";
+          src: url("assets/fonts/DejaVuSans-Bold.ttf") format("truetype");
+          font-weight: 700;
+        }
+        #s13-root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        #s13-halo {
+          position: absolute;
+          left: 80px;
+          top: 450px;
+          width: 860px;
+          height: 860px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(255, 96, 110, 0.42) 0%, rgba(255, 140, 80, 0.2) 34%, rgba(255, 66, 105, 0) 68%);
+        }
+        #s13-shadow {
+          position: absolute;
+          left: 270px;
+          top: 1232px;
+          width: 480px;
+          height: 80px;
+          border-radius: 50%;
+          background: radial-gradient(ellipse, rgba(8, 4, 10, 0.75) 0%, rgba(8, 4, 10, 0) 70%);
+        }
+        #s13-hero {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 870px;
+          height: 1668px;
+          transform-origin: 0 0;
+        }
+        #s13-hero img {
+          display: block;
+          width: 870px;
+          height: 1668px;
+        }
+        #s13-title {
+          top: 108px;
+        }
+        #s13-title .a {
+          font-size: 56px;
+        }
+        #s13-title .b {
+          font-size: 96px;
+          line-height: 1.02;
+        }
+        #s13-title .c {
+          font-size: 72px;
+        }
+        #s13-brand {
+          position: absolute;
+          left: 110px;
+          top: 1336px;
+          width: 800px;
+          text-align: center;
+          font-size: 60px;
+          line-height: 1;
+        }
+        #s13-handle {
+          position: absolute;
+          left: 110px;
+          top: 1414px;
+          width: 800px;
+          text-align: center;
+          font-size: 48px;
+          line-height: 1;
+        }
+        #s13-cta {
+          left: 120px;
+          top: 1500px;
+          width: 780px;
+          height: 120px;
+          border-radius: 30px;
+          gap: 22px;
+          font-size: 44px;
+          box-shadow:
+            0 0 30px rgba(255, 66, 105, 0.6),
+            0 18px 40px rgba(0, 0, 0, 0.45);
+        }
+        #s13-cta-glow {
+          position: absolute;
+          left: 100px;
+          top: 1480px;
+          width: 820px;
+          height: 160px;
+          border-radius: 44px;
+          background: radial-gradient(ellipse, rgba(255, 66, 105, 0.55) 0%, rgba(255, 66, 105, 0) 70%);
+          opacity: 0;
+        }
+      </style>
+
+      <div id="s13-root" data-composition-id="s13-signature" data-width="1080" data-height="1920" data-duration="2.5">
+        <div id="s13-halo"></div>
+        <div id="s13-shadow"></div>
+        <svg class="fx-svg" id="s13-fx" viewBox="0 0 1080 1920">
+          <ellipse id="s13-ring" class="ring" cx="510" cy="1270" rx="280" ry="48" />
+        </svg>
+        <div id="s13-hero"><img src="assets/img/bleu-detoure.png" alt="Bikini bleu fleuri sur mannequin doré (illustration)" /></div>
+
+        <h1 class="scene-title" id="s13-title">
+          <span class="ln a" id="s13-t1">Votre prochain</span>
+          <span class="ln b" id="s13-t2">look</span>
+          <span class="ln c coral" id="s13-t3">commence ici.</span>
+        </h1>
+        <div id="s13-brand" class="brand-name">Bikinis Shop</div>
+        <div id="s13-handle" class="handle">@daya_na990</div>
+        <div id="s13-cta-glow"></div>
+        <div id="s13-cta" class="btn-coral">
+          <svg class="ico" viewBox="0 0 24 24" style="width: 54px; height: 54px; stroke-width: 2.2; color: #fff8f2"><path d="M4 5 H20 V16 H13 L8.5 20 V16 H4 Z" /><path d="M8 9.5 H16 M8 12.5 H13" /></svg>
+          <span>Écrivez-nous sur TikTok</span>
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const f = (n) => n / 30;
+          const HERO = { x: 284.8, y: 459.4, scale: 0.491607 }; // = fin de S12 ; centre x 510, haut de tête y 480
+          // état intermédiaire partagé avec S14 (30 % du chemin vers le cercle final)
+          const HERO_MID = { x: 257.5, y: 494.2, scale: 0.551268 };
+          const CLIP_OPEN = "circle(1300px at 458px 470px)";
+          const CLIP_MID = "circle(1036px at 458px 470px)";
+          gsap.set("#s13-hero", { ...HERO, clipPath: CLIP_OPEN });
+
+          // ---- 0–9 : la signature apparaît ; le CTA est en place au plus tard à l'image 9
+          tl.fromTo("#s13-halo", { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: f(9), ease: "power2.out" }, 0);
+          tl.fromTo("#s13-shadow", { opacity: 0 }, { opacity: 1, duration: f(8), ease: "power2.out" }, 0);
+          tl.fromTo("#s13-cta", { opacity: 0, scale: 0.9, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: f(8), ease: "power3.out" }, 0);
+          tl.fromTo("#s13-brand", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: f(7), ease: "power3.out" }, 0);
+          tl.fromTo("#s13-handle", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: f(7), ease: "power3.out" }, f(1));
+          tl.fromTo("#s13-t1", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: f(8), ease: "power3.out" }, 0);
+          tl.fromTo("#s13-t2", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: f(8), ease: "power3.out" }, f(1));
+          tl.fromTo("#s13-t3", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: f(8), ease: "power3.out" }, f(1));
+
+          // ---- pose 9–69 : contact lisible, produit presque immobile, une seule respiration du CTA
+          tl.fromTo("#s13-hero", { scale: HERO.scale }, { scale: HERO.scale * 1.008, x: HERO.x - 3.5, duration: f(60), ease: "sine.inOut" }, f(9));
+          tl.fromTo("#s13-cta-glow", { opacity: 0 }, { opacity: 1, duration: f(12), ease: "sine.inOut", yoyo: true, repeat: 1 }, f(30));
+
+          // ---- sortie 69–75 : les textes disparaissent, le halo se concentre sur le produit
+          const T = f(69);
+          tl.to(["#s13-title", "#s13-brand", "#s13-handle", "#s13-cta", "#s13-shadow"], { opacity: 0, duration: f(5), ease: "power2.in" }, T);
+          tl.to("#s13-halo", { scale: 0.85, duration: f(6), ease: "power2.in" }, T);
+          tl.to("#s13-hero", { ...HERO_MID, clipPath: CLIP_MID, duration: f(6), ease: "power2.in" }, T);
+          tl.to("#s13-ring", { attr: { cy: 1159, rx: 286, ry: 123.6 }, duration: f(6), ease: "power2.in" }, T);
+
+          window.__timelines["s13-signature"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>
