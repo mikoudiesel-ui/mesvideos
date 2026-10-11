@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#9fb4c8"/><stop offset="1" stop-color="#3d3a36"/></linearGradient></defs>
+<rect width="1080" height="1920" fill="url(#g)"/>
+<rect x="0" y="380" width="1080" height="700" fill="#cfc6b8"/><text x="540" y="520" fill="#2b2b2b" font-family="sans-serif" font-weight="700" font-size="96" text-anchor="middle">LA CAGE</text><path d="M120,760 L260,690 L400,760 Z" fill="#c8141f"/><path d="M680,760 L820,690 L960,760 Z" fill="#c8141f"/><g transform="translate(330 980) scale(2.2)"><circle cx="0" cy="0" r="34" fill="#e8c3a0"/><path d="M-62,190 Q-60,60 0,52 Q60,60 62,190 Z" fill="#d8c3a2"/></g><g transform="translate(760 980) scale(2.2)"><circle cx="0" cy="0" r="34" fill="#e8c3a0"/><path d="M-62,190 Q-60,60 0,52 Q60,60 62,190 Z" fill="#3c6fb5"/></g><g transform="translate(40 1280) scale(2.5)" opacity="1.0"><path d="M12,108 L28,84 Q60,72 118,64 L168,42 Q198,30 248,32 L302,52 Q360,58 386,74 L394,100 L382,112 L344,112 A26,26 0 0 0 292,112 L118,112 A26,26 0 0 0 66,112 Z" fill="#e11d2a"/><path d="M176,46 L206,38 L246,38 L286,56 L176,60 Z" fill="#000" opacity=".35"/><circle cx="92" cy="112" r="22" fill="#111"/><circle cx="92" cy="112" r="10" fill="#777"/><circle cx="318" cy="112" r="22" fill="#111"/><circle cx="318" cy="112" r="10" fill="#777"/></g><rect x="0" y="1630" width="1080" height="290" fill="#55504a"/>
+<rect x="41" y="1789" width="998" height="90" rx="20" fill="#000" opacity=".45"/>
+<text x="540" y="1848" fill="#fff" opacity=".85" font-family="sans-serif" font-size="41" text-anchor="middle">PLACEHOLDER · reel-boxster.jpg (vidéo du reel, 9:16)</text>
+</svg>

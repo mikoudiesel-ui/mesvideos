@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#4a1a1d"/><stop offset="1" stop-color="#160809"/></linearGradient></defs>
+<rect width="600" height="600" fill="url(#g)"/>
+<g transform="translate(100 300) scale(1.0)" opacity="1.0"><path d="M12,108 L28,84 Q60,72 118,64 L168,42 Q198,30 248,32 L302,52 Q360,58 386,74 L394,100 L382,112 L344,112 A26,26 0 0 0 292,112 L118,112 A26,26 0 0 0 66,112 Z" fill="#e11d2a"/><path d="M176,46 L206,38 L246,38 L286,56 L176,60 Z" fill="#000" opacity=".35"/><circle cx="92" cy="112" r="22" fill="#111"/><circle cx="92" cy="112" r="10" fill="#777"/><circle cx="318" cy="112" r="22" fill="#111"/><circle cx="318" cy="112" r="10" fill="#777"/></g>
+<rect x="23" y="526" width="554" height="51" rx="12" fill="#000" opacity=".45"/>
+<text x="300" y="560" fill="#fff" opacity=".85" font-family="sans-serif" font-size="23" text-anchor="middle">PLACEHOLDER · Boxster S rouge</text>
+</svg>

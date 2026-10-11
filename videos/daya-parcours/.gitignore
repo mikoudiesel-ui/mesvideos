@@ -1,0 +1,6 @@
+snapshots/
+.hyperframes/
+node_modules/
+*.log
+renders/*
+!renders/bikini-shop-parcours.mp4

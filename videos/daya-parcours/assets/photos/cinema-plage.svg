@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#2a1b3d"/><stop offset="1" stop-color="#ff8a6b"/></linearGradient></defs>
+<rect width="1080" height="1920" fill="url(#g)"/>
+<circle cx="540" cy="900" r="300" fill="#ffc93c" opacity=".85"/><rect x="0" y="980" width="1080" height="300" fill="#e2765f" opacity=".85"/><rect x="0" y="1260" width="1080" height="660" fill="#e2b47e"/><g transform="translate(540 1060) scale(3.4)"><path d="M-30,-10 Q-40,-60 0,-62 Q40,-60 30,-10 L36,40 L-36,40 Z" fill="#2b1d1a"/><circle cx="0" cy="0" r="32" fill="#8d5a3b"/><path d="M-50,190 Q-56,60 0,50 Q56,60 50,190 Z" fill="#8d5a3b"/><path d="M-38,92 Q0,110 38,92 L36,118 Q0,128 -36,118 Z" fill="#ff4f70"/><path d="M-40,168 L40,168 L22,196 L-22,196 Z" fill="#ff4f70"/></g>
+<rect x="41" y="1789" width="998" height="90" rx="20" fill="#000" opacity=".45"/>
+<text x="540" y="1848" fill="#fff" opacity=".85" font-family="sans-serif" font-size="41" text-anchor="middle">PLACEHOLDER · cinema-plage.mp4 (vidéo plein écran)</text>
+</svg>

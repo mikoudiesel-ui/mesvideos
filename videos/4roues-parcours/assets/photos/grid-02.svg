@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#3a2a22"/><stop offset="1" stop-color="#120c0a"/></linearGradient></defs>
+<rect width="600" height="600" fill="url(#g)"/>
+<g transform="translate(300 230) scale(1.6)"><circle cx="0" cy="0" r="34" fill="#e8c3a0"/><path d="M-62,190 Q-60,60 0,52 Q60,60 62,190 Z" fill="#22324f"/></g>
+<rect x="23" y="526" width="554" height="51" rx="12" fill="#000" opacity=".45"/>
+<text x="300" y="560" fill="#fff" opacity=".85" font-family="sans-serif" font-size="23" text-anchor="middle">PLACEHOLDER · client + clés</text>
+</svg>
