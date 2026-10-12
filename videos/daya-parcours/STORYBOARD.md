@@ -1,8 +1,8 @@
 ---
 format: 1080x1920
-duration: 26.5s
+duration: 28.5s
 message: "BIKINI SHOP (@daya_na990) : tu trouves ton bikini sur TikTok, tu commandes en un message, il arrive à ta porte."
-arc: Point → Logo → Recherche → Profil → Grille → Vidéo → DM → Préparation → Plan plage → Commande → Avis → Livraison → Conclusion → Signature → (boucle)
+arc: Point → Logo → Recherche → Profil → Grille → Vidéo → DM → Préparation → Plan plage → Commande → Avis → Livraison → Conclusion → Signature + numéro → (boucle)
 mode: autonomous
 fps: 30
 bpm: 120
@@ -107,10 +107,12 @@ les transitions (flou de mouvement + perspective 3D). Le minutage suit l'analyse
 - src: index.html#s14
 - asset: éventail de 3 vraies photos (bikini-bleu-fleuri, bikini-rouge-hero, bikini-vert-hero)
 
-## Frame 15 — Signature + boucle
+## Frame 15 — Signature + numéro + boucle
 
-- time: 24.0 → 26.5
-- scene: Logo néon BIKINI SHOP, « @daya_na990 », « Bikinis · Maillots · Livrés chez toi », « Commande sur TikTok » ; tout se contracte vers le point corail du début
+- time: 24.0 → 28.5
+- scene: Logo néon BIKINI SHOP, « @daya_na990 », « Bikinis · Maillots · Livrés chez toi », « Commande sur TikTok ou au » ;
+  bouton d'appel corail « 07 99 00 45 50 » (numéro de la bio TikTok) à 25,45 s : chiffres deux par deux, combiné qui sonne,
+  anneau qui pulse ; à 27,55 s tout se contracte vers le point corail du début
 - src: index.html#s15
 
 ## Voix off

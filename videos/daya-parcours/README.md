@@ -1,9 +1,9 @@
 # Pub BIKINI SHOP (@daya_na990) : du TikTok à ta porte
 
-Pub verticale (1080×1920, 30 i/s, 26,5 s, en boucle) faite avec [HyperFrames](https://hyperframes.heygen.com) (HTML + GSAP).
+Pub verticale (1080×1920, 30 i/s, 28,5 s, en boucle) faite avec [HyperFrames](https://hyperframes.heygen.com) (HTML + GSAP).
 Elle reprend la mise en scène de la pub 4.roues analysée (15 scènes, caméra 3D, flou de mouvement,
 vue éclatée, maquette isométrique) avec le contenu de la boutique **BIKINI SHOP**, compte TikTok **@daya_na990** :
-recherche TikTok → profil → vidéo → DM → préparation → commande → avis → livraison → signature.
+recherche TikTok → profil → vidéo → DM → préparation → commande → avis → livraison → signature avec le numéro de téléphone.
 
 Les photos sont les **vraies vignettes du profil TikTok de la boutique** (bikinis sur mannequin), avec les vrais
 chiffres du compte (2368 suivis, 2863 followers, 14.5K j'aime) et la vraie photo de profil.
@@ -22,12 +22,12 @@ chiffres du compte (2368 suivis, 2863 followers, 14.5K j'aime) et la vraie photo
 
 ## Musique
 
-Création **originale** (`tools/make_music.py`) : dance-pop / afro-house d'été à **120 BPM**, 26,5 s, synthétisée
+Création **originale** (`tools/make_music.py`) : dance-pop / afro-house d'été à **120 BPM**, 28,5 s, synthétisée
 note par note (aucun échantillon externe, donc **libre de droits** : TikTok ne la coupera pas).
 À 120 BPM un temps dure 0,5 s, et toutes les transitions de la vidéo tombent sur un temps. Les temps forts sont
 calés sur l'image : montée puis impact sur le logo (1,0 s), groove sur la partie TikTok, pause sur la plage (11,5 s),
 roulement puis **drop** sur « Ta commande, en 1 clic » (15,0 s), retombée puis impact sur l'explosion corail (23,5 s),
-accord final sur la signature. Mixée pour le téléphone (moins de sub, plus de mordant), à -14 LUFS.
+groove sous la signature avec un « ding-ding » quand le numéro apparaît (25,5 s), accord final à 27,5 s. Mixée pour le téléphone (moins de sub, plus de mordant), à -14 LUFS.
 
 - **Régénérer / modifier** : `python3 tools/make_music.py` (tempo, accords, mélodie, effets et leurs heures sont en haut
   du fichier et dans `main()`), puis relance le carve (voir « Voix off »).
@@ -96,6 +96,12 @@ Le **logo BIKINI SHOP** est un wordmark recréé en SVG (`<template id="logo-tpl
 Il est cloné automatiquement dans les emplacements `data-logo` : logo néon, plaque, signature (les avatars de
 l'interface TikTok utilisent la vraie photo de profil).
 Si la boutique a un vrai logo, remplace le contenu du template.
+
+## Numéro de téléphone
+
+La signature (scène 15) se termine sur un bouton d'appel avec le numéro de la bio TikTok, **07 99 00 45 50**
+(« Commande sur TikTok ou au … »). Il reste lisible environ 2 s avant que tout se replie sur le point corail de la boucle.
+Pour le changer : les cinq `<span class="pair">` de `#s15-num` dans `index.html`.
 
 ## Valeur provisoire à remplacer
 

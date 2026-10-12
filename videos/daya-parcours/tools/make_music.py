@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Musique originale de la pub BIKINI SHOP : dance-pop / afro-house d'été, 120 BPM, 26,5 s.
+"""Musique originale de la pub BIKINI SHOP : dance-pop / afro-house d'été, 120 BPM, 28,5 s.
 
 Synthétisée ici (aucun échantillon externe, donc libre de droits) et calée sur le montage :
 à 120 BPM un temps dure 0,5 s, et toutes les transitions de la vidéo tombent sur ce quadrillage
-(1,0 · 2,0 · 3,5 · 5,0 · 6,0 · 8,0 · 9,5 · 11,5 · 14,0 · 15,0 · 18,0 · 21,0 · 22,5 · 23,5 · 24,0 · 25,5 s).
+(1,0 · 2,0 · 3,5 · 5,0 · 6,0 · 8,0 · 9,5 · 11,5 · 14,0 · 15,0 · 18,0 · 21,0 · 22,5 · 23,5 · 24,0 · 25,5 · 27,5 s).
 
 Structure (une mesure = 2 s, mesure 0 à t = 0) :
   0,0–1,0   montée (riser) → IMPACT sur le logo à 1,0
@@ -16,8 +16,8 @@ Structure (une mesure = 2 s, mesure 0 à t = 0) :
   17,0–18,0 whoosh + coupure d'un temps avant la boutique 3D
   18,0–22,5 groove (avis client, livraison), étoiles en notes
   22,5–23,5 retombée filtrée → IMPACT à 23,5 (explosion corail)
-  24,0–25,5 final plein pot sur la signature
-  25,5–26,5 accord final qui s'éteint (la vidéo boucle sur la montée du début)
+  24,0–27,5 final plein pot sur la signature ; « ding » à 25,5 quand le numéro de téléphone apparaît
+  27,5–28,5 accord final qui s'éteint (la vidéo boucle sur la montée du début)
 
 Usage : python3 tools/make_music.py   →  assets/audio/music.wav (48 kHz, stéréo, -14 LUFS)
 """
@@ -32,7 +32,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 OUT = os.path.join(ROOT, "assets", "audio", "music.wav")
 SR = 48000
-DUR = 26.5
+DUR = 28.5
 N = int(SR * DUR)
 BEAT = 0.5
 BAR = 2.0
@@ -347,7 +347,7 @@ def main():
             return "groove2"
         if t < 24.0:
             return "fall"
-        if t < 25.5:
+        if t < 27.5:
             return "final"
         return "outro"
 
@@ -469,11 +469,13 @@ def main():
     fx.add(riser(1.0, 0.45), 22.5)
     fx.add(impact(0.95), 23.5)                             # explosion corail
     fx.add(crash(1.5, 0.2), 24.0)
-    fx.add(reverse_cymbal(0.5, 0.2), 25.0)
+    for i, m in enumerate((81, 88)):                       # numéro de téléphone : « ding-ding »
+        fx.add(bell(m, 0.9, 0.15), 25.5 + i * 0.12, pan=(-0.2, 0.2)[i])
+    fx.add(reverse_cymbal(0.5, 0.2), 27.0)
     # accord final qui sonne et s'éteint
     for j, m in enumerate(A[0] + [A[0][0] + 12]):
-        lead.add(steelpan(m, 1.0, 0.22), 25.5, pan=(j - 1.5) * 0.3)
-    music.add(pad([m - 12 for m in A[0]], 1.0, 1800), 25.5, 1.4)
+        lead.add(steelpan(m, 1.0, 0.22), 27.5, pan=(j - 1.5) * 0.3)
+    music.add(pad([m - 12 for m in A[0]], 1.0, 1800), 27.5, 1.4)
 
     # ---- sidechain : basse et accords « pompent » sur la grosse caisse
     duck = np.ones(N)

@@ -415,17 +415,29 @@ window.buildDaya = function () {
   tl.to("#s14-burst .spark", { opacity: 0, duration: 0.2 }, 23.8);
   tl.to("#s14-text", { opacity: 0, filter: "blur(12px)", scale: 1.1, duration: 0.2 }, 23.9);
 
-  /* ================= S15 · signature + boucle (24 → 26.5) ================= */
+  /* ================= S15 · signature + numéro + boucle (24 → 28.5) ================= */
   tl.fromTo("#s15-logo", { opacity: 0, scale: 0.7, filter: "blur(20px) brightness(3)" }, { opacity: 1, scale: 1, filter: "blur(0px) brightness(1)", duration: 0.45, ease: "expo.out" }, 24.0);
   tl.to("#s15-logo", { opacity: 0.5, duration: 0.04, yoyo: true, repeat: 3, ease: "none" }, 24.35);
   blurIn("#s15-handle", 24.2, { scale: 0.9, dur: 0.3 });
   blurIn("#s15-services .word:not(.red)", 24.5, { stagger: 0.14, scale: 1.2, dur: 0.3 });
   blurIn("#s15-services .word.red", 25.0, { scale: 1.5, dur: 0.35 });
   blurIn("#s15-city", 25.2, { scale: 1, y: 20, dur: 0.3 });
+  // bouton d'appel : il surgit, les chiffres arrivent deux par deux, le combiné sonne, l'anneau pulse
+  tl.fromTo("#s15-call", { opacity: 0, scale: 0.6, filter: "blur(14px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.45, ease: "back.out(1.8)" }, 25.45);
+  blurIn("#s15-num .pair", 25.55, { stagger: 0.07, scale: 1.4, dur: 0.3 });
+  [25.95, 26.85].forEach((t0) => {
+    [-16, 16, -14, 14, -9, 9, 0].forEach((r, i) => tl.to("#s15-ico svg", { rotation: r, duration: 0.05, ease: "sine.inOut" }, t0 + i * 0.05));
+  });
+  tl.fromTo(
+    "#s15-call",
+    { boxShadow: "0 0 0 0px rgba(255, 79, 112, 0.6), 0 18px 50px rgba(255, 79, 112, 0.45)" },
+    { boxShadow: "0 0 0 34px rgba(255, 79, 112, 0), 0 18px 70px rgba(255, 79, 112, 0.7)", duration: 0.6, repeat: 2, ease: "power2.out", immediateRender: false },
+    25.9,
+  );
   // tout se contracte vers le point rouge du début → boucle
-  tl.to("#s15-cam", { scale: 0.02, opacity: 0, filter: "blur(8px)", duration: 0.55, ease: "power3.in", transformOrigin: "50% 50%" }, 25.55);
-  tl.fromTo("#s15-dot", { rotation: 45 + 180, scale: 6, opacity: 0 }, { rotation: 45, scale: 1, opacity: 1, duration: 0.6, ease: "power3.out" }, 25.85);
-  tl.fromTo("#s15-halo", { scale: 1.4, opacity: 0 }, { scale: 0.35, opacity: 0.7, duration: 0.6, ease: "power3.out" }, 25.85);
+  tl.to("#s15-cam", { scale: 0.02, opacity: 0, filter: "blur(8px)", duration: 0.55, ease: "power3.in", transformOrigin: "50% 50%" }, 27.55);
+  tl.fromTo("#s15-dot", { rotation: 45 + 180, scale: 6, opacity: 0 }, { rotation: 45, scale: 1, opacity: 1, duration: 0.6, ease: "power3.out" }, 27.85);
+  tl.fromTo("#s15-halo", { scale: 1.4, opacity: 0 }, { scale: 0.35, opacity: 0.7, duration: 0.6, ease: "power3.out" }, 27.85);
 
   return tl;
 };
