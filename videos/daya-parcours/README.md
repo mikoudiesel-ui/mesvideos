@@ -20,35 +20,38 @@ placeholders (marqués « PLACEHOLDER ») à remplacer.
 
 ## Musique
 
-La musique est celle de la vidéo de référence (TikTok 4.roues) : piste extraite telle quelle et calée à 0 s,
-donc elle tombe sur les mêmes transitions que dans l'original. Elle est dans `.media/audio/bgm/bgm_001.m4a`,
-montée à -14 LUFS (le niveau habituel des réseaux sociaux), et branchée dans `index.html` (`<audio id="music">`).
+Création **originale** (`tools/make_music.py`) : dance-pop / afro-house d'été à **120 BPM**, 26,5 s, synthétisée
+note par note (aucun échantillon externe, donc **libre de droits** : TikTok ne la coupera pas).
+À 120 BPM un temps dure 0,5 s, et toutes les transitions de la vidéo tombent sur un temps. Les temps forts sont
+calés sur l'image : montée puis impact sur le logo (1,0 s), groove sur la partie TikTok, pause sur la plage (11,5 s),
+roulement puis **drop** sur « Ta commande, en 1 clic » (15,0 s), retombée puis impact sur l'explosion corail (23,5 s),
+accord final sur la signature. Mixée pour le téléphone (moins de sub, plus de mordant), à -14 LUFS.
 
-- **Changer de musique** : remplace le `src` de `<audio id="music">` par un fichier d'environ 26,5 s.
-- **Qualité** : la piste vient d'un TikTok téléchargé (AAC 32 kb/s). Avec le fichier original du son, remplace-le pour un rendu plus propre.
-- **Droits** : si c'est un son commercial, TikTok peut couper le son d'une vidéo publiée par un compte professionnel ou en pub.
-  Dans ce cas, publie la vidéo et ajoute le même son depuis la bibliothèque TikTok au moment de publier.
+- **Régénérer / modifier** : `python3 tools/make_music.py` (tempo, accords, mélodie, effets et leurs heures sont en haut
+  du fichier et dans `main()`), puis relance le carve (voir « Voix off »).
+- L'ancienne piste (musique de la vidéo de référence) reste dans `.media/audio/bgm/bgm_001.m4a` mais n'est plus utilisée.
 
 ## Voix off
 
-Voix **Gemini TTS** (modèle `gemini-3.8-flash-tts`, voix « Leda » : jeune femme, ton chaleureux et souriant de pub TikTok).
-Le texte est généré **en une seule prise** (ton homogène, une seule requête), puis `tools/split_voiceover.py` le découpe
-en 12 phrases (`assets/voice/vo-01.wav` … `vo-12.wav`) et place chacune sur sa scène :
+Voix **Gemini TTS** (modèle `gemini-3.8-flash-tts`, voix « Laomedeia » : jeune femme, **très énergique**, ton de pub TikTok).
+Le texte est généré **en une seule prise** (ton homogène, une seule requête), ramené à -16 LUFS, puis
+`tools/split_voiceover.py` le découpe aux pauses en 12 phrases (`assets/voice/vo-01.wav` … `vo-12.wav`) et place
+chacune sur sa scène :
 
 | Départ | Phrase |
 | --- | --- |
 | 0.95 s | « BIKINI SHOP. » |
-| 2.05 s | « Ton bikini de l'été ? Tu le trouves sur TikTok. » |
-| 5.03 s | « Sur notre compte, tous nos modèles en vidéo. » |
-| 7.29 s | « Un coup de cœur ? » |
-| 8.15 s | « Écris-nous en message, on te répond. » |
-| 10.12 s | « On prépare ton bikini avec soin. » |
-| 12.38 s | « Direction la plage ! » |
+| 2.14 s | « Ton bikini de l'été ? Tu le trouves sur TikTok. » |
+| 4.93 s | « Sur notre compte, tous nos modèles en vidéo. » |
+| 7.23 s | « Un coup de cœur ? » |
+| 8.05 s | « Écris-nous en message, on te répond. » |
+| 9.88 s | « On prépare ton bikini avec soin. » |
+| 12.06 s | « Direction la plage ! » |
 | 14.55 s | « Ta commande en un clic : confirmée, préparée, en route. » |
-| 18.47 s | « Et le meilleur ? » |
-| 20.85 s | « On te livre directement à ta porte. » |
-| 22.83 s | « Ton été commence ici. » |
-| 24.35 s | « BIKINI SHOP, sur TikTok. » |
+| 18.35 s | « Et le meilleur ? » |
+| 20.55 s | « On te livre directement à ta porte. » |
+| 22.96 s | « Ton été commence ici. » |
+| 24.43 s | « BIKINI SHOP, sur TikTok. » |
 
 La musique est « creusée » sous la voix (voiceover carve de HyperFrames, attribut `data-fx-carve` sur `<audio id="music">`) :
 elle laisse la place à la voix dans ses fréquences et baisse pendant qu'elle parle, sans s'éteindre.

@@ -4,3 +4,4 @@ node_modules/
 *.log
 renders/*
 !renders/bikini-shop-parcours.mp4
+__pycache__/

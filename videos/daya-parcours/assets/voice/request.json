@@ -1,9 +1,9 @@
 {
   "provider": "gemini",
   "tts_model": "gemini-3.8-flash-tts",
-  "voice": "Leda",
+  "voice": "Laomedeia",
   "lang": "fr",
-  "style": "Young woman from France speaking natural, native French. Warm, smiling and upbeat, like a premium TikTok ad voice-over for a summer swimwear shop. Lively and confident, clear articulation, never shouting. Read each paragraph as its own short line and leave a clear pause of about one second between paragraphs. Questions are playful, with a smile. The brand name BIKINI SHOP is said with confidence.",
+  "style": "Young woman from France speaking natural, native French. VERY energetic, excited and punchy, like a high-converting TikTok ad voice-over for a summer swimwear shop: big smile, fast and dynamic pace, strong emphasis on key words, enthusiastic but never shouting or cartoonish. Read each paragraph as its own short line and leave a clear pause of about one second between paragraphs. Questions are playful and teasing. The brand name BIKINI SHOP is said with confident, bold energy.",
   "lines": [
     {
       "id": "vo-full",
