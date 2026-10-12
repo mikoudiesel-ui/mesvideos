@@ -268,11 +268,15 @@ window.buildDaya = function () {
   /* ================= S4 · profil (3.5 → 5) ================= */
   tl.fromTo("#s4-cam", { scale: 1.5, filter: "blur(14px)", opacity: 0, transformOrigin: "50% 18%" }, { scale: 1, filter: "blur(0px)", opacity: 1, duration: 0.4, ease: "power3.out" }, 3.47);
   tl.fromTo("#s4-screen .prof-av", { scale: 1.35 }, { scale: 1, duration: 0.5, ease: "back.out(2)" }, 3.47);
+  // compteurs au format TikTok : « 2368 », « 14.5K »
+  const plain = (v) => String(Math.round(v));
+  const kUp = (v) => (v / 1000).toFixed(1) + "K";
   $$("#s4-screen .cnt").forEach((el, i) => {
     const a = +el.dataset.from;
     const b = +el.dataset.to;
-    count(el, 0, a, 3.6 + i * 0.05, 0.45);
-    count(el, a, b, 4.15, 0.55);
+    const render = el.dataset.format === "K" ? kUp : el.dataset.format === "plain" ? plain : fmt;
+    count(el, 0, a, 3.6 + i * 0.05, 0.45, render);
+    if (b !== a) count(el, a, b, 4.15, 0.55, render);
   });
   tl.fromTo("#s4-screen .bio > div", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.25, stagger: 0.05, ease: "power2.out" }, 3.7);
   tl.fromTo("#s4-screen .btn", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.25, stagger: 0.06, ease: "back.out(2)" }, 3.95);
@@ -296,9 +300,9 @@ window.buildDaya = function () {
   tl.fromTo("#s6-progress", { scaleX: 0 }, { scaleX: 1, duration: 2.1, ease: "none" }, 6.0);
   tl.fromTo("#s6-card .reel-cap", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 6.25);
   blurIn("#s6-views .pill", 6.35, { scale: 0.7, dur: 0.35 });
-  const kFmt = (v) => Math.round(v) + " k";
-  count($("#s6-count"), 13, 96, 6.7, 0.5, kFmt);
-  count($("#s6-count"), 96, 248, 7.25, 0.5, kFmt);
+  // vraies vues de la vidéo mise en avant (2562 sur TikTok)
+  count($("#s6-count"), 0, 1280, 6.7, 0.5, plain);
+  count($("#s6-count"), 1280, 2562, 7.25, 0.5, plain);
   tl.fromTo("#s6-views .pill", { scale: 1 }, { scale: 1.12, duration: 0.12, yoyo: true, repeat: 1, ease: "power1.out", immediateRender: false }, 7.2);
   // push-in caméra
   tl.to("#s6-cam", { scale: 1.1, duration: 1.6, ease: "sine.inOut" }, 6.3);

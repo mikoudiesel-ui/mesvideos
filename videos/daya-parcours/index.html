@@ -646,9 +646,21 @@
       }
       #s8-car {
         position: absolute;
-        left: 290px;
-        top: 170px;
-        width: 500px;
+        left: 392px;
+        top: 112px;
+        width: 296px;
+        height: 366px;
+        border-radius: 28px;
+        border: 6px solid #fff4e8;
+        overflow: hidden;
+        background: #000;
+        box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65);
+      }
+      #s8-car img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
       #s8-plats {
         position: absolute;
@@ -699,6 +711,19 @@
       #s9-media {
         position: absolute;
         inset: 0;
+      }
+      .wall {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 8px;
+        background: #120a1c;
+      }
+      .wall img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
       #s9-shade {
         position: absolute;
@@ -793,6 +818,26 @@
         position: absolute;
         inset: 0;
         background: linear-gradient(180deg, rgba(0, 0, 0, 0) 42%, rgba(0, 0, 0, 0.62) 100%), linear-gradient(270deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 32%);
+      }
+      .av-img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      #s6-media .s6-bg {
+        position: absolute;
+        left: -60px;
+        top: -60px;
+        width: calc(100% + 120px);
+        height: calc(100% + 120px);
+        object-fit: cover;
+        filter: blur(30px) brightness(0.55) saturate(1.15);
+      }
+      #s6-media .s6-fit {
+        position: absolute;
+        inset: 0;
+        object-fit: contain;
       }
       /* puces de statut plus opaques : elles passent devant l'écran du téléphone */
       .status.glass {
@@ -954,9 +999,32 @@
       #s14-key {
         position: absolute;
         left: 560px;
-        top: 1080px;
-        width: 520px;
-        transform-origin: 40% 8%;
+        top: 1040px;
+        width: 470px;
+        height: 520px;
+        transform-origin: 50% 0%;
+      }
+      .fan {
+        position: absolute;
+        top: 110px;
+        width: 230px;
+        height: 305px;
+        object-fit: cover;
+        border-radius: 22px;
+        border: 6px solid #fff4e8;
+        box-shadow: 0 22px 45px rgba(0, 0, 0, 0.6);
+      }
+      .f1 {
+        left: 10px;
+        rotate: -14deg;
+      }
+      .f3 {
+        left: 225px;
+        rotate: 14deg;
+      }
+      .f2 {
+        left: 118px;
+        top: 70px;
       }
       #s14-burst {
         position: absolute;
@@ -1158,7 +1226,7 @@
                 <div id="s3-results">
                   <div class="tabs"><span>Top</span><span class="on">Utilisateurs</span><span>Vidéos</span><span>Sons</span><span>LIVE</span></div>
                   <div id="s3-result">
-                    <div class="avatar" id="s3-av" style="width: 128px; height: 128px" data-logo></div>
+                    <div class="avatar" id="s3-av" style="width: 128px; height: 128px"><img class="av-img" src="assets/photos/avatar.jpg" alt="" /></div>
                     <div>
                       <div class="res-name">daya_na990</div>
                       <div class="res-sub">BIKINI SHOP · Bikinis</div>
@@ -1173,7 +1241,7 @@
       </section>
 
       <!-- ============ S4-S5 · profil TikTok + scroll de la grille (3:30–6:00) ============ -->
-      <!-- Compteurs : valeurs PROVISOIRES (data-from / data-to), à remplacer par les vrais chiffres du compte. -->
+      <!-- Compteurs et photos : les vrais chiffres et les vraies vignettes du profil TikTok @daya_na990 (tools/extract_tiktok_tiles.py). -->
       <section id="s4" class="scene clip" data-start="3.45" data-duration="2.75" data-track-index="2">
         <div class="stage">
           <div class="cam" id="s4-cam">
@@ -1187,18 +1255,18 @@
                     <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M14 4l7 7-7 7v-4c-5 0-8 1-11 5 1-6 4-10 11-11z" /></svg>
                   </div>
                   <div class="tt-prof">
-                    <div class="avatar prof-av" style="width: 220px; height: 220px; border: 4px solid #ff4f70" data-logo></div>
+                    <div class="avatar prof-av" style="width: 220px; height: 220px; border: 4px solid #ff4f70"><img class="av-img" src="assets/photos/avatar.jpg" alt="" /></div>
                     <div class="tt-handle">@daya_na990</div>
                     <div class="counts">
-                      <div><b class="cnt" data-from="96" data-to="104">96</b><small>Abonnements</small></div>
-                      <div><b class="cnt" data-from="5876" data-to="6082">5 876</b><small>Followers</small></div>
-                      <div><b class="cnt" data-from="48200" data-to="51900">48 200</b><small>J'aime</small></div>
+                      <div><b class="cnt" data-from="2368" data-to="2368" data-format="plain">2368</b><small>Suivis</small></div>
+                      <div><b class="cnt" data-from="2863" data-to="2863" data-format="plain">2863</b><small>Followers</small></div>
+                      <div><b class="cnt" data-from="14500" data-to="14500" data-format="K">14.5K</b><small>J'aime</small></div>
                     </div>
                     <div class="btns"><div class="btn primary">Suivre</div><div class="btn">Message</div></div>
                     <div class="bio">
                       <div class="n">Bikinis &amp; maillots de bain</div>
-                      <div>Livrés directement à ta porte</div>
-                      <div class="m">Commande sur TikTok</div>
+                      <div>Disponible pour tous vos achats de maillots</div>
+                      <div class="m">Livraison à domicile</div>
                     </div>
                   </div>
                 </div>
@@ -1208,21 +1276,21 @@
                   <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#9a9aa3" stroke-width="2"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z" /></svg>
                 </div>
                 <div class="grid" id="s4-grid">
-                  <div class="tile"><img class="ph" src="assets/photos/grid-01.svg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>12,4 k</div></div>
-                  <div class="tile"><img class="ph" src="assets/photos/grid-02.svg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>8 931</div></div>
-                  <div class="tile"><img class="ph" src="assets/photos/grid-03.svg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>21,7 k</div></div>
-                  <div class="tile"><img class="ph" src="assets/photos/grid-04.svg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>5 310</div></div>
-                  <div class="tile"><img class="ph" src="assets/photos/grid-06.svg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>9 802</div></div>
-                  <div class="tile"><img class="ph" src="assets/photos/grid-01.svg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>15,1 k</div></div>
-                  <div class="tile"><img class="ph" src="assets/photos/grid-03.svg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>3 977</div></div>
-                  <div class="tile"><img class="ph" src="assets/photos/grid-02.svg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>6 245</div></div>
-                  <div class="tile"><img class="ph" src="assets/photos/grid-04.svg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>11,8 k</div></div>
-                  <div class="tile"><img class="ph" src="assets/photos/grid-06.svg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>4 410</div></div>
-                  <div class="tile" id="s5-tile"><img class="ph" src="assets/photos/grid-05.svg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>248 k</div><div id="s5-tile-ring"></div></div>
-                  <div class="tile"><img class="ph" src="assets/photos/grid-01.svg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>7 090</div></div>
-                  <div class="tile"><img class="ph" src="assets/photos/grid-02.svg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>2 875</div></div>
-                  <div class="tile"><img class="ph" src="assets/photos/grid-03.svg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>10,3 k</div></div>
-                  <div class="tile"><img class="ph" src="assets/photos/grid-04.svg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>6 618</div></div>
+                  <div class="tile"><img class="ph" src="assets/photos/bikini-bleu-fleuri.jpg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>309</div></div>
+                  <div class="tile"><img class="ph" src="assets/photos/bikini-rose-crochet.jpg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>166</div></div>
+                  <div class="tile"><img class="ph" src="assets/photos/bikini-marron-leopard.jpg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>1343</div></div>
+                  <div class="tile"><img class="ph" src="assets/photos/bikini-orange.jpg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>484</div></div>
+                  <div class="tile"><img class="ph" src="assets/photos/bikini-vert.jpg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>775</div></div>
+                  <div class="tile"><img class="ph" src="assets/photos/maillot-beige.jpg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>1655</div></div>
+                  <div class="tile"><img class="ph" src="assets/photos/bikini-papillons.jpg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>510</div></div>
+                  <div class="tile"><img class="ph" src="assets/photos/bikini-marron-paillettes.jpg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>2320</div></div>
+                  <div class="tile"><img class="ph" src="assets/photos/bikini-bleu-pareo.jpg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>1560</div></div>
+                  <div class="tile"><img class="ph" src="assets/photos/bikini-marron-chaine.jpg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>630</div></div>
+                  <div class="tile" id="s5-tile"><img class="ph" src="assets/photos/bikini-rouge-hero.jpg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>2562</div><div id="s5-tile-ring"></div></div>
+                  <div class="tile"><img class="ph" src="assets/photos/top-turquoise.jpg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>841</div></div>
+                  <div class="tile"><img class="ph" src="assets/photos/bikini-rouge-2.jpg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>1111</div></div>
+                  <div class="tile"><img class="ph" src="assets/photos/bikini-peche.jpg" alt="" /><div class="views"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M7 4l12 8-12 8z" /></svg>304</div></div>
+                  <div class="tile"><img class="ph" src="assets/photos/bikini-rose-blanc.jpg" alt="" /></div>
                 </div>
               </div>
             </div>
@@ -1230,26 +1298,26 @@
         </div>
       </section>
 
-      <!-- ============ S6 · vidéo TikTok + compteur de vues (6:00–8:00) — vues PROVISOIRES ============ -->
+      <!-- ============ S6 · vidéo TikTok + compteur de vues (6:00–8:00) — vraie vignette et vraies vues (2562) ============ -->
       <section id="s6" class="scene clip" data-start="5.75" data-duration="2.45" data-track-index="1">
         <div class="stage">
           <div class="cam" id="s6-cam">
             <div id="s6-card">
-              <div id="s6-media" style="position: absolute; inset: 0"><img class="ph" src="assets/photos/tiktok-bikini.svg" alt="" /></div>
+              <div id="s6-media" style="position: absolute; inset: 0"><img class="ph s6-bg" src="assets/photos/bikini-rouge-hero.jpg" alt="" /><img class="ph s6-fit" src="assets/photos/bikini-rouge-hero.jpg" alt="" /></div>
               <div class="scrim"></div>
               <div class="rail">
-                <div class="avatar" style="width: 96px; height: 96px; border: 3px solid #fff" data-logo></div>
+                <div class="avatar" style="width: 96px; height: 96px; border: 3px solid #fff"><img class="av-img" src="assets/photos/avatar.jpg" alt="" /></div>
                 <div><svg width="70" height="70" viewBox="0 0 24 24" fill="#ff4f70"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z" /></svg>J'aime</div>
                 <div><svg width="66" height="66" viewBox="0 0 24 24" fill="#fff"><path d="M4 5h16v11H9l-5 4z" /></svg>Avis</div>
                 <div><svg width="66" height="66" viewBox="0 0 24 24" fill="#fff"><path d="M14 4l7 7-7 7v-4c-5 0-8 1-11 5 1-6 4-10 11-11z" /></svg>Partager</div>
               </div>
-              <div class="reel-cap"><div style="font-family: Inter, sans-serif; font-size: 32px; font-weight: 700; margin-bottom: 10px">@daya_na990</div>Nouveau : le bikini corail</div>
+              <div class="reel-cap"><div style="font-family: Inter, sans-serif; font-size: 32px; font-weight: 700; margin-bottom: 10px">@daya_na990</div>Nouvel arrivage : bikini rouge</div>
               <div class="reel-bar"><div id="s6-progress"></div></div>
             </div>
             <div id="s6-views">
               <div class="pill glass">
                 <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z" /><circle cx="12" cy="12" r="3" fill="#ff4f70" stroke="none" /></svg>
-                <span id="s6-count">13 k</span><span style="font-weight: 600; opacity: 0.8">vues</span>
+                <span id="s6-count">0</span><span style="font-weight: 600; opacity: 0.8">vues</span>
               </div>
             </div>
           </div>
@@ -1266,7 +1334,7 @@
                 <div class="statusbar"><span>10:42</span><span>5G ▮▮▮</span></div>
                 <div class="dm-bar">
                   <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><path d="M15 5l-7 7 7 7" /></svg>
-                  <div class="avatar" style="width: 76px; height: 76px" data-logo></div>
+                  <div class="avatar" style="width: 76px; height: 76px"><img class="av-img" src="assets/photos/avatar.jpg" alt="" /></div>
                   <div style="flex: 1">
                     <div class="dm-name">daya_na990</div>
                     <div class="dm-online">En ligne</div>
@@ -1274,15 +1342,15 @@
                   <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" /></svg>
                 </div>
                 <div class="dm-card">
-                  <div class="avatar" style="width: 150px; height: 150px" data-logo></div>
+                  <div class="avatar" style="width: 150px; height: 150px"><img class="av-img" src="assets/photos/avatar.jpg" alt="" /></div>
                   <div class="t1">BIKINI SHOP</div>
                   <div class="t2">@daya_na990 · Bikinis &amp; maillots de bain</div>
                   <div class="t3">Voir le profil</div>
                 </div>
                 <div class="stamp">Aujourd'hui 10:41</div>
               </div>
-              <div class="layer bubble" id="s7-in">Coucou ! Le bikini corail est dispo en M ?</div>
-              <div class="layer" id="s7-photo"><img class="ph" src="assets/photos/dm-bikini.svg" alt="" /></div>
+              <div class="layer bubble" id="s7-in">Coucou ! Le bikini rouge est dispo en M ?</div>
+              <div class="layer" id="s7-photo"><img class="ph" style="object-position: 50% 30%" src="assets/photos/bikini-rouge-hero.jpg" alt="" /></div>
               <div class="layer bubble" id="s7-out"><span id="s7-out-txt">Oui ! Dispo</span></div>
               <div class="layer" id="s7-input">
                 <div class="input-row">
@@ -1292,7 +1360,7 @@
                 <div class="home-ind"></div>
               </div>
             </div>
-            <img id="s8-car" src="assets/photos/bikini-3d.svg" alt="" />
+            <div id="s8-car"><img src="assets/photos/bikini-rouge-hero.jpg" alt="" /></div>
             <div id="s8-plats">
               <div class="plat"><i></i></div>
               <div class="plat"><i></i></div>
@@ -1307,11 +1375,10 @@
         </div>
       </section>
 
-      <!-- ============ S9 · plan cinéma plage au coucher du soleil (11:30–14:00) ============ -->
-      <!-- Remplacer l'image par la vidéo : <video id="s9-video" class="ph" src="assets/video/cinema-plage.mp4" muted playsinline></video> -->
+      <!-- ============ S9 · mur des bikinis de la boutique + plaque logo (11:30–14:00) ============ -->
       <section id="s9" class="scene clip" data-start="11.5" data-duration="2.55" data-track-index="1">
         <div id="s9-cam" style="position: absolute; inset: 0">
-          <div id="s9-media"><img class="ph" src="assets/photos/cinema-plage.svg" alt="" /></div>
+          <div id="s9-media" class="wall"><img src="assets/photos/bikini-bleu-fleuri.jpg" alt="" /><img src="assets/photos/bikini-rose-noir.jpg" alt="" /><img src="assets/photos/bikini-vert.jpg" alt="" /><img src="assets/photos/bikini-orange.jpg" alt="" /><img src="assets/photos/bikini-rouge-2.jpg" alt="" /><img src="assets/photos/maillot-beige.jpg" alt="" /><img src="assets/photos/bikini-papillons.jpg" alt="" /><img src="assets/photos/bikini-violet.jpg" alt="" /><img src="assets/photos/top-turquoise.jpg" alt="" /><img src="assets/photos/bikini-marine.jpg" alt="" /><img src="assets/photos/bikini-peche.jpg" alt="" /><img src="assets/photos/bikini-fleuri-clair.jpg" alt="" /></div>
           <div id="s9-shade"></div>
         </div>
         <div class="stage" style="perspective: 1400px">
@@ -1351,7 +1418,7 @@
             </div>
             <div class="stars" id="s12-stars"></div>
             <div class="quote" id="s12-quote">Commandé sur TikTok, reçu directement chez moi. <span class="red">Parfait pour l'été.</span></div>
-            <div class="rev-foot">Bikini corail · taille M</div>
+            <div class="rev-foot">Bikini rouge · taille M</div>
           </div>
         </div>
       </section>
@@ -1360,10 +1427,10 @@
       <section id="s13" class="scene clip" data-start="20.95" data-duration="1.65" data-track-index="2">
         <div class="stage">
           <div class="cam" id="s13-cam">
-            <div id="s13-card"><img class="ph" id="s13-img" data-layout-allow-overflow src="assets/photos/livraison-colis.svg" alt="" /></div>
+            <div id="s13-card"><img class="ph" id="s13-img" data-layout-allow-overflow src="assets/photos/bikini-rouge-2-hero.jpg" alt="" /></div>
             <div id="s13-pill">
               <div class="pill glass">
-                <span>Livraison</span><span class="sep">·</span><span>Bikini corail</span><span class="sep">·</span>
+                <span>Livraison</span><span class="sep">·</span><span>Bikini rouge</span><span class="sep">·</span>
                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 8l9-4 9 4v9l-9 4-9-4z" /><path d="M3 8l9 4 9-4M12 12v9" /></svg>
                 <span>Colis remis</span>
                 <div class="check" id="s13-check"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4"><path class="ck" d="M5 12.5l4.5 4.5L19 7.5" /></svg></div>
@@ -1380,7 +1447,7 @@
             <path id="s14-path" d="M120,420 C180,620 520,690 760,560 C960,450 900,190 690,190 C500,190 450,410 600,470" fill="none" stroke="#ff4f70" stroke-width="12" stroke-linecap="round" class="neon" />
           </svg>
           <div id="s14-text"><span class="t-line">Ton <span class="split" id="s14-w2">été</span></span><span class="t-line">commence</span><span class="t-line red" id="s14-w3">ici.</span></div>
-          <img id="s14-key" src="assets/photos/main-colis.svg" alt="" />
+          <div id="s14-key"><img class="fan f1" src="assets/photos/bikini-bleu-fleuri.jpg" alt="" /><img class="fan f3" src="assets/photos/bikini-vert-hero.jpg" alt="" /><img class="fan f2" src="assets/photos/bikini-rouge-hero.jpg" alt="" /></div>
           <div id="s14-burst"><div class="halo" id="s14-halo"></div></div>
         </div>
       </section>

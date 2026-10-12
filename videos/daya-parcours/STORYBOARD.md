@@ -40,25 +40,25 @@ les transitions (flou de mouvement + perspective 3D). Le minutage suit l'analyse
 - time: 3.5 → 5.0
 - scene: Zoom sur l'avatar ; en-tête BIKINI SHOP ; compteurs qui défilent ; bio ; Suivre / Message ; la grille monte
 - src: index.html#s4
-- note: compteurs PROVISOIRES
+- note: vrais chiffres du profil (2368 suivis, 2863 followers, 14.5K j'aime), vraie photo de profil, vraies vignettes
 
 ## Frame 5 — Scroll de la grille
 
 - time: 5.0 → 6.0
-- scene: La grille défile en 3D avec flou ; la tuile « bikini corail » (248 k vues) se détache, cerclée de corail
+- scene: La grille défile en 3D avec flou ; la vignette « bikini rouge » (2562 vues) se détache, cerclée de corail
 - src: index.html#s4
 
 ## Frame 6 — Vidéo TikTok + vues
 
 - time: 6.0 → 8.0
-- scene: La tuile devient la vidéo plein cadre (rail J'aime / Avis / Partager, légende) ; pastille en verre « 13 k → 96 k → 248 k vues » ; push-in
+- scene: La tuile devient la vidéo plein cadre (rail J'aime / Avis / Partager, légende) ; pastille en verre « 0 → 2562 vues » (les vraies vues) ; push-in
 - src: index.html#s6
-- asset: assets/photos/tiktok-bikini.svg (→ vraie vidéo)
+- asset: assets/photos/bikini-rouge-hero.jpg (vraie vignette, 2562 vues, sur fond flou)
 
 ## Frame 7 — Message privé
 
 - time: 8.0 → 9.5
-- scene: DM 10:42 ; « Coucou ! Le bikini corail est dispo en M ? » ; photo du bikini ; réponse corail « Oui ! Dispo en M, je te l'emballe ? »
+- scene: DM 10:42 ; « Coucou ! Le bikini rouge est dispo en M ? » ; photo du bikini rouge ; réponse corail « Oui ! Dispo en M, je te l'emballe ? »
 - src: index.html#s7
 
 ## Frame 8 — Vue éclatée + checklist
@@ -72,7 +72,7 @@ les transitions (flou de mouvement + perspective 3D). Le minutage suit l'analyse
 - time: 11.5 → 14.0
 - scene: Coupe plein écran sur la plage au coucher du soleil, push-in ; plaque en verre inclinée « BIKINI SHOP @daya_na990 » à 13,5 s
 - src: index.html#s9
-- asset: assets/photos/cinema-plage.svg (→ vraie vidéo)
+- asset: mur de 12 vraies vignettes de la boutique
 
 ## Frame 10 — Révélation du téléphone
 
@@ -98,14 +98,14 @@ les transitions (flou de mouvement + perspective 3D). Le minutage suit l'analyse
 - time: 21.0 → 22.5
 - scene: Photo de la cliente qui reçoit son colis à la porte ; pastille « Livraison · Bikini corail · Colis remis ✓ »
 - src: index.html#s13
-- asset: assets/photos/livraison-colis.svg
+- asset: assets/photos/bikini-rouge-2-hero.jpg (sans le texte incrusté du haut)
 
 ## Frame 14 — « Ton été commence ici. »
 
 - time: 22.5 → 24.0
 - scene: Texte qui se précise ; trait néon corail en spirale ; une main tend le colis et se balance ; explosion de halo + étincelles
 - src: index.html#s14
-- asset: assets/photos/main-colis.svg
+- asset: éventail de 3 vraies photos (bikini-bleu-fleuri, bikini-rouge-hero, bikini-vert-hero)
 
 ## Frame 15 — Signature + boucle
 

@@ -1,0 +1,186 @@
+{
+  "grid": [
+    {
+      "file": "bikini-bleu-fleuri.jpg",
+      "views": 309,
+      "size": [
+        540,
+        716
+      ]
+    },
+    {
+      "file": "bikini-rose-crochet.jpg",
+      "views": 166,
+      "size": [
+        540,
+        716
+      ]
+    },
+    {
+      "file": "bikini-marron-leopard.jpg",
+      "views": 1343,
+      "size": [
+        540,
+        716
+      ]
+    },
+    {
+      "file": "bikini-orange.jpg",
+      "views": 484,
+      "size": [
+        540,
+        716
+      ]
+    },
+    {
+      "file": "bikini-vert.jpg",
+      "views": 775,
+      "size": [
+        544,
+        716
+      ]
+    },
+    {
+      "file": "maillot-beige.jpg",
+      "views": 1655,
+      "size": [
+        540,
+        716
+      ]
+    },
+    {
+      "file": "bikini-papillons.jpg",
+      "views": 510,
+      "size": [
+        540,
+        716
+      ]
+    },
+    {
+      "file": "bikini-marron-paillettes.jpg",
+      "views": 2320,
+      "size": [
+        540,
+        716
+      ]
+    },
+    {
+      "file": "bikini-bleu-pareo.jpg",
+      "views": 1560,
+      "size": [
+        540,
+        716
+      ]
+    },
+    {
+      "file": "bikini-marron-chaine.jpg",
+      "views": 630,
+      "size": [
+        540,
+        716
+      ]
+    },
+    {
+      "file": "bikini-rouge.jpg",
+      "views": 2562,
+      "size": [
+        540,
+        716
+      ]
+    },
+    {
+      "file": "top-turquoise.jpg",
+      "views": 841,
+      "size": [
+        540,
+        716
+      ]
+    },
+    {
+      "file": "bikini-rouge-2.jpg",
+      "views": 1111,
+      "size": [
+        540,
+        716
+      ]
+    },
+    {
+      "file": "bikini-peche.jpg",
+      "views": 304,
+      "size": [
+        540,
+        716
+      ]
+    },
+    {
+      "file": "bikini-rose-blanc.jpg",
+      "views": null,
+      "size": [
+        540,
+        716
+      ]
+    }
+  ],
+  "extra": [
+    {
+      "file": "bikini-rose-noir.jpg",
+      "views": 1234,
+      "size": [
+        540,
+        568
+      ]
+    },
+    {
+      "file": "bikini-marine.jpg",
+      "views": 1274,
+      "size": [
+        540,
+        568
+      ]
+    },
+    {
+      "file": "bikini-fleuri-clair.jpg",
+      "views": 860,
+      "size": [
+        540,
+        568
+      ]
+    },
+    {
+      "file": "bikini-violet.jpg",
+      "views": 851,
+      "size": [
+        544,
+        568
+      ]
+    }
+  ],
+  "upscaler": "EDSR x4",
+  "heroes": [
+    {
+      "file": "bikini-rouge-hero.jpg",
+      "from": "bikini-rouge.jpg",
+      "size": [
+        540,
+        663
+      ]
+    },
+    {
+      "file": "bikini-rouge-2-hero.jpg",
+      "from": "bikini-rouge-2.jpg",
+      "size": [
+        540,
+        616
+      ]
+    },
+    {
+      "file": "bikini-vert-hero.jpg",
+      "from": "bikini-vert.jpg",
+      "size": [
+        544,
+        588
+      ]
+    }
+  ],
+  "avatar": "avatar.jpg"
+}

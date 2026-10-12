@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="600" height="800" viewBox="0 0 600 800">
-<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
-<stop offset="0" stop-color="#fff0c2"/><stop offset="1" stop-color="#f3d3a4"/></linearGradient></defs>
-<rect width="600" height="800" fill="url(#g)"/>
-<g transform="translate(150 220) scale(1.0)"><path d="M60,10 L100,90 M240,10 L200,90" stroke="#16a6a0" stroke-width="8" fill="none"/><path d="M30,140 Q40,70 100,70 Q140,80 150,130 Q160,80 200,70 Q260,70 270,140 Q200,170 150,140 Q100,170 30,140 Z" fill="#16a6a0"/><path d="M30,140 Q0,150 -20,140 M270,140 Q300,150 320,140" stroke="#16a6a0" stroke-width="7" fill="none"/><circle cx="150" cy="132" r="7" fill="#fff"/><path d="M40,220 L260,220 Q240,250 190,290 Q160,320 150,330 Q140,320 110,290 Q60,250 40,220 Z" fill="#16a6a0"/><path d="M40,220 Q10,215 -10,225 M260,220 Q290,215 310,225" stroke="#16a6a0" stroke-width="7" fill="none"/></g>
-<rect x="23" y="726" width="554" height="51" rx="12" fill="#000" opacity=".45"/>
-<text x="300" y="760" fill="#fff" opacity=".85" font-family="sans-serif" font-size="23" text-anchor="middle">PLACEHOLDER · bikini turquoise</text>
-</svg>

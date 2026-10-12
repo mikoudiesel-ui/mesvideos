@@ -5,8 +5,8 @@ Elle reprend la mise en scène de la pub 4.roues analysée (15 scènes, caméra 
 vue éclatée, maquette isométrique) avec le contenu de la boutique **BIKINI SHOP**, compte TikTok **@daya_na990** :
 recherche TikTok → profil → vidéo → DM → préparation → commande → avis → livraison → signature.
 
-C'est un **squelette prêt à recevoir les vrais médias** : toutes les photos et vidéos sont des
-placeholders (marqués « PLACEHOLDER ») à remplacer.
+Les photos sont les **vraies vignettes du profil TikTok de la boutique** (bikinis sur mannequin), avec les vrais
+chiffres du compte (2368 suivis, 2863 followers, 14.5K j'aime) et la vraie photo de profil.
 
 ## Structure
 
@@ -14,8 +14,10 @@ placeholders (marqués « PLACEHOLDER ») à remplacer.
 | --- | --- |
 | `index.html` | Les 15 scènes (une `<section class="clip">` par scène, ou par groupe de scènes enchaînées), le style, le logo |
 | `assets/js/timeline.js` | La timeline GSAP unique : toutes les animations, avec les heures de l'analyse |
-| `assets/photos/` | Les placeholders (SVG) à remplacer par les vrais médias |
-| `tools/make_placeholders.py` | Régénère les placeholders |
+| `assets/photos/` | Les vraies photos de la boutique, extraites des captures du profil TikTok (`tiles.json` : fichiers et vues) |
+| `tools/extract_tiktok_tiles.py` | Extrait les vignettes « bikini » des captures, efface les compteurs incrustés, agrandit ×4 (EDSR) |
+| `tools/make_music.py` | Musique originale 120 BPM |
+| `tools/make_voiceover.sh`, `tools/split_voiceover.py` | Voix off Gemini : génération, découpe et placement |
 | `BRIEF.md`, `STORYBOARD.md` | Le brief et le découpage scène par scène |
 
 ## Musique
@@ -63,31 +65,43 @@ elle laisse la place à la voix dans ses fréquences et baisse pendant qu'elle p
 - **Clé Gemini** : stockée dans l'environnement cloud (« Network secrets », hôte `generativelanguage.googleapis.com`,
   en-tête `x-goog-api-key`). L'offre gratuite limite à 3 requêtes par minute.
 
-## Médias à fournir
+## Photos
 
-Dépose ton fichier dans `assets/photos/`, puis remplace le nom du placeholder dans `index.html`.
+Les 15 vignettes de la grille du profil sont les vraies vignettes TikTok de la boutique, dans cet ordre :
+`bikini-bleu-fleuri.jpg` (309 vues), `bikini-rose-crochet.jpg` (166 vues), `bikini-marron-leopard.jpg` (1343 vues), `bikini-orange.jpg` (484 vues), `bikini-vert.jpg` (775 vues), `maillot-beige.jpg` (1655 vues), `bikini-papillons.jpg` (510 vues), `bikini-marron-paillettes.jpg` (2320 vues), `bikini-bleu-pareo.jpg` (1560 vues), `bikini-marron-chaine.jpg` (630 vues), `bikini-rouge.jpg` (2562 vues), `top-turquoise.jpg` (841 vues), `bikini-rouge-2.jpg` (1111 vues), `bikini-peche.jpg` (304 vues), `bikini-rose-blanc.jpg` (— vues). Chaque vignette garde son vrai nombre de vues (redessiné net par-dessus).
 
-| Placeholder | Scène | À remplacer par |
-| --- | --- | --- |
-| `grid-01.svg` … `grid-06.svg` | 4-5 · grille du profil | Miniatures de tes vidéos TikTok (format 3:4) |
-| `grid-05.svg` | 5 · tuile qui se détache | La miniature de la vidéo mise en avant |
-| `tiktok-bikini.svg` | 6 · vidéo TikTok | Ta vidéo (9:16). Pour une vidéo : `<video class="ph" src="assets/video/….mp4" muted playsinline></video>` |
-| `dm-bikini.svg` | 7 · photo dans le DM | Photo du bikini (carrée) |
-| `bikini-3d.svg` | 8 · vue éclatée | Photo du bikini **détourée** (PNG transparent) |
-| `cinema-plage.svg` | 9 · plan cinéma | Vidéo plein écran 9:16 (plage, coucher de soleil). Le code pour la vidéo est en commentaire dans `index.html` |
-| `livraison-colis.svg` | 13 · livraison | Photo d'une cliente qui reçoit son colis |
-| `main-colis.svg` | 14 · conclusion | Photo **détourée** d'une main qui tend le colis |
+| Scène | Photo |
+| --- | --- |
+| 3, 4, 6, 7 · avatar (recherche, profil, vidéo, DM) | `avatar.jpg` (vraie photo de profil) |
+| 5 · la vignette qui se détache | `bikini-rouge-hero.jpg` (2562 vues, la vidéo produit la plus vue) |
+| 6 · vidéo TikTok, 7 · photo du DM, 8 · produit préparé | `bikini-rouge-hero.jpg` |
+| 9 · mur de photos derrière le logo | 12 autres vignettes, dont les 4 coupées en haut sur la capture |
+| 13 · livraison | `bikini-rouge-2-hero.jpg` |
+| 14 · « Ton été commence ici » | éventail `bikini-bleu-fleuri`, `bikini-rouge-hero`, `bikini-vert-hero` |
+
+Les fichiers `*-hero.jpg` sont les mêmes photos sans leur haut, où la vidéo TikTok incruste son texte : illisible une fois
+agrandi, et sur le bikini rouge c'est un bout de numéro de téléphone (liste `HEROES` dans le script d'extraction).
+Dans la grille et le mur de photos, les vignettes restent entières, comme sur TikTok : leurs textes y sont trop petits pour être lus.
+
+**Netteté** : les vignettes font 135 × 179 pixels sur la capture. Elles sont agrandies ×4 par super-résolution (EDSR),
+ce qui suffit pour la grille et les cartes, mais les **photos ou vidéos originales** (depuis le téléphone, ou des
+vidéos TikTok téléchargées) donneraient une image bien plus nette : il suffit de remplacer les fichiers du même nom.
+
+**Refaire l'extraction** avec de nouvelles captures (navigateur, page profil, grille de 6 colonnes) :
+`python3 tools/extract_tiktok_tiles.py capture1.webp capture2.webp --model EDSR_x4.pb` ; le modèle EDSR se télécharge sur
+`raw.githubusercontent.com/Saafke/EDSR_Tensorflow/master/models/EDSR_x4.pb`. La liste des vignettes gardées est dans `GRID` et `EXTRA`.
+Les captures elles-mêmes ne sont pas versionnées (numéro de téléphone de la bio, vignettes avec des personnes).
 
 Le **logo BIKINI SHOP** est un wordmark recréé en SVG (`<template id="logo-tpl">` en bas de `index.html`).
-Il est cloné automatiquement dans tous les emplacements `data-logo` : avatar, logo néon, plaque, signature.
+Il est cloné automatiquement dans les emplacements `data-logo` : logo néon, plaque, signature (les avatars de
+l'interface TikTok utilisent la vraie photo de profil).
 Si la boutique a un vrai logo, remplace le contenu du template.
 
-## Valeurs provisoires à remplacer
+## Valeur provisoire à remplacer
 
-- **Compteurs du profil** (scène 4) : attributs `data-from` / `data-to` des `<b class="cnt">` dans `index.html`.
-- **Vues de la vidéo** (scène 6) : `count($("#s6-count"), 13, 96, …)` et `count(…, 96, 248, …)` dans `timeline.js`.
-- **Vues des tuiles** : les `<div class="views">` de la grille.
-- **Avis client** (scène 12) : nom, texte et article dans `#s12-card`. Mets un vrai avis de cliente.
+- **Avis client** (scène 12) : nom, texte et article dans `#s12-card` sont inventés. Mets un vrai avis de cliente.
+- Les compteurs du profil (`data-from` / `data-to` des `<b class="cnt">`), les vues de la vidéo (`count($("#s6-count"), …)`
+  dans `timeline.js`) et les vues des vignettes sont les vrais chiffres relevés sur le profil TikTok.
 
 ## Modifier
 
