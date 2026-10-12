@@ -1,0 +1,16 @@
+{
+  "provider": "gemini",
+  "tts_model": "gemini-3.8-flash-tts",
+  "voice": "Leda",
+  "lang": "fr",
+  "style": "Young woman from France speaking natural, native French. Warm, smiling and upbeat, like a premium TikTok ad voice-over for a summer swimwear shop. Lively and confident, clear articulation, never shouting. Read each paragraph as its own short line and leave a clear pause of about one second between paragraphs. Questions are playful, with a smile. The brand name BIKINI SHOP is said with confidence.",
+  "lines": [
+    {
+      "id": "vo-full",
+      "text": "BIKINI SHOP.\n\nTon bikini de l'été ? Tu le trouves sur TikTok.\n\nSur notre compte, tous nos modèles en vidéo.\n\nUn coup de cœur ?\n\nÉcris-nous en message, on te répond.\n\nOn prépare ton bikini avec soin.\n\nDirection la plage !\n\nTa commande en un clic : confirmée, préparée, en route.\n\nEt le meilleur ?\n\nOn te livre directement à ta porte.\n\nTon été commence ici.\n\nBIKINI SHOP, sur TikTok."
+    }
+  ],
+  "bgm": {
+    "mode": "none"
+  }
+}

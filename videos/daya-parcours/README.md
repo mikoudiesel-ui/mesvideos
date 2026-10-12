@@ -29,6 +29,37 @@ montée à -14 LUFS (le niveau habituel des réseaux sociaux), et branchée dans
 - **Droits** : si c'est un son commercial, TikTok peut couper le son d'une vidéo publiée par un compte professionnel ou en pub.
   Dans ce cas, publie la vidéo et ajoute le même son depuis la bibliothèque TikTok au moment de publier.
 
+## Voix off
+
+Voix **Gemini TTS** (modèle `gemini-3.8-flash-tts`, voix « Leda » : jeune femme, ton chaleureux et souriant de pub TikTok).
+Le texte est généré **en une seule prise** (ton homogène, une seule requête), puis `tools/split_voiceover.py` le découpe
+en 12 phrases (`assets/voice/vo-01.wav` … `vo-12.wav`) et place chacune sur sa scène :
+
+| Départ | Phrase |
+| --- | --- |
+| 0.95 s | « BIKINI SHOP. » |
+| 2.05 s | « Ton bikini de l'été ? Tu le trouves sur TikTok. » |
+| 5.03 s | « Sur notre compte, tous nos modèles en vidéo. » |
+| 7.29 s | « Un coup de cœur ? » |
+| 8.15 s | « Écris-nous en message, on te répond. » |
+| 10.12 s | « On prépare ton bikini avec soin. » |
+| 12.38 s | « Direction la plage ! » |
+| 14.55 s | « Ta commande en un clic : confirmée, préparée, en route. » |
+| 18.47 s | « Et le meilleur ? » |
+| 20.85 s | « On te livre directement à ta porte. » |
+| 22.83 s | « Ton été commence ici. » |
+| 24.35 s | « BIKINI SHOP, sur TikTok. » |
+
+La musique est « creusée » sous la voix (voiceover carve de HyperFrames, attribut `data-fx-carve` sur `<audio id="music">`) :
+elle laisse la place à la voix dans ses fréquences et baisse pendant qu'elle parle, sans s'éteindre.
+
+- **Changer le texte, la voix ou le ton** : modifie `assets/voice/request.json` (texte complet, `voice`, `style`) et
+  `assets/voice/lines.json` (les mêmes phrases, une par ligne), puis lance `tools/make_voiceover.sh`. Reporte ensuite les
+  départs et durées de `assets/voice/plan.json` dans les `<audio id="vo-NN">` d'`index.html` et relance le carve.
+- **Moment de chaque phrase** : liste `ANCHORS` dans `tools/split_voiceover.py`.
+- **Clé Gemini** : stockée dans l'environnement cloud (« Network secrets », hôte `generativelanguage.googleapis.com`,
+  en-tête `x-goog-api-key`). L'offre gratuite limite à 3 requêtes par minute.
+
 ## Médias à fournir
 
 Dépose ton fichier dans `assets/photos/`, puis remplace le nom du placeholder dans `index.html`.

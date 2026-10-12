@@ -6,7 +6,8 @@ arc: Point → Logo → Recherche → Profil → Grille → Vidéo → DM → Pr
 mode: autonomous
 fps: 30
 bpm: ~109
-audio: musique de la vidéo de référence, calée à 0 s (.media/audio/bgm/bgm_001.m4a)
+audio: musique de la vidéo de référence, calée à 0 s (.media/audio/bgm/bgm_001.m4a), creusée sous la voix
+voiceover: Gemini TTS, voix Leda, 12 phrases (assets/voice/plan.json)
 ---
 
 Une seule composition (`index.html`) et une seule timeline GSAP (`assets/js/timeline.js`).
@@ -111,3 +112,20 @@ les transitions (flou de mouvement + perspective 3D). Le minutage suit l'analyse
 - time: 24.0 → 26.5
 - scene: Logo néon BIKINI SHOP, « @daya_na990 », « Bikinis · Maillots · Livrés chez toi », « Commande sur TikTok » ; tout se contracte vers le point corail du début
 - src: index.html#s15
+
+## Voix off
+
+| Départ | Phrase |
+| --- | --- |
+| 0.95 s | « BIKINI SHOP. » |
+| 2.05 s | « Ton bikini de l'été ? Tu le trouves sur TikTok. » |
+| 5.03 s | « Sur notre compte, tous nos modèles en vidéo. » |
+| 7.29 s | « Un coup de cœur ? » |
+| 8.15 s | « Écris-nous en message, on te répond. » |
+| 10.12 s | « On prépare ton bikini avec soin. » |
+| 12.38 s | « Direction la plage ! » |
+| 14.55 s | « Ta commande en un clic : confirmée, préparée, en route. » |
+| 18.47 s | « Et le meilleur ? » |
+| 20.85 s | « On te livre directement à ta porte. » |
+| 22.83 s | « Ton été commence ici. » |
+| 24.35 s | « BIKINI SHOP, sur TikTok. » |

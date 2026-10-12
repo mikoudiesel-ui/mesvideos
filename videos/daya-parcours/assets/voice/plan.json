@@ -1,0 +1,98 @@
+[
+  {
+    "id": "vo-01",
+    "start": 0.95,
+    "duration": 0.97,
+    "end": 1.92,
+    "anchor": 0.95,
+    "text": "BIKINI SHOP."
+  },
+  {
+    "id": "vo-02",
+    "start": 2.05,
+    "duration": 2.86,
+    "end": 4.91,
+    "anchor": 2.05,
+    "text": "Ton bikini de l'été ? Tu le trouves sur TikTok."
+  },
+  {
+    "id": "vo-03",
+    "start": 5.03,
+    "duration": 2.15,
+    "end": 7.17,
+    "anchor": 3.7,
+    "text": "Sur notre compte, tous nos modèles en vidéo."
+  },
+  {
+    "id": "vo-04",
+    "start": 7.29,
+    "duration": 0.73,
+    "end": 8.03,
+    "anchor": 6.15,
+    "text": "Un coup de cœur ?"
+  },
+  {
+    "id": "vo-05",
+    "start": 8.15,
+    "duration": 1.85,
+    "end": 10.0,
+    "anchor": 8.05,
+    "text": "Écris-nous en message, on te répond."
+  },
+  {
+    "id": "vo-06",
+    "start": 10.12,
+    "duration": 2.15,
+    "end": 12.26,
+    "anchor": 9.7,
+    "text": "On prépare ton bikini avec soin."
+  },
+  {
+    "id": "vo-07",
+    "start": 12.38,
+    "duration": 1.02,
+    "end": 13.4,
+    "anchor": 11.55,
+    "text": "Direction la plage !"
+  },
+  {
+    "id": "vo-08",
+    "start": 14.55,
+    "duration": 3.8,
+    "end": 18.35,
+    "anchor": 14.55,
+    "text": "Ta commande en un clic : confirmée, préparée, en route."
+  },
+  {
+    "id": "vo-09",
+    "start": 18.47,
+    "duration": 0.87,
+    "end": 19.34,
+    "anchor": 18.35,
+    "text": "Et le meilleur ?"
+  },
+  {
+    "id": "vo-10",
+    "start": 20.85,
+    "duration": 1.86,
+    "end": 22.71,
+    "anchor": 20.85,
+    "text": "On te livre directement à ta porte."
+  },
+  {
+    "id": "vo-11",
+    "start": 22.83,
+    "duration": 1.41,
+    "end": 24.23,
+    "anchor": 22.75,
+    "text": "Ton été commence ici."
+  },
+  {
+    "id": "vo-12",
+    "start": 24.35,
+    "duration": 1.57,
+    "end": 25.93,
+    "anchor": 24.15,
+    "text": "BIKINI SHOP, sur TikTok."
+  }
+]
