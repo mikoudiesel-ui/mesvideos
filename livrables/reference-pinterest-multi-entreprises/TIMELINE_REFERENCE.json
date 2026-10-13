@@ -1,0 +1,1445 @@
+{
+  "source": {
+    "url": "https://www.tiktok.com/@rahmanfaiz.m/video/7676306871531130119",
+    "file": "REFERENCE.mp4",
+    "width": 1024,
+    "height": 576,
+    "aspect": "16:9",
+    "fps": 30,
+    "frames": 623,
+    "video_duration_seconds": 20.766666666666666,
+    "container_duration_seconds": 20.778005,
+    "video_codec": "h264",
+    "audio_codec": "HE-AACv2",
+    "audio_sample_rate": 44100,
+    "audio_channels": 2
+  },
+  "target": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "frames": 623,
+    "duration_seconds": 20.766666666666666
+  },
+  "frame_ranges": "Half-open: [start,end). Descriptive segment boundaries do not all imply cuts.",
+  "hard_cut_frames": [
+    152,
+    368,
+    524,
+    555,
+    573,
+    584,
+    596
+  ],
+  "rapid_composition_change_frames": [
+    257,
+    284,
+    344
+  ],
+  "audio_master": {
+    "aligned_wav": "AUDIO_REFERENCE_GAIN_MOINS_4_1_DB.wav",
+    "original_aac": "AUDIO_ORIGINAL.m4a",
+    "start_seconds": 0,
+    "playback_rate": 1,
+    "wav_gain_db": -4.1,
+    "wav_sample_rate": 48000,
+    "wav_samples_per_channel": 996800,
+    "wav_lufs_measured": -14.0,
+    "wav_true_peak_db_measured": -1.2,
+    "original_lufs_measured": -9.9,
+    "original_true_peak_db_measured": 2.9,
+    "aac_packets_payloads_unchanged": 451
+  },
+  "rhythm": {
+    "frequent_attack_spacing_seconds_approx": 0.2,
+    "grouping_seconds_approx": 0.4,
+    "bpm_certified": null,
+    "note": "Measured mixed-track periodicity does not establish musical beat or metre. Preserve actual timestamps and playback rate."
+  },
+  "audio_attack_measurement": {
+    "method": "Positive magnitude STFT spectral flux, mono 24 kHz, window 1024, hop 240; 10 ms timestamp grid. Candidate attack timings are approximate and not individual stem identities.",
+    "events": [
+      {
+        "time": 0.26,
+        "nearest_frame": 8,
+        "strength": 2.14794
+      },
+      {
+        "time": 0.34,
+        "nearest_frame": 10,
+        "strength": 0.92408
+      },
+      {
+        "time": 0.44,
+        "nearest_frame": 13,
+        "strength": 1.03769
+      },
+      {
+        "time": 0.55,
+        "nearest_frame": 16,
+        "strength": 0.5428
+      },
+      {
+        "time": 0.86,
+        "nearest_frame": 26,
+        "strength": 0.69605
+      },
+      {
+        "time": 1.28,
+        "nearest_frame": 38,
+        "strength": 0.53948
+      },
+      {
+        "time": 1.39,
+        "nearest_frame": 42,
+        "strength": 0.52028
+      },
+      {
+        "time": 1.79,
+        "nearest_frame": 54,
+        "strength": 0.6975
+      },
+      {
+        "time": 1.87,
+        "nearest_frame": 56,
+        "strength": 1.08876
+      },
+      {
+        "time": 1.98,
+        "nearest_frame": 59,
+        "strength": 0.95116
+      },
+      {
+        "time": 2.07,
+        "nearest_frame": 62,
+        "strength": 1.15607
+      },
+      {
+        "time": 2.15,
+        "nearest_frame": 64,
+        "strength": 1.04985
+      },
+      {
+        "time": 2.25,
+        "nearest_frame": 68,
+        "strength": 1.30613
+      },
+      {
+        "time": 2.79,
+        "nearest_frame": 84,
+        "strength": 2.04156
+      },
+      {
+        "time": 2.99,
+        "nearest_frame": 90,
+        "strength": 1.32537
+      },
+      {
+        "time": 3.2,
+        "nearest_frame": 96,
+        "strength": 1.12304
+      },
+      {
+        "time": 3.4,
+        "nearest_frame": 102,
+        "strength": 0.79812
+      },
+      {
+        "time": 3.59,
+        "nearest_frame": 108,
+        "strength": 1.74527
+      },
+      {
+        "time": 3.99,
+        "nearest_frame": 120,
+        "strength": 0.89936
+      },
+      {
+        "time": 4.19,
+        "nearest_frame": 126,
+        "strength": 1.2668
+      },
+      {
+        "time": 4.39,
+        "nearest_frame": 132,
+        "strength": 0.93292
+      },
+      {
+        "time": 4.59,
+        "nearest_frame": 138,
+        "strength": 1.45054
+      },
+      {
+        "time": 4.79,
+        "nearest_frame": 144,
+        "strength": 0.68716
+      },
+      {
+        "time": 4.99,
+        "nearest_frame": 150,
+        "strength": 1.78369
+      },
+      {
+        "time": 5.09,
+        "nearest_frame": 153,
+        "strength": 2.19451
+      },
+      {
+        "time": 5.19,
+        "nearest_frame": 156,
+        "strength": 1.43279
+      },
+      {
+        "time": 5.4,
+        "nearest_frame": 162,
+        "strength": 0.83937
+      },
+      {
+        "time": 5.59,
+        "nearest_frame": 168,
+        "strength": 1.76218
+      },
+      {
+        "time": 5.8,
+        "nearest_frame": 174,
+        "strength": 0.78539
+      },
+      {
+        "time": 5.99,
+        "nearest_frame": 180,
+        "strength": 1.92272
+      },
+      {
+        "time": 6.16,
+        "nearest_frame": 185,
+        "strength": 1.89953
+      },
+      {
+        "time": 6.25,
+        "nearest_frame": 188,
+        "strength": 0.82733
+      },
+      {
+        "time": 6.39,
+        "nearest_frame": 192,
+        "strength": 0.96871
+      },
+      {
+        "time": 6.82,
+        "nearest_frame": 205,
+        "strength": 2.07319
+      },
+      {
+        "time": 6.92,
+        "nearest_frame": 208,
+        "strength": 0.70019
+      },
+      {
+        "time": 7.0,
+        "nearest_frame": 210,
+        "strength": 0.57968
+      },
+      {
+        "time": 7.26,
+        "nearest_frame": 218,
+        "strength": 1.99903
+      },
+      {
+        "time": 7.39,
+        "nearest_frame": 222,
+        "strength": 1.52948
+      },
+      {
+        "time": 7.59,
+        "nearest_frame": 228,
+        "strength": 0.77006
+      },
+      {
+        "time": 7.79,
+        "nearest_frame": 234,
+        "strength": 2.85121
+      },
+      {
+        "time": 7.88,
+        "nearest_frame": 236,
+        "strength": 0.77951
+      },
+      {
+        "time": 7.99,
+        "nearest_frame": 240,
+        "strength": 1.3021
+      },
+      {
+        "time": 8.19,
+        "nearest_frame": 246,
+        "strength": 1.89997
+      },
+      {
+        "time": 8.42,
+        "nearest_frame": 253,
+        "strength": 1.62119
+      },
+      {
+        "time": 8.6,
+        "nearest_frame": 258,
+        "strength": 0.94452
+      },
+      {
+        "time": 8.71,
+        "nearest_frame": 261,
+        "strength": 0.76703
+      },
+      {
+        "time": 8.79,
+        "nearest_frame": 264,
+        "strength": 1.34846
+      },
+      {
+        "time": 9.0,
+        "nearest_frame": 270,
+        "strength": 0.80521
+      },
+      {
+        "time": 9.19,
+        "nearest_frame": 276,
+        "strength": 1.89526
+      },
+      {
+        "time": 9.39,
+        "nearest_frame": 282,
+        "strength": 1.38568
+      },
+      {
+        "time": 9.46,
+        "nearest_frame": 284,
+        "strength": 0.92705
+      },
+      {
+        "time": 9.58,
+        "nearest_frame": 287,
+        "strength": 1.99419
+      },
+      {
+        "time": 9.71,
+        "nearest_frame": 291,
+        "strength": 1.04242
+      },
+      {
+        "time": 9.88,
+        "nearest_frame": 296,
+        "strength": 0.67039
+      },
+      {
+        "time": 9.99,
+        "nearest_frame": 300,
+        "strength": 1.95159
+      },
+      {
+        "time": 10.39,
+        "nearest_frame": 312,
+        "strength": 0.89223
+      },
+      {
+        "time": 10.59,
+        "nearest_frame": 318,
+        "strength": 1.55551
+      },
+      {
+        "time": 10.78,
+        "nearest_frame": 323,
+        "strength": 1.56499
+      },
+      {
+        "time": 10.99,
+        "nearest_frame": 330,
+        "strength": 1.48663
+      },
+      {
+        "time": 11.21,
+        "nearest_frame": 336,
+        "strength": 0.81106
+      },
+      {
+        "time": 11.39,
+        "nearest_frame": 342,
+        "strength": 1.70639
+      },
+      {
+        "time": 11.9,
+        "nearest_frame": 357,
+        "strength": 1.96524
+      },
+      {
+        "time": 11.99,
+        "nearest_frame": 360,
+        "strength": 1.86898
+      },
+      {
+        "time": 12.2,
+        "nearest_frame": 366,
+        "strength": 0.90472
+      },
+      {
+        "time": 12.39,
+        "nearest_frame": 372,
+        "strength": 1.83608
+      },
+      {
+        "time": 12.48,
+        "nearest_frame": 374,
+        "strength": 2.84491
+      },
+      {
+        "time": 12.58,
+        "nearest_frame": 377,
+        "strength": 1.59511
+      },
+      {
+        "time": 12.69,
+        "nearest_frame": 381,
+        "strength": 1.59229
+      },
+      {
+        "time": 12.78,
+        "nearest_frame": 383,
+        "strength": 2.03479
+      },
+      {
+        "time": 12.93,
+        "nearest_frame": 388,
+        "strength": 1.62331
+      },
+      {
+        "time": 13.18,
+        "nearest_frame": 395,
+        "strength": 1.77739
+      },
+      {
+        "time": 13.29,
+        "nearest_frame": 399,
+        "strength": 1.42406
+      },
+      {
+        "time": 13.38,
+        "nearest_frame": 401,
+        "strength": 1.5471
+      },
+      {
+        "time": 13.58,
+        "nearest_frame": 407,
+        "strength": 1.96941
+      },
+      {
+        "time": 13.79,
+        "nearest_frame": 414,
+        "strength": 1.56494
+      },
+      {
+        "time": 13.99,
+        "nearest_frame": 420,
+        "strength": 0.79569
+      },
+      {
+        "time": 14.16,
+        "nearest_frame": 425,
+        "strength": 1.72641
+      },
+      {
+        "time": 14.24,
+        "nearest_frame": 427,
+        "strength": 0.63373
+      },
+      {
+        "time": 14.42,
+        "nearest_frame": 433,
+        "strength": 0.72919
+      },
+      {
+        "time": 14.59,
+        "nearest_frame": 438,
+        "strength": 1.75651
+      },
+      {
+        "time": 14.79,
+        "nearest_frame": 444,
+        "strength": 1.75733
+      },
+      {
+        "time": 15.0,
+        "nearest_frame": 450,
+        "strength": 0.93509
+      },
+      {
+        "time": 15.19,
+        "nearest_frame": 456,
+        "strength": 1.77834
+      },
+      {
+        "time": 15.26,
+        "nearest_frame": 458,
+        "strength": 0.99463
+      },
+      {
+        "time": 15.4,
+        "nearest_frame": 462,
+        "strength": 1.04009
+      },
+      {
+        "time": 15.79,
+        "nearest_frame": 474,
+        "strength": 1.42067
+      },
+      {
+        "time": 15.86,
+        "nearest_frame": 476,
+        "strength": 0.83614
+      },
+      {
+        "time": 15.98,
+        "nearest_frame": 479,
+        "strength": 1.01057
+      },
+      {
+        "time": 16.06,
+        "nearest_frame": 482,
+        "strength": 1.14681
+      },
+      {
+        "time": 16.2,
+        "nearest_frame": 486,
+        "strength": 1.38168
+      },
+      {
+        "time": 16.39,
+        "nearest_frame": 492,
+        "strength": 1.91834
+      },
+      {
+        "time": 16.5,
+        "nearest_frame": 495,
+        "strength": 1.24141
+      },
+      {
+        "time": 16.83,
+        "nearest_frame": 505,
+        "strength": 0.81609
+      },
+      {
+        "time": 16.99,
+        "nearest_frame": 510,
+        "strength": 1.39895
+      },
+      {
+        "time": 17.1,
+        "nearest_frame": 513,
+        "strength": 0.81997
+      },
+      {
+        "time": 17.29,
+        "nearest_frame": 519,
+        "strength": 0.71874
+      },
+      {
+        "time": 17.39,
+        "nearest_frame": 522,
+        "strength": 1.48987
+      },
+      {
+        "time": 17.57,
+        "nearest_frame": 527,
+        "strength": 0.88751
+      },
+      {
+        "time": 17.65,
+        "nearest_frame": 530,
+        "strength": 2.58341
+      },
+      {
+        "time": 17.79,
+        "nearest_frame": 534,
+        "strength": 1.70392
+      },
+      {
+        "time": 17.99,
+        "nearest_frame": 540,
+        "strength": 2.25647
+      },
+      {
+        "time": 18.2,
+        "nearest_frame": 546,
+        "strength": 0.9092
+      },
+      {
+        "time": 18.39,
+        "nearest_frame": 552,
+        "strength": 1.7321
+      },
+      {
+        "time": 18.51,
+        "nearest_frame": 555,
+        "strength": 0.87204
+      },
+      {
+        "time": 18.59,
+        "nearest_frame": 558,
+        "strength": 1.1407
+      },
+      {
+        "time": 19.19,
+        "nearest_frame": 576,
+        "strength": 0.48251
+      },
+      {
+        "time": 19.62,
+        "nearest_frame": 589,
+        "strength": 0.79542
+      },
+      {
+        "time": 20.01,
+        "nearest_frame": 600,
+        "strength": 0.74405
+      },
+      {
+        "time": 20.21,
+        "nearest_frame": 606,
+        "strength": 0.54474
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "start": 0,
+      "end": 36,
+      "title": "Emblème géant, recul rapide et stabilisation",
+      "observed": "Fond presque blanc. À la première image, le symbole Pinterest rouge est très grand et déborde du cadre. Il se contracte rapidement vers le centre, devient légèrement plus petit que sa taille finale, puis se stabilise. Aucun ordinateur ne figure dans cette référence.",
+      "layout": "Centre (512, 288) dans la source 1024 × 576. Largeur mesurée du masque rouge : 82 px à f6, 38 px à f12, environ 48 px à f30. La largeur initiale exacte dépasse le cadre et ne peut pas être déduite de sa boîte visible.",
+      "build": "Un SVG de l’emblème de la nouvelle marque, transform-origin au centre. Construire le recul en plusieurs phases ; conserver le léger sous-dépassement et le retour à la taille de repos. Les durées et valeurs mesurées priment sur le nom de l’easing.",
+      "audio": "Attaque spectrale forte à 0,260 s ; autres attaques à 0,340 et 0,440 s. Elles se produisent pendant la fin du recul et le rebond de taille, pas lors d’une nouvelle scène.",
+      "start_time": 0.0,
+      "end_time": 1.2,
+      "duration_frames": 36,
+      "reference_frame": 0,
+      "image": "scenes/S01.jpg",
+      "audio_attacks_in_interval": [
+        {
+          "time": 0.26,
+          "nearest_frame": 8,
+          "strength": 2.14794
+        },
+        {
+          "time": 0.34,
+          "nearest_frame": 10,
+          "strength": 0.92408
+        },
+        {
+          "time": 0.44,
+          "nearest_frame": 13,
+          "strength": 1.03769
+        },
+        {
+          "time": 0.55,
+          "nearest_frame": 16,
+          "strength": 0.5428
+        },
+        {
+          "time": 0.86,
+          "nearest_frame": 26,
+          "strength": 0.69605
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "start": 36,
+      "end": 78,
+      "title": "Déploiement du nom à côté du symbole",
+      "observed": "Le symbole glisse progressivement vers la gauche ; le mot Pinterest se révèle à sa droite. L’ensemble devient un bloc marque centré. La révélation du nom se déroule principalement vers 1,7–2,2 s.",
+      "layout": "Bloc final approximatif x404–622, y264–312 dans la source. Le symbole seul passe du centre x512 à environ x428 quand le nom devient lisible. La géométrie doit être recalculée pour le nouveau nom.",
+      "build": "Deux calques : emblème et nom. Déplacer le symbole pour centrer le bloc final et révéler le nom avec un masque horizontal, éventuellement une opacité décalée par lettre. Garder les coordonnées pré-calculées.",
+      "audio": "Attaques à 1,790 ; 1,870 ; 1,980 ; 2,070 ; 2,150 ; 2,250 s pendant la révélation. Ce sont des repères du mix, pas la preuve de six effets isolés.",
+      "start_time": 1.2,
+      "end_time": 2.6,
+      "duration_frames": 42,
+      "reference_frame": 66,
+      "image": "scenes/S02.jpg",
+      "audio_attacks_in_interval": [
+        {
+          "time": 1.28,
+          "nearest_frame": 38,
+          "strength": 0.53948
+        },
+        {
+          "time": 1.39,
+          "nearest_frame": 42,
+          "strength": 0.52028
+        },
+        {
+          "time": 1.79,
+          "nearest_frame": 54,
+          "strength": 0.6975
+        },
+        {
+          "time": 1.87,
+          "nearest_frame": 56,
+          "strength": 1.08876
+        },
+        {
+          "time": 1.98,
+          "nearest_frame": 59,
+          "strength": 0.95116
+        },
+        {
+          "time": 2.07,
+          "nearest_frame": 62,
+          "strength": 1.15607
+        },
+        {
+          "time": 2.15,
+          "nearest_frame": 64,
+          "strength": 1.04985
+        },
+        {
+          "time": 2.25,
+          "nearest_frame": 68,
+          "strength": 1.30613
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "start": 78,
+      "end": 117,
+      "title": "La marque monte ; la galerie se construit",
+      "observed": "Le bloc marque monte. Des images arrondies apparaissent en décalage, principalement de droite vers la gauche au début, puis les images complémentaires remplissent les colonnes. Les cartes combinent déplacement vertical et disparition progressive de leur aspect pâle.",
+      "layout": "Galerie de quatre colonnes de hauteurs différentes, et non une grille de cases identiques. Les principales cartes mesurent environ 200–205 px de large dans la source ; les gouttières valent environ 16–20 px. Les ratios des images sont variés.",
+      "build": "Préparer 12–16 images de la nouvelle entreprise. Quatre colonnes indépendantes ; cartes avec masques arrondis. Reprendre les délais observés d’environ 0,20 s entre plusieurs apparitions. Le bloc marque doit sortir par le haut lorsque la galerie progresse.",
+      "audio": "Attaques à 2,790 ; 2,990 ; 3,200 ; 3,400 ; 3,590 s. Faire correspondre les arrivées des cartes à cette séquence, en conservant les mouvements continus entre les accents.",
+      "start_time": 2.6,
+      "end_time": 3.9,
+      "duration_frames": 39,
+      "reference_frame": 102,
+      "image": "scenes/S03.jpg",
+      "audio_attacks_in_interval": [
+        {
+          "time": 2.79,
+          "nearest_frame": 84,
+          "strength": 2.04156
+        },
+        {
+          "time": 2.99,
+          "nearest_frame": 90,
+          "strength": 1.32537
+        },
+        {
+          "time": 3.2,
+          "nearest_frame": 96,
+          "strength": 1.12304
+        },
+        {
+          "time": 3.4,
+          "nearest_frame": 102,
+          "strength": 0.79812
+        },
+        {
+          "time": 3.59,
+          "nearest_frame": 108,
+          "strength": 1.74527
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "start": 117,
+      "end": 152,
+      "title": "Défilement de la galerie",
+      "observed": "Les colonnes continuent de monter et révèlent d’autres images. Le logo quitte le cadre. Les nouvelles vignettes peuvent encore arriver avec une opacité faible avant de devenir nettes. La valeur élevée de changement visuel à f117 ne constitue pas une coupe franche : la galerie reste continue.",
+      "layout": "Les images dépassent le bord supérieur et sont masquées par le cadre. Les espaces variables entre les cartes maintiennent la structure en colonnes. Le fond reste proche de #F9F9F9.",
+      "build": "Animer les groupes de colonnes en y ; les différences de hauteur créent le rythme. Ajouter les entrées individuelles aux cartes nouvellement révélées. Terminer exactement avant f152, puis couper au fond de marque.",
+      "audio": "Attaques à 3,990 ; 4,190 ; 4,390 ; 4,590 ; 4,790 ; 4,990 s. L’accent de 4,990 s précède légèrement la coupe de 5,0667 s.",
+      "start_time": 3.9,
+      "end_time": 5.066666666666666,
+      "duration_frames": 35,
+      "reference_frame": 144,
+      "image": "scenes/S04.jpg",
+      "audio_attacks_in_interval": [
+        {
+          "time": 3.99,
+          "nearest_frame": 120,
+          "strength": 0.89936
+        },
+        {
+          "time": 4.19,
+          "nearest_frame": 126,
+          "strength": 1.2668
+        },
+        {
+          "time": 4.39,
+          "nearest_frame": 132,
+          "strength": 0.93292
+        },
+        {
+          "time": 4.59,
+          "nearest_frame": 138,
+          "strength": 1.45054
+        },
+        {
+          "time": 4.79,
+          "nearest_frame": 144,
+          "strength": 0.68716
+        },
+        {
+          "time": 4.99,
+          "nearest_frame": 150,
+          "strength": 1.78369
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "start": 152,
+      "end": 234,
+      "title": "Phrase fixe et mots défilants dans un cartouche",
+      "observed": "Coupe franche sur fond rouge. Texte source : « Thousand of » en blanc, puis un cartouche blanc avec un mot rouge. Les mots visibles successifs sont Inspirations, Illustration, Motion, Design. Leur remplacement s’effectue verticalement dans le masque ; pendant le passage, deux mots peuvent être partiellement visibles.",
+      "layout": "Phrase centrée et assez petite : environ 40–44 px dans la source pour la ligne complète, selon l’étape. Le cartouche est rectangulaire, sans arrondi marqué. Le groupe se recentre lorsque la largeur du mot change.",
+      "build": "Conserver un préfixe stable et animer une bande verticale de mots dans overflow:hidden. Repères visuels approximatifs des remplacements : 6,07 ; 6,60 ; 7,13 s. Ils doivent être ajustés en comparant les images locales, pas présentés comme des coupes. Choisir quatre mots courts liés à l’entreprise, sans inventer de promesse chiffrée.",
+      "audio": "Attaques fortes proches des remplacements à 6,160 ; 6,820 ; 7,260 s ; accent à 7,790 s pour la transformation suivante. Le son reste celui du mix complet.",
+      "start_time": 5.066666666666666,
+      "end_time": 7.8,
+      "duration_frames": 82,
+      "reference_frame": 192,
+      "image": "scenes/S05.jpg",
+      "audio_attacks_in_interval": [
+        {
+          "time": 5.09,
+          "nearest_frame": 153,
+          "strength": 2.19451
+        },
+        {
+          "time": 5.19,
+          "nearest_frame": 156,
+          "strength": 1.43279
+        },
+        {
+          "time": 5.4,
+          "nearest_frame": 162,
+          "strength": 0.83937
+        },
+        {
+          "time": 5.59,
+          "nearest_frame": 168,
+          "strength": 1.76218
+        },
+        {
+          "time": 5.8,
+          "nearest_frame": 174,
+          "strength": 0.78539
+        },
+        {
+          "time": 5.99,
+          "nearest_frame": 180,
+          "strength": 1.92272
+        },
+        {
+          "time": 6.16,
+          "nearest_frame": 185,
+          "strength": 1.89953
+        },
+        {
+          "time": 6.25,
+          "nearest_frame": 188,
+          "strength": 0.82733
+        },
+        {
+          "time": 6.39,
+          "nearest_frame": 192,
+          "strength": 0.96871
+        },
+        {
+          "time": 6.82,
+          "nearest_frame": 205,
+          "strength": 2.07319
+        },
+        {
+          "time": 6.92,
+          "nearest_frame": 208,
+          "strength": 0.70019
+        },
+        {
+          "time": 7.0,
+          "nearest_frame": 210,
+          "strength": 0.57968
+        },
+        {
+          "time": 7.26,
+          "nearest_frame": 218,
+          "strength": 1.99903
+        },
+        {
+          "time": 7.39,
+          "nearest_frame": 222,
+          "strength": 1.52948
+        },
+        {
+          "time": 7.59,
+          "nearest_frame": 228,
+          "strength": 0.77006
+        },
+        {
+          "time": 7.79,
+          "nearest_frame": 234,
+          "strength": 2.85121
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "start": 234,
+      "end": 284,
+      "title": "Transformation du message et punch-in typographique",
+      "observed": "Le cartouche devient « All You Need » ; le préfixe s’efface. « Is Here » se révèle à droite, avec des espacements et des apparitions progressives. À f257, la composition subit un agrandissement très rapide, puis la première partie sort à gauche. « Is Here » reste au centre.",
+      "layout": "Le message passe d’un petit bloc centré à une phrase surdimensionnée qui dépasse les bords. Le cadrage fait partie de l’effet. « Is Here » devient ensuite le centre de la composition.",
+      "build": "Deux groupes de texte et un masque. Conserver la transformation à partir de f234, le punch-in à f257 et l’état central avant f284. Adapter à « Votre solution » / « est ici », ou à une formulation équivalente courte de la nouvelle marque. Préserver la temporalité malgré la longueur différente du texte.",
+      "audio": "Attaques à 7,790 ; 7,990 ; 8,190 ; 8,420 ; 8,600 ; 8,790 ; 9,000 ; 9,190 s. L’image amplifie le message entre ces accents, sans quantifier artificiellement toute l’animation sur une grille régulière.",
+      "start_time": 7.8,
+      "end_time": 9.466666666666667,
+      "duration_frames": 50,
+      "reference_frame": 264,
+      "image": "scenes/S06.jpg",
+      "audio_attacks_in_interval": [
+        {
+          "time": 7.88,
+          "nearest_frame": 236,
+          "strength": 0.77951
+        },
+        {
+          "time": 7.99,
+          "nearest_frame": 240,
+          "strength": 1.3021
+        },
+        {
+          "time": 8.19,
+          "nearest_frame": 246,
+          "strength": 1.89997
+        },
+        {
+          "time": 8.42,
+          "nearest_frame": 253,
+          "strength": 1.62119
+        },
+        {
+          "time": 8.6,
+          "nearest_frame": 258,
+          "strength": 0.94452
+        },
+        {
+          "time": 8.71,
+          "nearest_frame": 261,
+          "strength": 0.76703
+        },
+        {
+          "time": 8.79,
+          "nearest_frame": 264,
+          "strength": 1.34846
+        },
+        {
+          "time": 9.0,
+          "nearest_frame": 270,
+          "strength": 0.80521
+        },
+        {
+          "time": 9.19,
+          "nearest_frame": 276,
+          "strength": 1.89526
+        },
+        {
+          "time": 9.39,
+          "nearest_frame": 282,
+          "strength": 1.38568
+        },
+        {
+          "time": 9.46,
+          "nearest_frame": 284,
+          "strength": 0.92705
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "start": 284,
+      "end": 328,
+      "title": "Six cartes se déploient autour du message",
+      "observed": "Six cartes carrées arrondies apparaissent groupées autour du message, puis s’écartent en couronne. Les cartes restent verticales tandis que leurs positions avancent globalement dans le sens horaire. Ce n’est pas une rotation individuelle de toutes les photos sur elles-mêmes.",
+      "layout": "À f288, cartes d’environ 133 × 133 px dans la source. Le centre est proche de (512,288), la couronne de rayon approximatif 200–230 px. Exemple observé : carte supérieure gauche centrée à (445,129) à f288, puis (473,87) à f300 et (541,77) à f312.",
+      "build": "Six produits, réalisations ou services de la nouvelle marque. Un calque par carte. Calculer x/y par trajectoire circulaire ou keyframes équivalentes, en conservant l’orientation de chaque image. L’expansion radiale précède la rotation. Le message reste lisible au centre.",
+      "audio": "Attaques à 9,390 ; 9,580 ; 9,990 ; 10,390 ; 10,590 ; 10,780 s. Repère 9,580 s dans la phase d’expansion. Les cartes poursuivent leur mouvement entre les coups.",
+      "start_time": 9.466666666666667,
+      "end_time": 10.933333333333334,
+      "duration_frames": 44,
+      "reference_frame": 300,
+      "image": "scenes/S07.jpg",
+      "audio_attacks_in_interval": [
+        {
+          "time": 9.58,
+          "nearest_frame": 287,
+          "strength": 1.99419
+        },
+        {
+          "time": 9.71,
+          "nearest_frame": 291,
+          "strength": 1.04242
+        },
+        {
+          "time": 9.88,
+          "nearest_frame": 296,
+          "strength": 0.67039
+        },
+        {
+          "time": 9.99,
+          "nearest_frame": 300,
+          "strength": 1.95159
+        },
+        {
+          "time": 10.39,
+          "nearest_frame": 312,
+          "strength": 0.89223
+        },
+        {
+          "time": 10.59,
+          "nearest_frame": 318,
+          "strength": 1.55551
+        },
+        {
+          "time": 10.78,
+          "nearest_frame": 323,
+          "strength": 1.56499
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "start": 328,
+      "end": 344,
+      "title": "Le curseur cible une carte",
+      "observed": "Un curseur blanc rejoint la carte du personnage au chapeau. La carte s’assombrit au survol ; un bouton rouge « Save » apparaît dans son angle supérieur droit. La couronne et le cadrage commencent à favoriser cette carte.",
+      "layout": "Conserver la même image héro dans la galerie, la couronne, la carte sélectionnée et les étapes d’interface suivantes. Cette continuité est une partie essentielle du raccord.",
+      "build": "Curseur SVG animé indépendamment, voile de survol séparé, bouton séparé. Pour une autre entreprise, « Save » devient une action pertinente : sélectionner, voir, ajouter à la sélection, etc. Ne pas simuler une fonction sans rapport avec son parcours réel.",
+      "audio": "Attaques proches à 10,990 ; 11,210 ; 11,390 s. L’attribution précise à un clic ou à la musique ne peut pas être prouvée par le mix stéréo seul ; garder la piste évite de deviner.",
+      "start_time": 10.933333333333334,
+      "end_time": 11.466666666666667,
+      "duration_frames": 16,
+      "reference_frame": 340,
+      "image": "scenes/S08.jpg",
+      "audio_attacks_in_interval": [
+        {
+          "time": 10.99,
+          "nearest_frame": 330,
+          "strength": 1.48663
+        },
+        {
+          "time": 11.21,
+          "nearest_frame": 336,
+          "strength": 0.81106
+        },
+        {
+          "time": 11.39,
+          "nearest_frame": 342,
+          "strength": 1.70639
+        }
+      ]
+    },
+    {
+      "id": "S09",
+      "start": 344,
+      "end": 368,
+      "title": "Agrandissement de la carte sélectionnée",
+      "observed": "À f344, punch-in très rapide sur la carte survolée. Le texte « Is Here » glisse hors du cadre à gauche pendant que la carte et le bouton Save prennent de la place. Le curseur reste au contact du bouton.",
+      "layout": "La carte sélectionnée conserve son contenu et ses arrondis. Les autres cartes se retrouvent partiellement hors cadre. La scène garde le fond rouge jusqu’à f368.",
+      "build": "Agrandir et déplacer le groupe de scène tout en préservant le point d’intérêt carte/bouton. Préparer le raccord vers la fiche produit ou réalisation de la nouvelle marque, en réutilisant le même visuel.",
+      "audio": "Attaques à 11,900 ; 11,990 ; 12,200 s pendant ce mouvement ; accent à 12,390 s lors de l’arrivée de l’interface suivante.",
+      "start_time": 11.466666666666667,
+      "end_time": 12.266666666666667,
+      "duration_frames": 24,
+      "reference_frame": 354,
+      "image": "scenes/S09.jpg",
+      "audio_attacks_in_interval": [
+        {
+          "time": 11.9,
+          "nearest_frame": 357,
+          "strength": 1.96524
+        },
+        {
+          "time": 11.99,
+          "nearest_frame": 360,
+          "strength": 1.86898
+        },
+        {
+          "time": 12.2,
+          "nearest_frame": 366,
+          "strength": 0.90472
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "start": 368,
+      "end": 438,
+      "title": "Interface, fenêtre modale et saisie",
+      "observed": "Coupe vers une page Pinterest. Une fenêtre blanche arrondie apparaît devant un arrière-plan atténué. Titre « Create a board », image héro, champ « Board name » puis saisie progressive de « Character Illustration ». Le curseur noir se dirige vers le bouton rouge « Create ». La saisie est visible environ de 12,65 à 13,80 s.",
+      "layout": "À f420 : fenêtre approximative x184–840, y82–495, soit 64 % de la largeur et 72 % de la hauteur de la source. Image centrale environ 275 × 155 px. Champ x222–801, y340–421 ; bouton x223–801, y432–474. Ces mesures sont raster et approximatives.",
+      "build": "Reconstituer la fenêtre avec du texte et des composants éditables. Garder le fond atténué pendant la lecture. Adapter l’action : nommer une sélection, demander un devis, réserver une visite ou choisir un modèle, selon l’entreprise. Pré-calculer un calendrier de frappe ; conserver l’intervalle de saisie même si le nouveau texte comporte moins de caractères.",
+      "audio": "Attaques nombreuses entre 12,480 et 13,790 s, puis 14,160 ; 14,590 s. Elles fournissent la zone de rythme de la saisie et de la validation. Le mix ne fournit pas une piste clavier isolée.",
+      "start_time": 12.266666666666667,
+      "end_time": 14.6,
+      "duration_frames": 70,
+      "reference_frame": 420,
+      "image": "scenes/S10.jpg",
+      "audio_attacks_in_interval": [
+        {
+          "time": 12.39,
+          "nearest_frame": 372,
+          "strength": 1.83608
+        },
+        {
+          "time": 12.48,
+          "nearest_frame": 374,
+          "strength": 2.84491
+        },
+        {
+          "time": 12.58,
+          "nearest_frame": 377,
+          "strength": 1.59511
+        },
+        {
+          "time": 12.69,
+          "nearest_frame": 381,
+          "strength": 1.59229
+        },
+        {
+          "time": 12.78,
+          "nearest_frame": 383,
+          "strength": 2.03479
+        },
+        {
+          "time": 12.93,
+          "nearest_frame": 388,
+          "strength": 1.62331
+        },
+        {
+          "time": 13.18,
+          "nearest_frame": 395,
+          "strength": 1.77739
+        },
+        {
+          "time": 13.29,
+          "nearest_frame": 399,
+          "strength": 1.42406
+        },
+        {
+          "time": 13.38,
+          "nearest_frame": 401,
+          "strength": 1.5471
+        },
+        {
+          "time": 13.58,
+          "nearest_frame": 407,
+          "strength": 1.96941
+        },
+        {
+          "time": 13.79,
+          "nearest_frame": 414,
+          "strength": 1.56494
+        },
+        {
+          "time": 13.99,
+          "nearest_frame": 420,
+          "strength": 0.79569
+        },
+        {
+          "time": 14.16,
+          "nearest_frame": 425,
+          "strength": 1.72641
+        },
+        {
+          "time": 14.24,
+          "nearest_frame": 427,
+          "strength": 0.63373
+        },
+        {
+          "time": 14.42,
+          "nearest_frame": 433,
+          "strength": 0.72919
+        },
+        {
+          "time": 14.59,
+          "nearest_frame": 438,
+          "strength": 1.75651
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "start": 438,
+      "end": 459,
+      "title": "Validation et chargement",
+      "observed": "Le texte du bouton disparaît et un petit indicateur blanc de chargement tourne à sa place. La fenêtre et son image restent visibles jusqu’au début de la transition de confirmation.",
+      "layout": "Même bouton, même position et même image. Le chargement dure environ 0,70 s dans ce découpage ; son commencement exact est à ajuster de quelques images lors du raccord.",
+      "build": "Faire succéder l’état normal, l’appui, puis le chargement du même bouton. Rotation finie et déterministe du spinner, pilotée par la timeline. Préserver le temps de retour visuel sans inventer un paiement ou une vente réalisée.",
+      "audio": "Attaques à 14,590 ; 14,790 ; 15,000 ; 15,190 ; 15,260 s. Conserver cette séquence entière.",
+      "start_time": 14.6,
+      "end_time": 15.3,
+      "duration_frames": 21,
+      "reference_frame": 450,
+      "image": "scenes/S11.jpg",
+      "audio_attacks_in_interval": [
+        {
+          "time": 14.79,
+          "nearest_frame": 444,
+          "strength": 1.75733
+        },
+        {
+          "time": 15.0,
+          "nearest_frame": 450,
+          "strength": 0.93509
+        },
+        {
+          "time": 15.19,
+          "nearest_frame": 456,
+          "strength": 1.77834
+        },
+        {
+          "time": 15.26,
+          "nearest_frame": 458,
+          "strength": 0.99463
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "start": 459,
+      "end": 524,
+      "title": "La fenêtre cède la place à une confirmation",
+      "observed": "La fenêtre disparaît pendant qu’une notification sombre arrondie apparaît, reprenant la même vignette. Texte : « Saved to » puis « Character Illustration ». Un agrandissement de cadrage autour de 16,1 s rapproche la confirmation. Elle reste lisible jusqu’à la coupe de f524.",
+      "layout": "La vignette à gauche et le texte à droite forment un seul bloc de confirmation. L’arrière-plan conserve la page produit, atténuée. Le raccord repose sur le même asset, pas sur un nouveau produit arbitraire.",
+      "build": "Transformer le parcours en confirmation adaptée à l’entreprise : sélection enregistrée, demande envoyée ou rendez-vous demandé. Reprendre la vignette, l’intitulé et le choix précédents. Assurer une pause de lecture après le rapprochement.",
+      "audio": "Attaques à 15,790 ; 16,060 ; 16,200 ; 16,390 ; 16,500 ; 16,990 ; 17,390 s. Garder le zoom et la lecture dans cette plage, puis couper à 17,4667 s.",
+      "start_time": 15.3,
+      "end_time": 17.466666666666665,
+      "duration_frames": 65,
+      "reference_frame": 510,
+      "image": "scenes/S12.jpg",
+      "audio_attacks_in_interval": [
+        {
+          "time": 15.4,
+          "nearest_frame": 462,
+          "strength": 1.04009
+        },
+        {
+          "time": 15.79,
+          "nearest_frame": 474,
+          "strength": 1.42067
+        },
+        {
+          "time": 15.86,
+          "nearest_frame": 476,
+          "strength": 0.83614
+        },
+        {
+          "time": 15.98,
+          "nearest_frame": 479,
+          "strength": 1.01057
+        },
+        {
+          "time": 16.06,
+          "nearest_frame": 482,
+          "strength": 1.14681
+        },
+        {
+          "time": 16.2,
+          "nearest_frame": 486,
+          "strength": 1.38168
+        },
+        {
+          "time": 16.39,
+          "nearest_frame": 492,
+          "strength": 1.91834
+        },
+        {
+          "time": 16.5,
+          "nearest_frame": 495,
+          "strength": 1.24141
+        },
+        {
+          "time": 16.83,
+          "nearest_frame": 505,
+          "strength": 0.81609
+        },
+        {
+          "time": 16.99,
+          "nearest_frame": 510,
+          "strength": 1.39895
+        },
+        {
+          "time": 17.1,
+          "nearest_frame": 513,
+          "strength": 0.81997
+        },
+        {
+          "time": 17.29,
+          "nearest_frame": 519,
+          "strength": 0.71874
+        },
+        {
+          "time": 17.39,
+          "nearest_frame": 522,
+          "strength": 1.48987
+        }
+      ]
+    },
+    {
+      "id": "S13",
+      "start": 524,
+      "end": 555,
+      "title": "Slogan sur fond blanc",
+      "observed": "Coupe franche vers le blanc pur. « Pin Your Interest » se révèle brièvement puis reste centré en rouge. La scène ménage une respiration après la démonstration d’interface.",
+      "layout": "Texte de petite taille au centre ; beaucoup d’espace blanc. Le slogan source n’est pas une phrase à réutiliser telle quelle pour toutes les marques.",
+      "build": "Une promesse courte et vérifiable pour la nouvelle entreprise. Révélation discrète au début, puis maintien lisible. Garder la coupe suivante à f555.",
+      "audio": "Attaques à 17,650 ; 17,790 ; 17,990 ; 18,200 ; 18,390 s. Le son reste actif pendant la respiration visuelle.",
+      "start_time": 17.466666666666665,
+      "end_time": 18.5,
+      "duration_frames": 31,
+      "reference_frame": 540,
+      "image": "scenes/S13.jpg",
+      "audio_attacks_in_interval": [
+        {
+          "time": 17.57,
+          "nearest_frame": 527,
+          "strength": 0.88751
+        },
+        {
+          "time": 17.65,
+          "nearest_frame": 530,
+          "strength": 2.58341
+        },
+        {
+          "time": 17.79,
+          "nearest_frame": 534,
+          "strength": 1.70392
+        },
+        {
+          "time": 17.99,
+          "nearest_frame": 540,
+          "strength": 2.25647
+        },
+        {
+          "time": 18.2,
+          "nearest_frame": 546,
+          "strength": 0.9092
+        },
+        {
+          "time": 18.39,
+          "nearest_frame": 552,
+          "strength": 1.7321
+        }
+      ]
+    },
+    {
+      "id": "S14",
+      "start": 555,
+      "end": 573,
+      "title": "Mot de liaison géant",
+      "observed": "Coupe franche vers le rouge. « With » apparaît en très grand blanc et occupe une partie importante du cadre. Maintien 18 images.",
+      "layout": "Mot centré, haut contraste, forte rupture d’échelle avec le slogan précédent.",
+      "build": "Utiliser « Avec » en français ou un mot équivalent court ; conserver 18 images, sans allonger l’outro.",
+      "audio": "Repère de coupe : 18,500 s. Les transitoires voisins du mix sont à 18,510 et 18,590 s ; leur nature exacte n’est pas déduite.",
+      "start_time": 18.5,
+      "end_time": 19.1,
+      "duration_frames": 18,
+      "reference_frame": 566,
+      "image": "scenes/S14.jpg",
+      "audio_attacks_in_interval": [
+        {
+          "time": 18.51,
+          "nearest_frame": 555,
+          "strength": 0.87204
+        },
+        {
+          "time": 18.59,
+          "nearest_frame": 558,
+          "strength": 1.1407
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "start": 573,
+      "end": 584,
+      "title": "Emblème seul sur blanc",
+      "observed": "Coupe franche vers le blanc ; emblème Pinterest rouge, beaucoup plus grand que le logo de repos de l’introduction. Maintien 11 images.",
+      "layout": "L’emblème est centré ; son diamètre est d’environ 300 px dans la source.",
+      "build": "SVG de la nouvelle marque ; conserver la rupture fond/échelle et les 11 images.",
+      "audio": "Repère de coupe : 19,100 s. Une attaque mesurée se situe à 19,190 s. Ne pas déplacer arbitrairement cette coupe jusqu’à l’attaque.",
+      "start_time": 19.1,
+      "end_time": 19.466666666666665,
+      "duration_frames": 11,
+      "reference_frame": 580,
+      "image": "scenes/S15.jpg",
+      "audio_attacks_in_interval": [
+        {
+          "time": 19.19,
+          "nearest_frame": 576,
+          "strength": 0.48251
+        }
+      ]
+    },
+    {
+      "id": "S16",
+      "start": 584,
+      "end": 596,
+      "title": "Nom géant sur la couleur de marque",
+      "observed": "Coupe franche vers le rouge ; le nom Pinterest est blanc et très grand. Maintien 12 images.",
+      "layout": "Nom centré sur une seule ligne. Le corps doit s’adapter à la longueur du nom de l’entreprise.",
+      "build": "Nom réel de l’entreprise, sans récupération du logotype Pinterest. Adapter sa taille aux marges plutôt que changer la durée.",
+      "audio": "Repère de coupe : 19,4667 s ; attaque voisine à 19,620 s. Conserver les positions temporelles de la référence.",
+      "start_time": 19.466666666666665,
+      "end_time": 19.866666666666667,
+      "duration_frames": 12,
+      "reference_frame": 588,
+      "image": "scenes/S16.jpg",
+      "audio_attacks_in_interval": [
+        {
+          "time": 19.62,
+          "nearest_frame": 589,
+          "strength": 0.79542
+        }
+      ]
+    },
+    {
+      "id": "S17",
+      "start": 596,
+      "end": 623,
+      "title": "Signature finale compacte",
+      "observed": "Coupe franche vers le blanc. Le bloc complet emblème + nom est petit et centré. Il reste en place jusqu’à la dernière image. La fin ne reprend pas l’emblème géant de la toute première image : une boucle parfaitement raccordée n’est pas démontrée.",
+      "layout": "Même échelle approximative que le bloc marque du début après stabilisation. Durée 27 images, soit 0,90 s.",
+      "build": "Réutiliser le bloc de marque de S02. Conserver les 27 images de maintien. Pour une version de fidélité, ne pas ajouter de nouvelle scène CTA qui rallongerait la musique.",
+      "audio": "Attaques à 20,010 et 20,210 s avant la fin. La vidéo finit à 20,7667 s ; la piste source dépasse ce point d’environ 11 ms selon ses métadonnées.",
+      "start_time": 19.866666666666667,
+      "end_time": 20.766666666666666,
+      "duration_frames": 27,
+      "reference_frame": 622,
+      "image": "scenes/S17.jpg",
+      "audio_attacks_in_interval": [
+        {
+          "time": 20.01,
+          "nearest_frame": 600,
+          "strength": 0.74405
+        },
+        {
+          "time": 20.21,
+          "nearest_frame": 606,
+          "strength": 0.54474
+        }
+      ]
+    }
+  ]
+}

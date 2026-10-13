@@ -1,0 +1,23 @@
+{
+  "nom": "",
+  "offre_principale": "",
+  "public": "",
+  "action_finale": "",
+  "couleur_principale": "",
+  "couleur_claire": "",
+  "logo_fichier": "",
+  "dossier_images": "",
+  "image_hero": "",
+  "benefices_courts": [
+    "",
+    "",
+    "",
+    ""
+  ],
+  "intitule_selection": "",
+  "interface_reelle_fournie": "",
+  "format_master": "1920x1080",
+  "fps": 30,
+  "total_frames": 623,
+  "audio_mode": "reference_lock_1x"
+}
