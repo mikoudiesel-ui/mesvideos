@@ -1,0 +1,8 @@
+Ce dossier est le brief complet de ma publicité Y-K Design.
+Lis PROMPT_CLAUDE_CODE.md, BRAND_CONFIG.json et TIMELINE_YK_DESIGN.json,
+puis inspecte maquettes/, assets/ et reference/REFERENCE.mp4.
+Réalise le projet motion design et rends le MP4 décrit dans le prompt.
+Conserve les 623 images à 30 i/s, l’audio fourni à t=0, les 17 scènes,
+le monogramme YK, les trois concepts et mon contact +225 07 12 35 46 02.
+Anime les calques indépendants ; les planches sont des guides visuels.
+Avance jusqu’au rendu vérifié et livre le projet éditable avec le MP4.

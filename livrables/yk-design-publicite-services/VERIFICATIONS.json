@@ -1,0 +1,20 @@
+{
+  "scenes": 17,
+  "contiguous_frames": 623,
+  "master_duration_seconds": 20.766666666666666,
+  "wave_sample_rate": 48000,
+  "wave_frames_per_channel": 996800,
+  "wave_channels": 2,
+  "audio_unchanged_from_aligned_reference": true,
+  "logo_has_transparency": true,
+  "pdf_pages": 18,
+  "contact_number": "+2250712354602",
+  "contact_display": "+225 07 12 35 46 02",
+  "delivery_type": "production_pack_for_Claude_Code_not_a_finished_motion_video",
+  "html_reader": {
+    "scenes_checked": 17,
+    "page_errors": [],
+    "audio_duration": 20.766667,
+    "selected_scene": "S12 — Offre et contact"
+  }
+}
