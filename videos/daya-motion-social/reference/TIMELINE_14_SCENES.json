@@ -1,0 +1,762 @@
+{
+  "brand": "BIKINIS SHOP",
+  "handle": "@daya_na990",
+  "purpose": "Découverte de la collection et prise de contact TikTok",
+  "status": "MAQUETTE — visuels illustratifs",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "total_frames": 794,
+  "duration_s": 26.466666666666665,
+  "palette": {
+    "charcoal": "#181421",
+    "cream": "#FFF3E8",
+    "coral": "#FF4269",
+    "gold": "#D6A24A"
+  },
+  "fonts": {
+    "heading": "assets/fonts/DejaVuSerif.ttf",
+    "ui": "assets/fonts/DejaVuSans.ttf"
+  },
+  "safe_area_proposal": {
+    "left_px": 80,
+    "right_px": 180,
+    "top_px": 120,
+    "bottom_px": 250
+  },
+  "audio": {
+    "file": "assets/audio/SON_TEMOIN_26S.wav",
+    "status": "original_synthetic_demo_not_reference_music",
+    "sample_rate": 48000,
+    "channels": 2,
+    "proposed_bpm": 120,
+    "reference_bpm": "unknown"
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "Ouverture produit",
+      "start_frame": 0,
+      "end_frame_exclusive": 54,
+      "duration_frames": 54,
+      "start_s": 0.0,
+      "end_s": 1.8,
+      "heading": "VOTRE PROCHAIN\nCOUP DE CŒUR.",
+      "reference_function": "Signal lumineux et marque",
+      "visual": "Mannequin doré avec bikini bleu fleuri au centre, cercle corail au sol, boutique chaude en arrière-plan, nom et handle sous le produit.",
+      "layout_proposal_px": "Titre x=80 y=130 w=820 ; mannequin x=160 y=430 w=700 h=940 ; marque et handle y=1430 ; cercle derrière le produit.",
+      "editable_layers": [
+        "fond-boutique",
+        "halo-corail",
+        "cercle-sol",
+        "mannequin-bleu",
+        "titre-ligne-1",
+        "titre-ligne-2",
+        "nom-boutique",
+        "handle"
+      ],
+      "entry": "0–12 images : apparition du halo et du produit, échelle 0,92→1 et opacité 0→1. Titre en deux groupes décalés de 3 images.",
+      "reading_pose": "Images 12–44 : produit stable ; légère variation du halo seulement.",
+      "exit": "Images 44–54 : cercle vers avatar ; produit réduit dans le résultat de recherche.",
+      "transition_to_next": "Le cercle de lumière devient le contour corail de la recherche.",
+      "sound_cues": [
+        {
+          "frame": 5,
+          "time_s": 0.16666666666666666,
+          "sound": "impact doux",
+          "status": "proposed_not_transcribed_from_reference"
+        },
+        {
+          "frame": 46,
+          "time_s": 1.5333333333333334,
+          "sound": "souffle court",
+          "status": "proposed_not_transcribed_from_reference"
+        }
+      ],
+      "product_image_status": "AI_illustration_for_storyboard_not_verified_catalog_photo",
+      "image": "sequences/S01.png",
+      "native_size": [
+        394,
+        759
+      ],
+      "source_board": "planches/PLANCHE_01.png",
+      "crop_box": [
+        66,
+        17,
+        460,
+        776
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "Recherche TikTok",
+      "start_frame": 54,
+      "end_frame_exclusive": 114,
+      "duration_frames": 60,
+      "start_s": 1.8,
+      "end_s": 3.8,
+      "heading": "TROUVEZ\nVOTRE STYLE",
+      "reference_function": "Recherche du compte",
+      "visual": "Téléphone stylisé avec champ @daya_na990, onglets et un résultat BIKINIS SHOP. Aucun compteur social.",
+      "layout_proposal_px": "Titre x=80 y=130 ; téléphone x=160 y=420 w=700 h=1160 ; champ x=215 y=790 w=580 h=115 ; résultat y=1040.",
+      "editable_layers": [
+        "telephone",
+        "ecran",
+        "titre",
+        "champ-recherche",
+        "icone-recherche",
+        "texte-saisi",
+        "onglets",
+        "resultat",
+        "avatar",
+        "nom-compte"
+      ],
+      "entry": "0–10 images : arrivée du téléphone. Images 10–28 : saisie progressive du handle ; 28–36 : résultat révélé.",
+      "reading_pose": "Images 36–50 : résultat lisible, sans mouvement parasite.",
+      "exit": "Images 50–60 : résultat agrandi vers le profil.",
+      "transition_to_next": "Conserver avatar et handle entre le résultat et le profil.",
+      "sound_cues": [
+        {
+          "frame": 66,
+          "time_s": 2.2,
+          "sound": "clic de champ",
+          "status": "proposed_not_transcribed_from_reference"
+        },
+        {
+          "frame": 74,
+          "time_s": 2.466666666666667,
+          "sound": "saisie légère",
+          "status": "proposed_not_transcribed_from_reference"
+        },
+        {
+          "frame": 104,
+          "time_s": 3.466666666666667,
+          "sound": "clic de sélection",
+          "status": "proposed_not_transcribed_from_reference"
+        }
+      ],
+      "product_image_status": "AI_illustration_for_storyboard_not_verified_catalog_photo",
+      "image": "sequences/S02.png",
+      "native_size": [
+        387,
+        762
+      ],
+      "source_board": "planches/PLANCHE_01.png",
+      "crop_box": [
+        536,
+        14,
+        923,
+        776
+      ]
+    },
+    {
+      "id": "S03",
+      "title": "Profil de la boutique",
+      "start_frame": 114,
+      "end_frame_exclusive": 159,
+      "duration_frames": 45,
+      "start_s": 3.8,
+      "end_s": 5.3,
+      "heading": "BIKINIS.\nCOULEURS. STYLE.",
+      "reference_function": "Profil social",
+      "visual": "Profil BIKINIS SHOP, @daya_na990, bouton Message, trois photos illustratives bleu, rose et vert sur mannequins.",
+      "layout_proposal_px": "Titre x=80 y=130 ; téléphone x=170 y=420 w=680 h=1160 ; bouton Message centré dans le profil ; grille sous le bouton.",
+      "editable_layers": [
+        "telephone",
+        "avatar",
+        "nom-boutique",
+        "handle",
+        "bouton-message",
+        "onglets",
+        "produit-bleu",
+        "produit-rose",
+        "produit-vert",
+        "titre"
+      ],
+      "entry": "0–10 images : profil remplace le résultat ; grille entre avec un décalage de 2 images par carte.",
+      "reading_pose": "Images 10–35 : profil et bouton lisibles.",
+      "exit": "Images 35–45 : descente vers la grille ; produit bleu mis en avant.",
+      "transition_to_next": "La même carte bleue est utilisée dans la grille et dans la scène suivante.",
+      "sound_cues": [
+        {
+          "frame": 119,
+          "time_s": 3.966666666666667,
+          "sound": "clic bref",
+          "status": "proposed_not_transcribed_from_reference"
+        }
+      ],
+      "product_image_status": "AI_illustration_for_storyboard_not_verified_catalog_photo",
+      "image": "sequences/S03.png",
+      "native_size": [
+        394,
+        802
+      ],
+      "source_board": "planches/PLANCHE_01.png",
+      "crop_box": [
+        66,
+        804,
+        460,
+        1606
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "Sélection dans la galerie",
+      "start_frame": 159,
+      "end_frame_exclusive": 234,
+      "duration_frames": 75,
+      "start_s": 5.3,
+      "end_s": 7.8,
+      "heading": "LEQUEL\nVOUS PLAÎT ?",
+      "reference_function": "Publication sélectionnée",
+      "visual": "Trois cartes produit : bleu fleuri devant, rose et vert en retrait. Contour corail sur la sélection.",
+      "layout_proposal_px": "Titre x=80 y=130 ; carte centrale x=200 y=500 w=630 h=960 ; cartes latérales plus petites ; fond assombri.",
+      "editable_layers": [
+        "fond",
+        "carte-rose",
+        "carte-verte",
+        "carte-bleue",
+        "contour-selection",
+        "pagination",
+        "titre"
+      ],
+      "entry": "0–18 images : carte bleue passe au premier plan, échelle 0,65→1 ; les cartes latérales reculent et perdent du contraste.",
+      "reading_pose": "Images 18–63 : produit lisible ; déplacement doux de caméra limité.",
+      "exit": "Images 63–75 : carte réduite vers la photo jointe au message.",
+      "transition_to_next": "Même image, même coin arrondi ; trajectoire vers la messagerie.",
+      "sound_cues": [
+        {
+          "frame": 171,
+          "time_s": 5.7,
+          "sound": "souffle de carte",
+          "status": "proposed_not_transcribed_from_reference"
+        },
+        {
+          "frame": 219,
+          "time_s": 7.3,
+          "sound": "sélection douce",
+          "status": "proposed_not_transcribed_from_reference"
+        }
+      ],
+      "product_image_status": "AI_illustration_for_storyboard_not_verified_catalog_photo",
+      "image": "sequences/S04.png",
+      "native_size": [
+        387,
+        802
+      ],
+      "source_board": "planches/PLANCHE_01.png",
+      "crop_box": [
+        536,
+        804,
+        923,
+        1606
+      ]
+    },
+    {
+      "id": "S05",
+      "title": "Question par message",
+      "start_frame": 234,
+      "end_frame_exclusive": 288,
+      "duration_frames": 54,
+      "start_s": 7.8,
+      "end_s": 9.6,
+      "heading": "UN MODÈLE\nVOUS PLAÎT ?",
+      "reference_function": "Conversation",
+      "visual": "Écran de message avec photo bleue, brouillon « Bonjour, ce modèle est disponible ? », clavier et mention EXEMPLE DE MESSAGE.",
+      "layout_proposal_px": "Titre x=80 y=130 ; téléphone x=170 y=440 w=680 h=1180 ; photo au-dessus du brouillon ; clavier contenu dans le téléphone.",
+      "editable_layers": [
+        "telephone",
+        "nom-boutique",
+        "avatar",
+        "photo-bleue",
+        "champ-message",
+        "texte-question",
+        "bouton-envoi",
+        "clavier",
+        "mention-exemple",
+        "titre"
+      ],
+      "entry": "0–10 images : photo et messagerie apparaissent. Images 10–34 : texte saisi progressivement.",
+      "reading_pose": "Images 34–44 : brouillon lisible ; aucune réponse de boutique inventée.",
+      "exit": "Images 44–54 : séparation de la photo et des panneaux pour le reveal.",
+      "transition_to_next": "La photo, le champ et la vignette deviennent les plans du produit héros.",
+      "sound_cues": [
+        {
+          "frame": 249,
+          "time_s": 8.3,
+          "sound": "saisie légère",
+          "status": "proposed_not_transcribed_from_reference"
+        },
+        {
+          "frame": 276,
+          "time_s": 9.2,
+          "sound": "clic de bouton",
+          "status": "proposed_not_transcribed_from_reference"
+        }
+      ],
+      "product_image_status": "AI_illustration_for_storyboard_not_verified_catalog_photo",
+      "image": "sequences/S05.png",
+      "native_size": [
+        396,
+        768
+      ],
+      "source_board": "planches/PLANCHE_02.png",
+      "crop_box": [
+        66,
+        16,
+        462,
+        784
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "Produit héros en profondeur",
+      "start_frame": 288,
+      "end_frame_exclusive": 354,
+      "duration_frames": 66,
+      "start_s": 9.6,
+      "end_s": 11.8,
+      "heading": "VOTRE\nCOUP DE CŒUR.",
+      "reference_function": "Produit hors interface",
+      "visual": "Mannequin bleu fleuri principal détaché, cartes rose et verte en arrière-plan, carte de détails en dessous, contours corail.",
+      "layout_proposal_px": "Titre x=80 y=130 ; héros x=200 y=450 w=630 h=930 ; détails x=150 y=1370 w=750 h=230 ; perspective commune modérée.",
+      "editable_layers": [
+        "fond",
+        "halo",
+        "carte-rose",
+        "carte-verte",
+        "ombre-heros",
+        "heros-detoure",
+        "contour-heros",
+        "carte-details",
+        "titre"
+      ],
+      "entry": "0–18 images : inclinaison de la scène, plans séparés ; héros avance et monte. Perspective commune, transformations des enfants indépendantes.",
+      "reading_pose": "Images 18–54 : pose produit et profondeur ; pas de rotation permanente.",
+      "exit": "Images 54–66 : raccord vers le tissu et la fleur.",
+      "transition_to_next": "Un détail de la carte basse devient le gros plan suivant.",
+      "sound_cues": [
+        {
+          "frame": 296,
+          "time_s": 9.866666666666667,
+          "sound": "souffle ample et grave discret",
+          "status": "proposed_not_transcribed_from_reference"
+        }
+      ],
+      "product_image_status": "AI_illustration_for_storyboard_not_verified_catalog_photo",
+      "image": "sequences/S06.png",
+      "native_size": [
+        389,
+        768
+      ],
+      "source_board": "planches/PLANCHE_02.png",
+      "crop_box": [
+        536,
+        16,
+        925,
+        784
+      ]
+    },
+    {
+      "id": "S07",
+      "title": "Détails du modèle",
+      "start_frame": 354,
+      "end_frame_exclusive": 417,
+      "duration_frames": 63,
+      "start_s": 11.8,
+      "end_s": 13.9,
+      "heading": "LES DÉTAILS\nFONT LE STYLE.",
+      "reference_function": "Visuel produit et zoom",
+      "visual": "Produit entier avec trois détails : fleur blanche, motif bleu et liens latéraux. Les gros plans sont illustratifs.",
+      "layout_proposal_px": "Titre x=80 y=130 ; produit x=120 y=440 w=620 h=1080 ; inserts à droite et en bas ; traits fins reliant les détails.",
+      "editable_layers": [
+        "produit",
+        "insert-fleur",
+        "insert-tissu",
+        "insert-liens",
+        "contours",
+        "traits-reperes",
+        "titre"
+      ],
+      "entry": "0–15 images : ouverture des inserts, décalage de 3 images ; traits dessinés après les cadres.",
+      "reading_pose": "Images 15–51 : un zoom lent sur le produit, inserts stables et lisibles.",
+      "exit": "Images 51–63 : inserts se replient vers les widgets de choix.",
+      "transition_to_next": "Les cadres de détails deviennent les cadres de sélection.",
+      "sound_cues": [
+        {
+          "frame": 360,
+          "time_s": 12.0,
+          "sound": "souffle léger",
+          "status": "proposed_not_transcribed_from_reference"
+        },
+        {
+          "frame": 369,
+          "time_s": 12.3,
+          "sound": "pop doux de détail",
+          "status": "proposed_not_transcribed_from_reference"
+        }
+      ],
+      "product_image_status": "AI_illustration_for_storyboard_not_verified_catalog_photo",
+      "image": "sequences/S07.png",
+      "native_size": [
+        396,
+        803
+      ],
+      "source_board": "planches/PLANCHE_02.png",
+      "crop_box": [
+        66,
+        804,
+        462,
+        1607
+      ]
+    },
+    {
+      "id": "S08",
+      "title": "Choix du modèle",
+      "start_frame": 417,
+      "end_frame_exclusive": 534,
+      "duration_frames": 117,
+      "start_s": 13.9,
+      "end_s": 17.8,
+      "heading": "VOTRE STYLE.\nVOTRE CHOIX.",
+      "reference_function": "Widgets autour du téléphone",
+      "visual": "Téléphone avec collection, widgets Modèle, Couleur, Disponibilité. Il s’agit d’options de demande, sans confirmation de stock.",
+      "layout_proposal_px": "Titre x=80 y=130 ; téléphone x=90 y=540 w=520 h=1030 ; widgets x=620 y=620 w=300 h=220, 890 et 1160.",
+      "editable_layers": [
+        "telephone",
+        "collection",
+        "widget-modele",
+        "widget-couleur",
+        "widget-disponibilite",
+        "selection-bleue",
+        "cercle-sol",
+        "titre"
+      ],
+      "entry": "0–18 images : téléphone entre ; widgets arrivent aux images 18, 24 et 30.",
+      "reading_pose": "Images 30–99 : pose de lecture ; seule la sélection bleue pulse brièvement.",
+      "exit": "Images 99–117 : caméra avance et les widgets cadrent le showroom.",
+      "transition_to_next": "Téléphone et halo restent continus pendant la révélation de la boutique virtuelle.",
+      "sound_cues": [
+        {
+          "frame": 435,
+          "time_s": 14.5,
+          "sound": "clic Modèle",
+          "status": "proposed_not_transcribed_from_reference"
+        },
+        {
+          "frame": 441,
+          "time_s": 14.7,
+          "sound": "clic Couleur",
+          "status": "proposed_not_transcribed_from_reference"
+        },
+        {
+          "frame": 447,
+          "time_s": 14.9,
+          "sound": "clic Disponibilité",
+          "status": "proposed_not_transcribed_from_reference"
+        }
+      ],
+      "product_image_status": "AI_illustration_for_storyboard_not_verified_catalog_photo",
+      "image": "sequences/S08.png",
+      "native_size": [
+        389,
+        803
+      ],
+      "source_board": "planches/PLANCHE_02.png",
+      "crop_box": [
+        536,
+        804,
+        925,
+        1607
+      ]
+    },
+    {
+      "id": "S09",
+      "title": "Showroom virtuel",
+      "start_frame": 534,
+      "end_frame_exclusive": 570,
+      "duration_frames": 36,
+      "start_s": 17.8,
+      "end_s": 19.0,
+      "heading": "LA BOUTIQUE\nDANS VOTRE POCHE.",
+      "reference_function": "Lieu illustré",
+      "visual": "Trois mannequins sur podiums dans une boutique virtuelle encadrée par un téléphone. Décor illustratif, sans adresse physique annoncée.",
+      "layout_proposal_px": "Titre x=80 y=130 ; showroom x=120 y=490 w=820 h=1090 ; mannequin bleu central ; rose et vert latéraux plus petits.",
+      "editable_layers": [
+        "decor-virtuel",
+        "cadre-telephone",
+        "podium-central",
+        "podium-gauche",
+        "podium-droit",
+        "mannequins",
+        "enseignes",
+        "halos",
+        "titre"
+      ],
+      "entry": "0–12 images : podiums et mannequins se révèlent ; légère ouverture de l’angle de caméra.",
+      "reading_pose": "Images 12–27 : vue complète stable.",
+      "exit": "Images 27–36 : showroom recule légèrement pour laisser entrer la sélection.",
+      "transition_to_next": "Le showroom reste visible sous la carte favorite.",
+      "sound_cues": [
+        {
+          "frame": 538,
+          "time_s": 17.933333333333334,
+          "sound": "souffle de reveal",
+          "status": "proposed_not_transcribed_from_reference"
+        }
+      ],
+      "product_image_status": "AI_illustration_for_storyboard_not_verified_catalog_photo",
+      "image": "sequences/S09.png",
+      "native_size": [
+        396,
+        761
+      ],
+      "source_board": "planches/PLANCHE_03.png",
+      "crop_box": [
+        66,
+        16,
+        462,
+        777
+      ]
+    },
+    {
+      "id": "S10",
+      "title": "Carte de sélection",
+      "start_frame": 570,
+      "end_frame_exclusive": 621,
+      "duration_frames": 51,
+      "start_s": 19.0,
+      "end_s": 20.7,
+      "heading": "VOTRE\nSÉLECTION",
+      "reference_function": "Carte d’avis remplacée par un favori",
+      "visual": "Carte translucide avec produit bleu, nom BIKINIS SHOP, handle et cœur ; showroom dessous. Aucun témoignage ou classement.",
+      "layout_proposal_px": "Titre x=80 y=130 ; carte x=120 y=470 w=820 h=520 ; showroom réduit sous y=1080 ; cœur corail dans la carte.",
+      "editable_layers": [
+        "showroom",
+        "carte-selection",
+        "photo-produit",
+        "nom-boutique",
+        "handle",
+        "bouton-coeur",
+        "trait-lumineux",
+        "titre"
+      ],
+      "entry": "0–12 images : carte entre au-dessus du showroom ; image et nom entrent ensuite.",
+      "reading_pose": "Images 12–41 : sélection stable ; cœur animé une seule fois.",
+      "exit": "Images 41–51 : photo de la carte grandit vers le plan produit suivant.",
+      "transition_to_next": "Même image et mêmes coins arrondis entre la sélection et le modèle en détail.",
+      "sound_cues": [
+        {
+          "frame": 588,
+          "time_s": 19.6,
+          "sound": "pop favori",
+          "status": "proposed_not_transcribed_from_reference"
+        }
+      ],
+      "product_image_status": "AI_illustration_for_storyboard_not_verified_catalog_photo",
+      "image": "sequences/S10.png",
+      "native_size": [
+        389,
+        761
+      ],
+      "source_board": "planches/PLANCHE_03.png",
+      "crop_box": [
+        536,
+        16,
+        925,
+        777
+      ]
+    },
+    {
+      "id": "S11",
+      "title": "Photo du modèle",
+      "start_frame": 621,
+      "end_frame_exclusive": 657,
+      "duration_frames": 36,
+      "start_s": 20.7,
+      "end_s": 21.9,
+      "heading": "LE MODÈLE\nEN DÉTAIL",
+      "reference_function": "Photo de livraison remplacée par une photo produit",
+      "visual": "Grande carte du mannequin bleu et deux inserts de fleur et liens. Dans le final, ils proviendront de vraies photos du même article.",
+      "layout_proposal_px": "Titre x=80 y=130 ; grande carte x=100 y=450 w=620 h=1120 ; inserts x=750 y=600 et y=1030 w=200.",
+      "editable_layers": [
+        "photo-principale",
+        "cadre-principal",
+        "detail-fleur",
+        "detail-liens",
+        "titre",
+        "fond"
+      ],
+      "entry": "0–10 images : grande carte arrive ; deux inserts suivent avec 2 images de décalage.",
+      "reading_pose": "Images 10–27 : modèle stable, détail reconnaissable.",
+      "exit": "Images 27–36 : carte devient la miniature près du bouton Message.",
+      "transition_to_next": "La miniature reste le même produit jusqu’au contact.",
+      "sound_cues": [
+        {
+          "frame": 627,
+          "time_s": 20.9,
+          "sound": "souffle court",
+          "status": "proposed_not_transcribed_from_reference"
+        }
+      ],
+      "product_image_status": "AI_illustration_for_storyboard_not_verified_catalog_photo",
+      "image": "sequences/S11.png",
+      "native_size": [
+        396,
+        802
+      ],
+      "source_board": "planches/PLANCHE_03.png",
+      "crop_box": [
+        66,
+        804,
+        462,
+        1606
+      ]
+    },
+    {
+      "id": "S12",
+      "title": "Contact par message",
+      "start_frame": 657,
+      "end_frame_exclusive": 690,
+      "duration_frames": 33,
+      "start_s": 21.9,
+      "end_s": 23.0,
+      "heading": "UN MESSAGE\nPOUR COMMENCER.",
+      "reference_function": "Clé remplacée par un geste de contact",
+      "visual": "Main appuyant sur Message dans le profil, produit bleu en vignette, trace corail. Aucun achat confirmé ni paiement montré.",
+      "layout_proposal_px": "Titre x=80 y=130 ; téléphone x=280 y=560 w=620 h=1060 ; vignette x=90 y=600 w=230 h=360 ; point de tap dans le bouton.",
+      "editable_layers": [
+        "telephone",
+        "profil",
+        "bouton-message",
+        "main",
+        "vignette-produit",
+        "trace-corail",
+        "titre"
+      ],
+      "entry": "0–6 images : téléphone et vignette se placent. Images 6–18 : doigt rejoint le bouton et le bouton réagit.",
+      "reading_pose": "Images 18–24 : résultat visuel du contact, sans échange ou promesse inventée.",
+      "exit": "Images 24–33 : trace corail rejoint le cercle de la signature.",
+      "transition_to_next": "Trace vers cercle ; vignette vers produit de la signature.",
+      "sound_cues": [
+        {
+          "frame": 672,
+          "time_s": 22.4,
+          "sound": "clic Message",
+          "status": "proposed_not_transcribed_from_reference"
+        },
+        {
+          "frame": 684,
+          "time_s": 22.8,
+          "sound": "souffle de signature",
+          "status": "proposed_not_transcribed_from_reference"
+        }
+      ],
+      "product_image_status": "AI_illustration_for_storyboard_not_verified_catalog_photo",
+      "image": "sequences/S12.png",
+      "native_size": [
+        389,
+        802
+      ],
+      "source_board": "planches/PLANCHE_03.png",
+      "crop_box": [
+        536,
+        804,
+        925,
+        1606
+      ]
+    },
+    {
+      "id": "S13",
+      "title": "Signature et appel à l’action",
+      "start_frame": 690,
+      "end_frame_exclusive": 765,
+      "duration_frames": 75,
+      "start_s": 23.0,
+      "end_s": 25.5,
+      "heading": "VOTRE PROCHAIN LOOK\nCOMMENCE ICI.",
+      "reference_function": "Signature de marque",
+      "visual": "Produit bleu, BIKINIS SHOP, @daya_na990 et bouton « Écrivez-nous sur TikTok ». Priorité à la lecture du contact.",
+      "layout_proposal_px": "Titre x=80 y=130 w=820 ; produit x=240 y=480 w=570 h=820 ; nom/handle y=1340/1430 ; CTA x=90 y=1530 w=780 h=120.",
+      "editable_layers": [
+        "fond",
+        "cercle-sol",
+        "produit-bleu",
+        "titre",
+        "nom-boutique",
+        "handle",
+        "bouton-cta",
+        "icone-message"
+      ],
+      "entry": "0–9 images : signature apparaît, CTA en place au plus tard à l’image 9 de cette scène.",
+      "reading_pose": "Images 9–69 : CTA et handle totalement lisibles ; mouvement du produit presque nul.",
+      "exit": "Images 69–75 : textes disparaissent, halo se concentre sur le produit.",
+      "transition_to_next": "Le halo devient le cercle du raccord final.",
+      "sound_cues": [
+        {
+          "frame": 693,
+          "time_s": 23.1,
+          "sound": "signature sonore douce",
+          "status": "proposed_not_transcribed_from_reference"
+        }
+      ],
+      "product_image_status": "AI_illustration_for_storyboard_not_verified_catalog_photo",
+      "image": "sequences/S13.png",
+      "native_size": [
+        455,
+        1185
+      ],
+      "source_board": "planches/PLANCHE_04.png",
+      "crop_box": [
+        10,
+        261,
+        465,
+        1446
+      ]
+    },
+    {
+      "id": "S14",
+      "title": "Raccord de boucle",
+      "start_frame": 765,
+      "end_frame_exclusive": 794,
+      "duration_frames": 29,
+      "start_s": 25.5,
+      "end_s": 26.466666666666665,
+      "heading": "",
+      "reference_function": "Signal final",
+      "visual": "Produit bleu dans un cercle corail sur fond sombre, sans titre. Un état intermédiaire guide le retour à l’ouverture.",
+      "layout_proposal_px": "Cercle et vignette au centre ; dernier état aligné avec le premier cadre d’ouverture, pas avec le cadre de maquette figé.",
+      "editable_layers": [
+        "fond",
+        "cercle-corail",
+        "produit-bleu",
+        "halo"
+      ],
+      "entry": "0–10 images : cercle et vignette prennent la place de la signature.",
+      "reading_pose": "Images 10–20 : contraction douce et rapprochement de la pose initiale.",
+      "exit": "Images 20–29 : position, échelle et lumière convergent vers l’état de départ.",
+      "transition_to_next": "Comparer les images 793 et 0 pour réduire la rupture ; un fondu seul ne garantit pas le raccord.",
+      "sound_cues": [
+        {
+          "frame": 777,
+          "time_s": 25.9,
+          "sound": "souffle inversé discret",
+          "status": "proposed_not_transcribed_from_reference"
+        }
+      ],
+      "product_image_status": "AI_illustration_for_storyboard_not_verified_catalog_photo",
+      "image": "sequences/S14.png",
+      "native_size": [
+        454,
+        1185
+      ],
+      "source_board": "planches/PLANCHE_04.png",
+      "crop_box": [
+        477,
+        261,
+        931,
+        1446
+      ]
+    }
+  ]
+}
