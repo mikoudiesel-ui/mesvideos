@@ -1,0 +1,65 @@
+{
+  "cards": [
+    {
+      "id": "sneaker_poster",
+      "image": "assets/images/baskets.webp",
+      "title": "STYLE EN MOUVEMENT",
+      "scale": 1,
+      "focus": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "perfume_poster",
+      "image": "assets/images/parfum.webp",
+      "title": "UNE SIGNATURE",
+      "scale": 1,
+      "focus": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "handbag_poster",
+      "image": "assets/images/sac.webp",
+      "title": "L’ALLURE AU QUOTIDIEN",
+      "scale": 1,
+      "focus": [
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": "sneaker_detail",
+      "image": "assets/images/baskets.webp",
+      "title": "Détail baskets",
+      "scale": 2.8,
+      "focus": [
+        0.76,
+        0.48
+      ]
+    },
+    {
+      "id": "perfume_detail",
+      "image": "assets/images/parfum.webp",
+      "title": "Détail flacon",
+      "scale": 3.5,
+      "focus": [
+        0.61,
+        0.54
+      ]
+    },
+    {
+      "id": "handbag_detail",
+      "image": "assets/images/sac.webp",
+      "title": "Détail cuir",
+      "scale": 2.8,
+      "focus": [
+        0.5,
+        0.65
+      ]
+    }
+  ],
+  "cropping_note": "Gros plans par masque CSS et transformation de la même image ; pas de produit régénéré ou de sixième affiche incohérente."
+}

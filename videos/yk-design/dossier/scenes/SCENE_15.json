@@ -1,0 +1,33 @@
+{
+  "id": "S15",
+  "title": "Flash monogramme",
+  "start_frame": 573,
+  "end_frame_exclusive": 584,
+  "start_seconds": 19.1,
+  "end_seconds_exclusive": 19.466666666666665,
+  "duration_frames": 11,
+  "fps": 30,
+  "storyboard_image": "maquettes/scene_15.webp",
+  "image_kind": "static_keyframe",
+  "direction": "Coupe claire, monogramme YK rouge centré, grand et droit. Flash de 11 images.",
+  "keyframes": [
+    {
+      "frame": 573,
+      "time_seconds": 19.1
+    },
+    {
+      "frame": 583,
+      "time_seconds": 19.433333333333334
+    }
+  ],
+  "audio_attack_candidates_seconds": [
+    19.19
+  ],
+  "audio_source": "assets/audio/AUDIO_MASTER.flac",
+  "audio_start_seconds": 0,
+  "audio_playback_rate": 1,
+  "new_audio_to_add": false,
+  "state": "production_direction_complete",
+  "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+  "hero_asset": "assets/images/parfum.webp"
+}

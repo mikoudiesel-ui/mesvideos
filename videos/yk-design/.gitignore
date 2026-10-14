@@ -1,0 +1,6 @@
+snapshots/
+.hyperframes/
+node_modules/
+*.log
+renders/*
+!renders/YK_DESIGN_PUBLICITE_1080P.mp4

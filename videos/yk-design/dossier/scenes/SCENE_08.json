@@ -1,0 +1,97 @@
+{
+  "id": "S08",
+  "title": "Choisir sa publicité",
+  "start_frame": 328,
+  "end_frame_exclusive": 344,
+  "start_seconds": 10.933333333333334,
+  "end_seconds_exclusive": 11.466666666666667,
+  "duration_frames": 16,
+  "fps": 30,
+  "storyboard_image": "maquettes/scene_08.webp",
+  "image_kind": "static_keyframe_board",
+  "direction": "Le curseur survole l’affiche du parfum à droite : léger voile sombre, apparition de Créer ma publicité, appui bref. Aucun zoom avant f344.",
+  "keyframes": [
+    {
+      "frame": 328,
+      "time_seconds": 10.933333333333334
+    },
+    {
+      "frame": 331,
+      "time_seconds": 11.033333333333333
+    },
+    {
+      "frame": 336,
+      "time_seconds": 11.2
+    },
+    {
+      "frame": 343,
+      "time_seconds": 11.433333333333334
+    }
+  ],
+  "audio_attack_candidates_seconds": [
+    10.99,
+    11.21,
+    11.39
+  ],
+  "audio_source": "assets/audio/AUDIO_MASTER.flac",
+  "audio_start_seconds": 0,
+  "audio_playback_rate": 1,
+  "new_audio_to_add": false,
+  "state": "production_direction_complete",
+  "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+  "reconstruction_details": {
+    "page": 8,
+    "brand_name": "Y-K Design",
+    "start_frame": 328,
+    "end_frame_exclusive": 344,
+    "fps": 30,
+    "target_width": 1920,
+    "target_height": 1080,
+    "background_color": "#BD0F28",
+    "central_text": "vos montages",
+    "central_text_color": "#F9F9F9",
+    "hero_card_id": "perfume_poster",
+    "hero_selection_reason": "Amber glass and burgundy/gold art direction provide visual contrast; preserve the same perfume poster in later selection and project scenes.",
+    "cards_from": "timeline/scenes/SCENE_07.json",
+    "card_orientation_degrees": 0,
+    "button_label": "Créer ma publicité",
+    "button_background_color": "#BD0F28",
+    "button_text_color": "#F9F9F9",
+    "interaction_kind": "Illustrative animation of requesting an advertising project; no live order is submitted.",
+    "keyframes": [
+      {
+        "frame": 328,
+        "time_seconds": 10.933333333333334,
+        "state": "Continue the six-card orbit from the previous frame; white cursor approaches the perfume card at the right of the message."
+      },
+      {
+        "frame": 331,
+        "time_seconds": 11.033333333333333,
+        "state": "Cursor hovers over the perfume poster; a subtle dark scrim appears on this card only."
+      },
+      {
+        "frame": 336,
+        "time_seconds": 11.2,
+        "state": "A compact red action button labelled Créer ma publicité appears inside the perfume card; cursor moves onto it."
+      },
+      {
+        "frame": 343,
+        "time_seconds": 11.433333333333334,
+        "state": "Brief pressed state on the action button; prepare the fast enlargement that starts at frame 344."
+      }
+    ],
+    "motion": "Keep orbital card positions continuous with scene 7 and images upright. Ease the group into the selection position with the hero on the right. Move one white cursor smoothly with transforms. Do not enlarge the hero before frame 344.",
+    "audio_start_seconds": 0,
+    "audio_playback_rate": 1,
+    "audio_attack_candidates_seconds": [
+      10.99,
+      11.21,
+      11.39
+    ],
+    "new_audio_to_add": false,
+    "real_client_claims": false,
+    "storyboard_note": "Static illustrative keyframes; reconstruct exact dimensions, editable text and frame timing in the animation.",
+    "next_page": "Fast enlargement of the same perfume poster, retaining its design and leading into the project-request interface.",
+    "brand_emblem_asset": "assets/images/monogramme_YK.webp"
+  }
+}

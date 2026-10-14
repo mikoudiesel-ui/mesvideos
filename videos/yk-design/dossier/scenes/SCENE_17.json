@@ -1,0 +1,39 @@
+{
+  "id": "S17",
+  "title": "Signature et coordonnées",
+  "start_frame": 596,
+  "end_frame_exclusive": 623,
+  "start_seconds": 19.866666666666667,
+  "end_seconds_exclusive": 20.766666666666666,
+  "duration_frames": 27,
+  "fps": 30,
+  "storyboard_image": "maquettes/scene_17.webp",
+  "image_kind": "static_keyframe",
+  "direction": "Coupe claire sur signature compacte : monogramme + Y-K Design ; dessous Montages publicitaires pour boutiques ; puis +225 07 12 35 46 02. Stabiliser jusqu’à la dernière image, sans fondu final.",
+  "keyframes": [
+    {
+      "frame": 596,
+      "time_seconds": 19.866666666666667
+    },
+    {
+      "frame": 606,
+      "time_seconds": 20.2
+    },
+    {
+      "frame": 622,
+      "time_seconds": 20.733333333333334
+    }
+  ],
+  "audio_attack_candidates_seconds": [
+    20.01,
+    20.21
+  ],
+  "audio_source": "assets/audio/AUDIO_MASTER.flac",
+  "audio_start_seconds": 0,
+  "audio_playback_rate": 1,
+  "new_audio_to_add": false,
+  "state": "production_direction_complete",
+  "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+  "hero_asset": "assets/images/parfum.webp",
+  "contact_display": "+225 07 12 35 46 02"
+}

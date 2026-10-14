@@ -1,0 +1,232 @@
+{
+  "id": "S05",
+  "title": "Des publicités pour boutiques",
+  "start_frame": 152,
+  "end_frame_exclusive": 234,
+  "start_seconds": 5.066666666666666,
+  "end_seconds_exclusive": 7.8,
+  "duration_frames": 82,
+  "fps": 30,
+  "storyboard_image": "maquettes/scene_05.webp",
+  "image_kind": "static_keyframe_board",
+  "direction": "Sur rouge, préfixe Des publicités et cartouche clair. Défilement vertical successif : créatives, dynamiques, sur mesure, pour boutiques. Chaque mot garde sa pause lisible.",
+  "keyframes": [
+    {
+      "frame": 152,
+      "time_seconds": 5.066666666666666
+    },
+    {
+      "frame": 192,
+      "time_seconds": 6.4
+    },
+    {
+      "frame": 210,
+      "time_seconds": 7.0
+    },
+    {
+      "frame": 228,
+      "time_seconds": 7.6
+    }
+  ],
+  "audio_attack_candidates_seconds": [
+    5.09,
+    5.19,
+    5.4,
+    5.59,
+    5.8,
+    5.99,
+    6.16,
+    6.25,
+    6.39,
+    6.82,
+    6.92,
+    7.0,
+    7.26,
+    7.39,
+    7.59,
+    7.79
+  ],
+  "audio_source": "assets/audio/AUDIO_MASTER.flac",
+  "audio_start_seconds": 0,
+  "audio_playback_rate": 1,
+  "new_audio_to_add": false,
+  "state": "production_direction_complete",
+  "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+  "reconstruction_details": {
+    "page": 5,
+    "brand_name": "Y-K Design",
+    "start_frame": 152,
+    "end_frame_exclusive": 234,
+    "fps": 30,
+    "target_width": 1920,
+    "target_height": 1080,
+    "background_color": "#BD0F28",
+    "fixed_prefix": "Des publicités",
+    "fixed_prefix_color": "#F9F9F9",
+    "changing_word_container_background": "#F9F9F9",
+    "changing_word_color": "#BD0F28",
+    "word_slots": [
+      {
+        "text": "créatives",
+        "start_frame": 152,
+        "end_frame_exclusive": 182
+      },
+      {
+        "text": "dynamiques",
+        "start_frame": 182,
+        "end_frame_exclusive": 198
+      },
+      {
+        "text": "sur mesure",
+        "start_frame": 198,
+        "end_frame_exclusive": 214
+      },
+      {
+        "text": "pour boutiques",
+        "start_frame": 214,
+        "end_frame_exclusive": 234
+      }
+    ],
+    "word_slot_timing_note": "These timings reconstruct the visually observed word-change phases. Continuous word-roll curves must be compared with the reference; they are not four hard cuts.",
+    "purpose": "State the creator’s advertising service and its shop audience after showing illustrative concepts.",
+    "layout": "Centered sentence with a stable prefix and a variable-width rectangular mask; re-center the combined group when word width changes.",
+    "motion": "Hard cut from the gallery at frame 152. First wording holds longer; subsequent words roll vertically inside the mask, with brief glimpses of outgoing and incoming lines.",
+    "audio_start_seconds": 0,
+    "audio_playback_rate": 1,
+    "audio_attack_candidates_seconds": [
+      5.09,
+      6.16,
+      6.82,
+      7.26,
+      7.79
+    ],
+    "new_audio_to_add": false,
+    "reference_measured_text_bounds": [
+      {
+        "frame": 152,
+        "time_seconds": 5.066666666666666,
+        "text_union_bbox_source_pixels": [
+          248,
+          260,
+          796,
+          316
+        ]
+      },
+      {
+        "frame": 154,
+        "time_seconds": 5.133333333333334,
+        "text_union_bbox_source_pixels": [
+          271,
+          263,
+          772,
+          314
+        ]
+      },
+      {
+        "frame": 158,
+        "time_seconds": 5.266666666666667,
+        "text_union_bbox_source_pixels": [
+          281,
+          264,
+          760,
+          312
+        ]
+      },
+      {
+        "frame": 160,
+        "time_seconds": 5.333333333333333,
+        "text_union_bbox_source_pixels": [
+          284,
+          264,
+          757,
+          312
+        ]
+      },
+      {
+        "frame": 166,
+        "time_seconds": 5.533333333333333,
+        "text_union_bbox_source_pixels": [
+          289,
+          264,
+          752,
+          312
+        ]
+      },
+      {
+        "frame": 174,
+        "time_seconds": 5.8,
+        "text_union_bbox_source_pixels": [
+          292,
+          265,
+          749,
+          311
+        ]
+      },
+      {
+        "frame": 180,
+        "time_seconds": 6.0,
+        "text_union_bbox_source_pixels": [
+          292,
+          265,
+          739,
+          311
+        ]
+      },
+      {
+        "frame": 192,
+        "time_seconds": 6.4,
+        "text_union_bbox_source_pixels": [
+          292,
+          265,
+          710,
+          311
+        ]
+      },
+      {
+        "frame": 210,
+        "time_seconds": 7.0,
+        "text_union_bbox_source_pixels": [
+          311,
+          265,
+          683,
+          311
+        ]
+      },
+      {
+        "frame": 228,
+        "time_seconds": 7.6,
+        "text_union_bbox_source_pixels": [
+          309,
+          265,
+          684,
+          311
+        ]
+      }
+    ],
+    "reference_entry_note": "The reference sentence briefly appears larger after the cut, then settles to a smaller size. Reconstruct the continuous scale change using measured bounds rather than treating all keyframes as the same static scale.",
+    "preview_keyframes": [
+      {
+        "frame": 152,
+        "time_seconds": 5.066666666666666,
+        "text": "Des publicités créatives"
+      },
+      {
+        "frame": 192,
+        "time_seconds": 6.4,
+        "text": "Des publicités dynamiques"
+      },
+      {
+        "frame": 210,
+        "time_seconds": 7,
+        "text": "Des publicités sur mesure"
+      },
+      {
+        "frame": 228,
+        "time_seconds": 7.6,
+        "text": "Des publicités pour boutiques"
+      }
+    ],
+    "storyboard_note": "Static key states. Reconstruct the word-roll in separate editable text layers and its mask. Use the reference measurements for the initial scale settling; do not animate the board as one image.",
+    "brand_emblem_asset": "assets/images/monogramme_YK.webp"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "id": "S13",
+  "title": "Intéressé ? Écrivez-moi.",
+  "start_frame": 524,
+  "end_frame_exclusive": 555,
+  "start_seconds": 17.466666666666665,
+  "end_seconds_exclusive": 18.5,
+  "duration_frames": 31,
+  "fps": 30,
+  "storyboard_image": "maquettes/scene_13.webp",
+  "image_kind": "static_keyframe",
+  "direction": "Coupe nette sur clair : Intéressé ? puis Écrivez-moi. en rouge, avec le numéro dessous. Pop typographique bref, puis pause. Pas de voix off supplémentaire.",
+  "keyframes": [
+    {
+      "frame": 524,
+      "time_seconds": 17.466666666666665
+    },
+    {
+      "frame": 530,
+      "time_seconds": 17.666666666666668
+    },
+    {
+      "frame": 540,
+      "time_seconds": 18.0
+    },
+    {
+      "frame": 554,
+      "time_seconds": 18.466666666666665
+    }
+  ],
+  "audio_attack_candidates_seconds": [
+    17.57,
+    17.65,
+    17.79,
+    17.99,
+    18.2,
+    18.39
+  ],
+  "audio_source": "assets/audio/AUDIO_MASTER.flac",
+  "audio_start_seconds": 0,
+  "audio_playback_rate": 1,
+  "new_audio_to_add": false,
+  "state": "production_direction_complete",
+  "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+  "hero_asset": "assets/images/parfum.webp",
+  "contact_display": "+225 07 12 35 46 02"
+}

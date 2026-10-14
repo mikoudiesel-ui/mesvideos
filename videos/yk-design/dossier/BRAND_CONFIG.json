@@ -1,0 +1,59 @@
+{
+  "brand": "Y-K Design",
+  "initials": "YK",
+  "logo_choice": "B",
+  "primary_color": "#BD0F28",
+  "light_color": "#F9F9F9",
+  "dark_color": "#262626",
+  "service": "Montages publicitaires en motion design pour boutiques",
+  "contact": {
+    "number": "+2250712354602",
+    "display": "+225 07 12 35 46 02",
+    "channel": "phone_number",
+    "user_supplied": true
+  },
+  "word_slots": [
+    "créatives",
+    "dynamiques",
+    "sur mesure",
+    "pour boutiques"
+  ],
+  "creator_sentence": "Je réalise vos montages",
+  "gallery_caption": "EXEMPLES CRÉATIFS",
+  "hero_card": "perfume_poster",
+  "call_to_action": [
+    "Intéressé ?",
+    "Écrivez-moi."
+  ],
+  "closing_subtitle": "Montages publicitaires pour boutiques",
+  "fonts": {
+    "regular": "assets/fonts/Inter-400.woff2",
+    "bold": "assets/fonts/Inter-700.woff2",
+    "editorial": "assets/fonts/EBGaramond-700.woff2"
+  },
+  "images": {
+    "logo": "assets/images/monogramme_YK.webp",
+    "sneaker": "assets/images/baskets.webp",
+    "perfume": "assets/images/parfum.webp",
+    "handbag": "assets/images/sac.webp"
+  },
+  "master": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "frames": 623,
+    "duration_seconds": 20.766666666666666
+  },
+  "audio": {
+    "path": "assets/audio/AUDIO_MASTER.flac",
+    "start_seconds": 0,
+    "rate": 1,
+    "sample_rate": 48000,
+    "samples_per_channel": 996800,
+    "channels": 2,
+    "uniform_gain_db": -4.1,
+    "codec": "flac",
+    "bits_per_sample": 24,
+    "lossless": true
+  }
+}

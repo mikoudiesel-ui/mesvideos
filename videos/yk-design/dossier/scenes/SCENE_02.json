@@ -1,0 +1,116 @@
+{
+  "id": "S02",
+  "title": "Révélation Y-K Design",
+  "start_frame": 36,
+  "end_frame_exclusive": 78,
+  "start_seconds": 1.2,
+  "end_seconds_exclusive": 2.6,
+  "duration_frames": 42,
+  "fps": 30,
+  "storyboard_image": "maquettes/scene_02.webp",
+  "image_kind": "static_keyframe_board",
+  "direction": "Glisser le monogramme vers la gauche sans modifier sa taille ; révéler Y-K Design à droite. Le bloc commence à monter pour préparer la galerie.",
+  "keyframes": [
+    {
+      "frame": 36,
+      "time_seconds": 1.2
+    },
+    {
+      "frame": 48,
+      "time_seconds": 1.6
+    },
+    {
+      "frame": 66,
+      "time_seconds": 2.2
+    },
+    {
+      "frame": 77,
+      "time_seconds": 2.566666666666667
+    }
+  ],
+  "audio_attack_candidates_seconds": [
+    1.28,
+    1.39,
+    1.79,
+    1.87,
+    1.98,
+    2.07,
+    2.15,
+    2.25
+  ],
+  "audio_source": "assets/audio/AUDIO_MASTER.flac",
+  "audio_start_seconds": 0,
+  "audio_playback_rate": 1,
+  "new_audio_to_add": false,
+  "state": "production_direction_complete",
+  "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+  "reconstruction_details": {
+    "page": 2,
+    "brand_name": "Y-K Design",
+    "selected_logo_option": "B",
+    "visual_initials": "YK",
+    "start_frame": 36,
+    "end_frame_exclusive": 78,
+    "fps": 30,
+    "target_width": 1920,
+    "target_height": 1080,
+    "background_color": "#F9F9F9",
+    "primary_color": "#BD0F28",
+    "text": "Y-K Design",
+    "scene_function": "Reveal the name beside the monogram and prepare the gallery entrance",
+    "elements": [
+      "YK monogram",
+      "editable Y-K Design wordmark",
+      "horizontal reveal mask"
+    ],
+    "keyframes": [
+      {
+        "frame": 36,
+        "time_seconds": 1.2,
+        "state": "Monogram alone at centre, name hidden"
+      },
+      {
+        "frame": 54,
+        "time_seconds": 1.8,
+        "state": "Monogram slides left; first part of Y-K Design begins to reveal"
+      },
+      {
+        "frame": 66,
+        "time_seconds": 2.2,
+        "state": "Full monogram and name form a centred compact brand lockup"
+      },
+      {
+        "frame": 77,
+        "time_seconds": 2.566666666666667,
+        "state": "Complete brand lockup begins rising together, ready for the gallery"
+      }
+    ],
+    "layout_note": "Measure brand text with the chosen font once; centre the entire lockup and adjust the monogram offset according to its actual width. The full lockup should occupy roughly 22–25% of frame width.",
+    "motion_note": "The monogram remains the same asset. Horizontal name reveal overlaps its leftward shift. The completed lockup then rises as one group; do not replace it with an unrelated logo graphic.",
+    "audio_start_seconds": 0,
+    "audio_playback_rate": 1,
+    "audio_attack_candidates_seconds": [
+      1.79,
+      1.87,
+      1.98,
+      2.07,
+      2.15,
+      2.25
+    ],
+    "new_audio_to_add": false,
+    "next_page": "Portfolio gallery of motion-design advertising examples for shops; images and claims to be chosen with the user",
+    "monogram_width_target_pixels": 90,
+    "preserve_monogram_size_from_page1": true,
+    "hold_center_y_target_pixels": 540,
+    "reference_end_brand_bbox_source_pixels": [
+      404,
+      230,
+      622,
+      278
+    ],
+    "end_brand_center_y_target_pixels": 476.25,
+    "brand_rise_begins_frame_approx": 70,
+    "storyboard_note": "Static illustrative board. The JSON specifies the exact render canvas and intended scale continuity; the brand rise must be reconstructed with timeline keyframes rather than inferred from generated panel geometry.",
+    "brand_emblem_asset": "assets/images/monogramme_YK.webp"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "id": "S09",
+  "title": "Zoom sur le parfum",
+  "start_frame": 344,
+  "end_frame_exclusive": 368,
+  "start_seconds": 11.466666666666667,
+  "end_seconds_exclusive": 12.266666666666667,
+  "duration_frames": 24,
+  "fps": 30,
+  "storyboard_image": "maquettes/scene_09.webp",
+  "image_kind": "static_keyframe_board",
+  "direction": "Punch-in de la composition puis translation vers la gauche pour centrer le même parfum. Le texte vos montages sort à gauche ; le curseur suit le bouton.",
+  "keyframes": [
+    {
+      "frame": 344,
+      "time_seconds": 11.466666666666667
+    },
+    {
+      "frame": 348,
+      "time_seconds": 11.6
+    },
+    {
+      "frame": 356,
+      "time_seconds": 11.866666666666667
+    },
+    {
+      "frame": 367,
+      "time_seconds": 12.233333333333333
+    }
+  ],
+  "audio_attack_candidates_seconds": [
+    11.9,
+    11.99,
+    12.2
+  ],
+  "audio_source": "assets/audio/AUDIO_MASTER.flac",
+  "audio_start_seconds": 0,
+  "audio_playback_rate": 1,
+  "new_audio_to_add": false,
+  "state": "production_direction_complete",
+  "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+  "reconstruction_details": {
+    "page": 9,
+    "brand_name": "Y-K Design",
+    "start_frame": 344,
+    "end_frame_exclusive": 368,
+    "fps": 30,
+    "target_width": 1920,
+    "target_height": 1080,
+    "background_color": "#BD0F28",
+    "hero_card_id": "perfume_poster",
+    "hero_poster_title": "UNE SIGNATURE",
+    "hero_visual": "Same square amber perfume bottle, polished gold cap and burgundy/red fabric from pages 3, 7 and 8.",
+    "button_label": "Créer ma publicité",
+    "button_background_color": "#BD0F28",
+    "button_text_color": "#F9F9F9",
+    "card_orientation_degrees": 0,
+    "cards_from": "timeline/scenes/SCENE_07.json",
+    "central_text_from_previous_scene": "vos montages",
+    "keyframes": [
+      {
+        "frame": 344,
+        "time_seconds": 11.466666666666667,
+        "state": "Fast punch-in on the existing ring; selected perfume square is enlarged on the right, central text is enlarged on the left, other cards partly leave the frame."
+      },
+      {
+        "frame": 348,
+        "time_seconds": 11.6,
+        "state": "The enlarged composition translates left, moving the perfume from the right towards the centre."
+      },
+      {
+        "frame": 356,
+        "time_seconds": 11.866666666666667,
+        "state": "Perfume card reaches near the centre; central text exits through the left edge; cursor stays near the action button."
+      },
+      {
+        "frame": 367,
+        "time_seconds": 12.233333333333333,
+        "state": "Settle near centre with the same enlarged perfume poster and action button, ready for the cut to the project interface at frame 368."
+      }
+    ],
+    "motion": "Scale the existing ring group rapidly around its centre, then translate the group left until the hero is near centre. Preserve all relative card positions and zero card rotation. Do not replace the poster during the zoom. Peripheral cards can be clipped at frame edges as in the reference.",
+    "group_scale_target_approx": 2.4,
+    "hero_square_side_target_pixels_approx": 592,
+    "hero_final_center_normalized_approx": [
+      0.51,
+      0.46
+    ],
+    "motion_note": "The original project easing curves are unknown. Approximate the observed punch and settle; exact board proportions are illustrative, reconstruct at 1920x1080.",
+    "cursor": "One white pointer follows the selected card/button with the group; do not create multiple cursor instances. Any source cursor trails are optional restrained motion blur, not duplicate pointers.",
+    "audio_start_seconds": 0,
+    "audio_playback_rate": 1,
+    "audio_attack_candidates_seconds": [
+      11.9,
+      11.99,
+      12.2
+    ],
+    "new_audio_to_add": false,
+    "real_client_claims": false,
+    "storyboard_note": "Static illustrative keyframes; reconstruct editable cards, UI text, exact positions and frame timing in the animation.",
+    "next_page": "At frame 368, cut to a light Y-K Design project-request interface featuring the same perfume poster; copy to be developed with the user.",
+    "brand_emblem_asset": "assets/images/monogramme_YK.webp"
+  }
+}

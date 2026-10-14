@@ -1,0 +1,11 @@
+{
+  "name": "yk-design",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.8.143 preview",
+    "check": "npx --yes hyperframes@0.8.143 check",
+    "render": "npx --yes hyperframes@0.8.143 render --output renders/YK_DESIGN_PUBLICITE_1080P.mp4",
+    "publish": "npx --yes hyperframes@0.8.143 publish"
+  }
+}

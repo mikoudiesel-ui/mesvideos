@@ -1,0 +1,52 @@
+{
+  "id": "S11",
+  "title": "Préparation du montage",
+  "start_frame": 438,
+  "end_frame_exclusive": 459,
+  "start_seconds": 14.6,
+  "end_seconds_exclusive": 15.3,
+  "duration_frames": 21,
+  "fps": 30,
+  "storyboard_image": "maquettes/scene_11.webp",
+  "image_kind": "static_keyframe_board",
+  "direction": "Appui bref sur le même bouton, puis spinner blanc déterministe et fini. Conserver la vignette, le champ Votre boutique et la géométrie du modal.",
+  "keyframes": [
+    {
+      "frame": 438,
+      "time_seconds": 14.6
+    },
+    {
+      "frame": 443,
+      "time_seconds": 14.766666666666667
+    },
+    {
+      "frame": 450,
+      "time_seconds": 15.0
+    },
+    {
+      "frame": 458,
+      "time_seconds": 15.266666666666667
+    }
+  ],
+  "audio_attack_candidates_seconds": [
+    14.79,
+    15.0,
+    15.19,
+    15.26
+  ],
+  "audio_source": "assets/audio/AUDIO_MASTER.flac",
+  "audio_start_seconds": 0,
+  "audio_playback_rate": 1,
+  "new_audio_to_add": false,
+  "state": "production_direction_complete",
+  "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+  "hero_asset": "assets/images/parfum.webp",
+  "modal": {
+    "title": "Votre projet publicitaire",
+    "subtitle": "Montage sur mesure pour votre boutique",
+    "field_label": "Nom du projet",
+    "field_value": "Votre boutique",
+    "button_label": "Préparer le montage"
+  },
+  "interaction_note": "Démonstration visuelle : aucune commande réelle ni faux résultat client."
+}

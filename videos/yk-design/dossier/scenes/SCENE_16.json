@@ -1,0 +1,33 @@
+{
+  "id": "S16",
+  "title": "Flash Y-K Design",
+  "start_frame": 584,
+  "end_frame_exclusive": 596,
+  "start_seconds": 19.466666666666665,
+  "end_seconds_exclusive": 19.866666666666667,
+  "duration_frames": 12,
+  "fps": 30,
+  "storyboard_image": "maquettes/scene_16.webp",
+  "image_kind": "static_keyframe",
+  "direction": "Coupe rouge, Y-K Design très grand en blanc sur une ligne. Flash de 12 images.",
+  "keyframes": [
+    {
+      "frame": 584,
+      "time_seconds": 19.466666666666665
+    },
+    {
+      "frame": 595,
+      "time_seconds": 19.833333333333332
+    }
+  ],
+  "audio_attack_candidates_seconds": [
+    19.62
+  ],
+  "audio_source": "assets/audio/AUDIO_MASTER.flac",
+  "audio_start_seconds": 0,
+  "audio_playback_rate": 1,
+  "new_audio_to_add": false,
+  "state": "production_direction_complete",
+  "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+  "hero_asset": "assets/images/parfum.webp"
+}

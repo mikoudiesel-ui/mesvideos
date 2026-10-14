@@ -1,0 +1,141 @@
+{
+  "id": "S07",
+  "title": "Six concepts en couronne",
+  "start_frame": 284,
+  "end_frame_exclusive": 328,
+  "start_seconds": 9.466666666666667,
+  "end_seconds_exclusive": 10.933333333333334,
+  "duration_frames": 44,
+  "fps": 30,
+  "storyboard_image": "maquettes/scene_07.webp",
+  "image_kind": "static_keyframe_board",
+  "direction": "Six cartes se déploient autour de vos montages puis leurs positions tournent dans le sens horaire. Les images restent droites ; le texte réduit pour tenir au centre.",
+  "keyframes": [
+    {
+      "frame": 284,
+      "time_seconds": 9.466666666666667
+    },
+    {
+      "frame": 288,
+      "time_seconds": 9.6
+    },
+    {
+      "frame": 306,
+      "time_seconds": 10.2
+    },
+    {
+      "frame": 327,
+      "time_seconds": 10.9
+    }
+  ],
+  "audio_attack_candidates_seconds": [
+    9.58,
+    9.71,
+    9.88,
+    9.99,
+    10.39,
+    10.59,
+    10.78
+  ],
+  "audio_source": "assets/audio/AUDIO_MASTER.flac",
+  "audio_start_seconds": 0,
+  "audio_playback_rate": 1,
+  "new_audio_to_add": false,
+  "state": "production_direction_complete",
+  "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+  "reconstruction_details": {
+    "page": 7,
+    "brand_name": "Y-K Design",
+    "start_frame": 284,
+    "end_frame_exclusive": 328,
+    "fps": 30,
+    "target_width": 1920,
+    "target_height": 1080,
+    "background_color": "#BD0F28",
+    "central_text": "vos montages",
+    "central_text_color": "#F9F9F9",
+    "cards": [
+      {
+        "id": "sneaker_poster",
+        "content": "The STYLE EN MOUVEMENT sneaker advertisement",
+        "type": "full poster"
+      },
+      {
+        "id": "perfume_poster",
+        "content": "The UNE SIGNATURE perfume advertisement",
+        "type": "full poster"
+      },
+      {
+        "id": "handbag_poster",
+        "content": "The L’ALLURE AU QUOTIDIEN handbag advertisement",
+        "type": "full poster"
+      },
+      {
+        "id": "sneaker_detail",
+        "content": "Detail of the same sneaker and its red heel",
+        "type": "detail"
+      },
+      {
+        "id": "perfume_detail",
+        "content": "Amber glass and golden reflections from the same perfume bottle",
+        "type": "detail"
+      },
+      {
+        "id": "handbag_detail",
+        "content": "Camel leather and handle of the same handbag",
+        "type": "detail"
+      }
+    ],
+    "layout": "Six square rounded cards expand from a compact central cluster into a ring, with ample negative space around the central message. Adapt text width and card radius to avoid collisions.",
+    "card_side_target_pixels_approx": 250,
+    "ring_radius_target_pixels_approx": 400,
+    "central_text_scale_note": "The larger page 6 words reduce to fit inside the six-card layout, following the reference. Keep the phrase readable and centred rather than maintaining its previous oversized width.",
+    "keyframes": [
+      {
+        "frame": 284,
+        "time_seconds": 9.466666666666667,
+        "state": "Six cards appear near the centre as the message reduces in size"
+      },
+      {
+        "frame": 288,
+        "time_seconds": 9.6,
+        "state": "Cards separate into a clear ring around the central words"
+      },
+      {
+        "frame": 306,
+        "time_seconds": 10.2,
+        "state": "Card positions advance clockwise while each image stays upright"
+      },
+      {
+        "frame": 327,
+        "time_seconds": 10.9,
+        "state": "The ring continues its motion, ready for the cursor selection in the following scene"
+      }
+    ],
+    "motion": "Radial expansion followed by a continuous clockwise orbit. Animate card positions or compensate wrapper rotation; do not spin the photos themselves.",
+    "audio_start_seconds": 0,
+    "audio_playback_rate": 1,
+    "audio_attack_candidates_seconds": [
+      9.39,
+      9.58,
+      9.99,
+      10.39,
+      10.59,
+      10.78
+    ],
+    "new_audio_to_add": false,
+    "real_client_claims": false,
+    "next_page": "A cursor hovers over one advertising card, reveals a relevant action button, and prepares its enlargement.",
+    "storyboard_note": "Static illustrative four-keyframe board. Reconstruct exact 1920x1080 positions and timing in the animation; the board panels are not frame-accurate renders.",
+    "card_orientation_degrees": 0,
+    "clockwise_order": [
+      "sneaker_poster",
+      "perfume_poster",
+      "sneaker_detail",
+      "handbag_detail",
+      "perfume_detail",
+      "handbag_poster"
+    ],
+    "brand_emblem_asset": "assets/images/monogramme_YK.webp"
+  }
+}

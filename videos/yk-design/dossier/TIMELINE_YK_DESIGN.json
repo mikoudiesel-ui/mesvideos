@@ -1,0 +1,2209 @@
+{
+  "master": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "frames": 623,
+    "duration_seconds": 20.766666666666666
+  },
+  "frame_ranges": "[start_frame, end_frame_exclusive)",
+  "hard_cut_frames": [
+    152,
+    368,
+    524,
+    555,
+    573,
+    584,
+    596
+  ],
+  "rapid_composition_change_frames": [
+    257,
+    284,
+    344
+  ],
+  "audio": {
+    "path": "assets/audio/AUDIO_MASTER.flac",
+    "start_seconds": 0,
+    "rate": 1,
+    "sample_rate": 48000,
+    "samples_per_channel": 996800,
+    "channels": 2,
+    "uniform_gain_db": -4.1,
+    "codec": "flac",
+    "bits_per_sample": 24,
+    "lossless": true
+  },
+  "bpm_certified": null,
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "Accroche monogramme",
+      "start_frame": 0,
+      "end_frame_exclusive": 36,
+      "start_seconds": 0.0,
+      "end_seconds_exclusive": 1.2,
+      "duration_frames": 36,
+      "fps": 30,
+      "storyboard_image": "maquettes/scene_01.webp",
+      "image_kind": "static_keyframe_board",
+      "direction": "Monogramme YK très grand, hors cadre au départ ; recul rapide, léger passage sous la taille finale puis stabilisation au centre. Fond clair, emblème rouge.",
+      "keyframes": [
+        {
+          "frame": 0,
+          "time_seconds": 0.0
+        },
+        {
+          "frame": 6,
+          "time_seconds": 0.2
+        },
+        {
+          "frame": 12,
+          "time_seconds": 0.4
+        },
+        {
+          "frame": 30,
+          "time_seconds": 1.0
+        }
+      ],
+      "audio_attack_candidates_seconds": [
+        0.26,
+        0.34,
+        0.44,
+        0.55,
+        0.86
+      ],
+      "audio_source": "assets/audio/AUDIO_MASTER.flac",
+      "audio_start_seconds": 0,
+      "audio_playback_rate": 1,
+      "new_audio_to_add": false,
+      "state": "production_direction_complete",
+      "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+      "reconstruction_details": {
+        "page": 1,
+        "purpose": "Introduce the creator's motion-design advertising service for shops",
+        "start_frame": 0,
+        "end_frame_exclusive": 36,
+        "fps": 30,
+        "target_width": 1920,
+        "target_height": 1080,
+        "brand_name": "Y-K Design",
+        "brand_emblem_asset": "assets/images/monogramme_YK.webp",
+        "brand_primary_color": "#BD0F28",
+        "background_color": "#F9F9F9",
+        "emblem_center": [
+          960,
+          540
+        ],
+        "reference_observed_emblem_widths_source_pixels": [
+          {
+            "frame": 0,
+            "width": null,
+            "note": "Emblem exceeds the visible source frame; exact width cannot be recovered from its clipped bounds."
+          },
+          {
+            "frame": 6,
+            "width": 82
+          },
+          {
+            "frame": 12,
+            "width": 38
+          },
+          {
+            "frame": 30,
+            "width": 48
+          }
+        ],
+        "proposed_emblem_widths_target_pixels": [
+          {
+            "frame": 0,
+            "width": null,
+            "note": "Choose initial scale so the emblem visibly exceeds the frame."
+          },
+          {
+            "frame": 6,
+            "width": 153.75
+          },
+          {
+            "frame": 12,
+            "width": 71.25
+          },
+          {
+            "frame": 30,
+            "width": 90
+          }
+        ],
+        "motion": "Rapid pullback, small undershoot, then settle; fit the intermediate curve to the source rather than assuming the original easing.",
+        "audio_start_seconds": 0,
+        "audio_playback_rate": 1,
+        "audio_attack_candidates_seconds": [
+          0.26,
+          0.34,
+          0.44
+        ],
+        "next_page": "Reveal the creator's brand name beside the settled emblem",
+        "brand_emblem_concept": "Chosen geometric YK monogram, option B retained by the user.",
+        "selected_logo_option": "B",
+        "selection_status": "user_selected_monogram_option_B",
+        "initials_status": "confirmed_by_reselected_option_B_with_YK",
+        "planned_keyframes": [
+          {
+            "frame": 0,
+            "time_seconds": 0,
+            "label": "Impact",
+            "description": "Oversized emblem exceeds the frame"
+          },
+          {
+            "frame": 6,
+            "time_seconds": 0.2,
+            "label": "Recul",
+            "description": "Emblem pulls back rapidly to the centre"
+          },
+          {
+            "frame": 12,
+            "time_seconds": 0.4,
+            "label": "Rebond",
+            "description": "Emblem becomes slightly smaller than its settled size"
+          },
+          {
+            "frame": 30,
+            "time_seconds": 1,
+            "label": "Stable",
+            "description": "Emblem settles at centre; brand name will be revealed in the next scene"
+          }
+        ],
+        "visual_initials_for_this_draft": "YK",
+        "storyboard_note": "Generated static storyboard illustrates the four states; final frame aspect ratios, positions and widths must be reconstructed from the timeline and layout constants, not stretched from the board.",
+        "page1_motion_explicitly_approved": true
+      }
+    },
+    {
+      "id": "S02",
+      "title": "Révélation Y-K Design",
+      "start_frame": 36,
+      "end_frame_exclusive": 78,
+      "start_seconds": 1.2,
+      "end_seconds_exclusive": 2.6,
+      "duration_frames": 42,
+      "fps": 30,
+      "storyboard_image": "maquettes/scene_02.webp",
+      "image_kind": "static_keyframe_board",
+      "direction": "Glisser le monogramme vers la gauche sans modifier sa taille ; révéler Y-K Design à droite. Le bloc commence à monter pour préparer la galerie.",
+      "keyframes": [
+        {
+          "frame": 36,
+          "time_seconds": 1.2
+        },
+        {
+          "frame": 48,
+          "time_seconds": 1.6
+        },
+        {
+          "frame": 66,
+          "time_seconds": 2.2
+        },
+        {
+          "frame": 77,
+          "time_seconds": 2.566666666666667
+        }
+      ],
+      "audio_attack_candidates_seconds": [
+        1.28,
+        1.39,
+        1.79,
+        1.87,
+        1.98,
+        2.07,
+        2.15,
+        2.25
+      ],
+      "audio_source": "assets/audio/AUDIO_MASTER.flac",
+      "audio_start_seconds": 0,
+      "audio_playback_rate": 1,
+      "new_audio_to_add": false,
+      "state": "production_direction_complete",
+      "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+      "reconstruction_details": {
+        "page": 2,
+        "brand_name": "Y-K Design",
+        "selected_logo_option": "B",
+        "visual_initials": "YK",
+        "start_frame": 36,
+        "end_frame_exclusive": 78,
+        "fps": 30,
+        "target_width": 1920,
+        "target_height": 1080,
+        "background_color": "#F9F9F9",
+        "primary_color": "#BD0F28",
+        "text": "Y-K Design",
+        "scene_function": "Reveal the name beside the monogram and prepare the gallery entrance",
+        "elements": [
+          "YK monogram",
+          "editable Y-K Design wordmark",
+          "horizontal reveal mask"
+        ],
+        "keyframes": [
+          {
+            "frame": 36,
+            "time_seconds": 1.2,
+            "state": "Monogram alone at centre, name hidden"
+          },
+          {
+            "frame": 54,
+            "time_seconds": 1.8,
+            "state": "Monogram slides left; first part of Y-K Design begins to reveal"
+          },
+          {
+            "frame": 66,
+            "time_seconds": 2.2,
+            "state": "Full monogram and name form a centred compact brand lockup"
+          },
+          {
+            "frame": 77,
+            "time_seconds": 2.566666666666667,
+            "state": "Complete brand lockup begins rising together, ready for the gallery"
+          }
+        ],
+        "layout_note": "Measure brand text with the chosen font once; centre the entire lockup and adjust the monogram offset according to its actual width. The full lockup should occupy roughly 22–25% of frame width.",
+        "motion_note": "The monogram remains the same asset. Horizontal name reveal overlaps its leftward shift. The completed lockup then rises as one group; do not replace it with an unrelated logo graphic.",
+        "audio_start_seconds": 0,
+        "audio_playback_rate": 1,
+        "audio_attack_candidates_seconds": [
+          1.79,
+          1.87,
+          1.98,
+          2.07,
+          2.15,
+          2.25
+        ],
+        "new_audio_to_add": false,
+        "next_page": "Portfolio gallery of motion-design advertising examples for shops; images and claims to be chosen with the user",
+        "monogram_width_target_pixels": 90,
+        "preserve_monogram_size_from_page1": true,
+        "hold_center_y_target_pixels": 540,
+        "reference_end_brand_bbox_source_pixels": [
+          404,
+          230,
+          622,
+          278
+        ],
+        "end_brand_center_y_target_pixels": 476.25,
+        "brand_rise_begins_frame_approx": 70,
+        "storyboard_note": "Static illustrative board. The JSON specifies the exact render canvas and intended scale continuity; the brand rise must be reconstructed with timeline keyframes rather than inferred from generated panel geometry.",
+        "brand_emblem_asset": "assets/images/monogramme_YK.webp"
+      }
+    },
+    {
+      "id": "S03",
+      "title": "Exemples créatifs",
+      "start_frame": 78,
+      "end_frame_exclusive": 117,
+      "start_seconds": 2.6,
+      "end_seconds_exclusive": 3.9,
+      "duration_frames": 39,
+      "fps": 30,
+      "storyboard_image": "maquettes/scene_03.webp",
+      "image_kind": "static_keyframe",
+      "direction": "Entrée progressive de quatre colonnes de cartes : baskets, parfum, sac et gros plans. Conserver la mention EXEMPLES CRÉATIFS : il s’agit de concepts illustratifs.",
+      "keyframes": [
+        {
+          "frame": 78,
+          "time_seconds": 2.6
+        },
+        {
+          "frame": 84,
+          "time_seconds": 2.8
+        },
+        {
+          "frame": 96,
+          "time_seconds": 3.2
+        },
+        {
+          "frame": 116,
+          "time_seconds": 3.8666666666666667
+        }
+      ],
+      "audio_attack_candidates_seconds": [
+        2.79,
+        2.99,
+        3.2,
+        3.4,
+        3.59
+      ],
+      "audio_source": "assets/audio/AUDIO_MASTER.flac",
+      "audio_start_seconds": 0,
+      "audio_playback_rate": 1,
+      "new_audio_to_add": false,
+      "state": "production_direction_complete",
+      "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+      "reconstruction_details": {
+        "page": 3,
+        "brand_name": "Y-K Design",
+        "selected_logo_option": "B",
+        "start_frame": 78,
+        "end_frame_exclusive": 117,
+        "fps": 30,
+        "target_width": 1920,
+        "target_height": 1080,
+        "primary_color": "#BD0F28",
+        "background_color": "#F9F9F9",
+        "requested_material_type": "New advertising examples to create together, not existing client portfolio",
+        "concepts": [
+          {
+            "id": "baskets",
+            "title": "STYLE EN MOUVEMENT",
+            "product": "Unbranded white sneaker with red accents",
+            "direction": "Cream and red, dynamic ribbon, floating product, energetic sans-serif typography"
+          },
+          {
+            "id": "parfum",
+            "title": "UNE SIGNATURE",
+            "product": "Unbranded amber perfume bottle",
+            "direction": "Deep burgundy, amber glass, gold light, refined display typography"
+          },
+          {
+            "id": "sacs",
+            "title": "L’ALLURE AU QUOTIDIEN",
+            "product": "Unbranded camel handbag",
+            "direction": "Cream and peach, coral shapes, leather detail, fashion typography"
+          }
+        ],
+        "example_reference_time_seconds": 3.4,
+        "generated_image_status": "Static illustrative design references; individual cards and product cutouts are not yet supplied as separate assets",
+        "real_client_claims": false,
+        "gallery_caption": "EXEMPLES CRÉATIFS",
+        "gallery_layout": {
+          "columns": 4,
+          "column_width_target_pixels": 375,
+          "gutter_target_pixels": 30,
+          "centered_gallery_left_target_pixels": 165,
+          "different_card_heights": true,
+          "rounded_cards": true,
+          "lower_cards_clipped_by_frame": true
+        },
+        "proposed_column_content": [
+          [
+            "Sneaker poster",
+            "Sneaker or typography detail"
+          ],
+          [
+            "Perfume bottle close-up",
+            "Handbag detail with partial opacity during arrival"
+          ],
+          [
+            "Handbag poster",
+            "Coral graphic or handbag detail"
+          ],
+          [
+            "Sneaker detail",
+            "Perfume poster"
+          ]
+        ],
+        "motion": "Brand lockup rises from page 2; cards appear separately with vertical displacement and opacity, then continue scrolling into page 4. Preserve the four-column structure rather than placing the entire generated gallery image as a single moving background.",
+        "audio_start_seconds": 0,
+        "audio_playback_rate": 1,
+        "audio_attack_candidates_seconds": [
+          2.79,
+          2.99,
+          3.2,
+          3.4,
+          3.59
+        ],
+        "new_audio_to_add": false,
+        "next_page": "Continue the gallery scrolling from 3.9 to 5.0667 seconds, using the selected examples and their variants.",
+        "selected_concepts": [
+          "baskets",
+          "parfum",
+          "sacs"
+        ],
+        "brand_emblem_asset": "assets/images/monogramme_YK.webp"
+      }
+    },
+    {
+      "id": "S04",
+      "title": "Galerie en mouvement",
+      "start_frame": 117,
+      "end_frame_exclusive": 152,
+      "start_seconds": 3.9,
+      "end_seconds_exclusive": 5.066666666666666,
+      "duration_frames": 35,
+      "fps": 30,
+      "storyboard_image": "maquettes/scene_04.webp",
+      "image_kind": "static_keyframe_board",
+      "direction": "Poursuivre le défilement ascendant de la même galerie. Le logo quitte le cadre ; raccord continu jusqu’à la coupe rouge f152.",
+      "keyframes": [
+        {
+          "frame": 117,
+          "time_seconds": 3.9
+        },
+        {
+          "frame": 128,
+          "time_seconds": 4.266666666666667
+        },
+        {
+          "frame": 140,
+          "time_seconds": 4.666666666666667
+        },
+        {
+          "frame": 151,
+          "time_seconds": 5.033333333333333
+        }
+      ],
+      "audio_attack_candidates_seconds": [
+        3.99,
+        4.19,
+        4.39,
+        4.59,
+        4.79,
+        4.99
+      ],
+      "audio_source": "assets/audio/AUDIO_MASTER.flac",
+      "audio_start_seconds": 0,
+      "audio_playback_rate": 1,
+      "new_audio_to_add": false,
+      "state": "production_direction_complete",
+      "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+      "reconstruction_details": {
+        "page": 4,
+        "brand_name": "Y-K Design",
+        "start_frame": 117,
+        "end_frame_exclusive": 152,
+        "fps": 30,
+        "target_width": 1920,
+        "target_height": 1080,
+        "background_color": "#F9F9F9",
+        "selected_concepts": [
+          "baskets",
+          "parfum",
+          "sacs"
+        ],
+        "reference_start_seconds": 3.9,
+        "reference_end_seconds": 5.066666666666666,
+        "visual_function": "Continue the existing masonry gallery upward; introduce fresh detail and typography cards before the cut to the brand-colored text scene",
+        "continuity": "Reuse the exact products and four-column layout from page 3; never restart the gallery or substitute an unrelated set of products. The brand lockup leaves the top edge during this continuation.",
+        "keyframes": [
+          {
+            "frame": 117,
+            "time_seconds": 3.9,
+            "state": "Continue from page 3 with its main advertising posters rising and the logo leaving the top edge"
+          },
+          {
+            "frame": 128,
+            "time_seconds": 4.266666666666667,
+            "state": "Detail and typography cards become visible underneath, with staggered opacity and vertical movement"
+          },
+          {
+            "frame": 140,
+            "time_seconds": 4.666666666666667,
+            "state": "New gallery contents occupy the frame; original posters are partially clipped above"
+          },
+          {
+            "frame": 151,
+            "time_seconds": 5.033333333333333,
+            "state": "Gallery reaches final arrangement immediately before the brand-color cut at frame 152"
+          }
+        ],
+        "audio_start_seconds": 0,
+        "audio_playback_rate": 1,
+        "audio_attack_candidates_seconds": [
+          3.99,
+          4.19,
+          4.39,
+          4.59,
+          4.79,
+          4.99
+        ],
+        "new_audio_to_add": false,
+        "next_page": "Brand-colored typography scene presenting Y-K Design service benefits; texts remain to be chosen with the user.",
+        "storyboard_note": "Static illustrative keyframes. Reuse independent cards from page 3 and interpolate their upward movement; do not use four flat scene images as a slideshow.",
+        "new_cards": [
+          {
+            "id": "sneaker_detail",
+            "type": "close-up",
+            "content": "Laces, cream leather and red heel of the same unbranded sneaker"
+          },
+          {
+            "id": "style_type",
+            "type": "typography",
+            "text": "STYLE",
+            "colors": [
+              "#BD0F28",
+              "#F9F9F9"
+            ]
+          },
+          {
+            "id": "perfume_detail",
+            "type": "close-up",
+            "content": "Amber glass and reflections of the same perfume bottle"
+          },
+          {
+            "id": "signature_type",
+            "type": "typography",
+            "text": "SIGNATURE",
+            "colors": [
+              "burgundy",
+              "gold"
+            ]
+          },
+          {
+            "id": "handbag_detail",
+            "type": "close-up",
+            "content": "Camel leather, handle and hardware of the same handbag"
+          },
+          {
+            "id": "allure_type",
+            "type": "typography",
+            "text": "ALLURE",
+            "colors": [
+              "cream",
+              "coral"
+            ]
+          }
+        ],
+        "brand_emblem_asset": "assets/images/monogramme_YK.webp"
+      }
+    },
+    {
+      "id": "S05",
+      "title": "Des publicités pour boutiques",
+      "start_frame": 152,
+      "end_frame_exclusive": 234,
+      "start_seconds": 5.066666666666666,
+      "end_seconds_exclusive": 7.8,
+      "duration_frames": 82,
+      "fps": 30,
+      "storyboard_image": "maquettes/scene_05.webp",
+      "image_kind": "static_keyframe_board",
+      "direction": "Sur rouge, préfixe Des publicités et cartouche clair. Défilement vertical successif : créatives, dynamiques, sur mesure, pour boutiques. Chaque mot garde sa pause lisible.",
+      "keyframes": [
+        {
+          "frame": 152,
+          "time_seconds": 5.066666666666666
+        },
+        {
+          "frame": 192,
+          "time_seconds": 6.4
+        },
+        {
+          "frame": 210,
+          "time_seconds": 7.0
+        },
+        {
+          "frame": 228,
+          "time_seconds": 7.6
+        }
+      ],
+      "audio_attack_candidates_seconds": [
+        5.09,
+        5.19,
+        5.4,
+        5.59,
+        5.8,
+        5.99,
+        6.16,
+        6.25,
+        6.39,
+        6.82,
+        6.92,
+        7.0,
+        7.26,
+        7.39,
+        7.59,
+        7.79
+      ],
+      "audio_source": "assets/audio/AUDIO_MASTER.flac",
+      "audio_start_seconds": 0,
+      "audio_playback_rate": 1,
+      "new_audio_to_add": false,
+      "state": "production_direction_complete",
+      "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+      "reconstruction_details": {
+        "page": 5,
+        "brand_name": "Y-K Design",
+        "start_frame": 152,
+        "end_frame_exclusive": 234,
+        "fps": 30,
+        "target_width": 1920,
+        "target_height": 1080,
+        "background_color": "#BD0F28",
+        "fixed_prefix": "Des publicités",
+        "fixed_prefix_color": "#F9F9F9",
+        "changing_word_container_background": "#F9F9F9",
+        "changing_word_color": "#BD0F28",
+        "word_slots": [
+          {
+            "text": "créatives",
+            "start_frame": 152,
+            "end_frame_exclusive": 182
+          },
+          {
+            "text": "dynamiques",
+            "start_frame": 182,
+            "end_frame_exclusive": 198
+          },
+          {
+            "text": "sur mesure",
+            "start_frame": 198,
+            "end_frame_exclusive": 214
+          },
+          {
+            "text": "pour boutiques",
+            "start_frame": 214,
+            "end_frame_exclusive": 234
+          }
+        ],
+        "word_slot_timing_note": "These timings reconstruct the visually observed word-change phases. Continuous word-roll curves must be compared with the reference; they are not four hard cuts.",
+        "purpose": "State the creator’s advertising service and its shop audience after showing illustrative concepts.",
+        "layout": "Centered sentence with a stable prefix and a variable-width rectangular mask; re-center the combined group when word width changes.",
+        "motion": "Hard cut from the gallery at frame 152. First wording holds longer; subsequent words roll vertically inside the mask, with brief glimpses of outgoing and incoming lines.",
+        "audio_start_seconds": 0,
+        "audio_playback_rate": 1,
+        "audio_attack_candidates_seconds": [
+          5.09,
+          6.16,
+          6.82,
+          7.26,
+          7.79
+        ],
+        "new_audio_to_add": false,
+        "reference_measured_text_bounds": [
+          {
+            "frame": 152,
+            "time_seconds": 5.066666666666666,
+            "text_union_bbox_source_pixels": [
+              248,
+              260,
+              796,
+              316
+            ]
+          },
+          {
+            "frame": 154,
+            "time_seconds": 5.133333333333334,
+            "text_union_bbox_source_pixels": [
+              271,
+              263,
+              772,
+              314
+            ]
+          },
+          {
+            "frame": 158,
+            "time_seconds": 5.266666666666667,
+            "text_union_bbox_source_pixels": [
+              281,
+              264,
+              760,
+              312
+            ]
+          },
+          {
+            "frame": 160,
+            "time_seconds": 5.333333333333333,
+            "text_union_bbox_source_pixels": [
+              284,
+              264,
+              757,
+              312
+            ]
+          },
+          {
+            "frame": 166,
+            "time_seconds": 5.533333333333333,
+            "text_union_bbox_source_pixels": [
+              289,
+              264,
+              752,
+              312
+            ]
+          },
+          {
+            "frame": 174,
+            "time_seconds": 5.8,
+            "text_union_bbox_source_pixels": [
+              292,
+              265,
+              749,
+              311
+            ]
+          },
+          {
+            "frame": 180,
+            "time_seconds": 6.0,
+            "text_union_bbox_source_pixels": [
+              292,
+              265,
+              739,
+              311
+            ]
+          },
+          {
+            "frame": 192,
+            "time_seconds": 6.4,
+            "text_union_bbox_source_pixels": [
+              292,
+              265,
+              710,
+              311
+            ]
+          },
+          {
+            "frame": 210,
+            "time_seconds": 7.0,
+            "text_union_bbox_source_pixels": [
+              311,
+              265,
+              683,
+              311
+            ]
+          },
+          {
+            "frame": 228,
+            "time_seconds": 7.6,
+            "text_union_bbox_source_pixels": [
+              309,
+              265,
+              684,
+              311
+            ]
+          }
+        ],
+        "reference_entry_note": "The reference sentence briefly appears larger after the cut, then settles to a smaller size. Reconstruct the continuous scale change using measured bounds rather than treating all keyframes as the same static scale.",
+        "preview_keyframes": [
+          {
+            "frame": 152,
+            "time_seconds": 5.066666666666666,
+            "text": "Des publicités créatives"
+          },
+          {
+            "frame": 192,
+            "time_seconds": 6.4,
+            "text": "Des publicités dynamiques"
+          },
+          {
+            "frame": 210,
+            "time_seconds": 7,
+            "text": "Des publicités sur mesure"
+          },
+          {
+            "frame": 228,
+            "time_seconds": 7.6,
+            "text": "Des publicités pour boutiques"
+          }
+        ],
+        "storyboard_note": "Static key states. Reconstruct the word-roll in separate editable text layers and its mask. Use the reference measurements for the initial scale settling; do not animate the board as one image.",
+        "brand_emblem_asset": "assets/images/monogramme_YK.webp"
+      }
+    },
+    {
+      "id": "S06",
+      "title": "Je réalise vos montages",
+      "start_frame": 234,
+      "end_frame_exclusive": 284,
+      "start_seconds": 7.8,
+      "end_seconds_exclusive": 9.466666666666667,
+      "duration_frames": 50,
+      "fps": 30,
+      "storyboard_image": "maquettes/scene_06.webp",
+      "image_kind": "static_keyframe_board",
+      "direction": "Je réalise dans un cartouche clair ; révéler vos montages à droite. Punch-in f257 puis sortie du cartouche à gauche pour garder vos montages au centre.",
+      "keyframes": [
+        {
+          "frame": 234,
+          "time_seconds": 7.8
+        },
+        {
+          "frame": 252,
+          "time_seconds": 8.4
+        },
+        {
+          "frame": 257,
+          "time_seconds": 8.566666666666666
+        },
+        {
+          "frame": 276,
+          "time_seconds": 9.2
+        }
+      ],
+      "audio_attack_candidates_seconds": [
+        7.88,
+        7.99,
+        8.19,
+        8.42,
+        8.6,
+        8.71,
+        8.79,
+        9.0,
+        9.19,
+        9.39,
+        9.46
+      ],
+      "audio_source": "assets/audio/AUDIO_MASTER.flac",
+      "audio_start_seconds": 0,
+      "audio_playback_rate": 1,
+      "new_audio_to_add": false,
+      "state": "production_direction_complete",
+      "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+      "reconstruction_details": {
+        "page": 6,
+        "brand_name": "Y-K Design",
+        "start_frame": 234,
+        "end_frame_exclusive": 284,
+        "fps": 30,
+        "target_width": 1920,
+        "target_height": 1080,
+        "background_color": "#BD0F28",
+        "continuity": "The page 5 prefix fades out while its highlighted word transforms into Je réalise. The group vos montages reveals to the right, then becomes the central message for the card scene.",
+        "motion_anchors": [
+          {
+            "frame": 234,
+            "time_seconds": 7.8,
+            "action": "Begin replacing the previous highlighted phrase and remove the old fixed prefix"
+          },
+          {
+            "frame": 246,
+            "time_seconds": 8.2,
+            "action": "Reveal vos montages beside Je réalise"
+          },
+          {
+            "frame": 257,
+            "time_seconds": 8.566666666666666,
+            "action": "Very rapid typographic punch-in following the reference"
+          },
+          {
+            "frame": 276,
+            "time_seconds": 9.2,
+            "action": "First highlighted phrase leaves left; vos montages is centred and readable"
+          },
+          {
+            "frame": 284,
+            "time_seconds": 9.466666666666667,
+            "action": "Next page begins with the six-card expansion"
+          }
+        ],
+        "audio_start_seconds": 0,
+        "audio_playback_rate": 1,
+        "audio_attack_candidates_seconds": [
+          7.79,
+          7.99,
+          8.19,
+          8.42,
+          8.6,
+          8.79,
+          9,
+          9.19
+        ],
+        "new_audio_to_add": false,
+        "next_page": "Six cards from the selected illustrative advertising concepts deploy around the central message.",
+        "message_purpose": "Make explicit that Y-K Design offers advertising editing and motion design for interested shop owners; page 5 remains unchanged.",
+        "storyboard_note": "Static illustrative states. Reconstruct the mask replacement, text reveal and punch-in on the paused timeline; adapt the text scale before the following six-card layout.",
+        "highlighted_text": "Je réalise",
+        "second_text": "vos montages",
+        "message": "Je réalise vos montages",
+        "brand_emblem_asset": "assets/images/monogramme_YK.webp"
+      }
+    },
+    {
+      "id": "S07",
+      "title": "Six concepts en couronne",
+      "start_frame": 284,
+      "end_frame_exclusive": 328,
+      "start_seconds": 9.466666666666667,
+      "end_seconds_exclusive": 10.933333333333334,
+      "duration_frames": 44,
+      "fps": 30,
+      "storyboard_image": "maquettes/scene_07.webp",
+      "image_kind": "static_keyframe_board",
+      "direction": "Six cartes se déploient autour de vos montages puis leurs positions tournent dans le sens horaire. Les images restent droites ; le texte réduit pour tenir au centre.",
+      "keyframes": [
+        {
+          "frame": 284,
+          "time_seconds": 9.466666666666667
+        },
+        {
+          "frame": 288,
+          "time_seconds": 9.6
+        },
+        {
+          "frame": 306,
+          "time_seconds": 10.2
+        },
+        {
+          "frame": 327,
+          "time_seconds": 10.9
+        }
+      ],
+      "audio_attack_candidates_seconds": [
+        9.58,
+        9.71,
+        9.88,
+        9.99,
+        10.39,
+        10.59,
+        10.78
+      ],
+      "audio_source": "assets/audio/AUDIO_MASTER.flac",
+      "audio_start_seconds": 0,
+      "audio_playback_rate": 1,
+      "new_audio_to_add": false,
+      "state": "production_direction_complete",
+      "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+      "reconstruction_details": {
+        "page": 7,
+        "brand_name": "Y-K Design",
+        "start_frame": 284,
+        "end_frame_exclusive": 328,
+        "fps": 30,
+        "target_width": 1920,
+        "target_height": 1080,
+        "background_color": "#BD0F28",
+        "central_text": "vos montages",
+        "central_text_color": "#F9F9F9",
+        "cards": [
+          {
+            "id": "sneaker_poster",
+            "content": "The STYLE EN MOUVEMENT sneaker advertisement",
+            "type": "full poster"
+          },
+          {
+            "id": "perfume_poster",
+            "content": "The UNE SIGNATURE perfume advertisement",
+            "type": "full poster"
+          },
+          {
+            "id": "handbag_poster",
+            "content": "The L’ALLURE AU QUOTIDIEN handbag advertisement",
+            "type": "full poster"
+          },
+          {
+            "id": "sneaker_detail",
+            "content": "Detail of the same sneaker and its red heel",
+            "type": "detail"
+          },
+          {
+            "id": "perfume_detail",
+            "content": "Amber glass and golden reflections from the same perfume bottle",
+            "type": "detail"
+          },
+          {
+            "id": "handbag_detail",
+            "content": "Camel leather and handle of the same handbag",
+            "type": "detail"
+          }
+        ],
+        "layout": "Six square rounded cards expand from a compact central cluster into a ring, with ample negative space around the central message. Adapt text width and card radius to avoid collisions.",
+        "card_side_target_pixels_approx": 250,
+        "ring_radius_target_pixels_approx": 400,
+        "central_text_scale_note": "The larger page 6 words reduce to fit inside the six-card layout, following the reference. Keep the phrase readable and centred rather than maintaining its previous oversized width.",
+        "keyframes": [
+          {
+            "frame": 284,
+            "time_seconds": 9.466666666666667,
+            "state": "Six cards appear near the centre as the message reduces in size"
+          },
+          {
+            "frame": 288,
+            "time_seconds": 9.6,
+            "state": "Cards separate into a clear ring around the central words"
+          },
+          {
+            "frame": 306,
+            "time_seconds": 10.2,
+            "state": "Card positions advance clockwise while each image stays upright"
+          },
+          {
+            "frame": 327,
+            "time_seconds": 10.9,
+            "state": "The ring continues its motion, ready for the cursor selection in the following scene"
+          }
+        ],
+        "motion": "Radial expansion followed by a continuous clockwise orbit. Animate card positions or compensate wrapper rotation; do not spin the photos themselves.",
+        "audio_start_seconds": 0,
+        "audio_playback_rate": 1,
+        "audio_attack_candidates_seconds": [
+          9.39,
+          9.58,
+          9.99,
+          10.39,
+          10.59,
+          10.78
+        ],
+        "new_audio_to_add": false,
+        "real_client_claims": false,
+        "next_page": "A cursor hovers over one advertising card, reveals a relevant action button, and prepares its enlargement.",
+        "storyboard_note": "Static illustrative four-keyframe board. Reconstruct exact 1920x1080 positions and timing in the animation; the board panels are not frame-accurate renders.",
+        "card_orientation_degrees": 0,
+        "clockwise_order": [
+          "sneaker_poster",
+          "perfume_poster",
+          "sneaker_detail",
+          "handbag_detail",
+          "perfume_detail",
+          "handbag_poster"
+        ],
+        "brand_emblem_asset": "assets/images/monogramme_YK.webp"
+      }
+    },
+    {
+      "id": "S08",
+      "title": "Choisir sa publicité",
+      "start_frame": 328,
+      "end_frame_exclusive": 344,
+      "start_seconds": 10.933333333333334,
+      "end_seconds_exclusive": 11.466666666666667,
+      "duration_frames": 16,
+      "fps": 30,
+      "storyboard_image": "maquettes/scene_08.webp",
+      "image_kind": "static_keyframe_board",
+      "direction": "Le curseur survole l’affiche du parfum à droite : léger voile sombre, apparition de Créer ma publicité, appui bref. Aucun zoom avant f344.",
+      "keyframes": [
+        {
+          "frame": 328,
+          "time_seconds": 10.933333333333334
+        },
+        {
+          "frame": 331,
+          "time_seconds": 11.033333333333333
+        },
+        {
+          "frame": 336,
+          "time_seconds": 11.2
+        },
+        {
+          "frame": 343,
+          "time_seconds": 11.433333333333334
+        }
+      ],
+      "audio_attack_candidates_seconds": [
+        10.99,
+        11.21,
+        11.39
+      ],
+      "audio_source": "assets/audio/AUDIO_MASTER.flac",
+      "audio_start_seconds": 0,
+      "audio_playback_rate": 1,
+      "new_audio_to_add": false,
+      "state": "production_direction_complete",
+      "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+      "reconstruction_details": {
+        "page": 8,
+        "brand_name": "Y-K Design",
+        "start_frame": 328,
+        "end_frame_exclusive": 344,
+        "fps": 30,
+        "target_width": 1920,
+        "target_height": 1080,
+        "background_color": "#BD0F28",
+        "central_text": "vos montages",
+        "central_text_color": "#F9F9F9",
+        "hero_card_id": "perfume_poster",
+        "hero_selection_reason": "Amber glass and burgundy/gold art direction provide visual contrast; preserve the same perfume poster in later selection and project scenes.",
+        "cards_from": "timeline/scenes/SCENE_07.json",
+        "card_orientation_degrees": 0,
+        "button_label": "Créer ma publicité",
+        "button_background_color": "#BD0F28",
+        "button_text_color": "#F9F9F9",
+        "interaction_kind": "Illustrative animation of requesting an advertising project; no live order is submitted.",
+        "keyframes": [
+          {
+            "frame": 328,
+            "time_seconds": 10.933333333333334,
+            "state": "Continue the six-card orbit from the previous frame; white cursor approaches the perfume card at the right of the message."
+          },
+          {
+            "frame": 331,
+            "time_seconds": 11.033333333333333,
+            "state": "Cursor hovers over the perfume poster; a subtle dark scrim appears on this card only."
+          },
+          {
+            "frame": 336,
+            "time_seconds": 11.2,
+            "state": "A compact red action button labelled Créer ma publicité appears inside the perfume card; cursor moves onto it."
+          },
+          {
+            "frame": 343,
+            "time_seconds": 11.433333333333334,
+            "state": "Brief pressed state on the action button; prepare the fast enlargement that starts at frame 344."
+          }
+        ],
+        "motion": "Keep orbital card positions continuous with scene 7 and images upright. Ease the group into the selection position with the hero on the right. Move one white cursor smoothly with transforms. Do not enlarge the hero before frame 344.",
+        "audio_start_seconds": 0,
+        "audio_playback_rate": 1,
+        "audio_attack_candidates_seconds": [
+          10.99,
+          11.21,
+          11.39
+        ],
+        "new_audio_to_add": false,
+        "real_client_claims": false,
+        "storyboard_note": "Static illustrative keyframes; reconstruct exact dimensions, editable text and frame timing in the animation.",
+        "next_page": "Fast enlargement of the same perfume poster, retaining its design and leading into the project-request interface.",
+        "brand_emblem_asset": "assets/images/monogramme_YK.webp"
+      }
+    },
+    {
+      "id": "S09",
+      "title": "Zoom sur le parfum",
+      "start_frame": 344,
+      "end_frame_exclusive": 368,
+      "start_seconds": 11.466666666666667,
+      "end_seconds_exclusive": 12.266666666666667,
+      "duration_frames": 24,
+      "fps": 30,
+      "storyboard_image": "maquettes/scene_09.webp",
+      "image_kind": "static_keyframe_board",
+      "direction": "Punch-in de la composition puis translation vers la gauche pour centrer le même parfum. Le texte vos montages sort à gauche ; le curseur suit le bouton.",
+      "keyframes": [
+        {
+          "frame": 344,
+          "time_seconds": 11.466666666666667
+        },
+        {
+          "frame": 348,
+          "time_seconds": 11.6
+        },
+        {
+          "frame": 356,
+          "time_seconds": 11.866666666666667
+        },
+        {
+          "frame": 367,
+          "time_seconds": 12.233333333333333
+        }
+      ],
+      "audio_attack_candidates_seconds": [
+        11.9,
+        11.99,
+        12.2
+      ],
+      "audio_source": "assets/audio/AUDIO_MASTER.flac",
+      "audio_start_seconds": 0,
+      "audio_playback_rate": 1,
+      "new_audio_to_add": false,
+      "state": "production_direction_complete",
+      "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+      "reconstruction_details": {
+        "page": 9,
+        "brand_name": "Y-K Design",
+        "start_frame": 344,
+        "end_frame_exclusive": 368,
+        "fps": 30,
+        "target_width": 1920,
+        "target_height": 1080,
+        "background_color": "#BD0F28",
+        "hero_card_id": "perfume_poster",
+        "hero_poster_title": "UNE SIGNATURE",
+        "hero_visual": "Same square amber perfume bottle, polished gold cap and burgundy/red fabric from pages 3, 7 and 8.",
+        "button_label": "Créer ma publicité",
+        "button_background_color": "#BD0F28",
+        "button_text_color": "#F9F9F9",
+        "card_orientation_degrees": 0,
+        "cards_from": "timeline/scenes/SCENE_07.json",
+        "central_text_from_previous_scene": "vos montages",
+        "keyframes": [
+          {
+            "frame": 344,
+            "time_seconds": 11.466666666666667,
+            "state": "Fast punch-in on the existing ring; selected perfume square is enlarged on the right, central text is enlarged on the left, other cards partly leave the frame."
+          },
+          {
+            "frame": 348,
+            "time_seconds": 11.6,
+            "state": "The enlarged composition translates left, moving the perfume from the right towards the centre."
+          },
+          {
+            "frame": 356,
+            "time_seconds": 11.866666666666667,
+            "state": "Perfume card reaches near the centre; central text exits through the left edge; cursor stays near the action button."
+          },
+          {
+            "frame": 367,
+            "time_seconds": 12.233333333333333,
+            "state": "Settle near centre with the same enlarged perfume poster and action button, ready for the cut to the project interface at frame 368."
+          }
+        ],
+        "motion": "Scale the existing ring group rapidly around its centre, then translate the group left until the hero is near centre. Preserve all relative card positions and zero card rotation. Do not replace the poster during the zoom. Peripheral cards can be clipped at frame edges as in the reference.",
+        "group_scale_target_approx": 2.4,
+        "hero_square_side_target_pixels_approx": 592,
+        "hero_final_center_normalized_approx": [
+          0.51,
+          0.46
+        ],
+        "motion_note": "The original project easing curves are unknown. Approximate the observed punch and settle; exact board proportions are illustrative, reconstruct at 1920x1080.",
+        "cursor": "One white pointer follows the selected card/button with the group; do not create multiple cursor instances. Any source cursor trails are optional restrained motion blur, not duplicate pointers.",
+        "audio_start_seconds": 0,
+        "audio_playback_rate": 1,
+        "audio_attack_candidates_seconds": [
+          11.9,
+          11.99,
+          12.2
+        ],
+        "new_audio_to_add": false,
+        "real_client_claims": false,
+        "storyboard_note": "Static illustrative keyframes; reconstruct editable cards, UI text, exact positions and frame timing in the animation.",
+        "next_page": "At frame 368, cut to a light Y-K Design project-request interface featuring the same perfume poster; copy to be developed with the user.",
+        "brand_emblem_asset": "assets/images/monogramme_YK.webp"
+      }
+    },
+    {
+      "id": "S10",
+      "title": "Votre projet publicitaire",
+      "start_frame": 368,
+      "end_frame_exclusive": 438,
+      "start_seconds": 12.266666666666667,
+      "end_seconds_exclusive": 14.6,
+      "duration_frames": 70,
+      "fps": 30,
+      "storyboard_image": "maquettes/scene_10.webp",
+      "image_kind": "static_keyframe_board",
+      "direction": "Coupe sur une page de projet claire. Modal Votre projet publicitaire, sous-titre Montage sur mesure pour votre boutique, même parfum en vignette, champ Nom du projet. Taper Votre boutique, puis viser Préparer le montage.",
+      "keyframes": [
+        {
+          "frame": 368,
+          "time_seconds": 12.266666666666667
+        },
+        {
+          "frame": 381,
+          "time_seconds": 12.7
+        },
+        {
+          "frame": 402,
+          "time_seconds": 13.4
+        },
+        {
+          "frame": 437,
+          "time_seconds": 14.566666666666666
+        }
+      ],
+      "audio_attack_candidates_seconds": [
+        12.39,
+        12.48,
+        12.58,
+        12.69,
+        12.78,
+        12.93,
+        13.18,
+        13.29,
+        13.38,
+        13.58,
+        13.79,
+        13.99,
+        14.16,
+        14.24,
+        14.42,
+        14.59
+      ],
+      "audio_source": "assets/audio/AUDIO_MASTER.flac",
+      "audio_start_seconds": 0,
+      "audio_playback_rate": 1,
+      "new_audio_to_add": false,
+      "state": "production_direction_complete",
+      "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+      "hero_asset": "assets/images/parfum.webp",
+      "modal": {
+        "title": "Votre projet publicitaire",
+        "subtitle": "Montage sur mesure pour votre boutique",
+        "field_label": "Nom du projet",
+        "field_value": "Votre boutique",
+        "button_label": "Préparer le montage"
+      },
+      "interaction_note": "Démonstration visuelle : aucune commande réelle ni faux résultat client.",
+      "typing": [
+        {
+          "frame": 380,
+          "value": "V"
+        },
+        {
+          "frame": 382,
+          "value": "Vo"
+        },
+        {
+          "frame": 385,
+          "value": "Vot"
+        },
+        {
+          "frame": 388,
+          "value": "Votr"
+        },
+        {
+          "frame": 391,
+          "value": "Votre"
+        },
+        {
+          "frame": 394,
+          "value": "Votre "
+        },
+        {
+          "frame": 397,
+          "value": "Votre b"
+        },
+        {
+          "frame": 400,
+          "value": "Votre bo"
+        },
+        {
+          "frame": 403,
+          "value": "Votre bou"
+        },
+        {
+          "frame": 406,
+          "value": "Votre bout"
+        },
+        {
+          "frame": 409,
+          "value": "Votre bouti"
+        },
+        {
+          "frame": 412,
+          "value": "Votre boutiq"
+        },
+        {
+          "frame": 414,
+          "value": "Votre boutiqu"
+        },
+        {
+          "frame": 416,
+          "value": "Votre boutique"
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "title": "Préparation du montage",
+      "start_frame": 438,
+      "end_frame_exclusive": 459,
+      "start_seconds": 14.6,
+      "end_seconds_exclusive": 15.3,
+      "duration_frames": 21,
+      "fps": 30,
+      "storyboard_image": "maquettes/scene_11.webp",
+      "image_kind": "static_keyframe_board",
+      "direction": "Appui bref sur le même bouton, puis spinner blanc déterministe et fini. Conserver la vignette, le champ Votre boutique et la géométrie du modal.",
+      "keyframes": [
+        {
+          "frame": 438,
+          "time_seconds": 14.6
+        },
+        {
+          "frame": 443,
+          "time_seconds": 14.766666666666667
+        },
+        {
+          "frame": 450,
+          "time_seconds": 15.0
+        },
+        {
+          "frame": 458,
+          "time_seconds": 15.266666666666667
+        }
+      ],
+      "audio_attack_candidates_seconds": [
+        14.79,
+        15.0,
+        15.19,
+        15.26
+      ],
+      "audio_source": "assets/audio/AUDIO_MASTER.flac",
+      "audio_start_seconds": 0,
+      "audio_playback_rate": 1,
+      "new_audio_to_add": false,
+      "state": "production_direction_complete",
+      "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+      "hero_asset": "assets/images/parfum.webp",
+      "modal": {
+        "title": "Votre projet publicitaire",
+        "subtitle": "Montage sur mesure pour votre boutique",
+        "field_label": "Nom du projet",
+        "field_value": "Votre boutique",
+        "button_label": "Préparer le montage"
+      },
+      "interaction_note": "Démonstration visuelle : aucune commande réelle ni faux résultat client."
+    },
+    {
+      "id": "S12",
+      "title": "Offre et contact",
+      "start_frame": 459,
+      "end_frame_exclusive": 524,
+      "start_seconds": 15.3,
+      "end_seconds_exclusive": 17.466666666666665,
+      "duration_frames": 65,
+      "fps": 30,
+      "storyboard_image": "maquettes/scene_12.webp",
+      "image_kind": "static_keyframe_board",
+      "direction": "Fermer le modal et révéler une carte sombre de service/contact : vignette du même parfum, Montages pour boutiques et +225 07 12 35 46 02. Zoom vers 16,10 s puis pause de lecture.",
+      "keyframes": [
+        {
+          "frame": 459,
+          "time_seconds": 15.3
+        },
+        {
+          "frame": 483,
+          "time_seconds": 16.1
+        },
+        {
+          "frame": 504,
+          "time_seconds": 16.8
+        },
+        {
+          "frame": 523,
+          "time_seconds": 17.433333333333334
+        }
+      ],
+      "audio_attack_candidates_seconds": [
+        15.4,
+        15.79,
+        15.86,
+        15.98,
+        16.06,
+        16.2,
+        16.39,
+        16.5,
+        16.83,
+        16.99,
+        17.1,
+        17.29,
+        17.39
+      ],
+      "audio_source": "assets/audio/AUDIO_MASTER.flac",
+      "audio_start_seconds": 0,
+      "audio_playback_rate": 1,
+      "new_audio_to_add": false,
+      "state": "production_direction_complete",
+      "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+      "hero_asset": "assets/images/parfum.webp",
+      "contact_display": "+225 07 12 35 46 02"
+    },
+    {
+      "id": "S13",
+      "title": "Intéressé ? Écrivez-moi.",
+      "start_frame": 524,
+      "end_frame_exclusive": 555,
+      "start_seconds": 17.466666666666665,
+      "end_seconds_exclusive": 18.5,
+      "duration_frames": 31,
+      "fps": 30,
+      "storyboard_image": "maquettes/scene_13.webp",
+      "image_kind": "static_keyframe",
+      "direction": "Coupe nette sur clair : Intéressé ? puis Écrivez-moi. en rouge, avec le numéro dessous. Pop typographique bref, puis pause. Pas de voix off supplémentaire.",
+      "keyframes": [
+        {
+          "frame": 524,
+          "time_seconds": 17.466666666666665
+        },
+        {
+          "frame": 530,
+          "time_seconds": 17.666666666666668
+        },
+        {
+          "frame": 540,
+          "time_seconds": 18.0
+        },
+        {
+          "frame": 554,
+          "time_seconds": 18.466666666666665
+        }
+      ],
+      "audio_attack_candidates_seconds": [
+        17.57,
+        17.65,
+        17.79,
+        17.99,
+        18.2,
+        18.39
+      ],
+      "audio_source": "assets/audio/AUDIO_MASTER.flac",
+      "audio_start_seconds": 0,
+      "audio_playback_rate": 1,
+      "new_audio_to_add": false,
+      "state": "production_direction_complete",
+      "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+      "hero_asset": "assets/images/parfum.webp",
+      "contact_display": "+225 07 12 35 46 02"
+    },
+    {
+      "id": "S14",
+      "title": "AVEC",
+      "start_frame": 555,
+      "end_frame_exclusive": 573,
+      "start_seconds": 18.5,
+      "end_seconds_exclusive": 19.1,
+      "duration_frames": 18,
+      "fps": 30,
+      "storyboard_image": "maquettes/scene_14.webp",
+      "image_kind": "static_keyframe",
+      "direction": "Coupe rouge et AVEC énorme en blanc. Flash typographique de 18 images, sans transition longue.",
+      "keyframes": [
+        {
+          "frame": 555,
+          "time_seconds": 18.5
+        },
+        {
+          "frame": 572,
+          "time_seconds": 19.066666666666666
+        }
+      ],
+      "audio_attack_candidates_seconds": [
+        18.51,
+        18.59
+      ],
+      "audio_source": "assets/audio/AUDIO_MASTER.flac",
+      "audio_start_seconds": 0,
+      "audio_playback_rate": 1,
+      "new_audio_to_add": false,
+      "state": "production_direction_complete",
+      "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+      "hero_asset": "assets/images/parfum.webp"
+    },
+    {
+      "id": "S15",
+      "title": "Flash monogramme",
+      "start_frame": 573,
+      "end_frame_exclusive": 584,
+      "start_seconds": 19.1,
+      "end_seconds_exclusive": 19.466666666666665,
+      "duration_frames": 11,
+      "fps": 30,
+      "storyboard_image": "maquettes/scene_15.webp",
+      "image_kind": "static_keyframe",
+      "direction": "Coupe claire, monogramme YK rouge centré, grand et droit. Flash de 11 images.",
+      "keyframes": [
+        {
+          "frame": 573,
+          "time_seconds": 19.1
+        },
+        {
+          "frame": 583,
+          "time_seconds": 19.433333333333334
+        }
+      ],
+      "audio_attack_candidates_seconds": [
+        19.19
+      ],
+      "audio_source": "assets/audio/AUDIO_MASTER.flac",
+      "audio_start_seconds": 0,
+      "audio_playback_rate": 1,
+      "new_audio_to_add": false,
+      "state": "production_direction_complete",
+      "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+      "hero_asset": "assets/images/parfum.webp"
+    },
+    {
+      "id": "S16",
+      "title": "Flash Y-K Design",
+      "start_frame": 584,
+      "end_frame_exclusive": 596,
+      "start_seconds": 19.466666666666665,
+      "end_seconds_exclusive": 19.866666666666667,
+      "duration_frames": 12,
+      "fps": 30,
+      "storyboard_image": "maquettes/scene_16.webp",
+      "image_kind": "static_keyframe",
+      "direction": "Coupe rouge, Y-K Design très grand en blanc sur une ligne. Flash de 12 images.",
+      "keyframes": [
+        {
+          "frame": 584,
+          "time_seconds": 19.466666666666665
+        },
+        {
+          "frame": 595,
+          "time_seconds": 19.833333333333332
+        }
+      ],
+      "audio_attack_candidates_seconds": [
+        19.62
+      ],
+      "audio_source": "assets/audio/AUDIO_MASTER.flac",
+      "audio_start_seconds": 0,
+      "audio_playback_rate": 1,
+      "new_audio_to_add": false,
+      "state": "production_direction_complete",
+      "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+      "hero_asset": "assets/images/parfum.webp"
+    },
+    {
+      "id": "S17",
+      "title": "Signature et coordonnées",
+      "start_frame": 596,
+      "end_frame_exclusive": 623,
+      "start_seconds": 19.866666666666667,
+      "end_seconds_exclusive": 20.766666666666666,
+      "duration_frames": 27,
+      "fps": 30,
+      "storyboard_image": "maquettes/scene_17.webp",
+      "image_kind": "static_keyframe",
+      "direction": "Coupe claire sur signature compacte : monogramme + Y-K Design ; dessous Montages publicitaires pour boutiques ; puis +225 07 12 35 46 02. Stabiliser jusqu’à la dernière image, sans fondu final.",
+      "keyframes": [
+        {
+          "frame": 596,
+          "time_seconds": 19.866666666666667
+        },
+        {
+          "frame": 606,
+          "time_seconds": 20.2
+        },
+        {
+          "frame": 622,
+          "time_seconds": 20.733333333333334
+        }
+      ],
+      "audio_attack_candidates_seconds": [
+        20.01,
+        20.21
+      ],
+      "audio_source": "assets/audio/AUDIO_MASTER.flac",
+      "audio_start_seconds": 0,
+      "audio_playback_rate": 1,
+      "new_audio_to_add": false,
+      "state": "production_direction_complete",
+      "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+      "hero_asset": "assets/images/parfum.webp",
+      "contact_display": "+225 07 12 35 46 02"
+    }
+  ],
+  "audio_attacks": [
+    {
+      "time": 0.26,
+      "nearest_frame": 8,
+      "strength": 2.14794
+    },
+    {
+      "time": 0.34,
+      "nearest_frame": 10,
+      "strength": 0.92408
+    },
+    {
+      "time": 0.44,
+      "nearest_frame": 13,
+      "strength": 1.03769
+    },
+    {
+      "time": 0.55,
+      "nearest_frame": 16,
+      "strength": 0.5428
+    },
+    {
+      "time": 0.86,
+      "nearest_frame": 26,
+      "strength": 0.69605
+    },
+    {
+      "time": 1.28,
+      "nearest_frame": 38,
+      "strength": 0.53948
+    },
+    {
+      "time": 1.39,
+      "nearest_frame": 42,
+      "strength": 0.52028
+    },
+    {
+      "time": 1.79,
+      "nearest_frame": 54,
+      "strength": 0.6975
+    },
+    {
+      "time": 1.87,
+      "nearest_frame": 56,
+      "strength": 1.08876
+    },
+    {
+      "time": 1.98,
+      "nearest_frame": 59,
+      "strength": 0.95116
+    },
+    {
+      "time": 2.07,
+      "nearest_frame": 62,
+      "strength": 1.15607
+    },
+    {
+      "time": 2.15,
+      "nearest_frame": 64,
+      "strength": 1.04985
+    },
+    {
+      "time": 2.25,
+      "nearest_frame": 68,
+      "strength": 1.30613
+    },
+    {
+      "time": 2.79,
+      "nearest_frame": 84,
+      "strength": 2.04156
+    },
+    {
+      "time": 2.99,
+      "nearest_frame": 90,
+      "strength": 1.32537
+    },
+    {
+      "time": 3.2,
+      "nearest_frame": 96,
+      "strength": 1.12304
+    },
+    {
+      "time": 3.4,
+      "nearest_frame": 102,
+      "strength": 0.79812
+    },
+    {
+      "time": 3.59,
+      "nearest_frame": 108,
+      "strength": 1.74527
+    },
+    {
+      "time": 3.99,
+      "nearest_frame": 120,
+      "strength": 0.89936
+    },
+    {
+      "time": 4.19,
+      "nearest_frame": 126,
+      "strength": 1.2668
+    },
+    {
+      "time": 4.39,
+      "nearest_frame": 132,
+      "strength": 0.93292
+    },
+    {
+      "time": 4.59,
+      "nearest_frame": 138,
+      "strength": 1.45054
+    },
+    {
+      "time": 4.79,
+      "nearest_frame": 144,
+      "strength": 0.68716
+    },
+    {
+      "time": 4.99,
+      "nearest_frame": 150,
+      "strength": 1.78369
+    },
+    {
+      "time": 5.09,
+      "nearest_frame": 153,
+      "strength": 2.19451
+    },
+    {
+      "time": 5.19,
+      "nearest_frame": 156,
+      "strength": 1.43279
+    },
+    {
+      "time": 5.4,
+      "nearest_frame": 162,
+      "strength": 0.83937
+    },
+    {
+      "time": 5.59,
+      "nearest_frame": 168,
+      "strength": 1.76218
+    },
+    {
+      "time": 5.8,
+      "nearest_frame": 174,
+      "strength": 0.78539
+    },
+    {
+      "time": 5.99,
+      "nearest_frame": 180,
+      "strength": 1.92272
+    },
+    {
+      "time": 6.16,
+      "nearest_frame": 185,
+      "strength": 1.89953
+    },
+    {
+      "time": 6.25,
+      "nearest_frame": 188,
+      "strength": 0.82733
+    },
+    {
+      "time": 6.39,
+      "nearest_frame": 192,
+      "strength": 0.96871
+    },
+    {
+      "time": 6.82,
+      "nearest_frame": 205,
+      "strength": 2.07319
+    },
+    {
+      "time": 6.92,
+      "nearest_frame": 208,
+      "strength": 0.70019
+    },
+    {
+      "time": 7.0,
+      "nearest_frame": 210,
+      "strength": 0.57968
+    },
+    {
+      "time": 7.26,
+      "nearest_frame": 218,
+      "strength": 1.99903
+    },
+    {
+      "time": 7.39,
+      "nearest_frame": 222,
+      "strength": 1.52948
+    },
+    {
+      "time": 7.59,
+      "nearest_frame": 228,
+      "strength": 0.77006
+    },
+    {
+      "time": 7.79,
+      "nearest_frame": 234,
+      "strength": 2.85121
+    },
+    {
+      "time": 7.88,
+      "nearest_frame": 236,
+      "strength": 0.77951
+    },
+    {
+      "time": 7.99,
+      "nearest_frame": 240,
+      "strength": 1.3021
+    },
+    {
+      "time": 8.19,
+      "nearest_frame": 246,
+      "strength": 1.89997
+    },
+    {
+      "time": 8.42,
+      "nearest_frame": 253,
+      "strength": 1.62119
+    },
+    {
+      "time": 8.6,
+      "nearest_frame": 258,
+      "strength": 0.94452
+    },
+    {
+      "time": 8.71,
+      "nearest_frame": 261,
+      "strength": 0.76703
+    },
+    {
+      "time": 8.79,
+      "nearest_frame": 264,
+      "strength": 1.34846
+    },
+    {
+      "time": 9.0,
+      "nearest_frame": 270,
+      "strength": 0.80521
+    },
+    {
+      "time": 9.19,
+      "nearest_frame": 276,
+      "strength": 1.89526
+    },
+    {
+      "time": 9.39,
+      "nearest_frame": 282,
+      "strength": 1.38568
+    },
+    {
+      "time": 9.46,
+      "nearest_frame": 284,
+      "strength": 0.92705
+    },
+    {
+      "time": 9.58,
+      "nearest_frame": 287,
+      "strength": 1.99419
+    },
+    {
+      "time": 9.71,
+      "nearest_frame": 291,
+      "strength": 1.04242
+    },
+    {
+      "time": 9.88,
+      "nearest_frame": 296,
+      "strength": 0.67039
+    },
+    {
+      "time": 9.99,
+      "nearest_frame": 300,
+      "strength": 1.95159
+    },
+    {
+      "time": 10.39,
+      "nearest_frame": 312,
+      "strength": 0.89223
+    },
+    {
+      "time": 10.59,
+      "nearest_frame": 318,
+      "strength": 1.55551
+    },
+    {
+      "time": 10.78,
+      "nearest_frame": 323,
+      "strength": 1.56499
+    },
+    {
+      "time": 10.99,
+      "nearest_frame": 330,
+      "strength": 1.48663
+    },
+    {
+      "time": 11.21,
+      "nearest_frame": 336,
+      "strength": 0.81106
+    },
+    {
+      "time": 11.39,
+      "nearest_frame": 342,
+      "strength": 1.70639
+    },
+    {
+      "time": 11.9,
+      "nearest_frame": 357,
+      "strength": 1.96524
+    },
+    {
+      "time": 11.99,
+      "nearest_frame": 360,
+      "strength": 1.86898
+    },
+    {
+      "time": 12.2,
+      "nearest_frame": 366,
+      "strength": 0.90472
+    },
+    {
+      "time": 12.39,
+      "nearest_frame": 372,
+      "strength": 1.83608
+    },
+    {
+      "time": 12.48,
+      "nearest_frame": 374,
+      "strength": 2.84491
+    },
+    {
+      "time": 12.58,
+      "nearest_frame": 377,
+      "strength": 1.59511
+    },
+    {
+      "time": 12.69,
+      "nearest_frame": 381,
+      "strength": 1.59229
+    },
+    {
+      "time": 12.78,
+      "nearest_frame": 383,
+      "strength": 2.03479
+    },
+    {
+      "time": 12.93,
+      "nearest_frame": 388,
+      "strength": 1.62331
+    },
+    {
+      "time": 13.18,
+      "nearest_frame": 395,
+      "strength": 1.77739
+    },
+    {
+      "time": 13.29,
+      "nearest_frame": 399,
+      "strength": 1.42406
+    },
+    {
+      "time": 13.38,
+      "nearest_frame": 401,
+      "strength": 1.5471
+    },
+    {
+      "time": 13.58,
+      "nearest_frame": 407,
+      "strength": 1.96941
+    },
+    {
+      "time": 13.79,
+      "nearest_frame": 414,
+      "strength": 1.56494
+    },
+    {
+      "time": 13.99,
+      "nearest_frame": 420,
+      "strength": 0.79569
+    },
+    {
+      "time": 14.16,
+      "nearest_frame": 425,
+      "strength": 1.72641
+    },
+    {
+      "time": 14.24,
+      "nearest_frame": 427,
+      "strength": 0.63373
+    },
+    {
+      "time": 14.42,
+      "nearest_frame": 433,
+      "strength": 0.72919
+    },
+    {
+      "time": 14.59,
+      "nearest_frame": 438,
+      "strength": 1.75651
+    },
+    {
+      "time": 14.79,
+      "nearest_frame": 444,
+      "strength": 1.75733
+    },
+    {
+      "time": 15.0,
+      "nearest_frame": 450,
+      "strength": 0.93509
+    },
+    {
+      "time": 15.19,
+      "nearest_frame": 456,
+      "strength": 1.77834
+    },
+    {
+      "time": 15.26,
+      "nearest_frame": 458,
+      "strength": 0.99463
+    },
+    {
+      "time": 15.4,
+      "nearest_frame": 462,
+      "strength": 1.04009
+    },
+    {
+      "time": 15.79,
+      "nearest_frame": 474,
+      "strength": 1.42067
+    },
+    {
+      "time": 15.86,
+      "nearest_frame": 476,
+      "strength": 0.83614
+    },
+    {
+      "time": 15.98,
+      "nearest_frame": 479,
+      "strength": 1.01057
+    },
+    {
+      "time": 16.06,
+      "nearest_frame": 482,
+      "strength": 1.14681
+    },
+    {
+      "time": 16.2,
+      "nearest_frame": 486,
+      "strength": 1.38168
+    },
+    {
+      "time": 16.39,
+      "nearest_frame": 492,
+      "strength": 1.91834
+    },
+    {
+      "time": 16.5,
+      "nearest_frame": 495,
+      "strength": 1.24141
+    },
+    {
+      "time": 16.83,
+      "nearest_frame": 505,
+      "strength": 0.81609
+    },
+    {
+      "time": 16.99,
+      "nearest_frame": 510,
+      "strength": 1.39895
+    },
+    {
+      "time": 17.1,
+      "nearest_frame": 513,
+      "strength": 0.81997
+    },
+    {
+      "time": 17.29,
+      "nearest_frame": 519,
+      "strength": 0.71874
+    },
+    {
+      "time": 17.39,
+      "nearest_frame": 522,
+      "strength": 1.48987
+    },
+    {
+      "time": 17.57,
+      "nearest_frame": 527,
+      "strength": 0.88751
+    },
+    {
+      "time": 17.65,
+      "nearest_frame": 530,
+      "strength": 2.58341
+    },
+    {
+      "time": 17.79,
+      "nearest_frame": 534,
+      "strength": 1.70392
+    },
+    {
+      "time": 17.99,
+      "nearest_frame": 540,
+      "strength": 2.25647
+    },
+    {
+      "time": 18.2,
+      "nearest_frame": 546,
+      "strength": 0.9092
+    },
+    {
+      "time": 18.39,
+      "nearest_frame": 552,
+      "strength": 1.7321
+    },
+    {
+      "time": 18.51,
+      "nearest_frame": 555,
+      "strength": 0.87204
+    },
+    {
+      "time": 18.59,
+      "nearest_frame": 558,
+      "strength": 1.1407
+    },
+    {
+      "time": 19.19,
+      "nearest_frame": 576,
+      "strength": 0.48251
+    },
+    {
+      "time": 19.62,
+      "nearest_frame": 589,
+      "strength": 0.79542
+    },
+    {
+      "time": 20.01,
+      "nearest_frame": 600,
+      "strength": 0.74405
+    },
+    {
+      "time": 20.21,
+      "nearest_frame": 606,
+      "strength": 0.54474
+    }
+  ]
+}

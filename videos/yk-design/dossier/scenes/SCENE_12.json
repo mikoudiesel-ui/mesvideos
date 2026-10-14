@@ -1,0 +1,54 @@
+{
+  "id": "S12",
+  "title": "Offre et contact",
+  "start_frame": 459,
+  "end_frame_exclusive": 524,
+  "start_seconds": 15.3,
+  "end_seconds_exclusive": 17.466666666666665,
+  "duration_frames": 65,
+  "fps": 30,
+  "storyboard_image": "maquettes/scene_12.webp",
+  "image_kind": "static_keyframe_board",
+  "direction": "Fermer le modal et révéler une carte sombre de service/contact : vignette du même parfum, Montages pour boutiques et +225 07 12 35 46 02. Zoom vers 16,10 s puis pause de lecture.",
+  "keyframes": [
+    {
+      "frame": 459,
+      "time_seconds": 15.3
+    },
+    {
+      "frame": 483,
+      "time_seconds": 16.1
+    },
+    {
+      "frame": 504,
+      "time_seconds": 16.8
+    },
+    {
+      "frame": 523,
+      "time_seconds": 17.433333333333334
+    }
+  ],
+  "audio_attack_candidates_seconds": [
+    15.4,
+    15.79,
+    15.86,
+    15.98,
+    16.06,
+    16.2,
+    16.39,
+    16.5,
+    16.83,
+    16.99,
+    17.1,
+    17.29,
+    17.39
+  ],
+  "audio_source": "assets/audio/AUDIO_MASTER.flac",
+  "audio_start_seconds": 0,
+  "audio_playback_rate": 1,
+  "new_audio_to_add": false,
+  "state": "production_direction_complete",
+  "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+  "hero_asset": "assets/images/parfum.webp",
+  "contact_display": "+225 07 12 35 46 02"
+}

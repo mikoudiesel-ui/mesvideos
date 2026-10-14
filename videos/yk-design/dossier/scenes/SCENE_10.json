@@ -1,0 +1,122 @@
+{
+  "id": "S10",
+  "title": "Votre projet publicitaire",
+  "start_frame": 368,
+  "end_frame_exclusive": 438,
+  "start_seconds": 12.266666666666667,
+  "end_seconds_exclusive": 14.6,
+  "duration_frames": 70,
+  "fps": 30,
+  "storyboard_image": "maquettes/scene_10.webp",
+  "image_kind": "static_keyframe_board",
+  "direction": "Coupe sur une page de projet claire. Modal Votre projet publicitaire, sous-titre Montage sur mesure pour votre boutique, même parfum en vignette, champ Nom du projet. Taper Votre boutique, puis viser Préparer le montage.",
+  "keyframes": [
+    {
+      "frame": 368,
+      "time_seconds": 12.266666666666667
+    },
+    {
+      "frame": 381,
+      "time_seconds": 12.7
+    },
+    {
+      "frame": 402,
+      "time_seconds": 13.4
+    },
+    {
+      "frame": 437,
+      "time_seconds": 14.566666666666666
+    }
+  ],
+  "audio_attack_candidates_seconds": [
+    12.39,
+    12.48,
+    12.58,
+    12.69,
+    12.78,
+    12.93,
+    13.18,
+    13.29,
+    13.38,
+    13.58,
+    13.79,
+    13.99,
+    14.16,
+    14.24,
+    14.42,
+    14.59
+  ],
+  "audio_source": "assets/audio/AUDIO_MASTER.flac",
+  "audio_start_seconds": 0,
+  "audio_playback_rate": 1,
+  "new_audio_to_add": false,
+  "state": "production_direction_complete",
+  "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+  "hero_asset": "assets/images/parfum.webp",
+  "modal": {
+    "title": "Votre projet publicitaire",
+    "subtitle": "Montage sur mesure pour votre boutique",
+    "field_label": "Nom du projet",
+    "field_value": "Votre boutique",
+    "button_label": "Préparer le montage"
+  },
+  "interaction_note": "Démonstration visuelle : aucune commande réelle ni faux résultat client.",
+  "typing": [
+    {
+      "frame": 380,
+      "value": "V"
+    },
+    {
+      "frame": 382,
+      "value": "Vo"
+    },
+    {
+      "frame": 385,
+      "value": "Vot"
+    },
+    {
+      "frame": 388,
+      "value": "Votr"
+    },
+    {
+      "frame": 391,
+      "value": "Votre"
+    },
+    {
+      "frame": 394,
+      "value": "Votre "
+    },
+    {
+      "frame": 397,
+      "value": "Votre b"
+    },
+    {
+      "frame": 400,
+      "value": "Votre bo"
+    },
+    {
+      "frame": 403,
+      "value": "Votre bou"
+    },
+    {
+      "frame": 406,
+      "value": "Votre bout"
+    },
+    {
+      "frame": 409,
+      "value": "Votre bouti"
+    },
+    {
+      "frame": 412,
+      "value": "Votre boutiq"
+    },
+    {
+      "frame": 414,
+      "value": "Votre boutiqu"
+    },
+    {
+      "frame": 416,
+      "value": "Votre boutique"
+    }
+  ]
+}

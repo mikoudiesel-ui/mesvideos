@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Y-K Design — montages publicitaires pour boutiques</title>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Inter"; src: url("assets/fonts/Inter-400.woff2") format("woff2"); font-weight: 400; }
+      @font-face { font-family: "Inter"; src: url("assets/fonts/Inter-700.woff2") format("woff2"); font-weight: 700; }
+      @font-face { font-family: "EB Garamond"; src: url("assets/fonts/EBGaramond-700.woff2") format("woff2"); font-weight: 700; }
+      :root {
+        --red: #bd0f28;     /* BRAND_CONFIG.primary_color */
+        --light: #f9f9f9;   /* BRAND_CONFIG.light_color */
+        --dark: #262626;    /* BRAND_CONFIG.dark_color */
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { background: var(--light); }
+      #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; font-family: "Inter", sans-serif; font-weight: 700; color: var(--dark); background: var(--light); }
+      .scene { position: absolute; inset: 0; overflow: hidden; }
+      .abs { position: absolute; left: 0; top: 0; }
+      .light { background: var(--light); }
+      .red { background: var(--red); }
+      .mono { display: block; width: 100%; height: auto; }
+      .nowrap { white-space: nowrap; }
+
+      /* ---------- A · identité + galerie (f0–151) ---------- */
+      #a-mono { width: 90px; }
+      #a-name { font-size: 64px; line-height: 1; color: var(--red); letter-spacing: -0.01em; }
+      #a-caption { font-size: 18px; letter-spacing: 0.24em; color: var(--dark); }
+      .col { position: absolute; top: 0; width: 375px; height: 1080px; overflow: hidden; }
+      .col-in { position: absolute; left: 0; top: 0; width: 375px; }
+      .card { position: absolute; left: 0; width: 375px; border-radius: 22px; overflow: hidden; background: #ddd; }
+      .card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .type { display: flex; align-items: center; justify-content: center; }
+      .type-style { background: var(--red); color: var(--light); font-size: 96px; letter-spacing: -0.02em; }
+      .type-style span { display: inline-block; transform: skewX(-9deg); }
+      .type-signature { background: #5a0f1c; color: #d8b36a; font-family: "EB Garamond", serif; font-size: 60px; letter-spacing: 0.06em; }
+      .type-allure { background: #f6e3d3; color: #e2574c; font-family: "EB Garamond", serif; font-size: 78px; letter-spacing: 0.04em; }
+
+      /* ---------- B · offre, couronne, zoom (f152–367) ---------- */
+      #b-sentence { transform-origin: 960px 540px; }
+      #b-prefix { font-size: 66px; line-height: 92px; height: 92px; color: var(--light); }
+      #b-cart { height: 92px; background: var(--light); overflow: hidden; }
+      #b-strip { position: absolute; left: 0; top: 0; }
+      #b-strip div { background: var(--light); height: 92px; line-height: 92px; padding-left: 20px; font-size: 66px; color: var(--red); white-space: nowrap; }
+      #b-vos { font-size: 66px; line-height: 92px; height: 92px; color: var(--light); white-space: nowrap; }
+      .ring { width: 250px; height: 250px; border-radius: 26px; overflow: hidden; }
+      .ring img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      #b-veil { position: absolute; inset: 0; background: rgba(20, 8, 12, 0.32); opacity: 0; }
+      #b-btn { position: absolute; right: 12px; top: 12px; padding: 8px 14px; border-radius: 12px; background: var(--red); color: var(--light); font-size: 17px; line-height: 1.15; text-align: center; opacity: 0; transform-origin: 50% 50%; }
+      .cursor { width: 46px; height: 51px; }
+
+      /* ---------- C · projet, chargement, contact (f368–523) ---------- */
+      #c-page { position: absolute; inset: -30px; filter: blur(7px); }
+      .pg-bar { position: absolute; left: 0; top: 0; width: 1980px; height: 110px; background: #ffffff; }
+      .pg-img { position: absolute; border-radius: 20px; overflow: hidden; }
+      .pg-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .pg-line { position: absolute; height: 18px; border-radius: 9px; background: #e3e3e3; }
+      #c-veil { position: absolute; inset: 0; background: rgba(249, 249, 249, 0.55); }
+      #c-modal { left: 345px; top: 153px; width: 1230px; height: 774px; background: #ffffff; border-radius: 32px; box-shadow: 0 30px 80px rgba(38, 38, 38, 0.18); transform-origin: 960px 540px; }
+      #c-title { position: absolute; left: 0; right: 0; top: 40px; text-align: center; font-size: 34px; color: var(--dark); }
+      #c-sub { position: absolute; left: 0; right: 0; top: 90px; text-align: center; font-size: 22px; font-weight: 400; color: #6b6b6b; }
+      #c-close { position: absolute; right: 36px; top: 34px; width: 44px; height: 44px; }
+      #c-thumb { position: absolute; left: 335px; top: 140px; width: 560px; height: 300px; border-radius: 20px; overflow: hidden; }
+      #c-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 68%; display: block; }
+      #c-label { position: absolute; left: 70px; top: 470px; font-size: 19px; font-weight: 400; color: #6b6b6b; }
+      #c-field { position: absolute; left: 70px; top: 500px; width: 1090px; height: 84px; border: 2px solid #d9d9d9; border-radius: 16px; }
+      #c-value { position: absolute; left: 26px; top: 0; line-height: 80px; font-size: 30px; font-weight: 400; color: var(--dark); white-space: pre; }
+      #c-caret { display: inline-block; width: 2px; height: 34px; margin-left: 2px; background: var(--dark); vertical-align: -6px; }
+      #c-btn { position: absolute; left: 70px; top: 610px; width: 1090px; height: 96px; border-radius: 18px; background: var(--red); transform-origin: 50% 50%; }
+      #c-btn-label { position: absolute; inset: 0; line-height: 96px; text-align: center; font-size: 30px; color: var(--light); }
+      #c-spin { position: absolute; left: 521px; top: 24px; width: 48px; height: 48px; opacity: 0; }
+      #c-zoom { position: absolute; inset: 0; transform-origin: 960px 540px; }
+      #c-card { left: 615px; top: 445px; width: 690px; height: 190px; border-radius: 28px; background: var(--dark); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25); opacity: 0; }
+      #c-card-img { position: absolute; left: 20px; top: 20px; width: 150px; height: 150px; border-radius: 16px; overflow: hidden; }
+      #c-card-img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 55%; display: block; }
+      #c-card-l1 { position: absolute; left: 200px; top: 44px; font-size: 34px; color: var(--light); white-space: nowrap; }
+      #c-card-l2 { position: absolute; left: 200px; top: 96px; font-size: 42px; color: var(--light); white-space: nowrap; }
+
+      /* ---------- D–H · appel et signature (f524–622) ---------- */
+      .center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+      #d-line { font-size: 72px; color: var(--red); white-space: nowrap; }
+      #d-line span { display: inline-block; }
+      #d-num { margin-top: 26px; font-size: 46px; color: var(--dark); white-space: nowrap; }
+      #e-avec { font-size: 360px; line-height: 1; color: var(--light); }
+      #f-mono { width: 620px; }
+      #g-name { font-size: 280px; line-height: 1; color: var(--light); white-space: nowrap; letter-spacing: -0.01em; }
+      #h-lock { display: flex; align-items: center; gap: 26px; }
+      #h-mono { width: 150px; }
+      #h-name { font-size: 104px; line-height: 1; color: var(--red); white-space: nowrap; letter-spacing: -0.01em; }
+      #h-sub { margin-top: 30px; font-size: 36px; font-weight: 400; color: var(--dark); white-space: nowrap; }
+      #h-num { margin-top: 16px; font-size: 46px; color: var(--red); white-space: nowrap; }
+    </style>
+  </head>
+  <body>
+    <!-- Fenêtres des plans : bornes à la demi-image (f − 0,5)/30, pour que l'image f appartienne au nouveau plan. -->
+    <div id="root" data-composition-id="main" data-start="0" data-duration="20.766666" data-width="1920" data-height="1080">
+      <!-- A · S01–S04 : monogramme, Y-K Design, galerie (f0–151) -->
+      <section id="sA" class="scene clip light" data-start="0" data-duration="5.05" data-track-index="1">
+        <div id="a-gallery" class="abs"></div>
+        <div id="a-lock" class="abs">
+          <img id="a-mono" class="abs mono" src="assets/images/monogramme_YK_rogne.png" alt="YK" />
+          <div id="a-name-mask" class="abs" style="overflow: hidden"><div id="a-name" class="nowrap">Y-K Design</div></div>
+          <div id="a-caption" class="abs nowrap">EXEMPLES CRÉATIFS</div>
+        </div>
+      </section>
+
+      <!-- B · S05–S09 : Des publicités…, Je réalise vos montages, couronne, sélection, zoom (f152–367) -->
+      <section id="sB" class="scene clip red" data-start="5.05" data-duration="7.2" data-track-index="2">
+        <div id="b-zoom" class="abs" style="width: 1920px; height: 1080px">
+          <div id="b-sentence" class="abs" style="width: 1920px; height: 1080px">
+            <div id="b-prefix" class="abs nowrap">Des publicités</div>
+            <div id="b-cart" class="abs">
+              <div id="b-strip">
+                <div>créatives</div><div>dynamiques</div><div>sur mesure</div><div>pour boutiques</div><div>Je réalise</div>
+              </div>
+            </div>
+            <div id="b-vos-mask" class="abs" style="overflow: hidden; height: 92px"><div id="b-vos">vos montages</div></div>
+          </div>
+          <div id="b-ring" class="abs"></div>
+          <img id="b-cursor" class="abs cursor" src="assets/images/curseur_clair.svg" alt="" />
+        </div>
+      </section>
+
+      <!-- C · S10–S12 : page projet, modal, frappe, chargement, carte contact (f368–523) -->
+      <section id="sC" class="scene clip light" data-start="12.25" data-duration="5.2" data-track-index="3">
+        <div id="c-zoom">
+          <div id="c-page">
+            <div class="pg-bar"></div>
+            <img class="abs" src="assets/images/monogramme_YK_rogne.png" alt="" style="left: 90px; top: 38px; width: 80px" />
+            <div class="pg-line" style="left: 190px; top: 46px; width: 180px"></div>
+            <div class="pg-img" style="left: 90px; top: 170px; width: 820px; height: 820px"><img src="assets/images/parfum.webp" alt="" /></div>
+            <div class="pg-line" style="left: 980px; top: 200px; width: 620px; height: 34px"></div>
+            <div class="pg-line" style="left: 980px; top: 260px; width: 460px"></div>
+            <div class="pg-line" style="left: 980px; top: 296px; width: 520px"></div>
+            <div class="pg-img" style="left: 980px; top: 380px; width: 300px; height: 300px"><img src="assets/images/baskets.webp" alt="" /></div>
+            <div class="pg-img" style="left: 1310px; top: 380px; width: 300px; height: 300px"><img src="assets/images/sac.webp" alt="" /></div>
+            <div class="pg-img" style="left: 1640px; top: 380px; width: 300px; height: 300px"><img src="assets/images/parfum.webp" alt="" /></div>
+            <div class="pg-line" style="left: 980px; top: 730px; width: 560px"></div>
+            <div class="pg-line" style="left: 980px; top: 766px; width: 380px"></div>
+          </div>
+          <div id="c-veil"></div>
+          <div id="c-modal" class="abs">
+            <div id="c-title">Votre projet publicitaire</div>
+            <div id="c-sub">Montage sur mesure pour votre boutique</div>
+            <svg id="c-close" viewBox="0 0 44 44"><path d="M14 14l16 16M30 14L14 30" stroke="#262626" stroke-width="3" stroke-linecap="round" /></svg>
+            <div id="c-thumb"><img src="assets/images/parfum.webp" alt="" /></div>
+            <div id="c-label">Nom du projet</div>
+            <div id="c-field"><div id="c-value"><span id="c-typed"></span><span id="c-caret"></span></div></div>
+            <div id="c-btn"><div id="c-btn-label">Préparer le montage</div><img id="c-spin" src="assets/images/spinner.svg" alt="" /></div>
+          </div>
+          <div id="c-card" class="abs">
+            <div id="c-card-img"><img src="assets/images/parfum.webp" alt="" /></div>
+            <div id="c-card-l1">Montages pour boutiques</div>
+            <div id="c-card-l2">+225 07 12 35 46 02</div>
+          </div>
+          <img id="c-cursor" class="abs cursor" src="assets/images/curseur_sombre.svg" alt="" />
+        </div>
+      </section>
+
+      <!-- D · S13 : Intéressé ? Écrivez-moi. (f524–554) -->
+      <section id="sD" class="scene clip light" data-start="17.45" data-duration="1.033333" data-track-index="4">
+        <div class="center">
+          <div id="d-line"><span id="d-q">Intéressé ?</span> <span id="d-w">Écrivez-moi.</span></div>
+          <div id="d-num">+225 07 12 35 46 02</div>
+        </div>
+      </section>
+
+      <!-- E · S14 : AVEC (f555–572) -->
+      <section id="sE" class="scene clip red" data-start="18.483333" data-duration="0.6" data-track-index="5">
+        <div class="center"><div id="e-avec">AVEC</div></div>
+      </section>
+
+      <!-- F · S15 : monogramme rouge sur clair (f573–583) -->
+      <section id="sF" class="scene clip light" data-start="19.083333" data-duration="0.366667" data-track-index="6">
+        <div class="center"><img id="f-mono" class="mono" src="assets/images/monogramme_YK_rogne.png" alt="YK" /></div>
+      </section>
+
+      <!-- G · S16 : Y-K Design géant (f584–595) -->
+      <section id="sG" class="scene clip red" data-start="19.45" data-duration="0.4" data-track-index="7">
+        <div class="center"><div id="g-name">Y-K Design</div></div>
+      </section>
+
+      <!-- H · S17 : signature + offre + contact (f596–622) -->
+      <section id="sH" class="scene clip light" data-start="19.85" data-duration="0.916666" data-track-index="8">
+        <div class="center">
+          <div id="h-lock"><img id="h-mono" class="mono" src="assets/images/monogramme_YK_rogne.png" alt="YK" /><div id="h-name">Y-K Design</div></div>
+          <div id="h-sub">Montages publicitaires pour boutiques</div>
+          <div id="h-num">+225 07 12 35 46 02</div>
+        </div>
+      </section>
+
+      <!-- Mix fourni (musique + effets) : t=0, vitesse 1, rien d'autre par-dessus -->
+      <audio id="mix" src="assets/audio/AUDIO_MASTER.wav" data-start="0" data-duration="20.766666" data-track-index="10" data-volume="1"></audio>
+    </div>
+    <script src="assets/js/timeline.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = window.buildYK();
+    </script>
+  </body>
+</html>

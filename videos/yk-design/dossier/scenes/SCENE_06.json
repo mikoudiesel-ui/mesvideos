@@ -1,0 +1,108 @@
+{
+  "id": "S06",
+  "title": "Je réalise vos montages",
+  "start_frame": 234,
+  "end_frame_exclusive": 284,
+  "start_seconds": 7.8,
+  "end_seconds_exclusive": 9.466666666666667,
+  "duration_frames": 50,
+  "fps": 30,
+  "storyboard_image": "maquettes/scene_06.webp",
+  "image_kind": "static_keyframe_board",
+  "direction": "Je réalise dans un cartouche clair ; révéler vos montages à droite. Punch-in f257 puis sortie du cartouche à gauche pour garder vos montages au centre.",
+  "keyframes": [
+    {
+      "frame": 234,
+      "time_seconds": 7.8
+    },
+    {
+      "frame": 252,
+      "time_seconds": 8.4
+    },
+    {
+      "frame": 257,
+      "time_seconds": 8.566666666666666
+    },
+    {
+      "frame": 276,
+      "time_seconds": 9.2
+    }
+  ],
+  "audio_attack_candidates_seconds": [
+    7.88,
+    7.99,
+    8.19,
+    8.42,
+    8.6,
+    8.71,
+    8.79,
+    9.0,
+    9.19,
+    9.39,
+    9.46
+  ],
+  "audio_source": "assets/audio/AUDIO_MASTER.flac",
+  "audio_start_seconds": 0,
+  "audio_playback_rate": 1,
+  "new_audio_to_add": false,
+  "state": "production_direction_complete",
+  "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+  "reconstruction_details": {
+    "page": 6,
+    "brand_name": "Y-K Design",
+    "start_frame": 234,
+    "end_frame_exclusive": 284,
+    "fps": 30,
+    "target_width": 1920,
+    "target_height": 1080,
+    "background_color": "#BD0F28",
+    "continuity": "The page 5 prefix fades out while its highlighted word transforms into Je réalise. The group vos montages reveals to the right, then becomes the central message for the card scene.",
+    "motion_anchors": [
+      {
+        "frame": 234,
+        "time_seconds": 7.8,
+        "action": "Begin replacing the previous highlighted phrase and remove the old fixed prefix"
+      },
+      {
+        "frame": 246,
+        "time_seconds": 8.2,
+        "action": "Reveal vos montages beside Je réalise"
+      },
+      {
+        "frame": 257,
+        "time_seconds": 8.566666666666666,
+        "action": "Very rapid typographic punch-in following the reference"
+      },
+      {
+        "frame": 276,
+        "time_seconds": 9.2,
+        "action": "First highlighted phrase leaves left; vos montages is centred and readable"
+      },
+      {
+        "frame": 284,
+        "time_seconds": 9.466666666666667,
+        "action": "Next page begins with the six-card expansion"
+      }
+    ],
+    "audio_start_seconds": 0,
+    "audio_playback_rate": 1,
+    "audio_attack_candidates_seconds": [
+      7.79,
+      7.99,
+      8.19,
+      8.42,
+      8.6,
+      8.79,
+      9,
+      9.19
+    ],
+    "new_audio_to_add": false,
+    "next_page": "Six cards from the selected illustrative advertising concepts deploy around the central message.",
+    "message_purpose": "Make explicit that Y-K Design offers advertising editing and motion design for interested shop owners; page 5 remains unchanged.",
+    "storyboard_note": "Static illustrative states. Reconstruct the mask replacement, text reveal and punch-in on the paused timeline; adapt the text scale before the following six-card layout.",
+    "highlighted_text": "Je réalise",
+    "second_text": "vos montages",
+    "message": "Je réalise vos montages",
+    "brand_emblem_asset": "assets/images/monogramme_YK.webp"
+  }
+}

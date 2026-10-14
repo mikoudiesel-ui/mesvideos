@@ -1,0 +1,126 @@
+{
+  "id": "S03",
+  "title": "Exemples créatifs",
+  "start_frame": 78,
+  "end_frame_exclusive": 117,
+  "start_seconds": 2.6,
+  "end_seconds_exclusive": 3.9,
+  "duration_frames": 39,
+  "fps": 30,
+  "storyboard_image": "maquettes/scene_03.webp",
+  "image_kind": "static_keyframe",
+  "direction": "Entrée progressive de quatre colonnes de cartes : baskets, parfum, sac et gros plans. Conserver la mention EXEMPLES CRÉATIFS : il s’agit de concepts illustratifs.",
+  "keyframes": [
+    {
+      "frame": 78,
+      "time_seconds": 2.6
+    },
+    {
+      "frame": 84,
+      "time_seconds": 2.8
+    },
+    {
+      "frame": 96,
+      "time_seconds": 3.2
+    },
+    {
+      "frame": 116,
+      "time_seconds": 3.8666666666666667
+    }
+  ],
+  "audio_attack_candidates_seconds": [
+    2.79,
+    2.99,
+    3.2,
+    3.4,
+    3.59
+  ],
+  "audio_source": "assets/audio/AUDIO_MASTER.flac",
+  "audio_start_seconds": 0,
+  "audio_playback_rate": 1,
+  "new_audio_to_add": false,
+  "state": "production_direction_complete",
+  "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+  "reconstruction_details": {
+    "page": 3,
+    "brand_name": "Y-K Design",
+    "selected_logo_option": "B",
+    "start_frame": 78,
+    "end_frame_exclusive": 117,
+    "fps": 30,
+    "target_width": 1920,
+    "target_height": 1080,
+    "primary_color": "#BD0F28",
+    "background_color": "#F9F9F9",
+    "requested_material_type": "New advertising examples to create together, not existing client portfolio",
+    "concepts": [
+      {
+        "id": "baskets",
+        "title": "STYLE EN MOUVEMENT",
+        "product": "Unbranded white sneaker with red accents",
+        "direction": "Cream and red, dynamic ribbon, floating product, energetic sans-serif typography"
+      },
+      {
+        "id": "parfum",
+        "title": "UNE SIGNATURE",
+        "product": "Unbranded amber perfume bottle",
+        "direction": "Deep burgundy, amber glass, gold light, refined display typography"
+      },
+      {
+        "id": "sacs",
+        "title": "L’ALLURE AU QUOTIDIEN",
+        "product": "Unbranded camel handbag",
+        "direction": "Cream and peach, coral shapes, leather detail, fashion typography"
+      }
+    ],
+    "example_reference_time_seconds": 3.4,
+    "generated_image_status": "Static illustrative design references; individual cards and product cutouts are not yet supplied as separate assets",
+    "real_client_claims": false,
+    "gallery_caption": "EXEMPLES CRÉATIFS",
+    "gallery_layout": {
+      "columns": 4,
+      "column_width_target_pixels": 375,
+      "gutter_target_pixels": 30,
+      "centered_gallery_left_target_pixels": 165,
+      "different_card_heights": true,
+      "rounded_cards": true,
+      "lower_cards_clipped_by_frame": true
+    },
+    "proposed_column_content": [
+      [
+        "Sneaker poster",
+        "Sneaker or typography detail"
+      ],
+      [
+        "Perfume bottle close-up",
+        "Handbag detail with partial opacity during arrival"
+      ],
+      [
+        "Handbag poster",
+        "Coral graphic or handbag detail"
+      ],
+      [
+        "Sneaker detail",
+        "Perfume poster"
+      ]
+    ],
+    "motion": "Brand lockup rises from page 2; cards appear separately with vertical displacement and opacity, then continue scrolling into page 4. Preserve the four-column structure rather than placing the entire generated gallery image as a single moving background.",
+    "audio_start_seconds": 0,
+    "audio_playback_rate": 1,
+    "audio_attack_candidates_seconds": [
+      2.79,
+      2.99,
+      3.2,
+      3.4,
+      3.59
+    ],
+    "new_audio_to_add": false,
+    "next_page": "Continue the gallery scrolling from 3.9 to 5.0667 seconds, using the selected examples and their variants.",
+    "selected_concepts": [
+      "baskets",
+      "parfum",
+      "sacs"
+    ],
+    "brand_emblem_asset": "assets/images/monogramme_YK.webp"
+  }
+}

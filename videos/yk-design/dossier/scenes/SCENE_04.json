@@ -1,0 +1,144 @@
+{
+  "id": "S04",
+  "title": "Galerie en mouvement",
+  "start_frame": 117,
+  "end_frame_exclusive": 152,
+  "start_seconds": 3.9,
+  "end_seconds_exclusive": 5.066666666666666,
+  "duration_frames": 35,
+  "fps": 30,
+  "storyboard_image": "maquettes/scene_04.webp",
+  "image_kind": "static_keyframe_board",
+  "direction": "Poursuivre le défilement ascendant de la même galerie. Le logo quitte le cadre ; raccord continu jusqu’à la coupe rouge f152.",
+  "keyframes": [
+    {
+      "frame": 117,
+      "time_seconds": 3.9
+    },
+    {
+      "frame": 128,
+      "time_seconds": 4.266666666666667
+    },
+    {
+      "frame": 140,
+      "time_seconds": 4.666666666666667
+    },
+    {
+      "frame": 151,
+      "time_seconds": 5.033333333333333
+    }
+  ],
+  "audio_attack_candidates_seconds": [
+    3.99,
+    4.19,
+    4.39,
+    4.59,
+    4.79,
+    4.99
+  ],
+  "audio_source": "assets/audio/AUDIO_MASTER.flac",
+  "audio_start_seconds": 0,
+  "audio_playback_rate": 1,
+  "new_audio_to_add": false,
+  "state": "production_direction_complete",
+  "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+  "reconstruction_details": {
+    "page": 4,
+    "brand_name": "Y-K Design",
+    "start_frame": 117,
+    "end_frame_exclusive": 152,
+    "fps": 30,
+    "target_width": 1920,
+    "target_height": 1080,
+    "background_color": "#F9F9F9",
+    "selected_concepts": [
+      "baskets",
+      "parfum",
+      "sacs"
+    ],
+    "reference_start_seconds": 3.9,
+    "reference_end_seconds": 5.066666666666666,
+    "visual_function": "Continue the existing masonry gallery upward; introduce fresh detail and typography cards before the cut to the brand-colored text scene",
+    "continuity": "Reuse the exact products and four-column layout from page 3; never restart the gallery or substitute an unrelated set of products. The brand lockup leaves the top edge during this continuation.",
+    "keyframes": [
+      {
+        "frame": 117,
+        "time_seconds": 3.9,
+        "state": "Continue from page 3 with its main advertising posters rising and the logo leaving the top edge"
+      },
+      {
+        "frame": 128,
+        "time_seconds": 4.266666666666667,
+        "state": "Detail and typography cards become visible underneath, with staggered opacity and vertical movement"
+      },
+      {
+        "frame": 140,
+        "time_seconds": 4.666666666666667,
+        "state": "New gallery contents occupy the frame; original posters are partially clipped above"
+      },
+      {
+        "frame": 151,
+        "time_seconds": 5.033333333333333,
+        "state": "Gallery reaches final arrangement immediately before the brand-color cut at frame 152"
+      }
+    ],
+    "audio_start_seconds": 0,
+    "audio_playback_rate": 1,
+    "audio_attack_candidates_seconds": [
+      3.99,
+      4.19,
+      4.39,
+      4.59,
+      4.79,
+      4.99
+    ],
+    "new_audio_to_add": false,
+    "next_page": "Brand-colored typography scene presenting Y-K Design service benefits; texts remain to be chosen with the user.",
+    "storyboard_note": "Static illustrative keyframes. Reuse independent cards from page 3 and interpolate their upward movement; do not use four flat scene images as a slideshow.",
+    "new_cards": [
+      {
+        "id": "sneaker_detail",
+        "type": "close-up",
+        "content": "Laces, cream leather and red heel of the same unbranded sneaker"
+      },
+      {
+        "id": "style_type",
+        "type": "typography",
+        "text": "STYLE",
+        "colors": [
+          "#BD0F28",
+          "#F9F9F9"
+        ]
+      },
+      {
+        "id": "perfume_detail",
+        "type": "close-up",
+        "content": "Amber glass and reflections of the same perfume bottle"
+      },
+      {
+        "id": "signature_type",
+        "type": "typography",
+        "text": "SIGNATURE",
+        "colors": [
+          "burgundy",
+          "gold"
+        ]
+      },
+      {
+        "id": "handbag_detail",
+        "type": "close-up",
+        "content": "Camel leather, handle and hardware of the same handbag"
+      },
+      {
+        "id": "allure_type",
+        "type": "typography",
+        "text": "ALLURE",
+        "colors": [
+          "cream",
+          "coral"
+        ]
+      }
+    ],
+    "brand_emblem_asset": "assets/images/monogramme_YK.webp"
+  }
+}

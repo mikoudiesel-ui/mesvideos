@@ -1,0 +1,141 @@
+{
+  "id": "S01",
+  "title": "Accroche monogramme",
+  "start_frame": 0,
+  "end_frame_exclusive": 36,
+  "start_seconds": 0.0,
+  "end_seconds_exclusive": 1.2,
+  "duration_frames": 36,
+  "fps": 30,
+  "storyboard_image": "maquettes/scene_01.webp",
+  "image_kind": "static_keyframe_board",
+  "direction": "Monogramme YK très grand, hors cadre au départ ; recul rapide, léger passage sous la taille finale puis stabilisation au centre. Fond clair, emblème rouge.",
+  "keyframes": [
+    {
+      "frame": 0,
+      "time_seconds": 0.0
+    },
+    {
+      "frame": 6,
+      "time_seconds": 0.2
+    },
+    {
+      "frame": 12,
+      "time_seconds": 0.4
+    },
+    {
+      "frame": 30,
+      "time_seconds": 1.0
+    }
+  ],
+  "audio_attack_candidates_seconds": [
+    0.26,
+    0.34,
+    0.44,
+    0.55,
+    0.86
+  ],
+  "audio_source": "assets/audio/AUDIO_MASTER.flac",
+  "audio_start_seconds": 0,
+  "audio_playback_rate": 1,
+  "new_audio_to_add": false,
+  "state": "production_direction_complete",
+  "geometry_note": "Les maquettes sont illustratives. Reconstruire les positions, les couleurs à plat et les typographies éditables au format 1920×1080 ; ne pas animer la planche entière.",
+  "reconstruction_details": {
+    "page": 1,
+    "purpose": "Introduce the creator's motion-design advertising service for shops",
+    "start_frame": 0,
+    "end_frame_exclusive": 36,
+    "fps": 30,
+    "target_width": 1920,
+    "target_height": 1080,
+    "brand_name": "Y-K Design",
+    "brand_emblem_asset": "assets/images/monogramme_YK.webp",
+    "brand_primary_color": "#BD0F28",
+    "background_color": "#F9F9F9",
+    "emblem_center": [
+      960,
+      540
+    ],
+    "reference_observed_emblem_widths_source_pixels": [
+      {
+        "frame": 0,
+        "width": null,
+        "note": "Emblem exceeds the visible source frame; exact width cannot be recovered from its clipped bounds."
+      },
+      {
+        "frame": 6,
+        "width": 82
+      },
+      {
+        "frame": 12,
+        "width": 38
+      },
+      {
+        "frame": 30,
+        "width": 48
+      }
+    ],
+    "proposed_emblem_widths_target_pixels": [
+      {
+        "frame": 0,
+        "width": null,
+        "note": "Choose initial scale so the emblem visibly exceeds the frame."
+      },
+      {
+        "frame": 6,
+        "width": 153.75
+      },
+      {
+        "frame": 12,
+        "width": 71.25
+      },
+      {
+        "frame": 30,
+        "width": 90
+      }
+    ],
+    "motion": "Rapid pullback, small undershoot, then settle; fit the intermediate curve to the source rather than assuming the original easing.",
+    "audio_start_seconds": 0,
+    "audio_playback_rate": 1,
+    "audio_attack_candidates_seconds": [
+      0.26,
+      0.34,
+      0.44
+    ],
+    "next_page": "Reveal the creator's brand name beside the settled emblem",
+    "brand_emblem_concept": "Chosen geometric YK monogram, option B retained by the user.",
+    "selected_logo_option": "B",
+    "selection_status": "user_selected_monogram_option_B",
+    "initials_status": "confirmed_by_reselected_option_B_with_YK",
+    "planned_keyframes": [
+      {
+        "frame": 0,
+        "time_seconds": 0,
+        "label": "Impact",
+        "description": "Oversized emblem exceeds the frame"
+      },
+      {
+        "frame": 6,
+        "time_seconds": 0.2,
+        "label": "Recul",
+        "description": "Emblem pulls back rapidly to the centre"
+      },
+      {
+        "frame": 12,
+        "time_seconds": 0.4,
+        "label": "Rebond",
+        "description": "Emblem becomes slightly smaller than its settled size"
+      },
+      {
+        "frame": 30,
+        "time_seconds": 1,
+        "label": "Stable",
+        "description": "Emblem settles at centre; brand name will be revealed in the next scene"
+      }
+    ],
+    "visual_initials_for_this_draft": "YK",
+    "storyboard_note": "Generated static storyboard illustrates the four states; final frame aspect ratios, positions and widths must be reconstructed from the timeline and layout constants, not stretched from the board.",
+    "page1_motion_explicitly_approved": true
+  }
+}
