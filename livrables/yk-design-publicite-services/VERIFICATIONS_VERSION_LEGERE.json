@@ -1,0 +1,213 @@
+{
+  "scenes": 17,
+  "contiguous_frames": 623,
+  "master_duration_seconds": 20.766666666666666,
+  "wave_sample_rate": 48000,
+  "wave_frames_per_channel": 996800,
+  "wave_channels": 2,
+  "logo_has_transparency": true,
+  "pdf_pages": 18,
+  "contact_number": "+2250712354602",
+  "contact_display": "+225 07 12 35 46 02",
+  "delivery_type": "production_pack_for_Claude_Code_not_a_finished_motion_video",
+  "html_reader": {
+    "scenes_checked": 17,
+    "page_errors": [],
+    "audio_duration": 20.766667,
+    "selected_scene": "S12 — Offre et contact"
+  },
+  "audio_pcm_identical_after_lossless_compression": true,
+  "audio_pcm_sha256": "877b12b77553c6c8dddbcf82843a45182c650cebd4b5c361dd74facae3da5bf8",
+  "lossless_image_checks": [
+    {
+      "original": "assets/images/baskets.png",
+      "compressed": "assets/images/baskets.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "decoded_pixels_identical": true
+    },
+    {
+      "original": "assets/images/monogramme_YK.png",
+      "compressed": "assets/images/monogramme_YK.webp",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "decoded_pixels_identical": true
+    },
+    {
+      "original": "assets/images/parfum.png",
+      "compressed": "assets/images/parfum.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "decoded_pixels_identical": true
+    },
+    {
+      "original": "assets/images/sac.png",
+      "compressed": "assets/images/sac.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "decoded_pixels_identical": true
+    },
+    {
+      "original": "maquettes/scene_01.png",
+      "compressed": "maquettes/scene_01.webp",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "decoded_pixels_identical": true
+    },
+    {
+      "original": "maquettes/scene_02.png",
+      "compressed": "maquettes/scene_02.webp",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "decoded_pixels_identical": true
+    },
+    {
+      "original": "maquettes/scene_03.png",
+      "compressed": "maquettes/scene_03.webp",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "decoded_pixels_identical": true
+    },
+    {
+      "original": "maquettes/scene_04.png",
+      "compressed": "maquettes/scene_04.webp",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "decoded_pixels_identical": true
+    },
+    {
+      "original": "maquettes/scene_05.png",
+      "compressed": "maquettes/scene_05.webp",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "decoded_pixels_identical": true
+    },
+    {
+      "original": "maquettes/scene_06.png",
+      "compressed": "maquettes/scene_06.webp",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "decoded_pixels_identical": true
+    },
+    {
+      "original": "maquettes/scene_07.png",
+      "compressed": "maquettes/scene_07.webp",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "decoded_pixels_identical": true
+    },
+    {
+      "original": "maquettes/scene_08.png",
+      "compressed": "maquettes/scene_08.webp",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "decoded_pixels_identical": true
+    },
+    {
+      "original": "maquettes/scene_09.png",
+      "compressed": "maquettes/scene_09.webp",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "decoded_pixels_identical": true
+    },
+    {
+      "original": "maquettes/scene_10.png",
+      "compressed": "maquettes/scene_10.webp",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "decoded_pixels_identical": true
+    },
+    {
+      "original": "maquettes/scene_11.png",
+      "compressed": "maquettes/scene_11.webp",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "decoded_pixels_identical": true
+    },
+    {
+      "original": "maquettes/scene_12.png",
+      "compressed": "maquettes/scene_12.webp",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "decoded_pixels_identical": true
+    },
+    {
+      "original": "maquettes/scene_13.png",
+      "compressed": "maquettes/scene_13.webp",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "decoded_pixels_identical": true
+    },
+    {
+      "original": "maquettes/scene_14.png",
+      "compressed": "maquettes/scene_14.webp",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "decoded_pixels_identical": true
+    },
+    {
+      "original": "maquettes/scene_15.png",
+      "compressed": "maquettes/scene_15.webp",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "decoded_pixels_identical": true
+    },
+    {
+      "original": "maquettes/scene_16.png",
+      "compressed": "maquettes/scene_16.webp",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "decoded_pixels_identical": true
+    },
+    {
+      "original": "maquettes/scene_17.png",
+      "compressed": "maquettes/scene_17.webp",
+      "dimensions": [
+        1672,
+        940
+      ],
+      "decoded_pixels_identical": true
+    }
+  ],
+  "upload_limit_bytes": 30000000
+}

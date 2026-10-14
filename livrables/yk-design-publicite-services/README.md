@@ -1,8 +1,13 @@
 # Publicité Y-K Design — dossier pour Claude Code
 
+**Version adaptée à la limite de 30 Mo : [télécharger le ZIP léger — 26,6 Mo](DOSSIER_YK_DESIGN_CLAUDE_LEGER.zip).**
+
+Cette version conserve les 62 fichiers, le prompt complet, les 17 scènes, le PDF, les polices et la référence. Les 21 images utilisent WebP sans perte, sans réduction des dimensions ; l’audio utilise FLAC avec les mêmes échantillons décodés. Le lecteur et les liens internes sont adaptés à ces formats. [Lire le prompt de cette version](PROMPT_CLAUDE_CODE_LEGER.md).
+
+
 17 scènes pour promouvoir les montages publicitaires en motion design destinés aux boutiques. Monogramme YK, trois concepts publicitaires et contact fourni : **+225 07 12 35 46 02**.
 
-[Télécharger le dossier ZIP](DOSSIER_YK_DESIGN_CLAUDE.zip) · [Lire le prompt complet](PROMPT_CLAUDE_CODE.md) · [Voir le plan PDF](PLAN_DE_PRODUCTION.pdf)
+[Version initiale — 35,9 Mo](DOSSIER_YK_DESIGN_CLAUDE.zip) · [Lire le prompt complet](PROMPT_CLAUDE_CODE.md) · [Voir le plan PDF](PLAN_DE_PRODUCTION.pdf)
 
 Le ZIP contient 62 fichiers : 17 maquettes, les affiches et le monogramme séparés, les polices, l’audio aligné, la vidéo de référence, les consignes par scène, le PDF, le lecteur HTML et le prompt complet. Ce dossier prépare la réalisation dans Claude Code ; il ne contient pas encore la vidéo motion design finale.
 
