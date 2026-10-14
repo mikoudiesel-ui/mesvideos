@@ -618,7 +618,11 @@ def font_face():
 
 
 BOARD_CSS = """
-body{margin:0;width:1080px;height:1350px;background:#F4F1EC;font-family:Jost;color:#111518;position:relative;overflow:hidden}
+@page{size:1080px 1350px;margin:0}
+body{margin:0;background:#F4F1EC;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:1080px;height:1350px;background:#F4F1EC;font-family:Jost;color:#111518;position:relative;overflow:hidden;break-after:page}
+.page:last-child{break-after:auto}
+.ensemble .avatars figure{width:150px;font-size:11px;white-space:nowrap}
 .kicker{position:absolute;left:56px;top:46px;font-weight:500;font-size:14px;letter-spacing:.34em;color:#8A8178}
 h1{position:absolute;left:56px;top:70px;margin:0;font-family:Montserrat;font-weight:800;font-size:46px;letter-spacing:-.01em}
 h1 span{color:#FF741F}
@@ -637,14 +641,22 @@ h1 span{color:#FF741F}
 """
 
 
-def board_html(i, slug, meta, files, photo):
+PDF = "KSC_STUDIO_propositions_logo.pdf"  # document unique à envoyer : vue d'ensemble + 6 planches
+
+
+def html_doc(pages, title):
+    return (f'<html><head><meta charset="utf-8"><title>{title}</title><style>{font_face()}{BOARD_CSS}</style></head>'
+            f'<body>{"".join(pages)}</body></html>')
+
+
+def board_page(i, meta, files, photo):
     s = meta
     c_dark, c_light = s["carte"]
     sw = "".join(f'<div class="sw" style="background:{c}"></div><div>{c}</div>' for c in s["couleurs"])
     icon_uri = files["icone"].as_uri()
     avatars = "".join(f'<figure><img src="{icon_uri}" style="width:{px}px;height:{px}px">{lab}</figure>'
                       for px, lab in ((150, "Photo de profil"), (72, "Appli"), (34, "Onglet")))
-    return f"""<html><head><meta charset="utf-8"><style>{font_face()}{BOARD_CSS}</style></head><body>
+    return f"""<div class="page">
 <div class="kicker">KSC STUDIO · PROPOSITION DE LOGO {i} / {len(PISTES)}</div>
 <h1>Piste {i} <span>·</span> {s["titre"]}</h1>
 <div class="pitch">{s["phrase"]}</div>
@@ -663,10 +675,10 @@ def board_html(i, slug, meta, files, photo):
   <div class="tag" style="color:#FFFFFFCC">Filigrane sur vos photos</div>
   <img src="{files["sombre"].as_uri()}" style="position:absolute;right:22px;bottom:20px;max-width:34%;max-height:30%;opacity:.9"></div>
 <div class="foot">{sw}<div style="margin-left:auto">Police : {s["polices"]} (libre, usage commercial)</div></div>
-</body></html>"""
+</div>"""
 
 
-def overview_html(all_files):
+def overview_page(all_files):
     cells, icons = "", ""
     for k, (slug, meta) in enumerate(PISTES.items()):
         f = all_files[slug]
@@ -675,15 +687,14 @@ def overview_html(all_files):
                   f'<div class="tag" style="color:#8A8178">{k + 1} · {meta["titre"]}</div>'
                   f'<img class="logo" src="{f["clair"].as_uri()}" style="max-width:76%;max-height:70%;margin-top:14px"></div>')
         icons += f'<figure><img src="{f["icone"].as_uri()}" style="width:108px;height:108px">{k + 1} · {meta["titre"]}</figure>'
-    return f"""<html><head><meta charset="utf-8"><style>{font_face()}{BOARD_CSS}
-.avatars figure{{width:150px;font-size:11px;white-space:nowrap}}</style></head><body>
+    return f"""<div class="page ensemble">
 <div class="kicker">KSC STUDIO · PROPOSITIONS DE LOGO</div>
 <h1>6 pistes <span>·</span> vos initiales K S C</h1>
 <div class="pitch">Choisissez une ou deux pistes : je les affine ensuite (couleurs, slogan, déclinaisons, kit réseaux sociaux, logo animé pour vos vidéos).</div>
 {cells}
 <div class="panel" style="left:56px;top:1136px;width:968px;height:196px;background:#EAE5DD">
   <div class="tag" style="color:#8A8178">En photo de profil</div><div class="avatars" style="gap:8px;margin-top:30px">{icons}</div></div>
-</body></html>"""
+</div>"""
 
 
 def boards(all_files):
@@ -693,14 +704,16 @@ def boards(all_files):
     bokeh_photo(photo)
     out = ROOT / "planches"
     out.mkdir(exist_ok=True)
+    pages = [("00-ensemble", overview_page(all_files))]
+    pages += [(slug, board_page(k + 1, meta, all_files[slug], photo)) for k, (slug, meta) in enumerate(PISTES.items())]
     jobs = []
-    page = tmp / "00-ensemble.html"
-    page.write_text(overview_html(all_files))
-    jobs.append({"file": str(page), "out": str(out / "ksc-planche-00-ensemble.png"), "width": 1080, "height": 1350, "scale": 2})
-    for k, (slug, meta) in enumerate(PISTES.items()):
-        page = tmp / f"{slug}.html"
-        page.write_text(board_html(k + 1, slug, meta, all_files[slug], photo))
-        jobs.append({"file": str(page), "out": str(out / f"ksc-planche-{slug}.png"), "width": 1080, "height": 1350, "scale": 2})
+    for slug, page in pages:  # une image par planche
+        f = tmp / f"{slug}.html"
+        f.write_text(html_doc([page], f"KSC STUDIO · {slug}"))
+        jobs.append({"file": str(f), "out": str(out / f"ksc-planche-{slug}.png"), "width": 1080, "height": 1350, "scale": 2})
+    f = tmp / "document.html"  # et toutes les planches dans un PDF, logos restés vectoriels
+    f.write_text(html_doc([page for _, page in pages], "KSC STUDIO · Propositions de logo"))
+    jobs.append({"file": str(f), "out": str(ROOT / PDF), "width": 1080, "height": 1350, "pdf": True})
     return jobs, tmp
 
 
@@ -708,7 +721,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--only", help="ne produire que ces pistes (ex. 01,03)")
     ap.add_argument("--preview", help="écrit aussi une planche de contrôle PNG à ce chemin")
-    ap.add_argument("--planches", action="store_true", help="produit aussi les planches de présentation")
+    ap.add_argument("--planches", action="store_true", help="produit aussi les planches de présentation et le PDF")
     args = ap.parse_args()
     jobs, files, all_files = [], [], {}
     for slug, fn in CONCEPTS:

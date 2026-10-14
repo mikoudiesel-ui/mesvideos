@@ -4,8 +4,12 @@ Six pistes de logo pour le studio photo KSC STUDIO, toutes construites sur les i
 partent des couleurs du logo actuel : orange `#FF741F` et noir `#111518`. La piste Couture passe à
 l'or champagne `#C9A45C`.
 
-Commencer par `planches/ksc-planche-00-ensemble.png` (vue d'ensemble), puis une planche par piste :
-version principale, fond sombre, avatars, cartes de visite, filigrane sur photo.
+**À envoyer : `KSC_STUDIO_propositions_logo.pdf`**, un seul fichier de 7 pages (0,8 Mo) qui s'ouvre sur
+téléphone comme sur ordinateur. Les logos y restent vectoriels, donc nets même en zoomant.
+
+Le PDF reprend les planches de `planches/` : d'abord la vue d'ensemble (`ksc-planche-00-ensemble.png`),
+puis une planche par piste avec la version principale, le fond sombre, les avatars, les cartes de visite
+et le filigrane sur photo.
 
 | Piste | Idée | Idéal pour |
 | --- | --- | --- |
@@ -36,7 +40,7 @@ logo : Montserrat, Jost, Bodoni Moda, Corinthia. Les fichiers et les licences so
 ## Régénérer
 
 ```bash
-python3 -I brand/ksc-studio/tools/make_logos.py --planches
+python3 -I brand/ksc-studio/tools/make_logos.py --planches   # logos, planches PNG et PDF
 ```
 
 Il faut Python avec `fontTools` et le Chromium de Playwright (rendu des PNG). Les couleurs, tailles et
