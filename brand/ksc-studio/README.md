@@ -42,6 +42,7 @@ utiliser le logo, avec un `LISEZ-MOI.txt` :
 - `4_carte-de-visite/` : PDF recto verso 85 × 55 mm avec 3 mm de fond perdu, pour l'imprimeur
   (coordonnées d'exemple tant que `CONTACT` n'est pas rempli dans `tools/make_kit.py`) ;
 - `5_site-web/` : favicon.ico et icônes d'application ;
+- `6_video/` : l'intro animée du logo, 3 s verticales avec le son (projet `videos/ksc-studio-intro/`) ;
 - `KSC_STUDIO_charte-graphique.pdf` : versions, couleurs, police, tailles minimales, règles
   (aperçus dans `planches/kit/`).
 
@@ -68,6 +69,7 @@ logo : Montserrat, Jost, Bodoni Moda, Corinthia. Les fichiers et les licences so
 python3 -I brand/ksc-studio/tools/make_logos.py --planches   # logos, planches PNG et PDF des 6 pistes
 python3 -I brand/ksc-studio/tools/make_finalistes.py          # document des finalistes A, B, C
 python3 -I brand/ksc-studio/tools/make_kit.py                 # kit du logo retenu (dossier + ZIP)
+python3 -I brand/ksc-studio/tools/make_kit.py --paquet        # seulement l'intro vidéo, le LISEZ-MOI et le ZIP
 ```
 
 Il faut Python avec `fontTools` et le Chromium de Playwright (rendu des PNG). Les couleurs, tailles et

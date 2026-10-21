@@ -3,9 +3,11 @@
 
 Produit le dossier `kit-objectif/` et son archive `KSC_STUDIO_kit_logo.zip` :
 logos (vertical, horizontal, initiales, symbole ; couleur, négatif, noir, blanc ; SVG, PNG, PDF),
-réseaux sociaux, filigranes, carte de visite à imprimer, favicons, charte graphique PDF et un LISEZ-MOI.
+réseaux sociaux, filigranes, carte de visite à imprimer, favicons, charte graphique PDF, l'intro vidéo
+du logo (rendue par videos/ksc-studio-intro) et un LISEZ-MOI.
 
-    python3 -I brand/ksc-studio/tools/make_kit.py
+    python3 -I brand/ksc-studio/tools/make_kit.py            # tout le kit
+    python3 -I brand/ksc-studio/tools/make_kit.py --paquet   # seulement l'intro, le LISEZ-MOI et l'archive
 
 Les coordonnées de la carte de visite sont dans CONTACT ; tant que PLACEHOLDER vaut True, ce sont des
 exemples affichés en gris.
@@ -13,6 +15,7 @@ exemples affichés en gris.
 
 import importlib.util
 import shutil
+import sys
 import zipfile
 from pathlib import Path
 
@@ -33,6 +36,7 @@ ph = load("photos")
 ROOT = ml.ROOT
 KIT = ROOT / "kit-objectif"
 ZIP = ROOT / "KSC_STUDIO_kit_logo.zip"
+INTRO = ROOT.parent.parent / "videos" / "ksc-studio-intro" / "renders" / "KSC_STUDIO_intro-logo.mp4"
 ORANGE, NOIR, BLANC = ml.ORANGE, ml.NOIR, ml.BLANC
 
 # coordonnées de la carte de visite : exemples tant que les vraies ne sont pas fournies
@@ -275,7 +279,7 @@ Quel fichier utiliser ?
 {carte}
 
 5_site-web/   favicon.ico, icônes 16 à 512 px, apple-touch-icon.png
-
+{video}
 KSC_STUDIO_charte-graphique.pdf : versions, couleurs, police, tailles minimales, règles d'utilisation.
 
 Couleurs : orange #FF741F (RVB 255 116 31), noir #111518 (RVB 17 21 24), blanc.
@@ -373,12 +377,23 @@ def main():
     # favicon.ico multi-tailles
     ico = [Image.open(web / f"favicon-{px}.png") for px in (16, 32, 48)]
     ico[2].save(web / "favicon.ico", sizes=[(16, 16), (32, 32), (48, 48)], append_images=ico[:2])
+    shutil.rmtree(tmp)
+    package()
+
+
+def package():
+    """Intro vidéo, LISEZ-MOI et archive à télécharger, sans refaire les autres fichiers du kit."""
+    video = ""
+    if INTRO.exists():
+        d = KIT / "6_video"
+        d.mkdir(exist_ok=True)
+        shutil.copy2(INTRO, d / "ksc-intro-logo.mp4")
+        video = ("\n6_video/      ksc-intro-logo.mp4 : intro animée du logo, 3 s avec le son, verticale 1080 x 1920,\n"
+                 "              à placer au début de vos Reels, TikTok et stories\n")
     note = ("  ATTENTION : la carte contient des coordonnées d'exemple (en gris) ; la version finale\n"
             "  sera faite avec vos vraies coordonnées.") if PLACEHOLDER else ""
-    (KIT / "LISEZ-MOI.txt").write_text(LISEZ_MOI.format(carte=note), encoding="utf-8")
-    shutil.rmtree(tmp)
+    (KIT / "LISEZ-MOI.txt").write_text(LISEZ_MOI.format(carte=note, video=video), encoding="utf-8")
 
-    # archive à télécharger
     ZIP.unlink(missing_ok=True)
     with zipfile.ZipFile(ZIP, "w", zipfile.ZIP_DEFLATED) as z:
         for f in sorted(KIT.rglob("*")):
@@ -389,4 +404,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    package() if "--paquet" in sys.argv else main()

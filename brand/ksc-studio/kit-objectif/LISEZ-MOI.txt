@@ -33,6 +33,9 @@ Quel fichier utiliser ?
 
 5_site-web/   favicon.ico, icônes 16 à 512 px, apple-touch-icon.png
 
+6_video/      ksc-intro-logo.mp4 : intro animée du logo, 3 s avec le son, verticale 1080 x 1920,
+              à placer au début de vos Reels, TikTok et stories
+
 KSC_STUDIO_charte-graphique.pdf : versions, couleurs, police, tailles minimales, règles d'utilisation.
 
 Couleurs : orange #FF741F (RVB 255 116 31), noir #111518 (RVB 17 21 24), blanc.
