@@ -200,18 +200,54 @@ def lens_c(cx, cy, Ro, t, gap_deg, ring, lens, pupil, glint, gap=None):
     return out, (cx - Ro, cy - Ro, cx + Ro, cy + Ro)
 
 
-def objectif_mark(ink, studio):
+def circle_d(cx, cy, r):
+    return f"M{n(cx + r)},{n(cy)} A{n(r)},{n(r)} 0 1 0 {n(cx - r)},{n(cy)} A{n(r)},{n(r)} 0 1 0 {n(cx + r)},{n(cy)} Z"
+
+
+def lens_c_mono(cx, cy, Ro, t, gap_deg, ink):
+    """Le même objectif en une seule couleur (gravure, broderie, tampon, filigrane) : anneau, verre et
+    pupille séparés par des blancs, reflets évidés ; un seul tracé par forme, sans masque."""
+    a = math.radians(gap_deg / 2)
+    Ri = Ro - t
+    P = lambda r, th: (cx + r * math.cos(th), cy + r * math.sin(th))  # noqa: E731
+    ring = (f"M{pt(P(Ro, a))} A{n(Ro)},{n(Ro)} 0 1 1 {pt(P(Ro, -a))} L{pt(P(Ri, -a))} "
+            f"A{n(Ri)},{n(Ri)} 0 1 0 {pt(P(Ri, a))} Z")
+    Rl = Ri - 0.21 * t
+    Rp = 0.46 * Rl
+    rg, w = (Rl + Rp) / 2, 0.3 * (Rl - Rp)
+    a1, a2 = math.radians(196), math.radians(244)
+    ro, ri, c = rg + w / 2, rg - w / 2, w / 2
+    glint = (f"M{pt(P(ro, a1))} A{n(ro)},{n(ro)} 0 0 1 {pt(P(ro, a2))} A{n(c)},{n(c)} 0 0 1 {pt(P(ri, a2))} "
+             f"A{n(ri)},{n(ri)} 0 0 0 {pt(P(ri, a1))} A{n(c)},{n(c)} 0 0 1 {pt(P(ro, a1))} Z")
+    gx, gy = P(rg, math.radians(266))
+    lens = " ".join([circle_d(cx, cy, Rl), circle_d(cx, cy, Rp + 0.24 * (Rl - Rp)), circle_d(cx, cy, Rp),
+                     glint, circle_d(gx, gy, 0.17 * (Rl - Rp))])
+    return p(ring, ink) + f'<path d="{lens}" fill="{ink}" fill-rule="evenodd"/>', (cx - Ro, cy - Ro, cx + Ro, cy + Ro)
+
+
+def objectif_mark(ink, studio, mono=False, layout="vertical"):
+    """`studio` : couleur du mot STUDIO (None = initiales seules) ; `mono` : objectif d'une seule couleur ;
+    `layout` : STUDIO sous les initiales (vertical) ou à leur droite (horizontal)."""
     f = font("montserrat-800")
     F = 400.0
     word = Line(f, "KSC", F, kern={"KS": -0.01, "SC": 0.035})
     word.place(left=0, baseline=0)
     cb = word.gbox(2)
     Ro = (cb[3] - cb[1]) / 2
-    lens, lbox = lens_c(cb[0] + Ro, (cb[1] + cb[3]) / 2, Ro, 0.19 * F, 78, ink, ORANGE, NOIR, BLANC)
+    if mono:
+        lens, lbox = lens_c_mono(cb[0] + Ro, (cb[1] + cb[3]) / 2, Ro, 0.19 * F, 78, ink)
+    else:
+        lens, lbox = lens_c(cb[0] + Ro, (cb[1] + cb[3]) / 2, Ro, 0.19 * F, 78, ink, ORANGE, NOIR, BLANC)
     body = p(word.path(only={0, 1}), ink) + lens
     top = union(word.gbox(0), word.gbox(1), lbox)
     out = [body, top]
-    if studio:
+    if studio and layout == "horizontal":
+        g = font("montserrat-700")
+        size = 0.36 * F
+        st = Line(g, "STUDIO", size, tracking=0.3)
+        st.place(left=top[2] + 0.2 * f.cap * F, cy=(top[1] + top[3]) / 2)  # centré sur la hauteur des initiales
+        out = [body + p(st.path(), studio), union(top, st.box)]
+    elif studio:
         g = font("montserrat-700")
         size = 0.36 * F
         st = Line(g, "STUDIO", size, tracking=fit(g, "STUDIO", size, top[2] - top[0]))

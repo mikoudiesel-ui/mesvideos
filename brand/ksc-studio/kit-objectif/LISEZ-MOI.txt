@@ -1,0 +1,39 @@
+KSC STUDIO · kit du logo (version A · Objectif)
+==================================================
+
+Quel fichier utiliser ?
+- Imprimeur, enseigne, textile, grands formats : fichiers .pdf ou .svg (vectoriels, agrandissables sans perte).
+- Réseaux sociaux, site web, documents, WhatsApp : fichiers .png (fond transparent).
+
+1_logo/
+  vertical/     le logo principal : KSC au-dessus de STUDIO
+  horizontal/   KSC et STUDIO sur une ligne (bandeaux, site web, enseigne large)
+  initiales/    KSC seul, quand la place manque
+  symbole/      l'objectif seul (favicon, très petits formats)
+  Chaque version existe en 4 couleurs :
+    couleur   pour fond blanc ou clair (version principale)
+    negatif   pour fond sombre et en filigrane sur les photos
+    noir      une seule couleur (tampon, gravure, broderie, impression noir et blanc)
+    blanc     une seule couleur sur fond orange ou foncé (textile, adhésif de vitrine)
+
+2_reseaux-sociaux/
+  ksc-photo-de-profil.png      Instagram, TikTok, Facebook, WhatsApp (le rond est déjà prévu)
+  ksc-couverture-facebook.png  1640 x 624
+  ksc-banniere-youtube.png     2560 x 1440
+  ksc-modele-story.png         story 1080 x 1920 « Réservez votre séance photo »
+  ksc-post-nouveau-logo.png    post 1080 x 1350 pour annoncer le nouveau logo
+
+3_filigrane/   logo à poser sur vos photos : en bas à droite, environ 15 % de la largeur, opacité 80 à 90 %
+
+4_carte-de-visite/
+  ksc-carte-de-visite.pdf      2 pages (recto, verso), 85 x 55 mm + 3 mm de fond perdu : à envoyer à l'imprimeur
+  ksc-carte-recto.png, ksc-carte-verso.png   aperçus
+  ATTENTION : la carte contient des coordonnées d'exemple (en gris) ; la version finale
+  sera faite avec vos vraies coordonnées.
+
+5_site-web/   favicon.ico, icônes 16 à 512 px, apple-touch-icon.png
+
+KSC_STUDIO_charte-graphique.pdf : versions, couleurs, police, tailles minimales, règles d'utilisation.
+
+Couleurs : orange #FF741F (RVB 255 116 31), noir #111518 (RVB 17 21 24), blanc.
+Police : Montserrat (gratuite, usage commercial autorisé : fonts.google.com/specimen/Montserrat).

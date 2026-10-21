@@ -29,6 +29,22 @@ situations : logos, profil réseaux sociaux, façade, cartes de visite, filigran
 sont aussi dans `planches/finalistes/`. Les photos des maquettes sont générées (`tools/photos.py`),
 ce ne sont pas des photos réelles.
 
+## Logo retenu : A · Objectif — le kit
+
+**`KSC_STUDIO_kit_logo.zip`** (le même contenu que `kit-objectif/`) contient tout ce qu'il faut pour
+utiliser le logo, avec un `LISEZ-MOI.txt` :
+
+- `1_logo/` : versions verticale, horizontale, initiales et symbole ; chacune en couleur, négatif,
+  noir et blanc (une seule couleur) ; en SVG et PDF vectoriels et en PNG transparent ;
+- `2_reseaux-sociaux/` : photo de profil, couverture Facebook, bannière YouTube, modèle de story,
+  post d'annonce du nouveau logo ;
+- `3_filigrane/` : logo à poser sur les photos ;
+- `4_carte-de-visite/` : PDF recto verso 85 × 55 mm avec 3 mm de fond perdu, pour l'imprimeur
+  (coordonnées d'exemple tant que `CONTACT` n'est pas rempli dans `tools/make_kit.py`) ;
+- `5_site-web/` : favicon.ico et icônes d'application ;
+- `KSC_STUDIO_charte-graphique.pdf` : versions, couleurs, police, tailles minimales, règles
+  (aperçus dans `planches/kit/`).
+
 ## Fichiers
 
 Chaque piste a trois versions, en SVG (vectoriel) et en PNG transparent :
@@ -51,6 +67,7 @@ logo : Montserrat, Jost, Bodoni Moda, Corinthia. Les fichiers et les licences so
 ```bash
 python3 -I brand/ksc-studio/tools/make_logos.py --planches   # logos, planches PNG et PDF des 6 pistes
 python3 -I brand/ksc-studio/tools/make_finalistes.py          # document des finalistes A, B, C
+python3 -I brand/ksc-studio/tools/make_kit.py                 # kit du logo retenu (dossier + ZIP)
 ```
 
 Il faut Python avec `fontTools` et le Chromium de Playwright (rendu des PNG). Les couleurs, tailles et
