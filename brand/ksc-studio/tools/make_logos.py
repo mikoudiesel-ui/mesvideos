@@ -179,14 +179,14 @@ def icon(content, box, bg, shape="circle", fill_ratio=0.62, defs=""):
 
 
 # ------------------------------------------------------------------ piste 1 : Objectif
-def lens_c(cx, cy, Ro, t, gap_deg, ring, lens, pupil, glint):
+def lens_c(cx, cy, Ro, t, gap_deg, ring, lens, pupil, glint, gap=None):
     """C dessiné comme un objectif : anneau ouvert à droite, verre orange, pupille, reflets."""
     a = math.radians(gap_deg / 2)
     Ri = Ro - t
     P = lambda r, th: (cx + r * math.cos(th), cy + r * math.sin(th))  # noqa: E731
     d = (f"M{pt(P(Ro, a))} A{n(Ro)},{n(Ro)} 0 1 1 {pt(P(Ro, -a))} L{pt(P(Ri, -a))} "
          f"A{n(Ri)},{n(Ri)} 0 1 0 {pt(P(Ri, a))} Z")
-    Rl = Ri - 0.21 * t
+    Rl = Ri - (0.21 * t if gap is None else gap)  # blanc entre l'anneau et le verre
     Rp = 0.46 * Rl
     rg = (Rl + Rp) / 2
     a1, a2 = math.radians(196), math.radians(244)
@@ -232,13 +232,8 @@ def objectif():
 
 
 # ------------------------------------------------------------------ piste 2 : Viseur
-def viseur_mark(ink, accent, tagline):
-    f = font("jost-400")
-    F = 300.0
-    cap = f.cap * F
-    word = Line(f, "KSC", F, tracking=0.17)
-    box = word.place(cx=0, cy=0)
-    sw = 0.07 * F
+def focus_frame(box, cap, sw, accent, dot):
+    """Repères de mise au point autour de `box`, et le point de mise au point dans le coin haut droit."""
     x0, y0, x1, y1 = box[0] - 0.62 * cap, box[1] - 0.52 * cap, box[2] + 0.62 * cap, box[3] + 0.52 * cap
     arm = 0.36 * cap
     d = (f"M{n(x0)},{n(y0 + arm)} L{n(x0)},{n(y0)} L{n(x0 + arm)},{n(y0)} "
@@ -246,9 +241,19 @@ def viseur_mark(ink, accent, tagline):
          f"M{n(x1)},{n(y1 - arm)} L{n(x1)},{n(y1)} L{n(x1 - arm)},{n(y1)} "
          f"M{n(x0 + arm)},{n(y1)} L{n(x0)},{n(y1)} L{n(x0)},{n(y1 - arm)}")
     body = f'<path d="{d}" fill="none" stroke="{accent}" stroke-width="{n(sw)}" stroke-linejoin="miter"/>'
-    body += f'<circle cx="{n(x1 - arm * 0.62)}" cy="{n(y0 + arm * 0.62)}" r="{n(0.05 * cap)}" fill="{accent}"/>'
+    if dot:
+        body += f'<circle cx="{n(x1 - arm * 0.62)}" cy="{n(y0 + arm * 0.62)}" r="{n(0.05 * cap)}" fill="{accent}"/>'
+    return body, (x0 - sw / 2, y0 - sw / 2, x1 + sw / 2, y1 + sw / 2)
+
+
+def viseur_mark(ink, accent, tagline):
+    f = font("jost-400")
+    F = 300.0
+    cap = f.cap * F
+    word = Line(f, "KSC", F, tracking=0.17)
+    box = word.place(cx=0, cy=0)
+    body, frame = focus_frame(box, cap, 0.07 * F, accent, dot=True)
     body += p(word.path(), ink)
-    frame = (x0 - sw / 2, y0 - sw / 2, x1 + sw / 2, y1 + sw / 2)
     if not tagline:
         return body, frame
     g = font("jost-500")
@@ -507,6 +512,37 @@ def cachet():
     }
 
 
+# ------------------------------------------------------------------ piste 7 : Fusion (Objectif + Viseur)
+def fusion_mark(ink, accent, tagline):
+    """Les deux finalistes réunies : initiales fines du Viseur, C en objectif orange, cadre de mise au point."""
+    f = font("jost-500")
+    F = 300.0
+    cap = f.cap * F
+    word = Line(f, "KSC", F, tracking=0.17)
+    word.place(cx=0, cy=0)
+    cb = word.gbox(2)
+    Ro = (cb[3] - cb[1]) / 2
+    stem = (f.bounds("I")[2] - f.bounds("I")[0]) / f.upm * F  # l'anneau a l'épaisseur du fût des lettres
+    lens, lbox = lens_c(cb[0] + Ro, (cb[1] + cb[3]) / 2, Ro, stem, 70, ink, accent, NOIR, BLANC, gap=0.1 * Ro)
+    box = union(word.gbox(0), word.gbox(1), lbox)
+    body, frame = focus_frame(box, cap, 0.07 * F, accent, dot=False)
+    body += p(word.path(only={0, 1}), ink) + lens
+    if not tagline:
+        return body, frame
+    t = Line(font("jost-500"), "STUDIO PHOTO", 0.15 * F, tracking=0.5)
+    t.place(cx=(frame[0] + frame[2]) / 2, top=frame[3] + 0.42 * cap)
+    return body + p(t.path(), tagline), union(frame, t.box)
+
+
+def fusion():
+    mono = fusion_mark(BLANC, ORANGE, None)
+    return {
+        "clair": Logo(*fusion_mark(NOIR, ORANGE, NOIR)),
+        "sombre": Logo(*fusion_mark(BLANC, ORANGE, BLANC)),
+        "icone": icon(mono[0], mono[1], NOIR, fill_ratio=0.66),
+    }
+
+
 CONCEPTS = [
     ("01-objectif", objectif),
     ("02-viseur", viseur),
@@ -514,6 +550,7 @@ CONCEPTS = [
     ("04-signature", signature),
     ("05-planche-contact", contact),
     ("06-cachet", cachet),
+    ("07-fusion", fusion),
 ]
 
 # présentation de chaque piste sur sa planche

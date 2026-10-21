@@ -19,6 +19,15 @@ et le filigrane sur photo.
 | 4 · Signature | Signature calligraphiée soulignée d'un trait orange, idéale en filigrane | Mariages, familles, artistes |
 | 5 · Planche contact | K, S, C et l'objectif rangés en planche contact 2 × 2 : un carré iconique | Instagram, TikTok, événementiel |
 | 6 · Cachet | Tampon rond avec diaphragme orange | Tirages, packaging, stickers, textile |
+| 7 · Fusion | Ajoutée après le choix des pistes 1 et 2 : initiales fines du Viseur, C en objectif, cadre de mise au point | Tous usages |
+
+## Finalistes
+
+Les pistes 1 (Objectif) et 2 (Viseur) ont été retenues ; la piste 7 (Fusion) les réunit. Le document
+**`KSC_STUDIO_finalistes.pdf`** (5 pages, à faire voter : A, B ou C) les compare dans les mêmes
+situations : logos, profil réseaux sociaux, façade, cartes de visite, filigrane sur photo. Les pages
+sont aussi dans `planches/finalistes/`. Les photos des maquettes sont générées (`tools/photos.py`),
+ce ne sont pas des photos réelles.
 
 ## Fichiers
 
@@ -40,7 +49,8 @@ logo : Montserrat, Jost, Bodoni Moda, Corinthia. Les fichiers et les licences so
 ## Régénérer
 
 ```bash
-python3 -I brand/ksc-studio/tools/make_logos.py --planches   # logos, planches PNG et PDF
+python3 -I brand/ksc-studio/tools/make_logos.py --planches   # logos, planches PNG et PDF des 6 pistes
+python3 -I brand/ksc-studio/tools/make_finalistes.py          # document des finalistes A, B, C
 ```
 
 Il faut Python avec `fontTools` et le Chromium de Playwright (rendu des PNG). Les couleurs, tailles et
