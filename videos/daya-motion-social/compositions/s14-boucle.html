@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s14-boucle-template">
+      <link rel="stylesheet" href="assets/css/daya.css" />
+      <style>
+        #s14-root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        #s14-halo {
+          position: absolute;
+          left: 80px;
+          top: 450px;
+          width: 860px;
+          height: 860px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(255, 96, 110, 0.42) 0%, rgba(255, 140, 80, 0.2) 34%, rgba(255, 66, 105, 0) 68%);
+        }
+        #s14-disc {
+          position: absolute;
+          left: 220px;
+          top: 610px;
+          width: 580px;
+          height: 580px;
+          border-radius: 50%;
+          background: radial-gradient(circle at 50% 40%, rgba(120, 52, 24, 0.85) 0%, rgba(40, 20, 18, 0.9) 70%, rgba(24, 16, 22, 0.95) 100%);
+          opacity: 0;
+        }
+        #s14-hero {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 870px;
+          height: 1668px;
+          transform-origin: 0 0;
+        }
+        #s14-hero img {
+          display: block;
+          width: 870px;
+          height: 1668px;
+        }
+      </style>
+
+      <div id="s14-root" data-composition-id="s14-boucle" data-width="1080" data-height="1920" data-duration="0.9666666666666667">
+        <div id="s14-halo"></div>
+        <div id="s14-disc"></div>
+        <svg class="fx-svg" id="s14-fx" viewBox="0 0 1080 1920">
+          <ellipse id="s14-ring" class="ring" cx="510" cy="1159" rx="286" ry="123.6" />
+        </svg>
+        <div id="s14-hero"><img src="assets/img/bleu-detoure.png" alt="Bikini bleu fleuri (illustration)" /></div>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const f = (n) => n / 30;
+          const HERO_MID = { x: 257.5, y: 494.2, scale: 0.551268 }; // = fin de S13
+          const CLIP_MID = "circle(1036px at 458px 470px)";
+          const HERO_CIRCLE = { x: 193.8, y: 575.5, scale: 0.690476 }; // buste dans le cercle (510, 900), r 290
+          const CLIP_CIRCLE = "circle(420px at 458px 470px)";
+          // image 0 de S01 : ×0,92 autour de (510, 900), invisible ; anneau au sol à 0,92 et opacité 0,5
+          const HERO_S01_0 = { x: 272.5, y: 467.6, scale: 0.518465 };
+          const CLIP_OPEN = "circle(1300px at 458px 470px)";
+          gsap.set("#s14-halo", { scale: 0.85, transformOrigin: "50% 50%" });
+
+          // ---- 0–10 : le cercle et la vignette prennent la place de la signature
+          tl.fromTo("#s14-hero", { ...HERO_MID, clipPath: CLIP_MID }, { ...HERO_CIRCLE, clipPath: CLIP_CIRCLE, duration: f(10), ease: "power3.out" }, 0);
+          tl.fromTo("#s14-ring", { attr: { cx: 510, cy: 1159, rx: 286, ry: 123.6 } }, { attr: { cx: 510, cy: 900, rx: 300, ry: 300 }, duration: f(10), ease: "power3.out" }, 0);
+          tl.fromTo("#s14-halo", { scale: 0.85, opacity: 1 }, { scale: 0.78, opacity: 0.9, duration: f(10), ease: "power3.out" }, 0);
+          tl.fromTo("#s14-disc", { opacity: 0 }, { opacity: 1, duration: f(8), ease: "power2.out" }, f(2));
+
+          // ---- pose 10–20 : contraction douce, rapprochement de la pose initiale
+          tl.to("#s14-ring", { attr: { rx: 288, ry: 288 }, duration: f(10), ease: "sine.inOut" }, f(10));
+          tl.to("#s14-hero", { x: 510 - (510 - HERO_CIRCLE.x) * 0.97, y: 900 - (900 - HERO_CIRCLE.y) * 0.97, scale: HERO_CIRCLE.scale * 0.97, duration: f(10), ease: "sine.inOut" }, f(10));
+
+          // ---- sortie 20–29 : position, échelle et lumière rejoignent l'image 0 (boucle)
+          const T = f(20);
+          tl.to("#s14-ring", { attr: { cx: 510, cy: 1340, rx: 294.4, ry: 50.6 }, opacity: 0.5, duration: f(9), ease: "power3.inOut" }, T);
+          tl.to("#s14-hero", { ...HERO_S01_0, clipPath: CLIP_OPEN, opacity: 0, duration: f(9), ease: "power3.inOut" }, T);
+          tl.to(["#s14-halo", "#s14-disc"], { opacity: 0, duration: f(8), ease: "power2.inOut" }, T);
+
+          window.__timelines["s14-boucle"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

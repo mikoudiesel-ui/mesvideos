@@ -1,0 +1,4 @@
+.boards/
+.render_jobs.json
+.preview.html
+__pycache__/

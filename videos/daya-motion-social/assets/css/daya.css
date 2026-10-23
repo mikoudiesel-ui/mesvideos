@@ -1,0 +1,242 @@
+/* BIKINIS SHOP / @daya_na990 — système visuel commun aux 14 scènes.
+   Les @font-face sont déclarées dans chaque composition (chemins depuis la racine du projet).
+   Couleurs et polices du dossier : charbon, crème, corail, or ; titres en serif capitale,
+   interface en sans serif (DejaVu, substituts locaux livrés avec le dossier). */
+
+
+:root {
+  --charcoal: #181421;
+  --cream: #fff3e8;
+  --coral: #ff4269;
+  --gold: #d6a24a;
+  --screen: #0d0a12;
+  --panel: #1d1824;
+  --line: #352c3d;
+  --ui-text: #f1e7ee;
+  --ui-muted: #b9adbf;
+}
+
+/* métriques identiques navigateur ↔ calculs de raccord (pas de crénage) */
+.serif,
+.sans,
+.sans-b,
+.brand-name,
+.handle {
+  font-kerning: none;
+}
+.serif {
+  font-family: "Daya Serif", serif;
+  font-weight: 700;
+}
+.sans {
+  font-family: "Daya Sans", sans-serif;
+  font-weight: 400;
+}
+.sans-b {
+  font-family: "Daya Sans", sans-serif;
+  font-weight: 700;
+}
+
+/* ---------- titre de scène : boîte x=80 y=130 w=820, deux lignes ---------- */
+.scene-title {
+  position: absolute;
+  left: 80px;
+  top: 130px;
+  width: 820px;
+  text-align: center;
+  font-family: "Daya Serif", serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.04;
+  letter-spacing: -0.005em;
+  color: var(--cream);
+  text-shadow: 0 4px 24px rgba(10, 6, 14, 0.85);
+  font-kerning: none;
+}
+.scene-title .ln {
+  display: block;
+  will-change: transform, opacity;
+}
+.scene-title .coral {
+  color: var(--coral);
+}
+
+/* ---------- téléphone stylisé ---------- */
+.phone {
+  position: absolute;
+  border-radius: 76px;
+  background: linear-gradient(160deg, #2a2330 0%, #0b0910 45%, #1e1824 100%);
+  box-shadow:
+    0 0 0 2px #3c3344,
+    0 40px 90px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+.phone .screen {
+  position: absolute;
+  inset: 14px;
+  border-radius: 62px;
+  background: var(--screen);
+  overflow: hidden;
+}
+.phone .island {
+  position: absolute;
+  left: 50%;
+  top: 22px;
+  width: 170px;
+  height: 46px;
+  margin-left: -85px;
+  border-radius: 23px;
+  background: #000;
+}
+.statusbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 86px;
+  font-family: "Daya Sans", sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--ui-text);
+}
+.statusbar .time {
+  position: absolute;
+  left: 58px;
+  top: 30px;
+}
+.statusbar .icons {
+  position: absolute;
+  right: 50px;
+  top: 30px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.statusbar .bars {
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+  height: 22px;
+}
+.statusbar .bars i {
+  display: block;
+  width: 5px;
+  background: var(--ui-text);
+  border-radius: 2px;
+}
+.statusbar .batt {
+  width: 40px;
+  height: 20px;
+  border: 2px solid var(--ui-text);
+  border-radius: 6px;
+  padding: 2px;
+}
+.statusbar .batt i {
+  display: block;
+  width: 80%;
+  height: 100%;
+  background: var(--ui-text);
+  border-radius: 2px;
+}
+
+/* ---------- cartes produit ---------- */
+.studio {
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 38%, rgba(255, 179, 92, 0.55) 0%, rgba(255, 179, 92, 0) 70%),
+    radial-gradient(ellipse 120% 90% at 50% 40%, #b8622a 0%, #7a3415 42%, #34170d 78%, #1b0d0a 100%);
+}
+.photo-card {
+  position: absolute;
+  overflow: hidden;
+  background-color: #2a130d;
+}
+.photo-card > .bg {
+  position: absolute;
+  inset: 0;
+}
+.photo-card > img {
+  position: absolute;
+  display: block;
+}
+.photo-card .floor {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 22%;
+  background: linear-gradient(180deg, rgba(20, 10, 8, 0) 0%, rgba(20, 10, 8, 0.75) 100%);
+}
+.photo-card .cover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.neon {
+  border: 4px solid var(--coral);
+  box-shadow:
+    0 0 18px rgba(255, 66, 105, 0.85),
+    0 0 46px rgba(255, 66, 105, 0.45),
+    inset 0 0 14px rgba(255, 66, 105, 0.45);
+}
+.gold-edge {
+  border: 3px solid rgba(214, 162, 74, 0.85);
+  box-shadow: 0 0 22px rgba(214, 162, 74, 0.35);
+}
+.glass {
+  background: linear-gradient(160deg, rgba(48, 38, 52, 0.92) 0%, rgba(20, 16, 26, 0.94) 100%);
+  border: 2px solid rgba(255, 220, 190, 0.18);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+}
+
+.btn-coral {
+  position: absolute;
+  background: var(--coral);
+  color: #fff8f2;
+  font-family: "Daya Sans", sans-serif;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 26px rgba(255, 66, 105, 0.55);
+}
+
+.ico {
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* anneau / contour corail dessinés en SVG plein cadre */
+.fx-svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1080px;
+  height: 1920px;
+  overflow: visible;
+}
+.fx-svg .ring {
+  fill: none;
+  stroke: var(--coral);
+  stroke-width: 5;
+  filter: drop-shadow(0 0 10px rgba(255, 66, 105, 0.95)) drop-shadow(0 0 26px rgba(255, 66, 105, 0.55));
+}
+
+.brand-name {
+  font-family: "Daya Serif", serif;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  color: var(--cream);
+  text-transform: uppercase;
+}
+.handle {
+  font-family: "Daya Sans", sans-serif;
+  font-weight: 400;
+  color: var(--cream);
+}

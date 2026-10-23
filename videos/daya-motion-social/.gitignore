@@ -1,0 +1,6 @@
+snapshots/
+.hyperframes/
+node_modules/
+*.log
+renders/*
+!renders/DAYA_MOTION_SOCIAL_MAQUETTE.mp4

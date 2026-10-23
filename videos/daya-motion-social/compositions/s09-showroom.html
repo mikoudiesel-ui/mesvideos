@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s09-showroom-template">
+      <link rel="stylesheet" href="assets/css/daya.css" />
+      <style>
+        @font-face {
+          font-family: "Daya Serif";
+          src: url("assets/fonts/DejaVuSerif-Bold.ttf") format("truetype");
+          font-weight: 700;
+        }
+        @font-face {
+          font-family: "Daya Sans";
+          src: url("assets/fonts/DejaVuSans.ttf") format("truetype");
+          font-weight: 400;
+        }
+        @font-face {
+          font-family: "Daya Sans";
+          src: url("assets/fonts/DejaVuSans-Bold.ttf") format("truetype");
+          font-weight: 700;
+        }
+        #s09-root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        #s09-cam {
+          position: absolute;
+          inset: 0;
+        }
+        /* téléphone = fin de S08 : 520×1030 en (90, 540), centre de transformation, ×1,06, décalé (180, −19,1) */
+        #s09-phone {
+          position: absolute;
+          left: 90px;
+          top: 540px;
+          width: 520px;
+          height: 1030px;
+        }
+        #s09-bezel {
+          position: absolute;
+          inset: 0;
+          border-radius: 64px;
+          background: linear-gradient(160deg, #2a2330 0%, #0b0910 45%, #1e1824 100%);
+          box-shadow:
+            0 0 0 2px #3c3344,
+            0 40px 90px rgba(0, 0, 0, 0.6),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+        }
+        #s09-screen {
+          position: absolute;
+          inset: 12px;
+          border-radius: 52px;
+          background: var(--screen);
+          overflow: hidden;
+        }
+        #s09-interior {
+          position: absolute;
+          inset: 0;
+          background:
+            radial-gradient(ellipse 60% 40% at 50% 38%, rgba(255, 190, 110, 0.55) 0%, rgba(255, 190, 110, 0) 70%),
+            linear-gradient(180deg, #2a1610 0%, #5a2a14 45%, #2a140d 78%, #160c0c 100%);
+        }
+        .s09-arch {
+          position: absolute;
+          top: 250px;
+          width: 150px;
+          height: 330px;
+          border-radius: 999px 999px 0 0;
+          background: radial-gradient(ellipse 80% 55% at 50% 20%, #ffd598 0%, #f2994a 30%, #b9561f 62%, #4a210f 100%);
+          box-shadow: 0 0 60px 10px rgba(255, 140, 60, 0.3);
+          opacity: 0.85;
+        }
+        #s09-screen .statusbar {
+          font-size: 20px;
+          height: 70px;
+        }
+        #s09-screen .statusbar .time {
+          left: 46px;
+          top: 26px;
+        }
+        #s09-screen .statusbar .icons {
+          right: 40px;
+          top: 26px;
+          transform: scale(0.8);
+          transform-origin: 100% 0;
+        }
+        #s09-head {
+          position: absolute;
+          left: 0;
+          top: 78px;
+          width: 496px;
+          text-align: center;
+        }
+        #s09-head .n {
+          display: block;
+          font-size: 30px;
+          line-height: 1;
+          color: var(--cream);
+        }
+        #s09-head .h {
+          display: block;
+          margin-top: 10px;
+          font-size: 22px;
+          line-height: 1;
+          color: #e8dcd2;
+        }
+        #s09-menu,
+        #s09-bag {
+          position: absolute;
+          top: 88px;
+          width: 34px;
+          height: 34px;
+          color: var(--cream);
+        }
+        #s09-island {
+          position: absolute;
+          left: 50%;
+          top: 20px;
+          width: 130px;
+          height: 36px;
+          margin-left: -65px;
+          border-radius: 18px;
+          background: #000;
+        }
+        #s09-neon {
+          position: absolute;
+          inset: 0;
+          border-radius: 64px;
+          opacity: 0;
+        }
+        #s09-halo {
+          position: absolute;
+          left: 250px;
+          top: 640px;
+          width: 560px;
+          height: 640px;
+          border-radius: 50%;
+          background: radial-gradient(ellipse, rgba(255, 96, 110, 0.38) 0%, rgba(255, 140, 80, 0.16) 40%, rgba(255, 66, 105, 0) 70%);
+        }
+        .s09-niche {
+          position: absolute;
+          width: 170px;
+          height: 280px;
+          border-radius: 85px 85px 14px 14px;
+          overflow: hidden;
+          border: 3px solid rgba(214, 162, 74, 0.85);
+          box-shadow: 0 0 26px rgba(255, 150, 70, 0.45);
+        }
+        .s09-niche img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: 50% 0%;
+          display: block;
+        }
+        #s09-niche-rose {
+          left: 205px;
+          top: 960px;
+        }
+        #s09-niche-vert {
+          left: 685px;
+          top: 960px;
+        }
+        #s09-hero {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 870px;
+          height: 1668px;
+          transform-origin: 0 0;
+        }
+        #s09-hero img {
+          display: block;
+          width: 870px;
+          height: 1668px;
+        }
+        #s09-podiums {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 1080px;
+          height: 1920px;
+          overflow: visible;
+        }
+        #s09-podium-front {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 1080px;
+          height: 1920px;
+          overflow: visible;
+        }
+        #s09-engrave {
+          position: absolute;
+          left: 300px;
+          top: 1306px;
+          width: 460px;
+          text-align: center;
+          font-size: 34px;
+          line-height: 1;
+          letter-spacing: 0.12em;
+          color: #e7bf74;
+          text-shadow: 0 0 12px rgba(214, 162, 74, 0.6);
+        }
+        #s09-nav {
+          position: absolute;
+          left: 300px;
+          top: 1452px;
+          width: 460px;
+          height: 54px;
+        }
+        #s09-nav svg {
+          position: absolute;
+          top: 6px;
+          width: 40px;
+          height: 40px;
+          color: var(--cream);
+        }
+        #s09-nav .plus {
+          position: absolute;
+          left: 190px;
+          top: 0;
+          width: 80px;
+          height: 52px;
+          border-radius: 14px;
+          background: var(--cream);
+          color: var(--charcoal);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 0 16px rgba(255, 66, 105, 0.8);
+        }
+      </style>
+
+      <div id="s09-root" data-composition-id="s09-showroom" data-width="1080" data-height="1920" data-duration="1.2">
+        <div id="s09-cam">
+          <div id="s09-phone">
+            <div id="s09-bezel"></div>
+            <div id="s09-screen">
+              <div id="s09-interior">
+                <div class="s09-arch" style="left: 40px"></div>
+                <div class="s09-arch" style="left: 306px"></div>
+              </div>
+              <div class="statusbar">
+                <span class="time">9:41</span>
+                <span class="icons"><span class="bars"><i style="height: 8px"></i><i style="height: 12px"></i><i style="height: 16px"></i><i style="height: 20px"></i></span><span class="batt"><i></i></span></span>
+              </div>
+              <div id="s09-head"><span class="n serif">BIKINIS SHOP</span><span class="h sans">@daya_na990</span></div>
+              <svg id="s09-menu" class="ico" viewBox="0 0 24 24" style="left: 34px"><path d="M4 7 H20 M4 12 H20 M4 17 H20" /></svg>
+              <svg id="s09-bag" class="ico" viewBox="0 0 24 24" style="left: 428px"><path d="M5 8 H19 L18 20 H6 Z" /><path d="M9 8 V6.5 a3 3 0 0 1 6 0 V8" /></svg>
+            </div>
+            <div id="s09-island"></div>
+            <div id="s09-neon" class="neon"></div>
+          </div>
+
+          <div id="s09-halo"></div>
+          <svg id="s09-podiums" viewBox="0 0 1080 1920">
+            <defs>
+              <linearGradient id="s09-g-body" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#120c10" />
+                <stop offset="0.5" stop-color="#2c1f1d" />
+                <stop offset="1" stop-color="#120c10" />
+              </linearGradient>
+            </defs>
+            <ellipse cx="530" cy="1462" rx="410" ry="74" fill="#140e12" stroke="#ff4269" stroke-width="4" style="filter: drop-shadow(0 0 12px rgba(255, 66, 105, 0.85))" />
+            <path d="M175 1238 L175 1296 A115 26 0 0 0 405 1296 L405 1238 Z" fill="url(#s09-g-body)" />
+            <ellipse cx="290" cy="1238" rx="115" ry="26" fill="#2a1d1a" stroke="#ff4269" stroke-width="3" style="filter: drop-shadow(0 0 8px rgba(255, 66, 105, 0.8))" />
+            <path d="M655 1238 L655 1296 A115 26 0 0 0 885 1296 L885 1238 Z" fill="url(#s09-g-body)" />
+            <ellipse cx="770" cy="1238" rx="115" ry="26" fill="#2a1d1a" stroke="#ff4269" stroke-width="3" style="filter: drop-shadow(0 0 8px rgba(255, 66, 105, 0.8))" />
+            <ellipse cx="530" cy="1268" rx="230" ry="46" fill="#2a1d1a" stroke="#ff4269" stroke-width="4" style="filter: drop-shadow(0 0 10px rgba(255, 66, 105, 0.9))" />
+          </svg>
+          <div class="s09-niche" id="s09-niche-rose"><img src="assets/img/rose-photo.jpg" alt="Bikini rose (illustration)" /></div>
+          <div class="s09-niche" id="s09-niche-vert"><img src="assets/img/vert-photo.jpg" alt="Bikini vert (illustration)" /></div>
+          <div id="s09-hero"><img src="assets/img/bleu-detoure.png" alt="Bikini bleu fleuri (illustration)" /></div>
+          <svg id="s09-podium-front" viewBox="0 0 1080 1920">
+            <path d="M300 1268 L300 1380 A230 46 0 0 0 760 1380 L760 1268 A230 46 0 0 1 300 1268 Z" fill="url(#s09-g-body)" />
+            <path d="M300 1380 A230 46 0 0 0 760 1380" fill="none" stroke="#ff4269" stroke-width="3" style="filter: drop-shadow(0 0 8px rgba(255, 66, 105, 0.85))" />
+          </svg>
+          <div id="s09-engrave" class="serif">BIKINIS SHOP</div>
+          <div id="s09-nav">
+            <svg class="ico" viewBox="0 0 24 24" style="left: 10px"><path d="M4 11 L12 4 L20 11 V20 H14.5 V14.5 H9.5 V20 H4 Z" /></svg>
+            <svg class="ico" viewBox="0 0 24 24" style="left: 100px"><circle cx="10.5" cy="10.5" r="6.5" /><path d="M15.5 15.5 L21 21" /></svg>
+            <div class="plus"><svg class="ico" viewBox="0 0 24 24" style="width: 32px; height: 32px; stroke-width: 3"><path d="M12 5 V19 M5 12 H19" /></svg></div>
+            <svg class="ico" viewBox="0 0 24 24" style="left: 320px"><path d="M4 5 H20 V16 H13 L8.5 20 V16 H4 Z" /></svg>
+            <svg class="ico" viewBox="0 0 24 24" style="left: 410px"><circle cx="12" cy="8" r="4" /><path d="M4.5 20 a7.5 7.5 0 0 1 15 0" /></svg>
+          </div>
+        </div>
+
+        <h1 class="scene-title" id="s09-title" style="font-size: 64px">
+          <span class="ln" id="s09-t1">La boutique</span>
+          <span class="ln coral" id="s09-t2">dans votre poche.</span>
+        </h1>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const f = (n) => n / 30;
+          gsap.set("#s09-phone", { x: 180, y: -19.1, scale: 1.06, transformOrigin: "50% 50%" }); // = fin de S08
+          gsap.set("#s09-hero", { x: 356, y: 656.2, scale: 0.38 });
+          gsap.set("#s09-cam", { transformOrigin: "530px 490px" });
+
+          // ---- 0–12 : le cadre devient néon, la boutique virtuelle se révèle, l'angle s'ouvre
+          tl.to("#s09-bezel", { opacity: 0, duration: f(8), ease: "power2.inOut" }, f(1));
+          tl.fromTo("#s09-neon", { opacity: 0 }, { opacity: 1, duration: f(8), ease: "power2.out" }, 0);
+          tl.fromTo("#s09-interior", { opacity: 0 }, { opacity: 1, duration: f(10), ease: "power2.out" }, 0);
+          tl.fromTo("#s09-cam", { scale: 1 }, { scale: 0.97, duration: f(12), ease: "power2.out" }, 0);
+          tl.fromTo(["#s09-podiums", "#s09-podium-front", "#s09-engrave", "#s09-nav"], { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: f(10), ease: "power3.out" }, f(2));
+          tl.fromTo("#s09-halo", { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: f(10), ease: "power2.out" }, f(3));
+          tl.fromTo("#s09-hero", { opacity: 0, y: 696.2 }, { opacity: 1, y: 656.2, duration: f(9), ease: "power3.out" }, f(4));
+          tl.fromTo("#s09-niche-rose", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: f(9), ease: "power3.out" }, f(5));
+          tl.fromTo("#s09-niche-vert", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: f(9), ease: "power3.out" }, f(6));
+          tl.fromTo(["#s09-head", "#s09-menu", "#s09-bag"], { opacity: 0 }, { opacity: 1, duration: f(8), ease: "power2.out" }, f(4));
+          tl.fromTo("#s09-t1", { opacity: 0, y: 30, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(10), ease: "power3.out" }, f(2));
+          tl.fromTo("#s09-t2", { opacity: 0, y: 30, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(10), ease: "power3.out" }, f(4));
+
+          tl.to("#s09-halo", { scale: 1.07, duration: f(2), ease: "power2.out" }, f(15));
+          tl.to("#s09-halo", { scale: 1, duration: f(8), ease: "power2.in" }, f(17));
+          tl.to("#s09-halo", { scale: 1.06, duration: f(2), ease: "power2.out" }, f(30));
+          tl.to("#s09-halo", { scale: 1, duration: f(4), ease: "power2.in" }, f(32));
+
+          // ---- sortie 27–36 : le showroom recule sous la future carte favorite (= état S10)
+          const T = f(27);
+          tl.to("#s09-cam", { scale: 0.62, y: 610, duration: f(9), ease: "power3.inOut" }, T);
+          tl.to(["#s09-t1", "#s09-t2"], { opacity: 0, y: -18, filter: "blur(10px)", duration: f(6), ease: "power2.in", stagger: f(1) }, T);
+
+          window.__timelines["s09-showroom"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

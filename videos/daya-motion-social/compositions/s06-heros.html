@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s06-heros-template">
+      <link rel="stylesheet" href="assets/css/daya.css" />
+      <style>
+        @font-face {
+          font-family: "Daya Serif";
+          src: url("assets/fonts/DejaVuSerif-Bold.ttf") format("truetype");
+          font-weight: 700;
+        }
+        @font-face {
+          font-family: "Daya Sans";
+          src: url("assets/fonts/DejaVuSans-Bold.ttf") format("truetype");
+          font-weight: 700;
+        }
+        #s06-root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        #s06-stage {
+          position: absolute;
+          inset: 0;
+          transform-style: preserve-3d;
+        }
+        .s06-place {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 630px;
+          height: 960px;
+          transform-origin: 0 0;
+        }
+        .s06-side {
+          left: 0;
+          top: 0;
+          width: 630px;
+          height: 960px;
+          border-radius: 36px;
+        }
+        .s06-side .cover {
+          object-position: 50% 0%;
+        }
+        .s06-side .edge {
+          position: absolute;
+          inset: 0;
+          border-radius: 36px;
+          border: 6px solid rgba(255, 66, 105, 0.75);
+          box-shadow: inset 0 0 22px rgba(255, 66, 105, 0.4);
+        }
+        #s06-card {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 630px;
+          height: 960px;
+          transform-origin: 0 0;
+        }
+        #s06-card .bg {
+          position: absolute;
+          inset: 0;
+          border-radius: 36px;
+          overflow: hidden;
+        }
+        #s06-hero-layer {
+          position: absolute;
+          inset: 0;
+        }
+        #s06-hero {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 870px;
+          height: 1668px;
+          transform-origin: 0 0;
+        }
+        #s06-hero img {
+          display: block;
+          width: 870px;
+          height: 1668px;
+        }
+        #s06-shade {
+          position: absolute;
+          inset: 0;
+          border-radius: 36px;
+          background: linear-gradient(180deg, rgba(20, 10, 8, 0) 70%, rgba(20, 10, 8, 0.45) 100%);
+        }
+        #s06-neon {
+          position: absolute;
+          inset: 0;
+          border-radius: 36px;
+          opacity: 0;
+        }
+        #s06-heart {
+          position: absolute;
+          left: 548px;
+          top: 30px;
+          width: 54px;
+          height: 54px;
+          color: var(--cream);
+          filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+        }
+        #s06-details {
+          position: absolute;
+          left: 150px;
+          top: 1370px;
+          width: 750px;
+          height: 230px;
+          border-radius: 34px;
+        }
+        #s06-dlabel {
+          position: absolute;
+          left: 186px;
+          top: 1468px;
+          font-size: 30px;
+          line-height: 1;
+          color: var(--cream);
+        }
+        #s06-dchev {
+          position: absolute;
+          left: 846px;
+          top: 1462px;
+          width: 40px;
+          height: 40px;
+          color: var(--ui-muted);
+        }
+        .s06-thumb {
+          position: absolute;
+          overflow: hidden;
+        }
+        .s06-thumb img {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+        /* reflet lumineux qui glisse sur le mannequin (masqué par sa silhouette) */
+        .hero-sheen {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 870px;
+          height: 1668px;
+          background: linear-gradient(105deg, rgba(255, 244, 222, 0) 42%, rgba(255, 246, 228, 0.9) 50%, rgba(255, 244, 222, 0) 58%) 100% 0 / 300% 100% no-repeat;
+          -webkit-mask: url("assets/img/bleu-detoure.png") 0 0 / 870px 1668px no-repeat;
+          mask: url("assets/img/bleu-detoure.png") 0 0 / 870px 1668px no-repeat;
+          mix-blend-mode: screen;
+          opacity: 0.75;
+          pointer-events: none;
+        }
+        #s06-beat {
+          position: absolute;
+          left: 65px;
+          top: 360px;
+          width: 900px;
+          height: 1100px;
+          border-radius: 50%;
+          background: radial-gradient(ellipse, rgba(255, 66, 105, 0.34) 0%, rgba(255, 120, 90, 0.14) 38%, rgba(255, 66, 105, 0) 66%);
+          opacity: 0;
+        }
+        #s06-floor-svg {
+          opacity: 0;
+        }
+      </style>
+
+      <div id="s06-root" data-composition-id="s06-heros" data-width="1080" data-height="1920" data-duration="2.2">
+        <div id="s06-stage" data-layout-allow-overflow>
+          <div id="s06-beat"></div>
+          <div class="s06-place" id="s06-pink">
+            <div class="photo-card s06-side" id="s06-pink-in">
+              <img class="cover" src="assets/img/rose-photo.jpg" alt="Bikini rose (illustration)" />
+              <div class="edge"></div>
+            </div>
+          </div>
+          <div class="s06-place" id="s06-green">
+            <div class="photo-card s06-side" id="s06-green-in">
+              <img class="cover" src="assets/img/vert-photo.jpg" alt="Bikini vert (illustration)" />
+              <div class="edge"></div>
+            </div>
+          </div>
+
+          <div id="s06-card">
+            <div class="bg studio" id="s06-bg"></div>
+            <div id="s06-hero-layer">
+              <div id="s06-hero"><img src="assets/img/bleu-detoure.png" alt="Bikini bleu fleuri (illustration)" /><div class="hero-sheen" id="s06-sheen"></div></div>
+            </div>
+            <div id="s06-shade"></div>
+            <div id="s06-neon" class="neon"></div>
+            <svg id="s06-heart" class="ico" viewBox="0 0 24 24"><path d="M12 20 C 5 15, 3 11.5, 3 8.5 a4.5 4.5 0 0 1 9 -1 a4.5 4.5 0 0 1 9 1 C 21 11.5, 19 15, 12 20 Z" /></svg>
+          </div>
+
+          <div id="s06-details" class="glass"></div>
+          <div id="s06-dlabel" class="sans-b">Détails</div>
+          <svg id="s06-dchev" class="ico" viewBox="0 0 24 24"><path d="M9 5 L16 12 L9 19" /></svg>
+          <div class="s06-thumb" id="s06-th-motif" style="width: 250px; height: 300px"><img src="assets/img/detail-motif.jpg" alt="Motif bleu (détail illustratif)" /></div>
+          <div class="s06-thumb" id="s06-th-fleur" style="width: 250px; height: 300px"><img src="assets/img/detail-fleur.jpg" alt="Fleur blanche (détail illustratif)" /></div>
+          <div class="s06-thumb" id="s06-th-liens" style="width: 250px; height: 300px"><img src="assets/img/detail-liens.jpg" alt="Liens latéraux (détail illustratif)" /></div>
+          <svg class="fx-svg" id="s06-rings" viewBox="0 0 1080 1920">
+            <ellipse class="ring" id="s06-r-motif" cx="390" cy="1485" rx="75" ry="75" style="stroke-width: 4" />
+            <ellipse class="ring" id="s06-r-fleur" cx="565" cy="1485" rx="75" ry="75" style="stroke-width: 4" />
+            <ellipse class="ring" id="s06-r-liens" cx="740" cy="1485" rx="75" ry="75" style="stroke-width: 4" />
+          </svg>
+        </div>
+
+        <svg class="fx-svg" id="s06-floor-svg" viewBox="0 0 1080 1920">
+          <ellipse class="ring" cx="515" cy="1668" rx="330" ry="40" />
+        </svg>
+
+        <h1 class="scene-title" id="s06-title" style="font-size: 80px">
+          <span class="ln" id="s06-t1">Votre</span>
+          <span class="ln coral" id="s06-t2">coup de cœur.</span>
+        </h1>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const f = (n) => n / 30;
+          const CARD_0 = { x: 230, y: 650, scale: 0.444444 }; // = photo jointe de S05
+          const CARD = { x: 200, y: 430, scale: 1 };
+          // mannequin dans la carte (coordonnées locales de la carte 630×960)
+          const IN_CARD = { x: 67.87, y: 27.34, scale: 0.539568 };
+          const POP = { x: 21.9, y: -107.5, scale: 0.64 }; // la tête sort du cadre
+          const S07_PRODUCT = { x: 133.5 - 200, y: 412.8 - 430, scale: 0.647482 }; // = produit S07 (133,5 ; 412,8) en local carte
+          const CLIP_CARD = "inset(0px 0px 0px 0px round 36px)";
+          const CLIP_POP = "inset(-260px 0px 0px 0px round 36px)";
+          const CLIP_FREE = "inset(-500px -500px -500px -500px round 36px)";
+          // inserts S07 (centres) — les vignettes rondes s'y rendent ; cercle d = 150 au centre du cadre
+          const THUMB = {
+            motif: { home: [390, 1485], s07: [765, 1150] },
+            fleur: { home: [565, 1485], s07: [765, 600] },
+            liens: { home: [740, 1485], s07: [220, 1390] },
+          };
+          const CIRCLE = "inset(75px 50px 75px 50px round 75px)"; // 250×300 → disque de 150
+
+          gsap.set("#s06-stage", { transformPerspective: 1600, transformOrigin: "515px 1000px" });
+          Object.entries(THUMB).forEach(([k, v]) => {
+            gsap.set(`#s06-th-${k}`, { left: v.home[0] - 125, top: v.home[1] - 150, clipPath: CIRCLE });
+          });
+
+          // ---- 0–18 : la photo devient la carte héros, la scène s'incline, le héros avance et monte
+          tl.fromTo("#s06-card", { ...CARD_0 }, { ...CARD, duration: f(18), ease: "power3.out" }, 0);
+          tl.fromTo("#s06-hero", { ...IN_CARD }, { ...POP, duration: f(18), ease: "power3.out" }, f(2));
+          tl.fromTo("#s06-hero-layer", { clipPath: CLIP_CARD }, { clipPath: CLIP_POP, duration: f(16), ease: "power2.out" }, f(2));
+          tl.fromTo("#s06-shade", { opacity: 1 }, { opacity: 0.35, duration: f(14), ease: "power2.out" }, f(2));
+          tl.fromTo("#s06-neon", { opacity: 0 }, { opacity: 1, duration: f(12), ease: "power2.out" }, f(6));
+          tl.fromTo("#s06-heart", { opacity: 0, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: f(8), ease: "back.out(1.8)" }, f(14));
+          tl.fromTo("#s06-stage", { rotationY: 0, rotationX: 0 }, { rotationY: 7, rotationX: 3, duration: f(18), ease: "power3.out" }, 0);
+          tl.to("#s06-stage", { rotationY: 4, rotationX: 2, duration: f(36), ease: "sine.inOut" }, f(18));
+          tl.fromTo("#s06-pink", { x: -260, y: 600, scale: 0.5, opacity: 0 }, { x: 30, y: 600, scale: 0.5, opacity: 1, duration: f(16), ease: "power3.out" }, f(4));
+          tl.fromTo("#s06-green", { x: 1000, y: 600, scale: 0.5, opacity: 0 }, { x: 735, y: 600, scale: 0.5, opacity: 1, duration: f(16), ease: "power3.out" }, f(4));
+          tl.fromTo("#s06-pink-in", { rotationY: 40, transformPerspective: 1400, filter: "brightness(0.8)" }, { rotationY: 22, filter: "brightness(0.8)", duration: f(16), ease: "power3.out" }, f(4));
+          tl.fromTo("#s06-green-in", { rotationY: -40, transformPerspective: 1400, filter: "brightness(0.8)" }, { rotationY: -22, filter: "brightness(0.8)", duration: f(16), ease: "power3.out" }, f(4));
+          tl.fromTo(["#s06-details", "#s06-dlabel", "#s06-dchev"], { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: f(14), ease: "power3.out" }, f(8));
+          ["motif", "fleur", "liens"].forEach((k, i) => {
+            tl.fromTo(`#s06-th-${k}`, { opacity: 0, y: 40, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: f(10), ease: "power3.out" }, f(12 + 2 * i));
+            tl.fromTo(`#s06-r-${k}`, { opacity: 0 }, { opacity: 1, duration: f(8), ease: "power2.out" }, f(14 + 2 * i));
+          });
+          tl.fromTo("#s06-floor-svg", { opacity: 0 }, { opacity: 0.9, duration: f(14), ease: "power2.out" }, f(6));
+          tl.fromTo("#s06-t1", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(2));
+          tl.fromTo("#s06-t2", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(5));
+
+          // halo calé sur la grosse caisse du drop (9,8 / 10,3 / 10,8 / 11,3 s)
+          tl.fromTo("#s06-beat", { opacity: 0 }, { opacity: 1, duration: f(10), ease: "power2.out" }, f(6));
+          [6, 21, 36, 51].forEach((fr) => {
+            tl.fromTo("#s06-beat", { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.09, duration: f(2), ease: "power2.out", immediateRender: false }, f(fr));
+            tl.to("#s06-beat", { scale: 1, duration: f(8), ease: "power2.in" }, f(fr + 2));
+          });
+          tl.fromTo("#s06-sheen", { backgroundPosition: "100% 0%" }, { backgroundPosition: "0% 0%", duration: f(18), ease: "power2.inOut" }, f(20));
+
+          // ---- sortie 54–66 : un détail de la carte basse devient le gros plan suivant
+          const T = f(54);
+          tl.to("#s06-stage", { rotationY: 0, rotationX: 0, duration: f(12), ease: "power3.inOut" }, T);
+          tl.to("#s06-hero", { ...S07_PRODUCT, duration: f(12), ease: "power3.inOut" }, T);
+          tl.to("#s06-hero-layer", { clipPath: CLIP_FREE, duration: f(6), ease: "power2.in" }, T);
+          tl.to(["#s06-bg", "#s06-shade", "#s06-neon", "#s06-heart", "#s06-beat"], { opacity: 0, duration: f(9), ease: "power2.inOut" }, T);
+          tl.to("#s06-pink", { x: -260, opacity: 0, duration: f(9), ease: "power2.in" }, T);
+          tl.to("#s06-green", { x: 1000, opacity: 0, duration: f(9), ease: "power2.in" }, T);
+          tl.to(["#s06-details", "#s06-dlabel", "#s06-dchev", "#s06-floor-svg"], { opacity: 0, duration: f(8), ease: "power2.in" }, T);
+          ["motif", "fleur", "liens"].forEach((k, i) => {
+            const [hx, hy] = THUMB[k].home;
+            const [tx, ty] = THUMB[k].s07;
+            tl.to(`#s06-th-${k}`, { x: tx - hx, y: ty - hy, duration: f(12 - i), ease: "power3.inOut" }, T + f(i)); // toutes arrivent à l'image 66
+            tl.to(`#s06-r-${k}`, { attr: { cx: tx, cy: ty }, opacity: 0, duration: f(10), ease: "power3.inOut" }, T + f(i));
+          });
+          tl.to(["#s06-t1", "#s06-t2"], { opacity: 0, y: -20, filter: "blur(10px)", duration: f(7), ease: "power2.in", stagger: f(1) }, T);
+
+          window.__timelines["s06-heros"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

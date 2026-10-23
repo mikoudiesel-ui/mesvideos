@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="maquette-template">
+      <link rel="stylesheet" href="assets/css/daya.css" />
+      <style>
+        @font-face {
+          font-family: "Daya Serif";
+          src: url("assets/fonts/DejaVuSerif-Bold.ttf") format("truetype");
+          font-weight: 700;
+        }
+        @font-face {
+          font-family: "Daya Sans";
+          src: url("assets/fonts/DejaVuSans.ttf") format("truetype");
+          font-weight: 400;
+        }
+        @font-face {
+          font-family: "Daya Sans";
+          src: url("assets/fonts/DejaVuSans-Bold.ttf") format("truetype");
+          font-weight: 700;
+        }
+        #maquette-root {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+        }
+        /* Marquage discret demandé par le dossier tant que les visuels sont illustratifs.
+           22 px : volontairement discret, hors des zones de lecture. */
+        /* grain de pellicule très léger (technique du composant grain-overlay du catalogue,
+           pilotée par GSAP pour rester déterministe à chaque image) */
+        #maquette-grain {
+          position: absolute;
+          left: -128px;
+          top: -128px;
+          width: 1336px;
+          height: 2176px;
+          background: url("assets/img/grain.png") 0 0 / 512px 512px repeat;
+          opacity: 0.07;
+          mix-blend-mode: overlay;
+        }
+        #maquette-label {
+          position: absolute;
+          left: 80px;
+          top: 62px;
+          font-size: 22px;
+          letter-spacing: 0.32em;
+          color: rgba(255, 243, 232, 0.62);
+          white-space: nowrap;
+        }
+      </style>
+      <div id="maquette-root" data-composition-id="maquette" data-width="1080" data-height="1920" data-duration="26.466666666666665">
+        <div id="maquette-grain"></div>
+        <div id="maquette-label" class="sans">MAQUETTE · VISUELS ILLUSTRATIFS</div>
+      </div>
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const END = 794 / 30;
+          const grain = document.getElementById("maquette-grain");
+          // le grain change de place toutes les 2 images ; décalage dérivé de l'indice (pas de hasard)
+          const drive = { t: 0 };
+          tl.fromTo(
+            drive,
+            { t: 0 },
+            {
+              t: END,
+              duration: END,
+              ease: "none",
+              onUpdate: () => {
+                const k = Math.floor(drive.t * 15 + 1e-6);
+                const x = ((k * 7919) % 251) / 251;
+                const y = ((k * 104729) % 241) / 241;
+                grain.style.transform = `translate(${Math.round(x * 120)}px, ${Math.round(y * 120)}px)`;
+              },
+            },
+            0,
+          );
+          window.__timelines["maquette"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>
