@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Affiche ebook</title>
+<style>
+/* ====== TEXTES À MODIFIER : tout est dans l'objet CONTENU plus bas ====== */
+@font-face { font-family: "Unbounded"; font-weight: 500; src: url(fonts/unbounded-latin-500-normal.woff2); }
+@font-face { font-family: "Unbounded"; font-weight: 700; src: url(fonts/unbounded-latin-700-normal.woff2); }
+@font-face { font-family: "Unbounded"; font-weight: 900; src: url(fonts/unbounded-latin-900-normal.woff2); }
+@font-face { font-family: "Fraunces"; font-weight: 700; font-style: italic; src: url(fonts/fraunces-latin-700-italic.woff2); }
+
+:root {
+  --nuit: #14112b;
+  --nuit2: #241c4f;
+  --or: #ffc23d;
+  --corail: #ff5e5b;
+  --creme: #fff6e6;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: var(--w); height: var(--h); overflow: hidden; background: var(--nuit); }
+body {
+  font-family: "Unbounded", sans-serif; color: var(--creme);
+  position: relative;
+  background:
+    radial-gradient(60% 45% at 50% 58%, rgba(255,94,91,.45), transparent 70%),
+    radial-gradient(40% 30% at 80% 15%, rgba(255,194,61,.25), transparent 70%),
+    linear-gradient(170deg, var(--nuit2), var(--nuit) 60%);
+}
+/* motif de points discret */
+body::before {
+  content: ""; position: absolute; inset: 0; opacity: .12;
+  background-image: radial-gradient(var(--creme) 1.2px, transparent 1.6px);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(transparent, #000 30%, #000 70%, transparent);
+}
+.page { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; padding: var(--pad); }
+
+.surtitre {
+  font-weight: 700; font-size: calc(var(--u) * 2.1); letter-spacing: .18em; text-transform: uppercase;
+  color: var(--or); margin-bottom: calc(var(--u) * 1.6);
+}
+.accroche {
+  font-weight: 900; font-size: calc(var(--u) * 6.4); line-height: 1.02; text-align: center; letter-spacing: -.02em;
+  max-width: 92%;
+}
+.accroche em { font-family: "Fraunces", serif; font-weight: 700; font-style: italic; color: var(--or); letter-spacing: 0; }
+
+/* ----- scène du livre ----- */
+.scene { flex: 1; width: 100%; display: flex; align-items: center; justify-content: center; position: relative; perspective: 2200px; }
+.ombre {
+  position: absolute; bottom: 6%; width: calc(var(--book-w) * 1.5); height: calc(var(--book-w) * .16);
+  background: radial-gradient(closest-side, rgba(0,0,0,.6), transparent); filter: blur(6px);
+}
+.livre {
+  --e: calc(var(--book-w) * .09); /* épaisseur */
+  width: var(--book-w); height: calc(var(--book-w) * 1.42);
+  position: relative; transform-style: preserve-3d;
+  transform: rotateY(-28deg) rotateX(6deg) rotateZ(-2deg);
+}
+.livre > div { position: absolute; }
+.couverture {
+  inset: 0; border-radius: 3px 10px 10px 3px; overflow: hidden;
+  transform: translateZ(calc(var(--e) / 2));
+  background: linear-gradient(160deg, var(--corail), #c2185b 55%, #4a148c);
+  box-shadow: inset 6px 0 10px rgba(0,0,0,.35);
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: calc(var(--book-w) * .09);
+}
+.couverture::after { /* reflet */
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(110deg, transparent 35%, rgba(255,255,255,.28) 48%, transparent 60%);
+}
+.couverture::before { /* charnière */
+  content: ""; position: absolute; left: calc(var(--book-w) * .045); top: 0; bottom: 0; width: 3px; background: rgba(0,0,0,.18);
+}
+.cv-auteur { font-weight: 500; font-size: calc(var(--book-w) * .045); letter-spacing: .2em; text-transform: uppercase; opacity: .9; }
+.cv-titre { font-weight: 900; font-size: calc(var(--book-w) * .13); line-height: 1; letter-spacing: -.02em; }
+.cv-titre em { display: block; font-family: "Fraunces", serif; font-style: italic; font-weight: 700; color: var(--or); font-size: .8em; margin-top: .15em; }
+.cv-sous { font-weight: 500; font-size: calc(var(--book-w) * .05); line-height: 1.35; opacity: .92; margin-top: calc(var(--book-w) * .05); }
+.cv-bas { display: flex; align-items: center; gap: calc(var(--book-w) * .03); font-weight: 700; font-size: calc(var(--book-w) * .04); letter-spacing: .15em; text-transform: uppercase; }
+.cv-bas::before { content: ""; width: calc(var(--book-w) * .12); height: 3px; background: var(--or); }
+.tranche {
+  top: 4px; bottom: 4px; width: var(--e);
+  left: calc(var(--book-w) - var(--e) / 2);
+  transform: rotateY(90deg);
+  background: repeating-linear-gradient(90deg, #f3ead8 0 2px, #d9cdb4 2px 3px);
+  border-radius: 0 4px 4px 0;
+}
+.dos {
+  inset: 0; transform: translateZ(calc(var(--e) / -2)); background: #3a0f5c; border-radius: 3px 10px 10px 3px;
+}
+
+/* badge offre */
+.badge {
+  position: absolute; top: 8%; right: calc(50% - var(--book-w) * .95);
+  width: calc(var(--u) * 17); height: calc(var(--u) * 17); border-radius: 50%;
+  background: var(--or); color: var(--nuit); transform: rotate(12deg);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  font-weight: 900; font-size: calc(var(--u) * 3.6); line-height: 1;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35), 0 0 0 calc(var(--u) * .8) rgba(255,194,61,.3);
+}
+.badge small { font-weight: 700; font-size: .36em; letter-spacing: .06em; line-height: 1.2; margin-top: .35em; max-width: 72%; text-transform: uppercase; }
+
+/* bénéfices */
+.benefices { display: flex; gap: calc(var(--u) * 1.4); justify-content: center; flex-wrap: wrap; margin-bottom: calc(var(--u) * 3); }
+.benefices li {
+  list-style: none; font-weight: 500; font-size: calc(var(--u) * 2.1);
+  padding: calc(var(--u) * 1) calc(var(--u) * 2); border-radius: 999px;
+  background: rgba(255,246,230,.1); border: 1.5px solid rgba(255,246,230,.25);
+}
+.benefices li::before { content: "✓ "; color: var(--or); font-weight: 900; }
+
+.cta {
+  font-weight: 900; font-size: calc(var(--u) * 3); text-transform: uppercase; letter-spacing: .04em;
+  color: var(--nuit); background: var(--or); border-radius: 999px;
+  padding: calc(var(--u) * 2.2) calc(var(--u) * 6);
+  box-shadow: 0 calc(var(--u) * .8) 0 #c98a00, 0 20px 40px rgba(0,0,0,.35);
+}
+.cta::after { content: "  →"; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="surtitre" data-k="surtitre"></div>
+  <h1 class="accroche" data-k="accroche"></h1>
+
+  <div class="scene">
+    <div class="ombre"></div>
+    <div class="livre">
+      <div class="dos"></div>
+      <div class="tranche"></div>
+      <div class="couverture">
+        <div class="cv-auteur" data-k="auteur"></div>
+        <div>
+          <div class="cv-titre" data-k="titre"></div>
+          <div class="cv-sous" data-k="sousTitre"></div>
+        </div>
+        <div class="cv-bas" data-k="mention"></div>
+      </div>
+    </div>
+    <div class="badge" data-k="badge"></div>
+  </div>
+
+  <ul class="benefices" data-k="benefices"></ul>
+  <div class="cta" data-k="bouton"></div>
+</div>
+
+<script>
+// ====== CONTENU DE L'AFFICHE : remplace ces textes par ceux de ton ebook ======
+const CONTENU = {
+  surtitre:  "Ebook offert",
+  accroche:  "Ta phrase d'accroche <em>ici</em>",
+  auteur:    "Ton nom",
+  titre:     "Titre de<br>ton ebook <em>en grand</em>",
+  sousTitre: "Le sous-titre qui promet le résultat au lecteur",
+  mention:   "Guide pratique",
+  badge:     "0&nbsp;€<small>au lieu de 19&nbsp;€</small>",
+  benefices: ["Bénéfice n°1", "Bénéfice n°2", "Bénéfice n°3"],
+  bouton:    "Je le télécharge",
+};
+
+// Formats Facebook / Instagram : ?format=feed (4:5), carre (1:1), story (9:16)
+const FORMATS = {
+  feed:  { w: 1080, h: 1350, book: 400, pad: "80px 64px 84px" },
+  carre: { w: 1080, h: 1080, book: 300, pad: "60px 64px 64px" },
+  story: { w: 1080, h: 1920, book: 500, pad: "240px 64px 300px" },
+};
+const f = FORMATS[new URLSearchParams(location.search).get("format")] || FORMATS.feed;
+const s = document.documentElement.style;
+s.setProperty("--w", f.w + "px"); s.setProperty("--h", f.h + "px");
+s.setProperty("--u", (f.w / 100) + "px"); s.setProperty("--book-w", f.book + "px");
+s.setProperty("--pad", f.pad);
+
+for (const el of document.querySelectorAll("[data-k]")) {
+  const v = CONTENU[el.dataset.k];
+  el.innerHTML = Array.isArray(v) ? v.map(b => `<li>${b}</li>`).join("") : v;
+}
+</script>
+</body>
+</html>
