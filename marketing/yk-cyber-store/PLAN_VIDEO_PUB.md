@@ -31,6 +31,15 @@ Plan validé avec l'utilisateur, à reprendre dans la session qui aura l'accès 
 - Format : vertical 1080 × 1920 en priorité, environ 30 s (≈ 80 mots). Une version 16:9 est possible ensuite.
 - L'avatar est une IA : à la publication, cocher « contenu généré par IA » sur TikTok et Meta.
 
+## Références HeyGen (documentation fournie par l'utilisateur)
+
+- Clé API : créée par l'utilisateur sur https://platform.heygen.com/api-keys ; en-tête `X-Api-Key`.
+- API : `https://api.heygen.com`, en **v3** (les v1 et v2 ne sont plus prises en charge après le 31 octobre 2026).
+  Vérifier la clé avec `GET /v3/users/me` ; vidéo d'avatar puis suivi avec `GET /v3/videos/{video_id}`.
+- Les vidéos terminées sont servies depuis `files.heygen.ai` : d'où `*.heygen.ai` dans les domaines autorisés.
+- Index de la documentation : https://developers.heygen.com/llms.txt et règles pour agents :
+  https://developers.heygen.com/docs/for-ai-agents.md (à lire avant les premiers appels).
+
 ## Étapes pour la session suivante
 
 1. Vérifier l'accès : `HEYGEN_API_KEY` présent et `api.heygen.com` joignable.
