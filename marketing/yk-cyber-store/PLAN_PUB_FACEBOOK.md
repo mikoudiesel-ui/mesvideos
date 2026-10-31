@@ -12,7 +12,18 @@ Plan validé avec l'utilisateur, à reprendre dans la session qui pourra ouvrir 
 
 - Formats : **4:5** (1080 × 1350, fil Facebook et Instagram) **et 9:16** (1080 × 1920, Reels et Stories).
 - Durée : **15 secondes**.
-- Son : **musique originale + texte animé, sans voix** (lisible sans le son).
+- Son : **voix off qui présente le produit** (demande ajoutée ensuite par l'utilisateur, qui me laisse choisir la
+  voix) + musique originale en fond, plus basse sous la voix ; les mots clés restent écrits à l'écran pour ceux qui
+  regardent sans le son.
+- Voix choisie : **féminine, française, naturelle, chaleureuse et dynamique**, comme une grande sœur qui conseille ;
+  si HeyGen propose un accent naturel d'Afrique francophone, le préférer (public visé). Générée par la synthèse
+  vocale de HeyGen (même accès que `PLAN_VIDEO_PUB.md` : `*.heygen.com`, `*.heygen.ai` et `HEYGEN_API_KEY`) ;
+  faire écouter 2 extraits à l'utilisateur avant le montage.
+- Texte de la voix off (≈ 38 mots, 14 à 15 s), à ajuster avec les infos de la page (par exemple le prix) :
+
+> Tu bloques en maths financières ? Découvre La Clé des Maths Financières, l'ebook de YK Cyber Store : des cours et
+> des exercices corrigés pour tes révisions. Relis, essaie, compare… et comprends ta démarche. Commande-le
+> maintenant chez YK Cyber Store !
 - La page Chariow est analysée par la session elle-même : l'utilisateur autorise `*.mychariow.co` dans les réglages
   réseau de l'environnement (si les images viennent d'un autre domaine, le signaler et le faire autoriser).
 
@@ -27,7 +38,8 @@ Plan validé avec l'utilisateur, à reprendre dans la session qui pourra ouvrir 
 ## Route HyperFrames
 
 `/product-launch-video`, intention « vendre » (pub), capture de la page Chariow pour les couleurs et les visuels,
-sans voix off (`VO_MODE` sans objet) ; musique originale composée localement, comme pour `videos/daya-motion-social`.
+voix off HeyGen sur le texte ci-dessus (`VO_MODE` : texte réécrit pour 15 s, validé avant génération) ;
+musique originale composée localement, comme pour `videos/daya-motion-social`, baissée sous la voix.
 
 ## Structure proposée (15 s)
 
