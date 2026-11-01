@@ -12,10 +12,10 @@ set -euo pipefail
 cd "$(dirname "$0")"
 
 # ---- settings (all paths relative to this project folder) ----------------------------------------------------------
-RAW="${RAW:-assets/audio/voix.mp3}"                # raw voice exported from ElevenLabs
-CUTS="${CUTS:-}"                                   # "cut:silence" pairs in raw seconds, e.g. "14.00:0.8 34.75:0.4" (empty = no cut)
-TAIL="${TAIL:-4.0}"                                # silence added after the voice (end card hold)
-TOTAL="${TOTAL:-45.0}"                             # final duration in seconds = STORYBOARD duration = TOTAL in assemble.sh
+RAW="${RAW:-assets/audio/voix-brute.wav}"                # raw voice exported from ElevenLabs
+CUTS="${CUTS:-9.82:2.5 22.71:0.4}"                                   # "cut:silence" pairs in raw seconds, e.g. "14.00:0.8 34.75:0.4" (empty = no cut)
+TAIL="${TAIL:-2.5}"                                # silence added after the voice (end card hold)
+TOTAL="${TOTAL:-38.5}"                             # final duration in seconds = STORYBOARD duration = TOTAL in assemble.sh
 MUSIC="${MUSIC-assets/audio/music.mp3}"            # CC0 track (set MUSIC="" for no music)
 MUSIC_START="${MUSIC_START:-0}"                    # where to start in the track (skip a quiet intro, see pitfalls.md)
 MUSIC_VOLUME="${MUSIC_VOLUME:-0.12}"               # 0.10 to 0.15 under a voice
