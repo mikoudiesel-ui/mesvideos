@@ -203,27 +203,25 @@
       var FID = "04-alarme", DUR = 2.3;
       function $(id) { return document.getElementById("f04-" + id); }
       var camEl = $("cam"), focusEl = $("focus");
+      // première image = handoff_in, avant tout seek
+      gsap.set(camEl, { x: 0, y: 120, scale: 1.10, transformOrigin: "540px 860px" });
+      gsap.set(focusEl, { filter: "blur(6px)" });
 
-      /* ---- la caméra : x, y = translation de #cam, s = échelle (origine 540 860), b = flou de bougé ---- */
-      var C = { x: 0, y: 120, s: 1.10, b: 6 };
-      function render() {
-        camEl.style.transform = "translate(" + C.x.toFixed(2) + "px," + C.y.toFixed(2) + "px) scale(" + C.s.toFixed(5) + ")";
-        focusEl.style.filter = C.b > 0.01 ? "blur(" + C.b.toFixed(2) + "px)" : "none";
-      }
-
-      var tl = gsap.timeline({ paused: true, onUpdate: render });
+      /* ---- piste caméra : #cam porte x, y, scale (origine 540 860) ; le flou de bougé porte sur #f04-focus ---- */
+      var tl = gsap.timeline({ paused: true });
       function ft(target, from, to, pos) { if (pos > 0) to.immediateRender = false; tl.fromTo(target, from, to, pos); }
       // première moitié d'un power3.inOut ramenée à [0, 1] : le mouvement est « en cours » (à pleine vitesse) à la couture
       var pio = gsap.parseEase("power3.inOut");
       function halfInOut(p) { return pio(p * 0.5) * 2; }
 
-      /* ---- piste caméra ---- */
       // 0.00 → 0.30 atterrissage sur cam-phone (le téléphone entier, interface au-dessus de la coupure), flou 6 → 0
-      ft(C, { x: 0, y: 120, s: 1.10, b: 6 }, { x: 0, y: -400, s: 1.10, b: 0, duration: 0.30, ease: "power3.out" }, 0);
+      ft(camEl, { x: 0, y: 120, scale: 1.10 }, { x: 0, y: -400, scale: 1.10, duration: 0.30, ease: "power3.out" }, 0);
+      ft(focusEl, { filter: "blur(6px)" }, { filter: "blur(0px)", duration: 0.30, ease: "power3.out" }, 0);
       // 0.30 → 2.00 dérive qui ne s'arrête pas : échelle 1.10 → 1.12
-      ft(C, { s: 1.10 }, { s: 1.12, duration: 1.70, ease: "none" }, 0.30);
+      ft(camEl, { scale: 1.10 }, { scale: 1.12, duration: 1.70, ease: "none" }, 0.30);
       // 2.00 → 2.30 recul + panoramique à droite, en cours à la couture : cam(220, 0, 1.15), flou 8 px
-      ft(C, { x: 0, y: -400, s: 1.12, b: 0 }, { x: 220, y: 0, s: 1.15, b: 8, duration: 0.30, ease: halfInOut }, 2.00);
+      ft(camEl, { x: 0, y: -400, scale: 1.12 }, { x: 220, y: 0, scale: 1.15, duration: 0.30, ease: halfInOut }, 2.00);
+      ft(focusEl, { filter: "blur(0px)" }, { filter: "blur(8px)", duration: 0.30, ease: halfInOut }, 2.00);
 
       /* ---- 0.20 l'écran s'allume : écran verrouillé, « lundi 10 novembre », « 7:00 » ---- */
       ft($("screen"), { opacity: 0 }, { opacity: 1, duration: 0.10, ease: "power2.out" }, 0.20);
@@ -269,8 +267,6 @@
 
       // longueur exacte du plan
       tl.set({}, {}, DUR);
-      // première image = handoff_in, avant tout seek
-      render();
       window.__timelines = window.__timelines || {};
       window.__timelines[FID] = tl;
     })();
