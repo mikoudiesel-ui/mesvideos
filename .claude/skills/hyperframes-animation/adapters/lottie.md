@@ -47,7 +47,7 @@ The adapter seeks `lottie-web` with `goToAndStop(timeMs, false)` and dotLottie w
 
 ```html
 <canvas id="product-lottie" class="lottie-canvas"></canvas>
-<script src="https://unpkg.com/@lottiefiles/dotlottie-web"></script>
+<script src="https://unpkg.com/@lottiefiles/dotlottie-web@0.80.0"></script>
 <script>
   const player = new DotLottie({
     canvas: document.getElementById("product-lottie"),

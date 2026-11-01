@@ -94,7 +94,7 @@ const voiceId = await resolveVoiceId({ provider: "heygen", userVoice, lang });
 if (!userVoice) console.error(`· using voice ${voiceId}`);
 
 // ---------- synthesize (shared engine code) ----------
-const { ok, words, error } = await synthesizeOne({
+const { ok, words } = await synthesizeOne({
   provider: "heygen",
   text,
   voiceId,
@@ -103,8 +103,7 @@ const { ok, words, error } = await synthesizeOne({
   wavAbs: output,
   hyperframesDir: process.cwd(),
 });
-// HeyGen's own refusal, verbatim: a caller shows it or acts on it (a deleted voice, a limit).
-if (!ok) die(error ?? "synthesis failed (HeyGen request/transcode error)");
+if (!ok) die("synthesis failed (HeyGen request/transcode error)");
 
 let wordCount = 0;
 if (wordsPath) {

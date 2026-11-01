@@ -15,7 +15,6 @@
 
 import { existsSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
-import { recordInManifest } from "./lib/media-record.mjs";
 
 const argv = process.argv.slice(2);
 const flag = (name, def) => {
@@ -133,9 +132,6 @@ while (Date.now() - started <= timeoutMs) {
       message: `BGM ready at ${bgmPath}.`,
     });
     console.log(`✓ bgm: ready (${bgmPath}, ${size}B)`);
-    const generated = { path: bgmPath, type: "bgm", source: "generated", provider: base.provider };
-    for (const anomaly of recordInManifest(hyperframesDir, [generated]))
-      console.error(`  ${anomaly}`);
     process.exit(0);
   }
 

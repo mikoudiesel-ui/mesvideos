@@ -6,25 +6,7 @@ For deterministic text-animation specs (e.g., `typewriter` at exact `240ms / 46m
 
 ## How to use it
 
-When a beat needs a deterministic text animation, load the upstream skill alongside this one:
-
-```bash
-# In your project root, install the upstream skill into .agents/skills/
-npx skills add pixel-point/animate-text
-```
-
-Or in a skill-aware agent runtime, the skill is invoked by name:
-
-```
-/animate-text
-```
-
-Once installed, the specs live at:
-
-```
-.agents/skills/animate-text/assets/effects/<id>.json   # per-library implementation recipe
-.agents/skills/animate-text/assets/specs/<id>.json     # portable motion contract
-```
+**Workspace rule (motion-launch, audited 2026-09-28):** the third-party `animate-text` skill is NOT installed and must not be installed (`npx skills add pixel-point/animate-text` is forbidden here: unaudited, no license). Implement each named effect from its description with GSAP.
 
 Sub-agents reading those files get exact GSAP timings, easing strings, DOM split rules, and stagger algorithms — no creative invention needed.
 
@@ -45,9 +27,7 @@ For convenience while writing storyboards: the upstream skill provides 24 effect
 - **Per-line (2):** mask-reveal-up, line-by-line-slide
 - **Whole element (7):** micro-scale-fade, shimmer-sweep, fade-through, shared-axis-z, scale-down-fade, focus-blur-resolve, shared-axis-x
 
-For descriptions, durations, easing curves, and the per-library recipes: load `/animate-text` and read its own catalog page.
-
-For `mask-reveal-up` and other line-mask effects, leave room for the font's painted glyphs at rest. Tight line-height plus `overflow: hidden` can cut descenders and accents after the reveal finishes. Follow the [text mask guidance](../techniques.md#12-clip-path-reveal-masks): start with block padding of `0.2em` at the text's font size and a compensating negative margin, or release the clip on the timeline once the entrance settles. Inspect a settled snapshot using the actual font and text; `data-layout-allow-overflow` also waives checks in the resting state.
+For descriptions, durations and easing curves, implement from the effect name with GSAP (the upstream skill is not installed here).
 
 ## In the storyboard
 
@@ -61,6 +41,6 @@ Every text element in every beat can name an effect by ID, e.g.:
 - Body copy 3 lines: `mask-reveal-up`
 ```
 
-Sub-agents implementing the beat will load `/animate-text` if it's not already loaded, then read the spec for each named effect from the upstream skill's files.
+Sub-agents implement the named effect from its description (the upstream skill is not installed in this workspace).
 
 If the upstream skill isn't available (offline build, network restrictions, agent runtime that doesn't support skill loading), sub-agents fall back to implementing the effect from the description alone — using GSAP knowledge plus the effect ID as a description of intent (e.g., "typewriter" = per-character stepped reveal with no interpolation).

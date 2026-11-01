@@ -26,8 +26,7 @@ The freeze is offered once after the final approval (`hyperframes/references/rev
 
 ## Files
 
-- `.media/manifest.jsonl`: machine SSOT, one JSON record per line. Records are keyed by path and only appended, so
-  the last record for a path is the file's record; a file moved or replaced by hand keeps (or loses) its record by path.
+- `.media/manifest.jsonl`: machine SSOT, one JSON record per line
 - `.media/index.md`: agent-readable table (id, type, dur, dims, path, description)
 - `.media/preferences.json`: the project's remembered defaults (committed)
 - `~/.media/`: global cross-project reuse cache (content-addressed, SHA-256)
