@@ -178,13 +178,18 @@ if iris_at is not None:
         tl.to("#fxiris-ring", {{ opacity: 0, duration: 0.15 }}, {t(0.70)});
 '''
 anchor = re.search(r"(?m)^[ \t]*tl\.to\(\{\}, \{ duration: [0-9.]+ \}, 0\);", s)
-if not anchor:
+if anchor:
+    s = s[:anchor.start()] + tl + s[anchor.start():]
+elif leak_at is not None or iris_at is not None:
     raise SystemExit("assemble: full-span anchor tl.to({}, { duration: N }, 0); not found in index.html")
-s = s[:anchor.start()] + tl + s[anchor.start():]
 open(p, "w", encoding="utf-8").write(s)
 print("orchestrator layer patched:", ", ".join(k for k, v in (("audio", env.get("AUDIO")), ("flash", leak_at is not None),
       ("iris", iris_at is not None), ("paper bed", "paperbed" in s)) if v) or "nothing")
 EOF
+
+
+# GSAP from the project (the CDN is not reachable everywhere): frames and index load assets/js/gsap.min.js
+sed -i -E 's#<script src="https://cdn\.jsdelivr\.net/npm/gsap@3\.14\.2/dist/gsap\.min\.js"[^>]*></script>#<script src="assets/js/gsap.min.js"></script>#' index.html compositions/frames/*.html
 
 if [ "$RUN_LINT" = "1" ]; then
   npx hyperframes lint 2>&1 | grep -E "✗|error\(s\)|warning\(s\)" || echo "lint: no error reported"

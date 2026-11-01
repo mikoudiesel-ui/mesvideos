@@ -51,7 +51,7 @@ patterns: ../patterns/STORYBOARD-CRAFT.md, ../patterns/PATTERNS.md
 - scene: The planner page « Lundi » under the cold lamp; the post-it « Commencer » slams in from the camera and sticks
 - duration: 3.30s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/01-lundi.html
 - voiceover: "Lundi, tu te promets de commencer."
 - type: hook
@@ -89,7 +89,7 @@ Scene 2 (1.40 à 3.30 s) : P2, la promesse
 - scene: Page « Mercredi »: the post-it « Commencer » slides off the day and lands on Thursday's corner, pushed by an invisible finger
 - duration: 3.07s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/02-mercredi.html
 - voiceover: "Mercredi, tu repousses."
 - type: pain_point
@@ -117,7 +117,7 @@ Scene 1 (0.00 à 3.07 s) : P1, le post-it repoussé
 - scene: Page « Dimanche », late: the post-it lands crumpled on the empty page; the lamp dims; the phone slides into frame on the page
 - duration: 3.83s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/03-dimanche.html
 - voiceover: "Dimanche soir... rien n'a bougé."
 - type: pain_point
@@ -155,7 +155,7 @@ Scene 2 (2.20 à 3.83 s) : P2, rien n'a bougé
 - scene: Silent gag: Monday 7:00, the alarm « Commencer mon projet » lights the phone; a thumb swipes « Répéter »; a tiny horned reflection smiles in the black glass
 - duration: 2.30s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/04-alarme.html
 - voiceover: ""
 - type: pain_point
@@ -183,7 +183,7 @@ Scene 1 (0.00 à 2.30 s) : P1, l'alarme répétée
 - scene: The horned shadow rises on the planner page behind the phone; red eyes open on « petite voix »
 - duration: 3.83s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/05-petite-voix.html
 - voiceover: "Ce n'est pas un manque de talent. C'est une petite voix."
 - type: pain_point
@@ -221,7 +221,7 @@ Scene 2 (2.30 à 3.83 s) : P2, la petite voix
 - scene: The phone screen: three notifications from « La petite voix » fall one by one; behind the phone the shadow grows at each one
 - duration: 5.72s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/06-excuses.html
 - voiceover: "Elle te dit d'attendre, que ce n'est pas pour toi, que demain ce sera mieux."
 - type: pain_point
@@ -249,7 +249,7 @@ Scene 1 (0.00 à 5.72 s) : P1, trois notifications
 - scene: Black. « Et si tu étais plus malin qu'elle ? » converges in the centre; silence; a thin gold crack appears in the black
 - duration: 3.36s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/07-bascule.html
 - voiceover: "Et si tu étais plus malin qu'elle ?"
 - type: pivot
@@ -277,7 +277,7 @@ Scene 1 (0.00 à 3.36 s) : P1, la question
 - scene: The crack tears the black like a page; gold light floods; the ebook cover rises from the tear; the horned shadow shrinks in a corner; the excuses are crossed out
 - duration: 5.73s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/08-revelation.html
 - voiceover: "Plus malin que le diable. Un ebook qui démasque ses ruses, une par une."
 - type: turn
@@ -315,7 +315,7 @@ Scene 2 (2.50 à 5.73 s) : P2, les ruses démasquées
 - scene: The post-it « Commencer » flies back onto the cover's corner and its box gets ticked; « Télécharge-le maintenant » brings the gold button up
 - duration: 3.45s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/09-repondre.html
 - voiceover: "Et te donne de quoi lui répondre. Télécharge-le maintenant,"
 - type: payoff
@@ -343,7 +343,7 @@ Scene 1 (0.00 à 3.45 s) : P1, la case cochée et le bouton
 - scene: End card: the cover, the ticked post-it, the button « Télécharger l'ebook »; a cursor arrives and clicks; an arrow points down to the link; living hold
 - duration: 3.91s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/10-fin.html
 - voiceover: "Le lien est juste en dessous."
 - type: cta

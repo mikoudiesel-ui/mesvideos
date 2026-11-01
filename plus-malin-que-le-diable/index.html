@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/js/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #000;
+      }
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #0e0b12;
+      }
+      .scene {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="38.5"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div
+        id="el-01-lundi"
+        class="scene"
+        data-composition-id="01-lundi"
+        data-composition-src="compositions/frames/01-lundi.html"
+        data-start="0"
+        data-duration="3.3"
+        data-track-index="1"
+      ></div>
+
+      <div
+        id="el-02-mercredi"
+        class="scene"
+        data-composition-id="02-mercredi"
+        data-composition-src="compositions/frames/02-mercredi.html"
+        data-start="3.3"
+        data-duration="3.07"
+        data-track-index="1"
+      ></div>
+
+      <div
+        id="el-03-dimanche"
+        class="scene"
+        data-composition-id="03-dimanche"
+        data-composition-src="compositions/frames/03-dimanche.html"
+        data-start="6.369999999999999"
+        data-duration="3.83"
+        data-track-index="1"
+      ></div>
+
+      <div
+        id="el-04-alarme"
+        class="scene"
+        data-composition-id="04-alarme"
+        data-composition-src="compositions/frames/04-alarme.html"
+        data-start="10.2"
+        data-duration="2.3"
+        data-track-index="1"
+      ></div>
+
+      <div
+        id="el-05-petite-voix"
+        class="scene"
+        data-composition-id="05-petite-voix"
+        data-composition-src="compositions/frames/05-petite-voix.html"
+        data-start="12.5"
+        data-duration="3.83"
+        data-track-index="1"
+      ></div>
+
+      <div
+        id="el-06-excuses"
+        class="scene"
+        data-composition-id="06-excuses"
+        data-composition-src="compositions/frames/06-excuses.html"
+        data-start="16.33"
+        data-duration="5.72"
+        data-track-index="1"
+      ></div>
+
+      <div
+        id="el-07-bascule"
+        class="scene"
+        data-composition-id="07-bascule"
+        data-composition-src="compositions/frames/07-bascule.html"
+        data-start="22.049999999999997"
+        data-duration="3.36"
+        data-track-index="1"
+      ></div>
+
+      <div
+        id="el-08-revelation"
+        class="scene"
+        data-composition-id="08-revelation"
+        data-composition-src="compositions/frames/08-revelation.html"
+        data-start="25.409999999999997"
+        data-duration="5.73"
+        data-track-index="1"
+      ></div>
+
+      <div
+        id="el-09-repondre"
+        class="scene"
+        data-composition-id="09-repondre"
+        data-composition-src="compositions/frames/09-repondre.html"
+        data-start="31.139999999999997"
+        data-duration="3.45"
+        data-track-index="1"
+      ></div>
+
+      <div
+        id="el-10-fin"
+        class="scene"
+        data-composition-id="10-fin"
+        data-composition-src="compositions/frames/10-fin.html"
+        data-start="34.589999999999996"
+        data-duration="3.91"
+        data-track-index="1"
+      ></div>
+      <audio id="mix" data-start="0" data-duration="38.5" data-track-index="11" src="assets/audio/mix.wav" data-volume="1"></audio>
+
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>
