@@ -36,7 +36,7 @@ typography:
   type:       { fontFamily: "Fraunces", px: 96, weight: 900, lineHeight: 1.0, note: "ONLY the typographic moments: the diagnosis line « C'est une petite voix. » is NOT one; the pivot « Et si tu étais plus malin qu'elle ? » IS one (centred at y 760, 96 px max, no subtitle meanwhile)" }
   day:        { fontFamily: "Fraunces", px: 150, weight: 900, note: "the planner day name: Lundi, Mercredi, Dimanche" }
   date:       { fontFamily: "Instrument Sans", px: 30, weight: 500, tracking: "0.2em", upper: true, color: "#8a7f6e" }
-  postit:     { fontFamily: "Fraunces", px: 64, weight: 600 }
+  postit:     { fontFamily: "Fraunces", px: 58, weight: 600 }
   phone-time: { fontFamily: "Instrument Sans", px: 200, weight: 700, tracking: "-0.03em" }
   notif:      { fontFamily: "Instrument Sans", px: 40, weight: 500, note: "app name 30 px 700" }
   cta:        { fontFamily: "Instrument Sans", px: 46, weight: 700 }
