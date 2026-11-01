@@ -1,0 +1,12 @@
+DOSSIER MOTION DESIGN — BIKINIS SHOP / @daya_na990
+
+1. Ouvrir les 4 planches ou SCENES_INTERACTIVES.html pour voir les 14 scènes.
+2. Lire PLANCHE_PRODUCTION_14_SCENES.pdf : une fiche par scène.
+3. Décompresser ce dossier dans le projet ouvert avec Claude Code.
+4. Copier le contenu intégral de PROMPT_CLAUDE_CODE.md dans Claude Code.
+5. Ajouter les photos HD des vrais articles si disponibles.
+
+Le JSON fixe le timing : 794 images à 30 i/s, 26,4667 s.
+Les images sont des maquettes illustratives, pas une publicité catalogue finale.
+Le son est un témoin original, pas la musique TikTok.
+Les fichiers doivent être accessibles dans la machine où Claude Code travaille : les chemins du cloud ne sont pas automatiquement accessibles sur votre ordinateur.

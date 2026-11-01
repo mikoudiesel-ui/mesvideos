@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #111518;
+      }
+      #stage {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #111518;
+      }
+      #stage > div[data-composition-src] {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- KSC STUDIO, intro du logo A · Objectif : généré par tools/build_intro.py (1080×1920, 3 s, 30 i/s). -->
+    <div id="stage" data-composition-id="main" data-start="0" data-duration="3" data-fps="30" data-width="1080" data-height="1920">
+      <div id="el-logo" data-composition-id="ksc-logo" data-composition-src="compositions/ksc-logo.html"
+        data-start="0" data-duration="3" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div id="el-flash" data-composition-id="editorial-flash-overlay" data-composition-src="compositions/editorial-flash-overlay.html"
+        data-start="0.17" data-duration="1" data-track-index="2" data-width="1080" data-height="1920"></div>
+      <audio id="son" src="assets/audio/ksc-intro-son.wav" data-start="0" data-duration="3" data-track-index="10" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.to({}, { duration: 3 }, 0); // l'animation du logo vit dans compositions/ksc-logo.html
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

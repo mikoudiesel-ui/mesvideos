@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s01-ouverture-template">
+      <link rel="stylesheet" href="assets/css/daya.css" />
+      <style>
+        @font-face {
+          font-family: "Daya Serif";
+          src: url("assets/fonts/DejaVuSerif-Bold.ttf") format("truetype");
+          font-weight: 700;
+        }
+        @font-face {
+          font-family: "Daya Sans";
+          src: url("assets/fonts/DejaVuSans.ttf") format("truetype");
+          font-weight: 400;
+        }
+        @font-face {
+          font-family: "Daya Sans";
+          src: url("assets/fonts/DejaVuSans-Bold.ttf") format("truetype");
+          font-weight: 700;
+        }
+        #s01-root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        #s01-halo {
+          position: absolute;
+          left: 60px;
+          top: 450px;
+          width: 900px;
+          height: 900px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(255, 96, 110, 0.42) 0%, rgba(255, 140, 80, 0.2) 34%, rgba(255, 66, 105, 0) 68%);
+        }
+        #s01-shadow {
+          position: absolute;
+          left: 250px;
+          top: 1300px;
+          width: 520px;
+          height: 90px;
+          border-radius: 50%;
+          background: radial-gradient(ellipse, rgba(8, 4, 10, 0.75) 0%, rgba(8, 4, 10, 0) 70%);
+        }
+        .s01-hero {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 870px;
+          height: 1668px;
+          transform-origin: 0 0;
+        }
+        .s01-hero img {
+          display: block;
+          width: 870px;
+          height: 1668px;
+        }
+        #s01-search {
+          opacity: 0;
+        }
+        /* reflet lumineux qui glisse sur le mannequin (masqué par sa silhouette) */
+        .hero-sheen {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 870px;
+          height: 1668px;
+          background: linear-gradient(105deg, rgba(255, 244, 222, 0) 42%, rgba(255, 246, 228, 0.9) 50%, rgba(255, 244, 222, 0) 58%) 100% 0 / 300% 100% no-repeat;
+          -webkit-mask: url("assets/img/bleu-detoure.png") 0 0 / 870px 1668px no-repeat;
+          mask: url("assets/img/bleu-detoure.png") 0 0 / 870px 1668px no-repeat;
+          mix-blend-mode: screen;
+          opacity: 0.75;
+          pointer-events: none;
+        }
+        #s01-brand {
+          position: absolute;
+          left: 110px;
+          top: 1428px;
+          width: 800px;
+          text-align: center;
+          font-size: 60px;
+          line-height: 1;
+        }
+        #s01-handle {
+          position: absolute;
+          left: 110px;
+          top: 1512px;
+          width: 800px;
+          text-align: center;
+          font-size: 46px;
+          line-height: 1;
+        }
+      </style>
+
+      <div id="s01-root" data-composition-id="s01-ouverture" data-width="1080" data-height="1920" data-duration="1.8">
+        <div id="s01-cam">
+          <div id="s01-halo"></div>
+          <div id="s01-shadow"></div>
+          <svg class="fx-svg" id="s01-fx-back" viewBox="0 0 1080 1920">
+            <ellipse id="s01-floor" class="ring" cx="510" cy="1340" rx="320" ry="55" />
+          </svg>
+          <div class="s01-hero" id="s01-hero">
+            <img src="assets/img/bleu-detoure.png" alt="Bikini bleu fleuri sur mannequin doré (illustration)" />
+            <div class="hero-sheen" id="s01-sheen"></div>
+          </div>
+          <svg class="fx-svg" id="s01-fx-front" viewBox="0 0 1080 1920">
+            <rect id="s01-search" class="ring" x="70" y="460" width="880" height="880" rx="440" ry="440" />
+          </svg>
+        </div>
+
+        <h1 class="scene-title" id="s01-title" style="font-size: 72px">
+          <span class="ln" id="s01-t1">Votre prochain</span>
+          <span class="ln coral" id="s01-t2">coup de cœur.</span>
+        </h1>
+        <div id="s01-brand" class="brand-name">Bikinis Shop</div>
+        <div id="s01-handle" class="handle">@daya_na990</div>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const f = (n) => n / 30;
+          // Mannequin : boîte 870×1668 placée par (x, y, échelle) depuis son coin haut gauche.
+          const HERO = { x: 251.9, y: 430, scale: 0.563549 }; // pose S01 : h 940, centre x 510
+          const HERO_0 = { x: 272.5, y: 467.6, scale: 0.518465 }; // image 0 : ×0,92 autour de (510, 900)
+          const AVATAR = { x: 223.67, y: 1005, scale: 0.166667 }; // = avatar du résultat S02, centre (300, 1080)
+          const CLIP_OPEN = "circle(1300px at 458px 450px)";
+          const CLIP_AVATAR = "circle(390px at 458px 450px)";
+
+          // ---- état initial (image 0 = dernière image de S14 pour la boucle)
+
+          // ---- entrée 0–12 : halo et produit, échelle 0,92 → 1, opacité 0 → 1
+          tl.fromTo("#s01-halo", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: f(12), ease: "power3.out" }, 0);
+          tl.fromTo("#s01-hero", { ...HERO_0, opacity: 0, clipPath: CLIP_OPEN }, { ...HERO, opacity: 1, duration: f(12), ease: "power3.out" }, 0);
+          tl.fromTo(
+            "#s01-floor",
+            { attr: { cx: 510, cy: 1340, rx: 294.4, ry: 50.6 }, opacity: 0.5 },
+            { attr: { cx: 510, cy: 1340, rx: 320, ry: 55 }, opacity: 1, duration: f(12), ease: "power3.out" },
+            0,
+          );
+          tl.fromTo("#s01-shadow", { opacity: 0 }, { opacity: 1, duration: f(12), ease: "power2.out" }, 0);
+          // titre en deux groupes, décalés de 3 images
+          tl.fromTo("#s01-t1", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(2));
+          tl.fromTo("#s01-t2", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(5));
+          tl.fromTo("#s01-brand", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: f(14), ease: "power3.out" }, f(8));
+          tl.fromTo("#s01-handle", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: f(12), ease: "power3.out" }, f(11));
+
+          // ---- pose 12–44 : produit stable, seul le halo respire
+          tl.to("#s01-halo", { scale: 1.06, opacity: 0.85, duration: f(16), ease: "sine.inOut", yoyo: true, repeat: 1 }, f(12));
+
+          tl.fromTo("#s01-sheen", { backgroundPosition: "100% 0%" }, { backgroundPosition: "0% 0%", duration: f(20), ease: "power2.inOut" }, f(14));
+
+          // ---- sortie 44–54 : le cercle de lumière devient le contour de la recherche,
+          //      l'anneau au sol devient l'anneau de l'avatar, le produit se réduit dans le résultat.
+          const T = f(44);
+          const D = f(10);
+          tl.to(["#s01-t1", "#s01-t2"], { opacity: 0, y: -24, filter: "blur(10px)", duration: f(6), ease: "power3.in", stagger: f(1) }, T);
+          tl.to(["#s01-brand", "#s01-handle"], { opacity: 0, y: 16, duration: f(6), ease: "power3.in" }, T);
+          tl.to("#s01-shadow", { opacity: 0, duration: f(5), ease: "power2.in" }, T);
+          tl.to("#s01-halo", { opacity: 0, scale: 0.55, duration: f(8), ease: "power2.in" }, T);
+          tl.to("#s01-hero", { ...AVATAR, clipPath: CLIP_AVATAR, duration: D, ease: "power3.inOut" }, T);
+          tl.to("#s01-floor", { attr: { cx: 300, cy: 1080, rx: 70, ry: 70 }, duration: D, ease: "power3.inOut" }, T);
+          tl.fromTo("#s01-search", { opacity: 0 }, { opacity: 1, duration: f(5), ease: "power2.out", immediateRender: false }, T);
+          tl.to("#s01-search", { attr: { x: 215, y: 790, width: 580, height: 115, rx: 57.5, ry: 57.5 }, duration: D, ease: "power3.inOut" }, T);
+
+          window.__timelines["s01-ouverture"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

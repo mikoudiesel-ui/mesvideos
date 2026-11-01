@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/css/daya.css" />
+    <style>
+      @font-face {
+        font-family: "Daya Serif";
+        src: url("assets/fonts/DejaVuSerif-Bold.ttf") format("truetype");
+        font-weight: 700;
+      }
+      @font-face {
+        font-family: "Daya Sans";
+        src: url("assets/fonts/DejaVuSans.ttf") format("truetype");
+        font-weight: 400;
+      }
+      @font-face {
+        font-family: "Daya Sans";
+        src: url("assets/fonts/DejaVuSans-Bold.ttf") format("truetype");
+        font-weight: 700;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #181421;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      #root > div[data-composition-src] {
+        position: absolute;
+        inset: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- BIKINIS SHOP / @daya_na990 — maquette motion design 1080×1920, 30 i/s, 794 images.
+         Limites de scènes = reference/TIMELINE_14_SCENES.json (fins exclusives). -->
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="26.466666666666665"
+      data-width="1080"
+      data-height="1920"
+      data-fps="30"
+    >
+      <div id="el-decor" data-composition-id="decor" data-composition-src="compositions/decor.html" data-start="0" data-duration="26.466666666666665" data-track-index="0" data-track-kind="graphics"></div>
+
+      <div id="el-s01" data-composition-id="s01-ouverture" data-composition-src="compositions/s01-ouverture.html" data-start="0" data-duration="1.8" data-track-index="1" data-track-kind="graphics"></div>
+      <div id="el-s02" data-composition-id="s02-recherche" data-composition-src="compositions/s02-recherche.html" data-start="1.8" data-duration="2" data-track-index="1" data-track-kind="graphics"></div>
+      <div id="el-s03" data-composition-id="s03-profil" data-composition-src="compositions/s03-profil.html" data-start="3.8" data-duration="1.5" data-track-index="1" data-track-kind="graphics"></div>
+      <div id="el-s04" data-composition-id="s04-galerie" data-composition-src="compositions/s04-galerie.html" data-start="5.3" data-duration="2.5" data-track-index="1" data-track-kind="graphics"></div>
+      <div id="el-s05" data-composition-id="s05-message" data-composition-src="compositions/s05-message.html" data-start="7.8" data-duration="1.8" data-track-index="1" data-track-kind="graphics"></div>
+      <div id="el-s06" data-composition-id="s06-heros" data-composition-src="compositions/s06-heros.html" data-start="9.6" data-duration="2.2" data-track-index="1" data-track-kind="graphics"></div>
+      <div id="el-s07" data-composition-id="s07-details" data-composition-src="compositions/s07-details.html" data-start="11.8" data-duration="2.1" data-track-index="1" data-track-kind="graphics"></div>
+      <div id="el-s08" data-composition-id="s08-choix" data-composition-src="compositions/s08-choix.html" data-start="13.9" data-duration="3.9" data-track-index="1" data-track-kind="graphics"></div>
+      <div id="el-s09" data-composition-id="s09-showroom" data-composition-src="compositions/s09-showroom.html" data-start="17.8" data-duration="1.2" data-track-index="1" data-track-kind="graphics"></div>
+      <div id="el-s10" data-composition-id="s10-selection" data-composition-src="compositions/s10-selection.html" data-start="19" data-duration="1.7" data-track-index="1" data-track-kind="graphics"></div>
+      <div id="el-s11" data-composition-id="s11-modele" data-composition-src="compositions/s11-modele.html" data-start="20.7" data-duration="1.2" data-track-index="1" data-track-kind="graphics"></div>
+      <div id="el-s12" data-composition-id="s12-contact" data-composition-src="compositions/s12-contact.html" data-start="21.9" data-duration="1.1" data-track-index="1" data-track-kind="graphics"></div>
+      <div id="el-s13" data-composition-id="s13-signature" data-composition-src="compositions/s13-signature.html" data-start="23" data-duration="2.5" data-track-index="1" data-track-kind="graphics"></div>
+      <div id="el-s14" data-composition-id="s14-boucle" data-composition-src="compositions/s14-boucle.html" data-start="25.5" data-duration="0.9666666666666667" data-track-index="1" data-track-kind="graphics"></div>
+
+      <div id="el-maquette" data-composition-id="maquette" data-composition-src="compositions/maquette.html" data-start="0" data-duration="26.466666666666665" data-track-index="2" data-track-kind="graphics"></div>
+
+      <audio id="mix" src="assets/audio/mix_daya_motion_social.wav" data-start="0" data-duration="26.466666666666665" data-track-index="10" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

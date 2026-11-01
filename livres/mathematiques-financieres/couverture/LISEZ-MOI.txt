@@ -1,0 +1,28 @@
+MATHÉMATIQUES FINANCIÈRES · couverture du livre
+Professeur Raoul · Édition Moderna · 2026
+==============================================
+
+POUR L'IMPRIMEUR
+- Mathematiques-Financieres_couverture_imprimeur.pdf
+  Couverture à plat : 4e de couverture + dos + 1re de couverture, en CMJN, texte vectorisé
+  (aucune police à installer).
+  Format fini de chaque face : 170 x 240 mm. Dos : 13,4 mm. Fond perdu : 3 mm tout autour.
+  Taille du fichier à plat : 359,4 x 246 mm.
+- Mathematiques-Financieres_couverture_traits-de-coupe.pdf
+  La même couverture avec les traits de coupe et les repères de pliure du dos.
+
+À FAIRE AVANT L'IMPRESSION
+- Le dos (13,4 mm) est calculé pour 240 pages à 0,056 mm par page : donnez à l'imprimeur le
+  nombre de pages exact et le papier choisi, il vous dira l'épaisseur réelle du dos.
+- Les textes entre crochets ou en couleur pâle sont des textes d'attente : présentation de
+  l'auteur, prix et code-barres ISBN. Ils seront remplacés par les vraies informations.
+
+POUR LE WEB ET LES RÉSEAUX
+- Mathematiques-Financieres_face-avant.png (300 dpi) et Mathematiques-Financieres_face-avant.jpg (1200 px de large) :
+  boutique en ligne, WhatsApp, Facebook, Instagram.
+- Mathematiques-Financieres_4e-de-couverture.png
+- couverture-maquette.png : le livre en volume, pour la promotion.
+- couverture-controle.png : la couverture à plat avec les repères de coupe et de sécurité.
+
+Couleurs : émeraude et or : fond C90 M30 J75 N35 en haut, C95 M40 J80 N56 en bas, accent C5 M20 J72 N0.
+Polices : Noto Serif et Noto Sans (licence libre SIL OFL 1.1, usage commercial autorisé).

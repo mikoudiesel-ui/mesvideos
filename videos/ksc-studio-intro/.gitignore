@@ -1,0 +1,5 @@
+.hyperframes/
+node_modules/
+*.log
+renders/*
+!renders/KSC_STUDIO_intro-logo.mp4

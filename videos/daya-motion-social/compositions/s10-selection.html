@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s10-selection-template">
+      <link rel="stylesheet" href="assets/css/daya.css" />
+      <style>
+        @font-face {
+          font-family: "Daya Serif";
+          src: url("assets/fonts/DejaVuSerif-Bold.ttf") format("truetype");
+          font-weight: 700;
+        }
+        @font-face {
+          font-family: "Daya Sans";
+          src: url("assets/fonts/DejaVuSans.ttf") format("truetype");
+          font-weight: 400;
+        }
+        @font-face {
+          font-family: "Daya Sans";
+          src: url("assets/fonts/DejaVuSans-Bold.ttf") format("truetype");
+          font-weight: 700;
+        }
+        #s10-root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        #s10-cam {
+          position: absolute;
+          inset: 0;
+        }
+        /* téléphone = fin de S08 : 520×1030 en (90, 540), centre de transformation, ×1,06, décalé (180, −19,1) */
+        #s10-phone {
+          position: absolute;
+          left: 90px;
+          top: 540px;
+          width: 520px;
+          height: 1030px;
+        }
+        #s10-bezel {
+          position: absolute;
+          inset: 0;
+          border-radius: 64px;
+          background: linear-gradient(160deg, #2a2330 0%, #0b0910 45%, #1e1824 100%);
+          box-shadow:
+            0 0 0 2px #3c3344,
+            0 40px 90px rgba(0, 0, 0, 0.6),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+        }
+        #s10-screen {
+          position: absolute;
+          inset: 12px;
+          border-radius: 52px;
+          background: var(--screen);
+          overflow: hidden;
+        }
+        #s10-interior {
+          position: absolute;
+          inset: 0;
+          background:
+            radial-gradient(ellipse 60% 40% at 50% 38%, rgba(255, 190, 110, 0.55) 0%, rgba(255, 190, 110, 0) 70%),
+            linear-gradient(180deg, #2a1610 0%, #5a2a14 45%, #2a140d 78%, #160c0c 100%);
+        }
+        .s10-arch {
+          position: absolute;
+          top: 250px;
+          width: 150px;
+          height: 330px;
+          border-radius: 999px 999px 0 0;
+          background: radial-gradient(ellipse 80% 55% at 50% 20%, #ffd598 0%, #f2994a 30%, #b9561f 62%, #4a210f 100%);
+          box-shadow: 0 0 60px 10px rgba(255, 140, 60, 0.3);
+          opacity: 0.85;
+        }
+        #s10-screen .statusbar {
+          font-size: 20px;
+          height: 70px;
+        }
+        #s10-screen .statusbar .time {
+          left: 46px;
+          top: 26px;
+        }
+        #s10-screen .statusbar .icons {
+          right: 40px;
+          top: 26px;
+          transform: scale(0.8);
+          transform-origin: 100% 0;
+        }
+        #s10-head {
+          position: absolute;
+          left: 0;
+          top: 78px;
+          width: 496px;
+          text-align: center;
+        }
+        #s10-head .n {
+          display: block;
+          font-size: 30px;
+          line-height: 1;
+          color: var(--cream);
+        }
+        #s10-head .h {
+          display: block;
+          margin-top: 10px;
+          font-size: 22px;
+          line-height: 1;
+          color: #e8dcd2;
+        }
+        #s10-menu,
+        #s10-bag {
+          position: absolute;
+          top: 88px;
+          width: 34px;
+          height: 34px;
+          color: var(--cream);
+        }
+        #s10-island {
+          position: absolute;
+          left: 50%;
+          top: 20px;
+          width: 130px;
+          height: 36px;
+          margin-left: -65px;
+          border-radius: 18px;
+          background: #000;
+        }
+        #s10-neon {
+          position: absolute;
+          inset: 0;
+          border-radius: 64px;
+          opacity: 0;
+        }
+        #s10-halo {
+          position: absolute;
+          left: 250px;
+          top: 640px;
+          width: 560px;
+          height: 640px;
+          border-radius: 50%;
+          background: radial-gradient(ellipse, rgba(255, 96, 110, 0.38) 0%, rgba(255, 140, 80, 0.16) 40%, rgba(255, 66, 105, 0) 70%);
+        }
+        .s10-niche {
+          position: absolute;
+          width: 170px;
+          height: 280px;
+          border-radius: 85px 85px 14px 14px;
+          overflow: hidden;
+          border: 3px solid rgba(214, 162, 74, 0.85);
+          box-shadow: 0 0 26px rgba(255, 150, 70, 0.45);
+        }
+        .s10-niche img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: 50% 0%;
+          display: block;
+        }
+        #s10-niche-rose {
+          left: 205px;
+          top: 960px;
+        }
+        #s10-niche-vert {
+          left: 685px;
+          top: 960px;
+        }
+        #s10-hero {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 870px;
+          height: 1668px;
+          transform-origin: 0 0;
+        }
+        #s10-hero {
+          background: url("assets/img/bleu-detoure.png") 0 0 / 870px 1668px no-repeat;
+        }
+        #s10-podiums {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 1080px;
+          height: 1920px;
+          overflow: visible;
+        }
+        #s10-podium-front {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 1080px;
+          height: 1920px;
+          overflow: visible;
+        }
+        #s10-engrave {
+          position: absolute;
+          left: 300px;
+          top: 1306px;
+          width: 460px;
+          text-align: center;
+          font-size: 34px;
+          line-height: 1;
+          letter-spacing: 0.12em;
+          color: #e7bf74;
+          text-shadow: 0 0 12px rgba(214, 162, 74, 0.6);
+        }
+        #s10-nav {
+          position: absolute;
+          left: 300px;
+          top: 1452px;
+          width: 460px;
+          height: 54px;
+        }
+        #s10-nav svg {
+          position: absolute;
+          top: 6px;
+          width: 40px;
+          height: 40px;
+          color: var(--cream);
+        }
+        #s10-nav .plus {
+          position: absolute;
+          left: 190px;
+          top: 0;
+          width: 80px;
+          height: 52px;
+          border-radius: 14px;
+          background: var(--cream);
+          color: var(--charcoal);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 0 16px rgba(255, 66, 105, 0.8);
+        }
+        /* ---- carte de sélection ---- */
+        #s10-card {
+          position: absolute;
+          left: 100px;
+          top: 470px;
+          width: 800px;
+          height: 500px;
+          border-radius: 36px;
+          background: linear-gradient(160deg, rgba(56, 44, 58, 0.88) 0%, rgba(24, 18, 30, 0.9) 100%);
+          border: 2px solid rgba(214, 162, 74, 0.6);
+          box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 66, 105, 0.18);
+        }
+        .s10-photo {
+          left: 0;
+          top: 0;
+          width: 620px;
+          height: 1120px;
+          border-radius: 36px;
+          transform-origin: 0 0;
+        }
+        .s10-photo .hero-img {
+          left: 21.7px;
+          top: 13.6px;
+          width: 547.66px;
+          height: 1050px;
+        }
+        .s10-photo .shade {
+          position: absolute;
+          inset: 0;
+          border-radius: 36px;
+          background: linear-gradient(180deg, rgba(20, 10, 8, 0) 70%, rgba(20, 10, 8, 0.45) 100%);
+        }
+        #s10-name {
+          position: absolute;
+          left: 410px;
+          top: 548px;
+          font-size: 44px;
+          line-height: 1;
+          color: var(--cream);
+          white-space: nowrap;
+        }
+        #s10-handle {
+          position: absolute;
+          left: 410px;
+          top: 608px;
+          font-size: 32px;
+          line-height: 1;
+          color: #e9ddd3;
+          white-space: nowrap;
+        }
+        #s10-heart {
+          position: absolute;
+          left: 812px;
+          top: 498px;
+          width: 60px;
+          height: 60px;
+        }
+        #s10-heart path {
+          stroke: var(--coral);
+          stroke-width: 2.2;
+          stroke-linejoin: round;
+        }
+        #s10-heart-fill {
+          fill: var(--coral);
+          opacity: 0;
+        }
+        #s10-fav {
+          left: 410px;
+          top: 836px;
+          width: 360px;
+          height: 84px;
+          border-radius: 22px;
+        }
+        #s10-trace path {
+          fill: none;
+          stroke: var(--coral);
+          stroke-width: 4;
+          stroke-linecap: round;
+          filter: drop-shadow(0 0 8px rgba(255, 66, 105, 0.9));
+        }
+        #s10-sparks circle {
+          fill: var(--coral);
+        }
+      </style>
+
+      <div id="s10-root" data-composition-id="s10-selection" data-width="1080" data-height="1920" data-duration="1.7">
+        <div id="s10-show">
+        <div id="s10-cam">
+          <div id="s10-phone">
+            <div id="s10-bezel"></div>
+            <div id="s10-screen">
+              <div id="s10-interior">
+                <div class="s10-arch" style="left: 40px"></div>
+                <div class="s10-arch" style="left: 306px"></div>
+              </div>
+              <div class="statusbar">
+                <span class="time">9:41</span>
+                <span class="icons"><span class="bars"><i style="height: 8px"></i><i style="height: 12px"></i><i style="height: 16px"></i><i style="height: 20px"></i></span><span class="batt"><i></i></span></span>
+              </div>
+              <div id="s10-head"><span class="n serif">BIKINIS SHOP</span><span class="h sans">@daya_na990</span></div>
+              <svg id="s10-menu" class="ico" viewBox="0 0 24 24" style="left: 34px"><path d="M4 7 H20 M4 12 H20 M4 17 H20" /></svg>
+              <svg id="s10-bag" class="ico" viewBox="0 0 24 24" style="left: 428px"><path d="M5 8 H19 L18 20 H6 Z" /><path d="M9 8 V6.5 a3 3 0 0 1 6 0 V8" /></svg>
+            </div>
+            <div id="s10-island"></div>
+            <div id="s10-neon" class="neon"></div>
+          </div>
+
+          <div id="s10-halo"></div>
+          <svg id="s10-podiums" viewBox="0 0 1080 1920">
+            <defs>
+              <linearGradient id="s10-g-body" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#120c10" />
+                <stop offset="0.5" stop-color="#2c1f1d" />
+                <stop offset="1" stop-color="#120c10" />
+              </linearGradient>
+            </defs>
+            <ellipse cx="530" cy="1462" rx="410" ry="74" fill="#140e12" stroke="#ff4269" stroke-width="4" style="filter: drop-shadow(0 0 12px rgba(255, 66, 105, 0.85))" />
+            <path d="M175 1238 L175 1296 A115 26 0 0 0 405 1296 L405 1238 Z" fill="url(#s10-g-body)" />
+            <ellipse cx="290" cy="1238" rx="115" ry="26" fill="#2a1d1a" stroke="#ff4269" stroke-width="3" style="filter: drop-shadow(0 0 8px rgba(255, 66, 105, 0.8))" />
+            <path d="M655 1238 L655 1296 A115 26 0 0 0 885 1296 L885 1238 Z" fill="url(#s10-g-body)" />
+            <ellipse cx="770" cy="1238" rx="115" ry="26" fill="#2a1d1a" stroke="#ff4269" stroke-width="3" style="filter: drop-shadow(0 0 8px rgba(255, 66, 105, 0.8))" />
+            <ellipse cx="530" cy="1268" rx="230" ry="46" fill="#2a1d1a" stroke="#ff4269" stroke-width="4" style="filter: drop-shadow(0 0 10px rgba(255, 66, 105, 0.9))" />
+          </svg>
+          <div class="s10-niche" id="s10-niche-rose"><img src="assets/img/rose-photo.jpg" alt="Bikini rose (illustration)" /></div>
+          <div class="s10-niche" id="s10-niche-vert"><img src="assets/img/vert-photo.jpg" alt="Bikini vert (illustration)" /></div>
+          <div id="s10-hero" role="img" aria-label="Bikini bleu fleuri (illustration)"></div>
+          <svg id="s10-podium-front" viewBox="0 0 1080 1920">
+            <path d="M300 1268 L300 1380 A230 46 0 0 0 760 1380 L760 1268 A230 46 0 0 1 300 1268 Z" fill="url(#s10-g-body)" />
+            <path d="M300 1380 A230 46 0 0 0 760 1380" fill="none" stroke="#ff4269" stroke-width="3" style="filter: drop-shadow(0 0 8px rgba(255, 66, 105, 0.85))" />
+          </svg>
+          <div id="s10-engrave" class="serif">BIKINIS SHOP</div>
+          <div id="s10-nav">
+            <svg class="ico" viewBox="0 0 24 24" style="left: 10px"><path d="M4 11 L12 4 L20 11 V20 H14.5 V14.5 H9.5 V20 H4 Z" /></svg>
+            <svg class="ico" viewBox="0 0 24 24" style="left: 100px"><circle cx="10.5" cy="10.5" r="6.5" /><path d="M15.5 15.5 L21 21" /></svg>
+            <div class="plus"><svg class="ico" viewBox="0 0 24 24" style="width: 32px; height: 32px; stroke-width: 3"><path d="M12 5 V19 M5 12 H19" /></svg></div>
+            <svg class="ico" viewBox="0 0 24 24" style="left: 320px"><path d="M4 5 H20 V16 H13 L8.5 20 V16 H4 Z" /></svg>
+            <svg class="ico" viewBox="0 0 24 24" style="left: 410px"><circle cx="12" cy="8" r="4" /><path d="M4.5 20 a7.5 7.5 0 0 1 15 0" /></svg>
+          </div>
+        </div>
+        </div>
+        <svg class="fx-svg" id="s10-trace" viewBox="0 0 1080 1920"><path id="s10-trace-path" pathLength="1" d="M500 970 L500 1036 L530 1036 L530 1098" /></svg>
+
+        <div id="s10-card"></div>
+        <div class="photo-card s10-photo" id="s10-photo">
+          <div class="bg studio"></div>
+          <img class="hero-img" src="assets/img/bleu-detoure.png" alt="Bikini bleu fleuri (illustration)" />
+          <div class="shade"></div>
+        </div>
+        <div id="s10-name" class="serif">BIKINIS SHOP</div>
+        <div id="s10-handle" class="sans">@daya_na990</div>
+        <svg id="s10-heart" viewBox="0 0 24 24"><path id="s10-heart-fill" d="M12 20 C 5 15, 3 11.5, 3 8.5 a4.5 4.5 0 0 1 9 -1 a4.5 4.5 0 0 1 9 1 C 21 11.5, 19 15, 12 20 Z" /><path d="M12 20 C 5 15, 3 11.5, 3 8.5 a4.5 4.5 0 0 1 9 -1 a4.5 4.5 0 0 1 9 1 C 21 11.5, 19 15, 12 20 Z" fill="none" /></svg>
+        <svg class="fx-svg" id="s10-sparks" viewBox="0 0 1080 1920"></svg>
+        <div id="s10-fav" class="btn-coral"><svg viewBox="0 0 24 24" style="width: 42px; height: 42px"><path d="M12 20 C 5 15, 3 11.5, 3 8.5 a4.5 4.5 0 0 1 9 -1 a4.5 4.5 0 0 1 9 1 C 21 11.5, 19 15, 12 20 Z" fill="#fff8f2" /></svg></div>
+
+        <h1 class="scene-title" id="s10-title" style="font-size: 80px">
+          <span class="ln" id="s10-t1">Votre</span>
+          <span class="ln coral" id="s10-t2">sélection</span>
+        </h1>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const f = (n) => n / 30;
+          // showroom = fin de S09 (caméra ×0,62 autour de (530, 490), descendue de 610 px)
+          gsap.set("#s10-cam", { transformOrigin: "530px 490px", scale: 0.62, y: 610 });
+          gsap.set("#s10-phone", { x: 180, y: -19.1, scale: 1.06, transformOrigin: "50% 50%" });
+          gsap.set("#s10-hero", { x: 356, y: 656.2, scale: 0.38 });
+          gsap.set("#s10-bezel", { opacity: 0 });
+          gsap.set(["#s10-neon", "#s10-interior"], { opacity: 1 });
+          // photo de la carte : grande carte S11 (620×1120) réduite à 250 px de large
+          const PHOTO = { x: 124, y: 494, scale: 250 / 620 };
+          const S11_CARD = { x: 100, y: 450, scale: 1 };
+          gsap.set("#s10-trace-path", { strokeDasharray: 1, strokeDashoffset: 1 });
+          // étincelles du favori : positions dérivées de l'indice (déterministes)
+          const sparks = document.getElementById("s10-sparks");
+          const NS = "http://www.w3.org/2000/svg";
+          const dots = [];
+          for (let i = 0; i < 8; i++) {
+            const c = document.createElementNS(NS, "circle");
+            c.setAttribute("cx", "842");
+            c.setAttribute("cy", "528");
+            c.setAttribute("r", String(i % 2 ? 5 : 7));
+            c.setAttribute("opacity", "0");
+            sparks.appendChild(c);
+            dots.push(c);
+          }
+
+          // ---- 0–12 : la carte entre au-dessus du showroom, puis image et nom
+          tl.fromTo("#s10-card", { opacity: 0, y: -40, scale: 0.96, transformOrigin: "50% 50%" }, { opacity: 1, y: 0, scale: 1, duration: f(12), ease: "power3.out" }, 0);
+          tl.fromTo("#s10-photo", { ...PHOTO, opacity: 0, y: PHOTO.y - 30 }, { ...PHOTO, opacity: 1, duration: f(10), ease: "power3.out" }, f(3));
+          tl.fromTo(["#s10-name", "#s10-handle"], { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: f(9), ease: "power3.out", stagger: f(2) }, f(5));
+          tl.fromTo(["#s10-heart", "#s10-fav"], { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: f(8), ease: "power3.out", stagger: f(2) }, f(7));
+          tl.fromTo("#s10-trace-path", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: f(8), ease: "power2.out" }, f(6));
+          tl.fromTo("#s10-t1", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(2));
+          tl.fromTo("#s10-t2", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(5));
+
+          // ---- 18 : cœur animé une seule fois
+          tl.to("#s10-heart", { scale: 1.35, duration: f(4), ease: "power2.out" }, f(18));
+          tl.to("#s10-heart", { scale: 1, duration: f(8), ease: "back.out(2)" }, f(22));
+          tl.fromTo("#s10-heart-fill", { opacity: 0 }, { opacity: 1, duration: f(3), ease: "power1.out" }, f(18));
+          tl.to("#s10-fav", { scale: 1.06, duration: f(4), ease: "power2.out", yoyo: true, repeat: 1 }, f(18));
+          dots.forEach((c, i) => {
+            const a = (i / 8) * Math.PI * 2 + 0.3;
+            const d = 70 + (i % 3) * 14;
+            tl.fromTo(c, { attr: { cx: 842, cy: 528 }, opacity: 0 }, { attr: { cx: 842 + Math.cos(a) * d, cy: 528 + Math.sin(a) * d }, opacity: 1, duration: f(6), ease: "power2.out" }, f(18));
+            tl.to(c, { opacity: 0, duration: f(6), ease: "power1.in" }, f(24));
+          });
+
+          // ---- sortie 41–51 : la photo grandit vers le plan produit suivant (S11)
+          const T = f(41);
+          tl.to("#s10-photo", { ...S11_CARD, duration: f(10), ease: "power3.inOut" }, T);
+          tl.to(["#s10-card", "#s10-name", "#s10-handle", "#s10-heart", "#s10-fav", "#s10-trace"], { opacity: 0, duration: f(8), ease: "power2.in" }, T);
+          tl.to("#s10-show", { opacity: 0, y: 120, duration: f(9), ease: "power2.in" }, T);
+          tl.to(["#s10-t1", "#s10-t2"], { opacity: 0, y: -20, filter: "blur(10px)", duration: f(7), ease: "power2.in", stagger: f(1) }, T);
+
+          window.__timelines["s10-selection"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

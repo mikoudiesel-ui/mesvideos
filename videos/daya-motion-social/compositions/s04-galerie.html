@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s04-galerie-template">
+      <link rel="stylesheet" href="assets/css/daya.css" />
+      <style>
+        @font-face {
+          font-family: "Daya Serif";
+          src: url("assets/fonts/DejaVuSerif-Bold.ttf") format("truetype");
+          font-weight: 700;
+        }
+        @font-face {
+          font-family: "Daya Sans";
+          src: url("assets/fonts/DejaVuSans.ttf") format("truetype");
+          font-weight: 400;
+        }
+        #s04-root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        #s04-dim {
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(ellipse 70% 50% at 50% 52%, rgba(14, 10, 16, 0.2) 0%, rgba(14, 10, 16, 0.75) 100%);
+        }
+        #s04-cam {
+          position: absolute;
+          inset: 0;
+        }
+        #s04-plate {
+          position: absolute;
+          left: 40px;
+          top: 1330px;
+          width: 950px;
+          height: 230px;
+          border-radius: 50%;
+          background: radial-gradient(ellipse at 50% 40%, rgba(70, 36, 22, 0.95) 0%, rgba(30, 18, 16, 0.95) 60%, rgba(20, 14, 18, 0) 72%);
+          box-shadow: 0 -2px 0 rgba(214, 162, 74, 0.35);
+        }
+        .s04-place {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 630px;
+          height: 960px;
+          transform-origin: 0 0;
+        }
+        .s04-card {
+          left: 0;
+          top: 0;
+          width: 630px;
+          height: 960px;
+          border-radius: 36px;
+        }
+        .s04-card .hero-img {
+          left: 67.87px;
+          top: 27.34px;
+          width: 469.4px;
+          height: 900px;
+        }
+        .s04-card .cover {
+          object-position: 50% 0%;
+        }
+        .s04-card .shade {
+          position: absolute;
+          inset: 0;
+          border-radius: 36px;
+          background: linear-gradient(180deg, rgba(20, 10, 8, 0) 70%, rgba(20, 10, 8, 0.45) 100%);
+        }
+        .s04-card .neon-ov {
+          position: absolute;
+          inset: 0;
+          border-radius: 36px;
+        }
+        .card-sheen {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(110deg, rgba(255, 246, 232, 0) 42%, rgba(255, 246, 232, 0.42) 50%, rgba(255, 246, 232, 0) 58%) 100% 0 / 300% 100% no-repeat;
+          mix-blend-mode: screen;
+          pointer-events: none;
+        }
+        #s04-dots {
+          position: absolute;
+          left: 455px;
+          top: 1590px;
+          width: 120px;
+          height: 24px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        #s04-dots i {
+          display: block;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: rgba(255, 243, 232, 0.35);
+        }
+        #s04-dots i.on {
+          background: var(--coral);
+          box-shadow: 0 0 14px rgba(255, 66, 105, 0.9);
+        }
+      </style>
+
+      <div id="s04-root" data-composition-id="s04-galerie" data-width="1080" data-height="1920" data-duration="2.5">
+        <div id="s04-dim"></div>
+        <div id="s04-cam" data-layout-allow-overflow>
+          <div id="s04-plate"></div>
+          <div class="s04-place" id="s04-pink">
+            <div class="photo-card s04-card" id="s04-pink-in">
+              <img class="cover" src="assets/img/rose-photo.jpg" alt="Bikini rose (illustration)" />
+              <div class="shade"></div>
+            </div>
+          </div>
+          <div class="s04-place" id="s04-green">
+            <div class="photo-card s04-card" id="s04-green-in">
+              <img class="cover" src="assets/img/vert-photo.jpg" alt="Bikini vert (illustration)" />
+              <div class="shade"></div>
+            </div>
+          </div>
+          <div class="photo-card s04-card" id="s04-blue" style="transform-origin: 0 0">
+            <div class="bg studio"></div>
+            <img class="hero-img" src="assets/img/bleu-detoure.png" alt="Bikini bleu fleuri (illustration)" />
+            <div class="shade"></div>
+            <div class="card-sheen" id="s04-sheen"></div>
+            <div class="neon-ov neon" id="s04-blue-neon"></div>
+          </div>
+        </div>
+        <div id="s04-dots"><i></i><i class="on"></i><i></i></div>
+
+        <h1 class="scene-title" id="s04-title" style="font-size: 80px">
+          <span class="ln" id="s04-t1">Lequel</span>
+          <span class="ln coral" id="s04-t2">vous plaît ?</span>
+        </h1>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const f = (n) => n / 30;
+          // départ = fin de S03 ; arrivée bleue = photo jointe de S05 (230, 650, ×0,444)
+          const START = {
+            blue: { x: 310.25, y: 668, scale: 0.65 },
+            pink: { x: 56.75, y: 716, scale: 0.55 },
+            green: { x: 626.75, y: 716, scale: 0.55 },
+          };
+          const FINAL = {
+            blue: { x: 200, y: 500, scale: 1 },
+            pink: { x: -29, y: 712, scale: 0.6 },
+            green: { x: 731, y: 712, scale: 0.6 },
+          };
+          const PHOTO_S05 = { x: 230, y: 650, scale: 0.444444 };
+
+          // ---- 0–18 : la carte bleue passe au premier plan (0,65 → 1), les latérales reculent
+          tl.fromTo("#s04-blue", { ...START.blue }, { ...FINAL.blue, duration: f(18), ease: "power3.out" }, 0);
+          tl.fromTo("#s04-pink", { ...START.pink }, { ...FINAL.pink, duration: f(18), ease: "power3.out" }, 0);
+          tl.fromTo("#s04-green", { ...START.green }, { ...FINAL.green, duration: f(18), ease: "power3.out" }, 0);
+          tl.fromTo(
+            "#s04-pink-in",
+            { rotationY: 0, transformPerspective: 1400, transformOrigin: "50% 50%", filter: "brightness(1) blur(0px)" },
+            { rotationY: 18, filter: "brightness(0.68) blur(1px)", duration: f(18), ease: "power3.out" },
+            0,
+          );
+          tl.fromTo(
+            "#s04-green-in",
+            { rotationY: 0, transformPerspective: 1400, transformOrigin: "50% 50%", filter: "brightness(1) blur(0px)" },
+            { rotationY: -18, filter: "brightness(0.68) blur(1px)", duration: f(18), ease: "power3.out" },
+            0,
+          );
+          tl.fromTo("#s04-dim", { opacity: 0 }, { opacity: 1, duration: f(18), ease: "power2.out" }, 0);
+          tl.fromTo("#s04-plate", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: f(14), ease: "power3.out" }, f(4));
+          tl.fromTo("#s04-dots", { opacity: 0 }, { opacity: 1, duration: f(8), ease: "power2.out" }, f(10));
+          tl.fromTo("#s04-t1", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(2));
+          tl.fromTo("#s04-t2", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(5));
+
+          // ---- pose 18–63 : caméra douce sur le parent ; sélection douce à l'image 60
+          tl.fromTo("#s04-cam", { scale: 1, y: 0, transformOrigin: "515px 980px" }, { scale: 1.025, y: -10, duration: f(45), ease: "sine.inOut" }, f(18));
+          tl.to("#s04-blue-neon", { opacity: 0.55, duration: f(3), ease: "power1.in", yoyo: true, repeat: 1 }, f(56));
+
+          tl.fromTo("#s04-sheen", { backgroundPosition: "100% 0%" }, { backgroundPosition: "0% 0%", duration: f(12), ease: "power2.inOut" }, f(50));
+
+          // ---- sortie 63–75 : la carte se réduit vers la photo jointe au message
+          const T = f(63);
+          tl.to("#s04-cam", { scale: 1, y: 0, duration: f(12), ease: "power3.inOut" }, T);
+          tl.to("#s04-blue", { ...PHOTO_S05, duration: f(12), ease: "power3.inOut" }, T);
+          tl.to("#s04-blue-neon", { opacity: 0, duration: f(9), ease: "power2.inOut" }, T);
+          tl.to("#s04-pink", { x: -160, opacity: 0, duration: f(9), ease: "power2.in" }, T);
+          tl.to("#s04-green", { x: 820, opacity: 0, duration: f(9), ease: "power2.in" }, T);
+          tl.to(["#s04-plate", "#s04-dots", "#s04-dim"], { opacity: 0, duration: f(9), ease: "power2.in" }, T);
+          tl.to(["#s04-t1", "#s04-t2"], { opacity: 0, y: -20, filter: "blur(10px)", duration: f(7), ease: "power2.in", stagger: f(1) }, T);
+
+          window.__timelines["s04-galerie"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

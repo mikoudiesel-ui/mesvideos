@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template id="s03-profil-template">
+      <link rel="stylesheet" href="assets/css/daya.css" />
+      <style>
+        @font-face {
+          font-family: "Daya Serif";
+          src: url("assets/fonts/DejaVuSerif-Bold.ttf") format("truetype");
+          font-weight: 700;
+        }
+        @font-face {
+          font-family: "Daya Sans";
+          src: url("assets/fonts/DejaVuSans.ttf") format("truetype");
+          font-weight: 400;
+        }
+        @font-face {
+          font-family: "Daya Sans";
+          src: url("assets/fonts/DejaVuSans-Bold.ttf") format("truetype");
+          font-weight: 700;
+        }
+        #s03-root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        #s03-phone {
+          left: 170px;
+          top: 420px;
+          width: 680px;
+          height: 1160px;
+        }
+        #s03-ui > * {
+          position: absolute;
+        }
+        #s03-back {
+          left: 212px;
+          top: 508px;
+          width: 40px;
+          height: 40px;
+          color: var(--ui-text);
+        }
+        #s03-head {
+          left: 170px;
+          top: 515px;
+          width: 680px;
+          text-align: center;
+          font-size: 30px;
+          line-height: 1;
+          color: var(--ui-text);
+        }
+        #s03-bell {
+          left: 716px;
+          top: 506px;
+          width: 42px;
+          height: 42px;
+          color: var(--ui-text);
+        }
+        #s03-dots {
+          left: 776px;
+          top: 506px;
+          width: 42px;
+          height: 42px;
+          color: var(--ui-text);
+        }
+        #s03-msg {
+          left: 370px;
+          top: 915px;
+          width: 240px;
+          height: 66px;
+          border-radius: 16px;
+          font-size: 30px;
+        }
+        #s03-more {
+          left: 622px;
+          top: 915px;
+          width: 66px;
+          height: 66px;
+          border-radius: 16px;
+          background: #2a2431;
+          color: var(--ui-text);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        #s03-tabs {
+          left: 184px;
+          top: 1008px;
+          width: 652px;
+          height: 60px;
+        }
+        #s03-tabs svg {
+          position: absolute;
+          top: 0;
+          width: 44px;
+          height: 44px;
+          color: var(--ui-muted);
+        }
+        #s03-tabs .on {
+          color: var(--ui-text);
+        }
+        #s03-tabs .bar {
+          position: absolute;
+          left: 36px;
+          top: 56px;
+          width: 120px;
+          height: 4px;
+          border-radius: 2px;
+          background: var(--ui-text);
+        }
+        #s03-nav {
+          left: 184px;
+          top: 1462px;
+          width: 652px;
+          height: 90px;
+          border-top: 2px solid #241e2b;
+        }
+        #s03-nav svg {
+          position: absolute;
+          top: 24px;
+          width: 46px;
+          height: 46px;
+          color: var(--ui-text);
+        }
+        #s03-nav .plus {
+          position: absolute;
+          left: 280px;
+          top: 20px;
+          width: 92px;
+          height: 54px;
+          border-radius: 14px;
+          background: var(--cream);
+          color: var(--charcoal);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: -4px 0 0 #ff8aa3, 4px 0 0 #ffc48a;
+        }
+        #s03-name {
+          position: absolute;
+          left: 170px;
+          top: 800px;
+          width: 680px;
+          text-align: center;
+          font-size: 52px;
+          line-height: 1;
+          color: var(--cream);
+        }
+        #s03-handle {
+          position: absolute;
+          left: 170px;
+          top: 866px;
+          width: 680px;
+          text-align: center;
+          font-size: 32px;
+          line-height: 1;
+          color: var(--cream);
+        }
+        .s03-hero {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 870px;
+          height: 1668px;
+          transform-origin: 0 0;
+          background: url("assets/img/bleu-detoure.png") 0 0 / 870px 1668px no-repeat;
+        }
+        .s03-hero img {
+          display: block;
+          width: 870px;
+          height: 1668px;
+        }
+        .s03-card {
+          left: 0;
+          top: 0;
+          width: 630px;
+          height: 960px;
+          border-radius: 36px;
+          transform-origin: 0 0;
+        }
+        .s03-card .hero-img {
+          left: 67.87px;
+          top: 27.34px;
+          width: 469.4px;
+          height: 900px;
+        }
+        .s03-card .cover {
+          object-position: 50% 0%;
+        }
+        .s03-card .shade {
+          position: absolute;
+          inset: 0;
+          border-radius: 36px;
+          background: linear-gradient(180deg, rgba(20, 10, 8, 0) 70%, rgba(20, 10, 8, 0.45) 100%);
+        }
+        .s03-card .neon-ov {
+          position: absolute;
+          inset: 0;
+          border-radius: 36px;
+          opacity: 0;
+        }
+      </style>
+
+      <div id="s03-root" data-composition-id="s03-profil" data-width="1080" data-height="1920" data-duration="1.5">
+        <div id="s03-scroll">
+          <div class="phone" id="s03-phone">
+            <div class="screen">
+              <div class="statusbar">
+                <span class="time">9:41</span>
+                <span class="icons"><span class="bars"><i style="height: 8px"></i><i style="height: 12px"></i><i style="height: 16px"></i><i style="height: 20px"></i></span><span class="batt"><i></i></span></span>
+              </div>
+            </div>
+            <div class="island"></div>
+          </div>
+
+          <div id="s03-ui">
+            <svg id="s03-back" class="ico" viewBox="0 0 24 24"><path d="M15 5 L8 12 L15 19" /></svg>
+            <div id="s03-head" class="sans-b">BIKINIS SHOP</div>
+            <svg id="s03-bell" class="ico" viewBox="0 0 24 24"><path d="M6 17 V11 a6 6 0 0 1 12 0 V17 L19.5 18.5 H4.5 Z" /><path d="M10 20.5 a2 2 0 0 0 4 0" /></svg>
+            <svg id="s03-dots" class="ico" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.4" fill="currentColor" /><circle cx="12" cy="12" r="1.4" fill="currentColor" /><circle cx="12" cy="19" r="1.4" fill="currentColor" /></svg>
+            <div id="s03-msg" class="btn-coral">Message</div>
+            <div id="s03-more"><svg class="ico" viewBox="0 0 24 24" style="width: 30px; height: 30px"><path d="M6 9 L12 15 L18 9" /></svg></div>
+            <div id="s03-tabs">
+              <svg class="ico on" viewBox="0 0 24 24" style="left: 74px"><rect x="4" y="4" width="4" height="4" fill="currentColor" stroke="none" /><rect x="10" y="4" width="4" height="4" fill="currentColor" stroke="none" /><rect x="16" y="4" width="4" height="4" fill="currentColor" stroke="none" /><rect x="4" y="10" width="4" height="4" fill="currentColor" stroke="none" /><rect x="10" y="10" width="4" height="4" fill="currentColor" stroke="none" /><rect x="16" y="10" width="4" height="4" fill="currentColor" stroke="none" /><rect x="4" y="16" width="4" height="4" fill="currentColor" stroke="none" /><rect x="10" y="16" width="4" height="4" fill="currentColor" stroke="none" /><rect x="16" y="16" width="4" height="4" fill="currentColor" stroke="none" /></svg>
+              <svg class="ico" viewBox="0 0 24 24" style="left: 304px"><path d="M5 8 H19 L18 20 H6 Z" /><path d="M9 8 V6.5 a3 3 0 0 1 6 0 V8" /></svg>
+              <svg class="ico" viewBox="0 0 24 24" style="left: 534px"><path d="M12 20 C 5 15, 3 11.5, 3 8.5 a4.5 4.5 0 0 1 9 -1 a4.5 4.5 0 0 1 9 1 C 21 11.5, 19 15, 12 20 Z" /></svg>
+              <div class="bar"></div>
+            </div>
+            <div id="s03-nav">
+              <svg class="ico" viewBox="0 0 24 24" style="left: 44px"><path d="M4 11 L12 4 L20 11 V20 H14.5 V14.5 H9.5 V20 H4 Z" /></svg>
+              <svg class="ico" viewBox="0 0 24 24" style="left: 166px"><circle cx="10.5" cy="10.5" r="6.5" /><path d="M15.5 15.5 L21 21" /></svg>
+              <div class="plus"><svg class="ico" viewBox="0 0 24 24" style="width: 34px; height: 34px; stroke-width: 3"><path d="M12 5 V19 M5 12 H19" /></svg></div>
+              <svg class="ico" viewBox="0 0 24 24" style="left: 440px"><path d="M4 5 H20 V16 H13 L8.5 20 V16 H4 Z" /></svg>
+              <svg class="ico" viewBox="0 0 24 24" style="left: 562px"><circle cx="12" cy="8" r="4" /><path d="M4.5 20 a7.5 7.5 0 0 1 15 0" /></svg>
+            </div>
+          </div>
+
+          <div class="s03-hero" id="s03-avatar" role="img" aria-label="Avatar BIKINIS SHOP (illustration)"></div>
+          <svg class="fx-svg" id="s03-fx" viewBox="0 0 1080 1920">
+            <ellipse id="s03-ring" class="ring" cx="510" cy="680" rx="118" ry="118" />
+          </svg>
+          <div id="s03-name" class="serif">BIKINIS SHOP</div>
+          <div id="s03-handle" class="sans">@daya_na990</div>
+        </div>
+
+        <div class="photo-card s03-card" id="s03-pink">
+          <img class="cover" src="assets/img/rose-photo.jpg" alt="Bikini rose (illustration)" />
+          <div class="shade"></div>
+        </div>
+        <div class="photo-card s03-card" id="s03-green">
+          <img class="cover" src="assets/img/vert-photo.jpg" alt="Bikini vert (illustration)" />
+          <div class="shade"></div>
+        </div>
+
+        <div class="photo-card s03-card" id="s03-blue">
+          <div class="bg studio"></div>
+          <img class="hero-img" src="assets/img/bleu-detoure.png" alt="Bikini bleu fleuri (illustration)" />
+          <div class="shade"></div>
+          <div class="neon-ov neon" id="s03-blue-neon"></div>
+        </div>
+
+        <h1 class="scene-title" id="s03-title" style="font-size: 72px">
+          <span class="ln" id="s03-t1">Bikinis.</span>
+          <span class="ln" id="s03-t2"><span class="coral">Couleurs.</span> Style.</span>
+        </h1>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const f = (n) => n / 30;
+          const TILE = 200 / 630; // carte 630×960 réduite à la vignette 200×305 de la grille
+          const GRID = { blue: { x: 198, y: 1080 }, pink: { x: 410, y: 1080 }, green: { x: 622, y: 1080 } };
+          // = états de départ de S04 (image 0)
+          const S04_0 = {
+            blue: { x: 310.25, y: 668, scale: 0.65 },
+            pink: { x: 56.75, y: 716, scale: 0.55 },
+            green: { x: 626.75, y: 716, scale: 0.55 },
+          };
+
+          // ---- raccord : avatar, anneau, nom et handle arrivent de S02 en place
+          gsap.set("#s03-avatar", { x: 380.82, y: 553.08, scale: 0.282051, clipPath: "circle(390px at 458px 450px)" });
+
+          // ---- entrée : le profil remplace le résultat, la grille entre avec 2 images d'écart
+          tl.fromTo(["#s03-back", "#s03-head", "#s03-bell", "#s03-dots"], { opacity: 0, y: -12 }, { opacity: 1, y: 0, duration: f(8), ease: "power3.out", stagger: f(1) }, 0);
+          tl.fromTo(["#s03-msg", "#s03-more"], { opacity: 0, scale: 0.86 }, { opacity: 1, scale: 1, duration: f(8), ease: "back.out(1.6)", stagger: f(2) }, f(3));
+          tl.fromTo("#s03-tabs", { opacity: 0 }, { opacity: 1, duration: f(8), ease: "power2.out" }, f(4));
+          // la grille arrive de S02 (aperçu sous le résultat) : déjà en place à l'image 0
+          ["blue", "pink", "green"].forEach((k) => gsap.set(`#s03-${k}`, { x: GRID[k].x, y: GRID[k].y, scale: TILE }));
+          tl.fromTo("#s03-nav", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: f(8), ease: "power2.out" }, f(6));
+          tl.fromTo("#s03-t1", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(2));
+          tl.fromTo("#s03-t2", { opacity: 0, y: 34, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(12), ease: "power3.out" }, f(5));
+
+          // ---- sortie 35–45 : descente vers la grille, produit bleu mis en avant
+          const T = f(35);
+          tl.to("#s03-scroll", { y: -140, opacity: 0, duration: f(9), ease: "power2.in" }, T);
+          tl.to("#s03-title", { opacity: 0, y: -16, duration: f(7), ease: "power2.in" }, T);
+          tl.to("#s03-blue-neon", { opacity: 1, duration: f(5), ease: "power2.out" }, T);
+          ["blue", "pink", "green"].forEach((k) => {
+            tl.to(`#s03-${k}`, { ...S04_0[k], duration: f(10), ease: "power3.inOut" }, T);
+          });
+
+          window.__timelines["s03-profil"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>
