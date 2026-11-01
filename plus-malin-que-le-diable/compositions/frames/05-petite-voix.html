@@ -120,8 +120,8 @@
   /* le reflet rouge à cornes dans le verre noir (héritage du plan 4), il s'efface */
   #f05-refl { position: absolute; left: 290px; top: 360px; width: 200px; height: 240px; opacity: .22; z-index: 4; }
   #f05-refl svg { display: block; overflow: visible; }
-  /* le crayon au premier plan, flou, coupé par le bord droit */
-  #f05-pencil { position: absolute; left: 1300px; top: 1200px; width: 580px; height: 44px; transform: rotate(-162deg); transform-origin: 0 22px; }
+  /* le crayon au premier plan, flou, coupé par le bord droit, sous la bande du sous-titre */
+  #f05-pencil { position: absolute; left: 1250px; top: 1600px; width: 580px; height: 44px; transform: rotate(-162deg); transform-origin: 0 22px; }
   #f05-pencil-in { position: absolute; left: 0; top: 0; width: 580px; height: 44px; filter: blur(6px); opacity: .92; }
   #f05-pencil-in svg { display: block; overflow: visible; }
   /* la boîte rouge unique sur « petite voix » */
@@ -155,11 +155,11 @@
             <div class="pm-postit-s"><span class="pm-check"><svg viewBox="0 0 46 46"><path id="f05-tick" d="M6 24 L18 36 L42 4" fill="none" stroke="#1b1612" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="60" stroke-dashoffset="60"/></svg></span>mon projet</div>
           </div>
           <!-- l'ombre à cornes, projetée sur la droite de la page (elle se lève depuis sa base à 2.40) -->
-          <div class="pm-shadow" id="f05-shadow" style="left:420px;top:330px">
+          <div class="pm-shadow" id="f05-shadow" style="left:420px;top:190px">
             <svg viewBox="0 0 380 450" width="760" height="900"><path d="M190 120 C120 120 90 170 92 230 C60 260 40 330 40 450 L340 450 C340 330 320 260 288 230 C290 170 260 120 190 120Z" fill="#2b0d10"/><path d="M140 140 C110 90 118 40 150 10 C146 60 160 100 180 122Z M240 140 C270 90 262 40 230 10 C234 60 220 100 200 122Z" fill="#2b0d10"/></svg>
           </div>
           <!-- les yeux rouges : hors du multiply, dans la tête de l'ombre (au-dessus du téléphone) -->
-          <div class="pm-eye" id="f05-eye1" style="left:724px;top:694px"></div><div class="pm-eye" id="f05-eye2" style="left:854px;top:694px"></div>
+          <div class="pm-eye" id="f05-eye1" style="left:724px;top:554px"></div><div class="pm-eye" id="f05-eye2" style="left:854px;top:554px"></div>
           <!-- le téléphone posé sur la page, écran noir -->
           <div class="pm-phone" id="f05-phone" style="left:150px;top:760px;transform:scale(.62);transform-origin:390px 0">
             <div class="pm-island"></div>
