@@ -25,3 +25,7 @@ _references/
 !videos/**/*.mp3
 !videos/**/*.wav
 !videos/**/*.mp4
+
+# Fichiers de test temporaires des agents
+plus-malin-que-le-diable/__f*.html
+plus-malin-que-le-diable/.f*.html
