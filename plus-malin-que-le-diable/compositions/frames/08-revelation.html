@@ -193,27 +193,23 @@
       var eL = edge(1240), eR = edge(40);
       var polyL = "polygon(0px 0px, " + eL.join(", ") + ", 0px 1920px)";
       var polyR = "polygon(" + eR.join(", ") + ", 1280px 1920px, 1280px 0px)";
-      ["rimL", "faceL"].forEach(function (id) { $(id).style.clipPath = polyL; });
-      ["rimR", "faceR"].forEach(function (id) { $(id).style.clipPath = polyR; });
+      // le liseré de papier est en retrait de 3 px sous la face noire : invisible tant que la page est entière
+      $("faceL").style.clipPath = polyL; $("faceR").style.clipPath = polyR;
+      $("rimL").style.clipPath = "polygon(0px 0px, " + edge(1237).join(", ") + ", 0px 1920px)";
+      $("rimR").style.clipPath = "polygon(" + edge(43).join(", ") + ", 1280px 1920px, 1280px 0px)";
 
-      /* ---- la caméra : un seul état ---- */
-      var C = { s: 1.15, x: 0, b: 0 };
-      function render() {
-        camEl.style.transform = "translate(" + C.x.toFixed(2) + "px,0px) scale(" + C.s.toFixed(5) + ")";
-        focusEl.style.filter = C.b > 0.01 ? "blur(" + C.b.toFixed(2) + "px)" : "none";
-      }
-
-      var tl = gsap.timeline({ paused: true, onUpdate: render });
+      var tl = gsap.timeline({ paused: true });
       function ft(target, from, to, pos) { if (pos > 0) to.immediateRender = false; tl.fromTo(target, from, to, pos); }
 
-      /* ---- piste caméra ---- */
+      /* ---- piste caméra : un seul porteur (#f08-cam : x, scale), flou de bougé sur le groupe du monde ---- */
       // 0.00 → 0.60 poussée à travers la déchirure (1.15 → 1.00), puis dérive 1.00 → 1.02
-      ft(C, { s: 1.15 }, { s: 1.0, duration: 0.60, ease: "power3.out" }, 0);
-      ft(C, { s: 1.0 }, { s: 1.02, duration: 1.90, ease: "none" }, 0.60);
+      ft(camEl, { x: 0, scale: 1.15 }, { x: 0, scale: 1.0, duration: 0.60, ease: "power3.out" }, 0);
+      ft(camEl, { scale: 1.0 }, { scale: 1.02, duration: 1.90, ease: "none" }, 0.60);
       // scène 2 : dérive latérale x +20
-      ft(C, { x: 0 }, { x: 20, duration: 2.95, ease: "none" }, 2.50);
+      ft(camEl, { x: 0 }, { x: 20, duration: 2.95, ease: "none" }, 2.50);
       // 5.45 → 5.73 recul vers le cadrage de la couverture, flou de bougé 0 → 6 px (handoff_out : cam(0,0,1.00), flou 6)
-      ft(C, { s: 1.02, x: 20, b: 0 }, { s: 1.0, x: 0, b: 6, duration: 0.28, ease: "power3.inOut" }, 5.45);
+      ft(camEl, { x: 20, scale: 1.02 }, { x: 0, scale: 1.0, duration: 0.28, ease: "power3.inOut" }, 5.45);
+      ft(focusEl, { filter: "blur(0px)" }, { filter: "blur(6px)", duration: 0.28, ease: "power3.inOut" }, 5.45);
 
       /* ---- scène 1 : la déchirure ---- */
       // 0.00 les deux moitiés s'écartent et basculent ; le noir glisse sur son liseré de papier (la fibre apparaît)
@@ -221,8 +217,8 @@
       gsap.set($("halfR"), { transformOrigin: "40px 960px" });
       ft($("halfL"), { x: 0, rotation: 0 }, { x: -520, rotation: -7, duration: 0.60, ease: "power3.out" }, 0);
       ft($("halfR"), { x: 0, rotation: 0 }, { x: 520, rotation: 7, duration: 0.60, ease: "power3.out" }, 0);
-      ft($("faceL"), { x: 0 }, { x: -16, duration: 0.25, ease: "power3.out" }, 0);
-      ft($("faceR"), { x: 0 }, { x: 16, duration: 0.25, ease: "power3.out" }, 0);
+      ft($("faceL"), { x: 0 }, { x: -19, duration: 0.25, ease: "power3.out" }, 0);
+      ft($("faceR"), { x: 0 }, { x: 19, duration: 0.25, ease: "power3.out" }, 0);
       // la fente s'élargit et s'éteint dans la lumière
       ft($("crack"), { scaleX: 1, opacity: 1 }, { scaleX: 4, opacity: 0, duration: 0.25, ease: "power2.out" }, 0);
       // 0.05 la lumière dorée inonde depuis le centre
@@ -276,7 +272,6 @@
       ft($("subB"), { opacity: 1, filter: "blur(0px)" }, { opacity: 0, filter: "blur(6px)", duration: 0.14, ease: "power2.in" }, 5.45);
 
       tl.set({}, {}, DUR);
-      render();
       window.__timelines = window.__timelines || {};
       window.__timelines[FID] = tl;
     })();
