@@ -1,0 +1,278 @@
+<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;background:#0e0b12}</style></head><body>
+  <style>
+  /* ===================== PM : début du bloc CSS à copier ===================== */
+  @font-face { font-family: "Fraunces"; font-weight: 600; src: url("assets/fonts/fraunces-latin-600-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Fraunces"; font-weight: 900; src: url("assets/fonts/fraunces-latin-900-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Fraunces"; font-weight: 600; font-style: italic; src: url("assets/fonts/fraunces-latin-600-italic.woff2") format("woff2"); }
+  @font-face { font-family: "Instrument Sans"; font-weight: 500; src: url("assets/fonts/instrument-sans-latin-500-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Instrument Sans"; font-weight: 700; src: url("assets/fonts/instrument-sans-latin-700-normal.woff2") format("woff2"); }
+
+  .pm-layer { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
+  .pm-layer, .pm-layer * { box-sizing: border-box; }
+  .pm-cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 540px 860px; }
+
+  /* sols */
+  .pm-night { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px;
+    background: radial-gradient(90% 60% at 50% 35%, #2a2a3f 0%, #0e0b12 75%); }
+  .pm-lamp { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; pointer-events: none;
+    background: radial-gradient(60% 40% at 50% 32%, rgba(120,130,190,.18), transparent 70%); }
+  .pm-gold { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: #120d0a; }
+  .pm-gold-halo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; pointer-events: none;
+    background: radial-gradient(48% 34% at 50% 42%, rgba(244,181,63,.55), rgba(244,181,63,.12) 55%, transparent 75%); }
+  .pm-black { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: #000; }
+  .pm-grain { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; pointer-events: none; opacity: .16; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='.9' numOctaves='2'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>"); }
+
+  /* la page d'agenda (monde) : 860 × 1000 en (110, 230), rotation -2deg */
+  .pm-page { position: absolute; left: 110px; top: 230px; width: 860px; height: 1000px; background: #f1e8d8; color: #1b1612;
+    border-radius: 14px; box-shadow: 0 50px 120px rgba(0,0,0,.6); transform: rotate(-2deg); transform-origin: 430px 0; }
+  .pm-page-head { position: absolute; left: 0; top: 0; width: 860px; height: 70px; background: #d9cdb6; border-radius: 14px 14px 0 0; }
+  .pm-ring { position: absolute; top: 22px; width: 24px; height: 24px; border-radius: 50%; background: #0e0b12; }
+  .pm-day { position: absolute; left: 70px; top: 120px; font: 900 150px/1 "Fraunces", serif; letter-spacing: -.02em; }
+  .pm-date { position: absolute; left: 74px; top: 290px; font: 500 30px "Instrument Sans", sans-serif; color: #8a7f6e; letter-spacing: .2em; }
+  .pm-rule { position: absolute; left: 70px; width: 720px; height: 0; border-top: 2px solid #d8ccb5; }
+  .pm-note { position: absolute; font: 500 30px "Instrument Sans", sans-serif; color: #8d8496; }
+
+  /* le post-it « Commencer » : 420 × 330 */
+  .pm-postit { position: absolute; width: 420px; height: 330px; background: #ffd64a; color: #1b1612;
+    box-shadow: 0 30px 60px rgba(0,0,0,.35); padding: 60px 40px; }
+  .pm-postit-t { font: 600 58px/1.05 "Fraunces", serif; }
+  .pm-postit-s { margin-top: 10px; font: 500 30px "Instrument Sans", sans-serif; display: flex; align-items: center; gap: 14px; }
+  .pm-check { width: 34px; height: 34px; border: 3px solid #1b1612; border-radius: 6px; position: relative; }
+  .pm-check svg { position: absolute; left: -4px; top: -10px; width: 46px; height: 46px; overflow: visible; }
+
+  /* l'ombre à cornes (projetée, multiply) : 760 × 900 */
+  .pm-shadow { position: absolute; width: 760px; height: 900px; transform-origin: 380px 900px; mix-blend-mode: multiply; opacity: .55; filter: blur(10px); }
+  .pm-eye { position: absolute; width: 22px; height: 12px; border-radius: 50%; background: #e2372b; box-shadow: 0 0 18px #e2372b; }
+
+  /* le téléphone : 780 × 1130 */
+  .pm-phone { position: absolute; width: 780px; height: 1130px; border-radius: 90px; background: #050407; overflow: hidden;
+    box-shadow: 0 0 0 14px #2a2630, 0 80px 160px rgba(0,0,0,.7); }
+  .pm-island { position: absolute; left: 300px; top: 24px; width: 180px; height: 50px; border-radius: 30px; background: #000; z-index: 5; }
+  .pm-lock { position: absolute; left: 0; top: 0; width: 780px; height: 1130px; background: linear-gradient(180deg, #2b2440 0%, #140f1d 100%); }
+  .pm-lock-date { position: absolute; left: 0; width: 780px; top: 130px; text-align: center; font: 500 38px "Instrument Sans", sans-serif; color: #cfc6dd; }
+  .pm-lock-time { position: absolute; left: 0; width: 780px; top: 170px; text-align: center; font: 700 200px/1 "Instrument Sans", sans-serif; color: #f3eefb; letter-spacing: -.03em; }
+  .pm-alarm { position: absolute; left: 50px; width: 680px; top: 470px; padding: 40px; border-radius: 44px; background: rgba(255,255,255,.14); color: #f3eefb; }
+  .pm-alarm-k { font: 500 30px "Instrument Sans", sans-serif; color: #cfc6dd; }
+  .pm-alarm-t { font: 700 50px/1.1 "Instrument Sans", sans-serif; margin-top: 12px; }
+  .pm-pills { display: flex; gap: 20px; margin-top: 30px; }
+  .pm-pill { flex: 1; text-align: center; padding: 22px 0; border-radius: 40px; font: 700 34px "Instrument Sans", sans-serif; background: rgba(255,255,255,.2); }
+  .pm-notif { position: absolute; left: 40px; width: 700px; padding: 30px 34px; border-radius: 40px; background: rgba(40,34,48,.92);
+    display: flex; gap: 26px; align-items: center; color: #f3eefb; }
+  .pm-notif-ic { width: 86px; height: 86px; flex: none; border-radius: 22px; background: #2a0f12; display: flex; align-items: center; justify-content: center; }
+  .pm-notif-ic svg { width: 62px; }
+  .pm-notif-app { font: 700 30px "Instrument Sans", sans-serif; }
+  .pm-notif-app span { color: #8d8496; font-weight: 500; }
+  .pm-notif-msg { font: 500 40px/1.15 "Instrument Sans", sans-serif; color: #e8e2f0; margin-top: 6px; }
+
+  /* la couverture de l'ebook (maquette) : 560 × 800 */
+  .pm-cover { position: absolute; width: 560px; height: 800px; border-radius: 10px 18px 18px 10px; overflow: hidden; color: #f1e8d8; text-align: center;
+    background: radial-gradient(120% 80% at 50% 18%, #3a1414 0%, #150b0d 55%, #07060a 100%);
+    box-shadow: 0 60px 120px rgba(0,0,0,.6), inset 14px 0 0 rgba(255,255,255,.06), inset 18px 0 30px rgba(0,0,0,.6); }
+  .pm-cover-k { position: absolute; top: 70px; left: 0; width: 560px; font: 500 24px "Instrument Sans", sans-serif; letter-spacing: .35em; color: #f4b53f; }
+  .pm-cover-t { position: absolute; top: 210px; left: 40px; width: 480px; font: 900 96px/.95 "Fraunces", serif; }
+  .pm-cover-t i { font-style: italic; font-weight: 600; color: #e2372b; display: block; font-size: 110px; }
+  .pm-cover-horns { position: absolute; left: 220px; top: 612px; width: 120px; height: 66px; }
+  .pm-cover-a { position: absolute; bottom: 60px; left: 0; width: 560px; font: 500 26px "Instrument Sans", sans-serif; color: #8d8496; letter-spacing: .1em; }
+  .pm-cover-sheen { position: absolute; top: -200px; left: -300px; width: 200px; height: 1200px; transform: rotate(20deg);
+    background: linear-gradient(90deg, transparent, rgba(255,226,160,.35), transparent); }
+
+  /* sous-titre : bande y 1330 à 1470, centrée, mot par mot */
+  .pm-sub { position: absolute; left: 90px; width: 900px; top: 1330px; height: 140px; display: flex; align-items: center; justify-content: center;
+    flex-wrap: wrap; column-gap: 18px; font: 700 62px/72px "Instrument Sans", sans-serif; letter-spacing: -.01em; text-align: center; color: #f1e8d8;
+    text-shadow: 0 4px 24px rgba(0,0,0,.55); }
+  .pm-w { display: inline-block; position: relative; opacity: 0; isolation: isolate; }
+  .pm-nb { white-space: nowrap; display: inline-block; }
+  .pm-box { position: absolute; left: -14px; right: -14px; top: 2px; bottom: 0; border-radius: 10px; background: #e2372b; transform: scaleX(0); transform-origin: 0 50%; z-index: -1; }
+  .pm-box.gold { background: #f4b53f; }
+  .pm-w.on-gold { color: #1b1612; text-shadow: none; }
+  .pm-stroke { position: absolute; left: -4%; width: 108%; bottom: -14px; height: 16px; transform: scaleX(0); transform-origin: 0 50%; }
+
+  /* moment typographique (bascule) */
+  .pm-type { position: absolute; left: 60px; width: 960px; top: 560px; text-align: center; font: 900 96px/1.02 "Fraunces", serif; color: #f1e8d8; }
+  .pm-type i { font-style: italic; font-weight: 600; }
+
+  /* bouton et curseur */
+  .pm-cta { position: absolute; left: 110px; top: 1150px; width: 860px; height: 120px; border-radius: 60px; background: #f4b53f; color: #1b1612;
+    display: flex; align-items: center; justify-content: center; font: 700 46px "Instrument Sans", sans-serif; box-shadow: 0 0 80px rgba(244,181,63,.45); }
+  .pm-cursor { position: absolute; width: 56px; height: 72px; filter: drop-shadow(0 6px 10px rgba(0,0,0,.45)); }
+  .pm-ripple { position: absolute; width: 120px; height: 120px; margin: -60px 0 0 -60px; border-radius: 50%; border: 5px solid #f4b53f; transform: scale(0); opacity: 0; }
+  /* ===================== PM : fin du bloc CSS à copier ===================== */
+
+  /* ===================== 04-alarme : styles propres à la séquence ===================== */
+  #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: "Instrument Sans", sans-serif; color: #f1e8d8;
+    -webkit-font-smoothing: antialiased; }
+  /* groupe de taille nulle : le flou de caméra porte sur son contenu (aucun grand calque flouté) */
+  .f04-g { position: absolute; left: 0; top: 0; width: 0; height: 0; overflow: visible; }
+  #f04-focus { will-change: filter; }
+  /* la lampe froide à 70 % (état hérité de la séquence 03) */
+  #f04-lamp { opacity: .7; }
+  /* la lumière de l'écran sur la page, éteinte tant que l'écran est noir */
+  #f04-spill { position: absolute; left: 110px; top: 700px; width: 860px; height: 1250px; border-radius: 200px; pointer-events: none;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(150,130,210,.30), rgba(150,130,210,0) 70%); opacity: 0; }
+  /* l'écran allumé : fond d'écran verrouillé + date + heure */
+  #f04-screen { position: absolute; left: 0; top: 0; width: 780px; height: 1130px; opacity: 0; }
+  #f04-alarm { opacity: 0; transform-origin: 340px 150px; will-change: transform, filter; }
+  #f04-pills .pm-pill { opacity: 0; }
+  #f04-p1 { transform-origin: 50% 50%; }
+  /* l'onde du pouce : blanche et douce (le doré appartient à la solution) */
+  #f04-ripple { left: 235px; top: 687px; border-color: rgba(243,238,251,.75); z-index: 6; }
+  /* le reflet à cornes dans le verre noir */
+  #f04-glass { position: absolute; left: 0; top: 0; width: 780px; height: 1130px; z-index: 4; opacity: 0; pointer-events: none;
+    background: linear-gradient(118deg, rgba(255,255,255,0) 30%, rgba(200,190,230,.07) 44%, rgba(255,255,255,0) 58%); }
+  #f04-refl { position: absolute; left: 420px; top: 300px; width: 260px; height: 312px; z-index: 4; opacity: 0; pointer-events: none;
+    filter: blur(1.5px); transform-origin: 130px 312px; }
+  #f04-refl svg { display: block; overflow: visible; }
+  /* le pouce : forme sombre et douce, pivot sur la pulpe (posée sur « Répéter ») */
+  #f04-thumb { position: absolute; left: 290px; top: 1387px; width: 190px; height: 600px; opacity: 0;
+    transform-origin: 95px 60px; will-change: transform; }
+  #f04-thumb-in { position: absolute; left: 0; top: 0; width: 190px; height: 600px; border-radius: 95px 95px 70px 70px;
+    background: linear-gradient(100deg, #1d1a26 0%, #0b090f 45%, #060508 100%);
+    box-shadow: inset 6px 10px 18px rgba(150,160,220,.16), 0 40px 70px rgba(0,0,0,.55); filter: blur(2px); }
+  #f04-nail { position: absolute; left: 50px; top: 26px; width: 90px; height: 110px; border-radius: 45px 45px 30px 30px;
+    background: linear-gradient(180deg, rgba(160,165,215,.13), rgba(160,165,215,0)); }
+  </style>
+
+  <div id="root" data-composition-id="04-alarme" data-width="1080" data-height="1920" data-duration="2.3">
+
+    <!-- sol de nuit + halo de lampe froide (70 %) -->
+    <div id="f04-ground" class="clip pm-layer" data-start="0" data-duration="2.3" data-track-index="0">
+      <div class="pm-night"></div>
+      <div id="f04-lamp" class="pm-lamp"></div>
+    </div>
+
+    <!-- le monde sous la caméra : page « Dimanche », post-it, téléphone posé, pouce -->
+    <div id="f04-world" class="clip pm-layer" data-start="0" data-duration="2.3" data-track-index="1">
+      <div class="pm-cam" id="f04-cam">
+        <div class="f04-g" id="f04-focus">
+          <div class="pm-page" id="f04-page">
+            <div class="pm-page-head"></div>
+            <div class="pm-ring" style="left:120px"></div><div class="pm-ring" style="left:250px"></div><div class="pm-ring" style="left:380px"></div><div class="pm-ring" style="left:510px"></div><div class="pm-ring" style="left:640px"></div>
+            <div class="pm-day">Dimanche</div>
+            <div class="pm-date">9 NOVEMBRE</div>
+            <div class="pm-rule" style="top:400px"></div><div class="pm-rule" style="top:490px"></div><div class="pm-rule" style="top:580px"></div><div class="pm-rule" style="top:670px"></div><div class="pm-rule" style="top:760px"></div><div class="pm-rule" style="top:850px"></div><div class="pm-rule" style="top:940px"></div>
+          </div>
+          <div class="pm-postit" id="f04-postit" style="left:470px;top:600px;transform:rotate(4deg)">
+            <div class="pm-postit-t">Commencer</div>
+            <div class="pm-postit-s"><span class="pm-check"><svg viewBox="0 0 46 46"><path id="f04-tick" d="M6 24 L18 36 L42 4" fill="none" stroke="#1b1612" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="60" stroke-dashoffset="60"/></svg></span>mon projet</div>
+          </div>
+          <div id="f04-spill"></div>
+          <div class="pm-phone" id="f04-phone" style="left:150px;top:760px">
+            <div class="pm-island"></div>
+            <div id="f04-screen">
+              <div class="pm-lock"></div>
+              <div class="pm-lock-date">lundi 10 novembre</div>
+              <div class="pm-lock-time">7:00</div>
+            </div>
+            <div class="pm-alarm" id="f04-alarm"><div class="pm-alarm-k">Alarme</div><div class="pm-alarm-t">Commencer mon projet</div>
+              <div class="pm-pills" id="f04-pills"><div class="pm-pill" id="f04-p1">Répéter</div><div class="pm-pill" id="f04-p2">Arrêter</div></div></div>
+            <div class="pm-ripple" id="f04-ripple"></div>
+            <div id="f04-glass"></div>
+            <div id="f04-refl">
+              <svg width="260" height="312" viewBox="0 0 200 240">
+                <defs>
+                  <linearGradient id="f04-rg" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#e2372b" stop-opacity=".75"/>
+                    <stop offset=".55" stop-color="#e2372b" stop-opacity=".45"/>
+                    <stop offset="1" stop-color="#e2372b" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <path d="M100 70 C64 70 48 96 50 128 C30 146 18 186 16 240 L184 240 C182 186 170 146 150 128 C152 96 136 70 100 70Z" fill="url(#f04-rg)"/>
+                <path d="M72 84 C54 60 56 30 76 10 C74 40 82 62 94 74Z M128 84 C146 60 144 30 124 10 C126 40 118 62 106 74Z" fill="#e2372b" fill-opacity=".8"/>
+                <path d="M74 112 Q82 106 90 113" fill="none" stroke="#ffb3a6" stroke-width="3.5" stroke-linecap="round"/>
+                <path d="M110 113 Q118 106 126 112" fill="none" stroke="#ffb3a6" stroke-width="3.5" stroke-linecap="round"/>
+                <path d="M76 128 Q100 150 124 128" fill="none" stroke="#ffb3a6" stroke-width="4" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+          <!-- le pouce : sa pulpe (95, 60) se pose au centre de « Répéter » (monde 385, 1447) -->
+          <div id="f04-thumb"><div id="f04-thumb-in"><div id="f04-nail"></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- grain du film, 16 % (aucun texte : gag muet) -->
+    <div id="f04-grainl" class="clip pm-layer" data-start="0" data-duration="2.3" data-track-index="2">
+      <div class="pm-grain"></div>
+    </div>
+  </div>
+
+  <script src="file:///tmp/claude-0/-home-user-mesvideos/d1d172e3-7f95-578d-b31c-a56cf2bfb14b/scratchpad/hf/registry/blocks/orbit-card/assets/gsap-3.14.2.min.js"></script>
+  <script>
+    (function () {
+      var FID = "04-alarme", DUR = 2.3;
+      function $(id) { return document.getElementById("f04-" + id); }
+      var camEl = $("cam"), focusEl = $("focus");
+
+      /* ---- la caméra : x, y = translation de #cam, s = échelle (origine 540 860), b = flou de bougé ---- */
+      var C = { x: 0, y: 120, s: 1.10, b: 6 };
+      function render() {
+        camEl.style.transform = "translate(" + C.x.toFixed(2) + "px," + C.y.toFixed(2) + "px) scale(" + C.s.toFixed(5) + ")";
+        focusEl.style.filter = C.b > 0.01 ? "blur(" + C.b.toFixed(2) + "px)" : "none";
+      }
+
+      var tl = gsap.timeline({ paused: true, onUpdate: render });
+      function ft(target, from, to, pos) { if (pos > 0) to.immediateRender = false; tl.fromTo(target, from, to, pos); }
+      // première moitié d'un power3.inOut ramenée à [0, 1] : le mouvement est « en cours » (à pleine vitesse) à la couture
+      var pio = gsap.parseEase("power3.inOut");
+      function halfInOut(p) { return pio(p * 0.5) * 2; }
+
+      /* ---- piste caméra ---- */
+      // 0.00 → 0.30 atterrissage sur cam-phone (le téléphone entier, interface au-dessus de la coupure), flou 6 → 0
+      ft(C, { x: 0, y: 120, s: 1.10, b: 6 }, { x: 0, y: -400, s: 1.10, b: 0, duration: 0.30, ease: "power3.out" }, 0);
+      // 0.30 → 2.00 dérive qui ne s'arrête pas : échelle 1.10 → 1.12
+      ft(C, { s: 1.10 }, { s: 1.12, duration: 1.70, ease: "none" }, 0.30);
+      // 2.00 → 2.30 recul + panoramique à droite, en cours à la couture : cam(220, 0, 1.15), flou 8 px
+      ft(C, { x: 0, y: -400, s: 1.12, b: 0 }, { x: 220, y: 0, s: 1.15, b: 8, duration: 0.30, ease: halfInOut }, 2.00);
+
+      /* ---- 0.20 l'écran s'allume : écran verrouillé, « lundi 10 novembre », « 7:00 » ---- */
+      ft($("screen"), { opacity: 0 }, { opacity: 1, duration: 0.10, ease: "power2.out" }, 0.20);
+      ft($("spill"), { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "power2.out" }, 0.20);
+      // 0.25 la carte « Alarme » tombe trop grande et floue (1.18 → 1, flou 5 → 0, 0.35 s)
+      ft($("alarm"), { opacity: 0 }, { opacity: 1, duration: 0.08, ease: "none" }, 0.25);
+      ft($("alarm"), { scale: 1.18, filter: "blur(5px)" }, { scale: 1, filter: "blur(0px)", duration: 0.35, ease: "expo.out" }, 0.25);
+
+      /* ---- 0.40 le téléphone vibre : x ±6 px, 6 pas ---- */
+      var vib = [6, -6, 6, -6, 5, 0], vx = 0;
+      vib.forEach(function (v, i) {
+        ft($("phone"), { x: vx }, { x: v, duration: 0.09, ease: "sine.inOut" }, 0.40 + i * 0.09);
+        vx = v;
+      });
+
+      /* ---- 0.80 les pastilles « Répéter » et « Arrêter » ---- */
+      ft([$("p1"), $("p2")], { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out", stagger: 0.04 }, 0.80);
+
+      /* ---- le pouce : un seul geste depuis le bas, appui sur « Répéter » à 0.95 ---- */
+      ft($("thumb"), { opacity: 0 }, { opacity: 1, duration: 0.04, ease: "none" }, 0.66);
+      ft($("thumb"), { x: 150, y: 980, rotation: -24 }, { x: 0, y: 0, rotation: -14, duration: 0.27, ease: "power3.out" }, 0.66);
+      // appui : le pouce s'écrase plus que la pastille, ensemble, puis relâchent
+      ft($("thumb"), { scale: 1 }, { scale: 0.88, duration: 0.07, ease: "power2.in" }, 0.95);
+      ft($("thumb"), { scale: 0.88 }, { scale: 1, duration: 0.10, ease: "power2.out" }, 1.02);
+      ft($("p1"), { scale: 1, backgroundColor: "rgba(255,255,255,0.2)" }, { scale: 0.95, backgroundColor: "rgba(255,255,255,0.42)", duration: 0.07, ease: "power2.in" }, 0.95);
+      ft($("p1"), { scale: 0.95 }, { scale: 1, duration: 0.10, ease: "power2.out" }, 1.02);
+      // onde depuis le point d'appui
+      tl.set($("ripple"), { opacity: 1 }, 0.96);
+      ft($("ripple"), { scale: 0, opacity: 1 }, { scale: 4, opacity: 0, duration: 0.50, ease: "power2.out" }, 0.96);
+      // le pouce repart (sortie plus rapide que l'entrée), hors champ avant 1.30
+      ft($("thumb"), { x: 0, y: 0, rotation: -14 }, { x: 120, y: 900, rotation: -22, duration: 0.22, ease: "power3.in" }, 1.08);
+
+      /* ---- 1.30 l'écran redevient noir ---- */
+      ft([$("screen"), $("alarm")], { opacity: 1 }, { opacity: 0, duration: 0.08, ease: "power2.in" }, 1.30);
+      ft($("spill"), { opacity: 1 }, { opacity: 0, duration: 0.10, ease: "power2.in" }, 1.30);
+
+      /* ---- 1.40 le petit reflet à cornes sourit dans le verre noir ---- */
+      ft($("glass"), { opacity: 0 }, { opacity: 1, duration: 0.30, ease: "power2.out" }, 1.40);
+      ft($("refl"), { opacity: 0, scale: 0.94 }, { opacity: 0.5, scale: 1, duration: 0.30, ease: "power3.out" }, 1.40);
+      // 1.90 il s'efface lentement : encore faible à la couture (il devient l'ombre de la séquence 05)
+      ft($("refl"), { opacity: 0.5 }, { opacity: 0.14, duration: 0.40, ease: "power1.in" }, 1.90);
+      ft($("glass"), { opacity: 1 }, { opacity: 0.4, duration: 0.40, ease: "power1.in" }, 1.90);
+
+      // longueur exacte du plan
+      tl.set({}, {}, DUR);
+      // première image = handoff_in, avant tout seek
+      render();
+      window.__timelines = window.__timelines || {};
+      window.__timelines[FID] = tl;
+    })();
+  </script>
+</body></html>

@@ -1,0 +1,303 @@
+<template>
+  <style>
+  /* ===================== PM : début du bloc CSS à copier ===================== */
+  @font-face { font-family: "Fraunces"; font-weight: 600; src: url("assets/fonts/fraunces-latin-600-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Fraunces"; font-weight: 900; src: url("assets/fonts/fraunces-latin-900-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Fraunces"; font-weight: 600; font-style: italic; src: url("assets/fonts/fraunces-latin-600-italic.woff2") format("woff2"); }
+  @font-face { font-family: "Instrument Sans"; font-weight: 500; src: url("assets/fonts/instrument-sans-latin-500-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Instrument Sans"; font-weight: 700; src: url("assets/fonts/instrument-sans-latin-700-normal.woff2") format("woff2"); }
+
+  .pm-layer { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden; }
+  .pm-layer, .pm-layer * { box-sizing: border-box; }
+  .pm-cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 540px 860px; }
+
+  /* sols */
+  .pm-night { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px;
+    background: radial-gradient(90% 60% at 50% 35%, #2a2a3f 0%, #0e0b12 75%); }
+  .pm-lamp { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; pointer-events: none;
+    background: radial-gradient(60% 40% at 50% 32%, rgba(120,130,190,.18), transparent 70%); }
+  .pm-gold { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: #120d0a; }
+  .pm-gold-halo { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; pointer-events: none;
+    background: radial-gradient(48% 34% at 50% 42%, rgba(244,181,63,.55), rgba(244,181,63,.12) 55%, transparent 75%); }
+  .pm-black { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: #000; }
+  .pm-grain { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; pointer-events: none; opacity: .16; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='.9' numOctaves='2'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>"); }
+
+  /* la page d'agenda (monde) : 860 × 1000 en (110, 230), rotation -2deg */
+  .pm-page { position: absolute; left: 110px; top: 230px; width: 860px; height: 1000px; background: #f1e8d8; color: #1b1612;
+    border-radius: 14px; box-shadow: 0 50px 120px rgba(0,0,0,.6); transform: rotate(-2deg); transform-origin: 430px 0; }
+  .pm-page-head { position: absolute; left: 0; top: 0; width: 860px; height: 70px; background: #d9cdb6; border-radius: 14px 14px 0 0; }
+  .pm-ring { position: absolute; top: 22px; width: 24px; height: 24px; border-radius: 50%; background: #0e0b12; }
+  .pm-day { position: absolute; left: 70px; top: 120px; font: 900 150px/1 "Fraunces", serif; letter-spacing: -.02em; }
+  .pm-date { position: absolute; left: 74px; top: 290px; font: 500 30px "Instrument Sans", sans-serif; color: #8a7f6e; letter-spacing: .2em; }
+  .pm-rule { position: absolute; left: 70px; width: 720px; height: 0; border-top: 2px solid #d8ccb5; }
+  .pm-note { position: absolute; font: 500 30px "Instrument Sans", sans-serif; color: #8d8496; }
+
+  /* le post-it « Commencer » : 420 × 330 */
+  .pm-postit { position: absolute; width: 420px; height: 330px; background: #ffd64a; color: #1b1612;
+    box-shadow: 0 30px 60px rgba(0,0,0,.35); padding: 60px 40px; }
+  .pm-postit-t { font: 600 58px/1.05 "Fraunces", serif; }
+  .pm-postit-s { margin-top: 10px; font: 500 30px "Instrument Sans", sans-serif; display: flex; align-items: center; gap: 14px; }
+  .pm-check { width: 34px; height: 34px; border: 3px solid #1b1612; border-radius: 6px; position: relative; }
+  .pm-check svg { position: absolute; left: -4px; top: -10px; width: 46px; height: 46px; overflow: visible; }
+
+  /* l'ombre à cornes (projetée, multiply) : 760 × 900 */
+  .pm-shadow { position: absolute; width: 760px; height: 900px; transform-origin: 380px 900px; mix-blend-mode: multiply; opacity: .55; filter: blur(10px); }
+  .pm-eye { position: absolute; width: 22px; height: 12px; border-radius: 50%; background: #e2372b; box-shadow: 0 0 18px #e2372b; }
+
+  /* le téléphone : 780 × 1130 */
+  .pm-phone { position: absolute; width: 780px; height: 1130px; border-radius: 90px; background: #050407; overflow: hidden;
+    box-shadow: 0 0 0 14px #2a2630, 0 80px 160px rgba(0,0,0,.7); }
+  .pm-island { position: absolute; left: 300px; top: 24px; width: 180px; height: 50px; border-radius: 30px; background: #000; z-index: 5; }
+  .pm-lock { position: absolute; left: 0; top: 0; width: 780px; height: 1130px; background: linear-gradient(180deg, #2b2440 0%, #140f1d 100%); }
+  .pm-lock-date { position: absolute; left: 0; width: 780px; top: 130px; text-align: center; font: 500 38px "Instrument Sans", sans-serif; color: #cfc6dd; }
+  .pm-lock-time { position: absolute; left: 0; width: 780px; top: 170px; text-align: center; font: 700 200px/1 "Instrument Sans", sans-serif; color: #f3eefb; letter-spacing: -.03em; }
+  .pm-alarm { position: absolute; left: 50px; width: 680px; top: 470px; padding: 40px; border-radius: 44px; background: rgba(255,255,255,.14); color: #f3eefb; }
+  .pm-alarm-k { font: 500 30px "Instrument Sans", sans-serif; color: #cfc6dd; }
+  .pm-alarm-t { font: 700 50px/1.1 "Instrument Sans", sans-serif; margin-top: 12px; }
+  .pm-pills { display: flex; gap: 20px; margin-top: 30px; }
+  .pm-pill { flex: 1; text-align: center; padding: 22px 0; border-radius: 40px; font: 700 34px "Instrument Sans", sans-serif; background: rgba(255,255,255,.2); }
+  .pm-notif { position: absolute; left: 40px; width: 700px; padding: 30px 34px; border-radius: 40px; background: rgba(40,34,48,.92);
+    display: flex; gap: 26px; align-items: center; color: #f3eefb; }
+  .pm-notif-ic { width: 86px; height: 86px; flex: none; border-radius: 22px; background: #2a0f12; display: flex; align-items: center; justify-content: center; }
+  .pm-notif-ic svg { width: 62px; }
+  .pm-notif-app { font: 700 30px "Instrument Sans", sans-serif; }
+  .pm-notif-app span { color: #8d8496; font-weight: 500; }
+  .pm-notif-msg { font: 500 40px/1.15 "Instrument Sans", sans-serif; color: #e8e2f0; margin-top: 6px; }
+
+  /* la couverture de l'ebook (maquette) : 560 × 800 */
+  .pm-cover { position: absolute; width: 560px; height: 800px; border-radius: 10px 18px 18px 10px; overflow: hidden; color: #f1e8d8; text-align: center;
+    background: radial-gradient(120% 80% at 50% 18%, #3a1414 0%, #150b0d 55%, #07060a 100%);
+    box-shadow: 0 60px 120px rgba(0,0,0,.6), inset 14px 0 0 rgba(255,255,255,.06), inset 18px 0 30px rgba(0,0,0,.6); }
+  .pm-cover-k { position: absolute; top: 70px; left: 0; width: 560px; font: 500 24px "Instrument Sans", sans-serif; letter-spacing: .35em; color: #f4b53f; }
+  .pm-cover-t { position: absolute; top: 210px; left: 40px; width: 480px; font: 900 96px/.95 "Fraunces", serif; }
+  .pm-cover-t i { font-style: italic; font-weight: 600; color: #e2372b; display: block; font-size: 110px; }
+  .pm-cover-horns { position: absolute; left: 220px; top: 612px; width: 120px; height: 66px; }
+  .pm-cover-a { position: absolute; bottom: 60px; left: 0; width: 560px; font: 500 26px "Instrument Sans", sans-serif; color: #8d8496; letter-spacing: .1em; }
+  .pm-cover-sheen { position: absolute; top: -200px; left: -300px; width: 200px; height: 1200px; transform: rotate(20deg);
+    background: linear-gradient(90deg, transparent, rgba(255,226,160,.35), transparent); }
+
+  /* sous-titre : bande y 1330 à 1470, centrée, mot par mot */
+  .pm-sub { position: absolute; left: 90px; width: 900px; top: 1330px; height: 140px; display: flex; align-items: center; justify-content: center;
+    flex-wrap: wrap; column-gap: 18px; font: 700 62px/72px "Instrument Sans", sans-serif; letter-spacing: -.01em; text-align: center; color: #f1e8d8;
+    text-shadow: 0 4px 24px rgba(0,0,0,.55); }
+  .pm-w { display: inline-block; position: relative; opacity: 0; isolation: isolate; }
+  .pm-nb { white-space: nowrap; display: inline-block; }
+  .pm-box { position: absolute; left: -14px; right: -14px; top: 2px; bottom: 0; border-radius: 10px; background: #e2372b; transform: scaleX(0); transform-origin: 0 50%; z-index: -1; }
+  .pm-box.gold { background: #f4b53f; }
+  .pm-w.on-gold { color: #1b1612; text-shadow: none; }
+  .pm-stroke { position: absolute; left: -4%; width: 108%; bottom: -14px; height: 16px; transform: scaleX(0); transform-origin: 0 50%; }
+
+  /* moment typographique (bascule) */
+  .pm-type { position: absolute; left: 60px; width: 960px; top: 560px; text-align: center; font: 900 96px/1.02 "Fraunces", serif; color: #f1e8d8; }
+  .pm-type i { font-style: italic; font-weight: 600; }
+
+  /* bouton et curseur */
+  .pm-cta { position: absolute; left: 110px; top: 1150px; width: 860px; height: 120px; border-radius: 60px; background: #f4b53f; color: #1b1612;
+    display: flex; align-items: center; justify-content: center; font: 700 46px "Instrument Sans", sans-serif; box-shadow: 0 0 80px rgba(244,181,63,.45); }
+  .pm-cursor { position: absolute; width: 56px; height: 72px; filter: drop-shadow(0 6px 10px rgba(0,0,0,.45)); }
+  .pm-ripple { position: absolute; width: 120px; height: 120px; margin: -60px 0 0 -60px; border-radius: 50%; border: 5px solid #f4b53f; transform: scale(0); opacity: 0; }
+  /* ===================== PM : fin du bloc CSS à copier ===================== */
+
+  /* ===================== 03-dimanche : styles propres à la séquence ===================== */
+  #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: "Instrument Sans", sans-serif; color: #f1e8d8;
+    -webkit-font-smoothing: antialiased; }
+  /* groupes de taille nulle (aucun grand calque flouté) : le flou de caméra et la rotation de page portent sur leur contenu */
+  .f03-g { position: absolute; left: 0; top: 0; width: 0; height: 0; overflow: visible; }
+  #f03-focus { will-change: filter; }
+  #f03-flip, #f03-flip-in { transform-origin: 540px 230px; }
+  /* les ombres portées des post-it (même traitement que la séquence 01) */
+  .f03-pshadow { position: absolute; width: 420px; height: 330px; border-radius: 6px; background: rgba(8,6,12,.9); transform-origin: 210px 165px; }
+  #f03-pshadow2 { left: 730px; top: 920px; opacity: .30; transform: translate(6px,16px) rotate(-8deg); filter: blur(10px); }
+  /* le post-it « Commencer » qui tombe sur dimanche à 0.63 */
+  #f03-postit { opacity: 0; will-change: transform, filter; }
+  #f03-pshadow { left: 470px; top: 600px; opacity: 0; will-change: transform, filter; }
+  /* l'heure « 23:12 » dans l'en-tête de la page, style date */
+  #f03-clock { left: 716px; top: 18px; opacity: 0; }
+  /* la poussière : seul mouvement de la page vide */
+  #f03-dust { position: absolute; left: 236px; top: 690px; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%;
+    background: rgba(255,250,236,.95); box-shadow: 0 0 10px 3px rgba(255,248,228,.55); opacity: 0; }
+  /* le téléphone, écran noir, glisse depuis le bas à 3.20 */
+  #f03-phone { opacity: 0; will-change: transform; }
+  #f03-off { position: absolute; left: 0; top: 0; width: 780px; height: 1130px; background: #000; }
+  /* le crayon au premier plan, flou, coupé par le bord gauche (identique à la séquence 01) */
+  #f03-pencil { position: absolute; left: -170px; top: 1232px; width: 580px; height: 44px; transform: rotate(-18deg); transform-origin: 0 22px; }
+  #f03-pencil-in { position: absolute; left: 0; top: 0; width: 580px; height: 44px; filter: blur(6px); opacity: .92; }
+  #f03-pencil-in svg { display: block; overflow: visible; }
+  /* le mot dans la boîte */
+  #f03-w3 { text-shadow: none; color: #fff7ec; }
+  </style>
+
+  <div id="root" data-composition-id="03-dimanche" data-width="1080" data-height="1920" data-duration="3.83">
+
+    <!-- sol de nuit + halo de lampe froide -->
+    <div id="f03-ground" class="clip pm-layer" data-start="0" data-duration="3.83" data-track-index="0">
+      <div class="pm-night"></div>
+      <div id="f03-lamp" class="pm-lamp"></div>
+    </div>
+
+    <!-- le monde sous la caméra : page « Dimanche » dessous, page « Mercredi » + son post-it qui finissent de se retourner -->
+    <div id="f03-world" class="clip pm-layer" data-start="0" data-duration="3.83" data-track-index="1">
+      <div class="pm-cam" id="f03-cam">
+        <div class="f03-g" id="f03-focus">
+          <div class="pm-page" id="f03-page">
+            <div class="pm-page-head"></div>
+            <div class="pm-ring" style="left:120px"></div><div class="pm-ring" style="left:250px"></div><div class="pm-ring" style="left:380px"></div><div class="pm-ring" style="left:510px"></div><div class="pm-ring" style="left:640px"></div>
+            <div class="pm-date" id="f03-clock">23:12</div>
+            <div class="pm-day">Dimanche</div>
+            <div class="pm-date">9 NOVEMBRE</div>
+            <div class="pm-rule" style="top:400px"></div><div class="pm-rule" style="top:490px"></div><div class="pm-rule" style="top:580px"></div><div class="pm-rule" style="top:670px"></div><div class="pm-rule" style="top:760px"></div><div class="pm-rule" style="top:850px"></div><div class="pm-rule" style="top:940px"></div>
+          </div>
+          <div id="f03-dust"></div>
+          <div class="f03-pshadow" id="f03-pshadow"></div>
+          <div class="pm-postit" id="f03-postit" style="left:470px;top:600px;transform:rotate(4deg)">
+            <div class="pm-postit-t">Commencer</div>
+            <div class="pm-postit-s"><span class="pm-check" id="f03-check"><svg viewBox="0 0 46 46"><path id="f03-tick" d="M6 24 L18 36 L42 4" fill="none" stroke="#1b1612" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="60" stroke-dashoffset="60"/></svg></span>mon projet</div>
+          </div>
+          <!-- FRAGMENT téléphone : posé sur la page en (150, 760), écran noir -->
+          <div class="pm-phone" id="f03-phone" style="left:150px;top:760px">
+            <div class="pm-island"></div>
+            <div class="pm-lock"></div>
+            <div id="f03-off"></div>
+          </div>
+          <!-- la page « Mercredi » qui finit de se retourner, post-it collé à son coin bas droit -->
+          <div class="f03-g" id="f03-flip">
+            <div class="f03-g" id="f03-flip-in">
+              <div class="pm-page" id="f03-page2">
+                <div class="pm-page-head"></div>
+                <div class="pm-ring" style="left:120px"></div><div class="pm-ring" style="left:250px"></div><div class="pm-ring" style="left:380px"></div><div class="pm-ring" style="left:510px"></div><div class="pm-ring" style="left:640px"></div>
+                <div class="pm-day">Mercredi</div>
+                <div class="pm-date">5 NOVEMBRE</div>
+                <div class="pm-rule" style="top:400px"></div><div class="pm-rule" style="top:490px"></div><div class="pm-rule" style="top:580px"></div><div class="pm-rule" style="top:670px"></div><div class="pm-rule" style="top:760px"></div><div class="pm-rule" style="top:850px"></div><div class="pm-rule" style="top:940px"></div>
+              </div>
+              <div class="f03-pshadow" id="f03-pshadow2"></div>
+              <div class="pm-postit" id="f03-postit2" style="left:730px;top:920px;transform:rotate(-8deg)">
+                <div class="pm-postit-t">Commencer</div>
+                <div class="pm-postit-s"><span class="pm-check"><svg viewBox="0 0 46 46"><path id="f03-tick2" d="M6 24 L18 36 L42 4" fill="none" stroke="#1b1612" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="60" stroke-dashoffset="60"/></svg></span>mon projet</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- premier plan : le crayon (parallaxe plus forte que la page) -->
+      <div class="f03-g" id="f03-fg" style="transform-origin:540px 860px">
+        <div id="f03-pencil">
+          <div id="f03-pencil-in">
+            <svg width="580" height="44" viewBox="0 0 580 44">
+              <defs><clipPath id="f03-pclip"><rect x="0" y="0" width="490" height="44"/></clipPath></defs>
+              <rect x="0" y="0" width="490" height="44" fill="#2c3048"/>
+              <g clip-path="url(#f03-pclip)"><g id="f03-facets">
+                <rect x="0" y="-14" width="490" height="10" fill="#4a5070"/>
+                <rect x="0" y="6" width="490" height="9" fill="#5d6488"/>
+                <rect x="0" y="28" width="490" height="10" fill="#1e2133"/>
+                <rect x="0" y="50" width="490" height="10" fill="#4a5070"/>
+              </g></g>
+              <path d="M490 0 L566 19 L566 25 L490 44 Z" fill="#cfa77a"/>
+              <path d="M490 0 L566 19 L490 14 Z" fill="#e2c39c"/>
+              <path d="M548 14.5 L580 22 L548 29.5 Z" fill="#26232a"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- la phrase de la voix, bande y 1330 à 1470, mot par mot (temps locaux) -->
+    <div id="f03-subs" class="clip pm-layer" data-start="0" data-duration="3.83" data-track-index="2">
+      <div class="pm-sub" id="f03-sub1"><span class="pm-w" id="f03-w1" data-cue="0.56">Dimanche</span><span class="pm-w" id="f03-w2" data-cue="1.15">soir…</span></div>
+      <div class="pm-sub" id="f03-sub2"><span class="pm-w" id="f03-w3" data-cue="2.31">rien<span class="pm-box" id="f03-box"></span></span><span class="pm-w" id="f03-w4" data-cue="2.49">n’a</span><span class="pm-w" id="f03-w5" data-cue="2.67">bougé.</span></div>
+    </div>
+
+    <!-- grain du film, 16 % -->
+    <div id="f03-grainl" class="clip pm-layer" data-start="0" data-duration="3.83" data-track-index="3">
+      <div class="pm-grain"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      var FID = "03-dimanche", DUR = 3.83;
+      function $(id) { return document.getElementById("f03-" + id); }
+      var camEl = $("cam"), fgEl = $("fg"), focusEl = $("focus"), pencilIn = $("pencil-in");
+
+      /* ---- la caméra : état animé (x reste à 0 tout le plan, jamais d'aller-retour) ---- */
+      // s : échelle, y : translation, b : flou de bougé (px) ; d : profondeur de champ du premier plan (px), o : son opacité
+      var C = { s: 1.35, y: -260, b: 8, d: 0, o: 0.92 };
+      function render() {
+        camEl.style.transform = "translate(0px," + C.y.toFixed(2) + "px) scale(" + C.s.toFixed(5) + ")";
+        // premier plan : plus proche, il bouge 1,5 fois plus que la page
+        var fs = 1 + (C.s - 1) * 1.5, fy = C.y * 1.5;
+        fgEl.style.transform = "translate(0px," + fy.toFixed(2) + "px) scale(" + fs.toFixed(5) + ")";
+        focusEl.style.filter = C.b > 0.01 ? "blur(" + C.b.toFixed(2) + "px)" : "none";
+        pencilIn.style.filter = "blur(" + (6 + C.d + C.b * 1.5).toFixed(2) + "px)";
+        pencilIn.style.opacity = C.o.toFixed(3);
+      }
+
+      var tl = gsap.timeline({ paused: true, onUpdate: render });
+      function ft(target, from, to, pos) { if (pos > 0) to.immediateRender = false; tl.fromTo(target, from, to, pos); }
+
+      // la page « Mercredi » se retourne autour de son bord haut (incliné de -2deg comme la page) : à -70deg à la couture
+      gsap.set($("flip"), { rotation: -2, rotationX: -70, transformPerspective: 1700, transformOrigin: "540px 230px" });
+      gsap.set($("flip-in"), { rotation: 2, transformOrigin: "540px 230px", filter: "brightness(0.72)" });
+      // le crayon reste dans l'état où la séquence 01 l'a laissé (roulé de 20 px)
+      gsap.set(pencilIn, { y: 20 });
+      gsap.set($("facets"), { y: -12 });
+
+      /* ---- piste caméra ---- */
+      // 0.00 → 0.30 atterrissage du whip : y -260 → 0, échelle 1.35 → 1.05, flou 8 → 0 (power3.out)
+      ft(C, { s: 1.35, y: -260, b: 8 }, { s: 1.05, y: 0, b: 0, duration: 0.30, ease: "power3.out" }, 0);
+      // 0.30 → 3.40 dérive qui ne s'arrête pas : 1.05 → 1.08
+      ft(C, { s: 1.05 }, { s: 1.08, duration: 3.10, ease: "none" }, 0.30);
+      // 3.40 → 3.83 bascule vers le téléphone : y 0 → 120, échelle 1.08 → 1.10, flou 0 → 6 px (power3.inOut)
+      ft(C, { s: 1.08, y: 0, b: 0 }, { s: 1.10, y: 120, b: 6, duration: 0.43, ease: "power3.inOut" }, 3.40);
+      // profondeur de champ : quand la lampe baisse, le premier plan recule (flou +4 px, atténué), la page reste nette
+      ft(C, { d: 0, o: 0.92 }, { d: 4, o: 0.7, duration: 0.6, ease: "power2.inOut" }, 1.30);
+
+      /* ---- scène 1 : dimanche soir ---- */
+      // 0.00 → 0.15 la page « Mercredi » finit de se retourner (-70 → -100deg), puis disparaît derrière son axe
+      ft($("flip"), { rotationX: -70 }, { rotationX: -100, duration: 0.15, ease: "power1.out" }, 0);
+      ft($("flip-in"), { filter: "brightness(0.72)" }, { filter: "brightness(0.5)", duration: 0.15, ease: "none" }, 0);
+      ft($("flip"), { opacity: 1 }, { opacity: 0, duration: 0.001, ease: "none" }, 0.16);
+      // 0.63 le post-it tombe sur la page depuis le haut : y -200 → 0, rotation -14 → 4 (0.35 s expo.out), case vide
+      ft($("postit"), { opacity: 0 }, { opacity: 1, duration: 0.05, ease: "none" }, 0.63);
+      ft($("postit"), { y: -200, rotation: -14, scale: 1.08, filter: "blur(5px)", transformOrigin: "50% 50%" },
+        { y: 0, rotation: 4, scale: 1, filter: "blur(0px)", duration: 0.35, ease: "expo.out" }, 0.63);
+      // son ombre : molle et décalée tant qu'il tombe, elle se resserre sous lui quand il touche
+      ft($("pshadow"), { opacity: 0, x: 50, y: -60, rotation: -14, scale: 1.12, filter: "blur(34px)" },
+        { opacity: 0.30, x: 6, y: 16, rotation: 4, scale: 1, filter: "blur(10px)", duration: 0.35, ease: "expo.out" }, 0.63);
+      // 1.30 la lampe baisse : halo froid 100 → 70 %
+      ft($("lamp"), { opacity: 1 }, { opacity: 0.7, duration: 0.6, ease: "power2.inOut" }, 1.30);
+      // 1.80 l'heure « 23:12 » apparaît dans l'en-tête de la page
+      ft($("clock"), { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 1.80);
+
+      /* ---- scène 2 : rien n'a bougé ---- */
+      // 2.80 une poussière traverse la page vide (le seul mouvement), puis s'éteint hors de la lumière
+      ft($("dust"), { opacity: 0 }, { opacity: 0.85, duration: 0.2, ease: "power2.out" }, 2.80);
+      ft($("dust"), { x: 0 }, { x: 430, duration: 0.85, ease: "none" }, 2.80);
+      ft($("dust"), { y: 0 }, { y: -70, duration: 0.85, ease: "sine.inOut" }, 2.80);
+      ft($("dust"), { opacity: 0.85 }, { opacity: 0, duration: 0.2, ease: "power2.in" }, 3.45);
+      // 3.20 le téléphone glisse depuis le bas sur la page (0.5 s power3.out), écran noir
+      ft($("phone"), { opacity: 0 }, { opacity: 1, duration: 0.001, ease: "none" }, 3.20);
+      ft($("phone"), { y: 1100 }, { y: 0, duration: 0.5, ease: "power3.out" }, 3.20);
+
+      /* ---- la phrase de la voix : mot par mot, chaque mot 1 image avant son repère ---- */
+      Array.prototype.forEach.call(document.querySelectorAll("#f03-subs .pm-w"), function (w) {
+        var cue = parseFloat(w.getAttribute("data-cue")) - 1 / 30;
+        ft(w, { opacity: 0, y: 8, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power3.out" }, cue);
+      });
+      // 2.05 « Dimanche soir… » s'en va avant la phrase suivante
+      ft($("sub1"), { opacity: 1, filter: "blur(0px)" }, { opacity: 0, filter: "blur(6px)", duration: 0.14, ease: "power2.in" }, 2.05);
+      // 2.29 la boîte rouge se trace sous « rien » (de la gauche, 0.16 s)
+      ft($("box"), { scaleX: 0 }, { scaleX: 1, duration: 0.16, ease: "power3.out" }, 2.29);
+      // 3.10 le sous-titre s'en va
+      ft($("sub2"), { opacity: 1, filter: "blur(0px)" }, { opacity: 0, filter: "blur(6px)", duration: 0.14, ease: "power2.in" }, 3.10);
+
+      // longueur exacte du plan
+      tl.set({}, {}, DUR);
+      // première image = handoff_in, avant tout seek
+      render();
+      window.__timelines = window.__timelines || {};
+      window.__timelines[FID] = tl;
+    })();
+  </script>
+</template>

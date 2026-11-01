@@ -1,0 +1,229 @@
+<template>
+  <style>
+
+  /* ===================== 02-mercredi : styles propres à la séquence ===================== */
+  #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: "Instrument Sans", sans-serif; color: #f1e8d8;
+    -webkit-font-smoothing: antialiased; }
+  /* groupes de taille nulle (aucun grand calque flouté) : le flou de caméra et la rotation de page portent sur leur contenu */
+  .f02-g { position: absolute; left: 0; top: 0; width: 0; height: 0; overflow: visible; }
+  #f02-focus { will-change: filter; }
+  #f02-flipA, #f02-flipA-in, #f02-flipB, #f02-flipB-in { transform-origin: 540px 230px; }
+  /* la page « Lundi » qui finit de se retourner : invisible dès qu'elle passe la tranche */
+  #f02-flipA { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+  /* la page « Dimanche » dessous : invisible tant que la page « Mercredi » la couvre */
+  #f02-page3 { opacity: 0; }
+  /* l'ombre du post-it de « Lundi » (état final de 01-lundi) */
+  #f02-pshadowA { position: absolute; left: 470px; top: 700px; width: 420px; height: 330px; border-radius: 6px; background: rgba(8,6,12,.9);
+    transform-origin: 210px 165px; }
+  /* le post-it de « Mercredi » et son ombre : dans un repère tourné sur l'axe du glissement (flou directionnel) */
+  #f02-streak { transform: rotate(50.9deg); transform-origin: 0 0; }
+  #f02-streak-in { transform: rotate(-50.9deg); transform-origin: 0 0; }
+  #f02-pshadow { position: absolute; left: 470px; top: 600px; width: 420px; height: 330px; border-radius: 6px; background: rgba(8,6,12,.9);
+    transform-origin: 210px 165px; will-change: transform, filter; }
+  #f02-postit { will-change: transform; }
+  /* la marque « Jeudi → » là où il atterrit */
+  #f02-note { left: 450px; top: 925px; opacity: 0; white-space: nowrap; }
+  /* le crayon au premier plan, flou, coupé par le bord gauche */
+  #f02-pencil { position: absolute; left: -170px; top: 1232px; width: 580px; height: 44px; transform: rotate(-18deg); transform-origin: 0 22px; }
+  #f02-pencil-in { position: absolute; left: 0; top: 0; width: 580px; height: 44px; filter: blur(6px); opacity: .92; }
+  #f02-pencil-in svg { display: block; overflow: visible; }
+  /* le mot dans la boîte */
+  #f02-w3 { text-shadow: none; color: #fff7ec; }
+  </style>
+
+  <div id="root" data-composition-id="02-mercredi" data-width="1080" data-height="1920" data-duration="3.07">
+
+    <!-- filtre de flou directionnel (axe local X du repère tourné = axe du glissement) -->
+    <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+      <filter id="f02-streakf" filterUnits="userSpaceOnUse" x="-3000" y="-3000" width="6000" height="6000">
+        <feGaussianBlur id="f02-streak-blur" in="SourceGraphic" stdDeviation="0 0" />
+      </filter>
+    </svg>
+
+    <!-- sol de nuit + halo de lampe froide -->
+    <div id="f02-ground" class="clip pm-layer" data-start="0" data-duration="3.07" data-track-index="0">
+      <div class="pm-night"></div>
+      <div id="f02-lamp" class="pm-lamp"></div>
+    </div>
+
+    <!-- le monde sous la caméra : « Dimanche » dessous, « Mercredi » + post-it au milieu, « Lundi » qui part dessus -->
+    <div id="f02-world" class="clip pm-layer" data-start="0" data-duration="3.07" data-track-index="1">
+      <div class="pm-cam" id="f02-cam">
+        <div class="f02-g" id="f02-focus">
+          <div class="pm-page" id="f02-page3">
+            <div class="pm-page-head"></div>
+            <div class="pm-ring" style="left:120px"></div><div class="pm-ring" style="left:250px"></div><div class="pm-ring" style="left:380px"></div><div class="pm-ring" style="left:510px"></div><div class="pm-ring" style="left:640px"></div>
+            <div class="pm-day">Dimanche</div>
+            <div class="pm-date">9 NOVEMBRE</div>
+            <div class="pm-rule" style="top:400px"></div><div class="pm-rule" style="top:490px"></div><div class="pm-rule" style="top:580px"></div><div class="pm-rule" style="top:670px"></div><div class="pm-rule" style="top:760px"></div><div class="pm-rule" style="top:850px"></div><div class="pm-rule" style="top:940px"></div>
+          </div>
+          <div class="f02-g" id="f02-flipB">
+            <div class="f02-g" id="f02-flipB-in">
+              <div class="pm-page" id="f02-page">
+                <div class="pm-page-head"></div>
+                <div class="pm-ring" style="left:120px"></div><div class="pm-ring" style="left:250px"></div><div class="pm-ring" style="left:380px"></div><div class="pm-ring" style="left:510px"></div><div class="pm-ring" style="left:640px"></div>
+                <div class="pm-day">Mercredi</div>
+                <div class="pm-date">5 NOVEMBRE</div>
+                <div class="pm-rule" style="top:400px"></div><div class="pm-rule" style="top:490px"></div><div class="pm-rule" style="top:580px"></div><div class="pm-rule" style="top:670px"></div><div class="pm-rule" style="top:760px"></div><div class="pm-rule" style="top:850px"></div><div class="pm-rule" style="top:940px"></div>
+                <div class="pm-note" id="f02-note">Jeudi →</div>
+              </div>
+              <div class="f02-g" id="f02-streak">
+                <div class="f02-g" id="f02-streak-in">
+                  <div id="f02-pshadow"></div>
+                  <div class="pm-postit" id="f02-postit" style="left:470px;top:600px;transform:rotate(5deg)">
+                    <div class="pm-postit-t">Commencer</div>
+                    <div class="pm-postit-s"><span class="pm-check" id="f02-check"><svg viewBox="0 0 46 46"><path id="f02-tick" d="M6 24 L18 36 L42 4" fill="none" stroke="#1b1612" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="60" stroke-dashoffset="60"/></svg></span>mon projet</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="f02-g" id="f02-flipA">
+            <div class="f02-g" id="f02-flipA-in">
+              <div class="pm-page" id="f02-pageA">
+                <div class="pm-page-head"></div>
+                <div class="pm-ring" style="left:120px"></div><div class="pm-ring" style="left:250px"></div><div class="pm-ring" style="left:380px"></div><div class="pm-ring" style="left:510px"></div><div class="pm-ring" style="left:640px"></div>
+                <div class="pm-day">Lundi</div>
+                <div class="pm-date">3 NOVEMBRE</div>
+                <div class="pm-rule" style="top:400px"></div><div class="pm-rule" style="top:490px"></div><div class="pm-rule" style="top:580px"></div><div class="pm-rule" style="top:670px"></div><div class="pm-rule" style="top:760px"></div><div class="pm-rule" style="top:850px"></div><div class="pm-rule" style="top:940px"></div>
+              </div>
+              <div id="f02-pshadowA"></div>
+              <div class="pm-postit" id="f02-postitA" style="left:470px;top:700px;transform:rotate(5deg)">
+                <div class="pm-postit-t">Commencer</div>
+                <div class="pm-postit-s"><span class="pm-check"><svg viewBox="0 0 46 46"><path id="f02-tickA" d="M6 24 L18 36 L42 4" fill="none" stroke="#1b1612" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="60" stroke-dashoffset="60"/></svg></span>mon projet</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- premier plan : le crayon (parallaxe plus forte que la page) -->
+      <div class="f02-g" id="f02-fg" style="transform-origin:540px 860px">
+        <div id="f02-pencil">
+          <div id="f02-pencil-in">
+            <svg width="580" height="44" viewBox="0 0 580 44">
+              <defs><clipPath id="f02-pclip"><rect x="0" y="0" width="490" height="44"/></clipPath></defs>
+              <rect x="0" y="0" width="490" height="44" fill="#2c3048"/>
+              <g clip-path="url(#f02-pclip)"><g id="f02-facets">
+                <rect x="0" y="-14" width="490" height="10" fill="#4a5070"/>
+                <rect x="0" y="6" width="490" height="9" fill="#5d6488"/>
+                <rect x="0" y="28" width="490" height="10" fill="#1e2133"/>
+                <rect x="0" y="50" width="490" height="10" fill="#4a5070"/>
+              </g></g>
+              <path d="M490 0 L566 19 L566 25 L490 44 Z" fill="#cfa77a"/>
+              <path d="M490 0 L566 19 L490 14 Z" fill="#e2c39c"/>
+              <path d="M548 14.5 L580 22 L548 29.5 Z" fill="#26232a"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- la phrase de la voix, bande y 1330 à 1470, mot par mot (temps locaux) -->
+    <div id="f02-subs" class="clip pm-layer" data-start="0" data-duration="3.07" data-track-index="2">
+      <div class="pm-sub" id="f02-sub"><span class="pm-w" id="f02-w1" data-cue="0.63">Mercredi,</span><span class="pm-w" id="f02-w2" data-cue="1.95">tu</span><span class="pm-w" id="f02-w3" data-cue="2.11">repousses.<span class="pm-box" id="f02-box"></span></span></div>
+    </div>
+
+    <!-- grain du film, 16 % -->
+    <div id="f02-grainl" class="clip pm-layer" data-start="0" data-duration="3.07" data-track-index="3">
+      <div class="pm-grain"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      var FID = "02-mercredi", DUR = 3.07;
+      function $(id) { return document.getElementById("f02-" + id); }
+      var camEl = $("cam"), fgEl = $("fg"), focusEl = $("focus"), pencilIn = $("pencil-in");
+      var streakEl = $("streak"), blurNode = $("streak-blur");
+
+      /* ---- la caméra : état animé ---- */
+      // x : panoramique (négatif = la caméra suit le post-it vers la droite), y : translation, s : échelle, b : flou de bougé (px)
+      var C = { x: 0, y: -260, s: 1.35, b: 8 };
+      function render() {
+        camEl.style.transform = "translate(" + C.x.toFixed(2) + "px," + C.y.toFixed(2) + "px) scale(" + C.s.toFixed(5) + ")";
+        // premier plan : plus proche, il bouge 1,5 fois plus que la page
+        var fs = 1 + (C.s - 1) * 1.5, fx = C.x * 1.5, fy = C.y * 1.5;
+        fgEl.style.transform = "translate(" + fx.toFixed(2) + "px," + fy.toFixed(2) + "px) scale(" + fs.toFixed(5) + ")";
+        focusEl.style.filter = C.b > 0.01 ? "blur(" + C.b.toFixed(2) + "px)" : "none";
+        pencilIn.style.filter = "blur(" + (6 + C.b * 1.5).toFixed(2) + "px)";
+      }
+
+      /* ---- flou directionnel du post-it (axe du glissement, 50.9deg) ---- */
+      var B = { v: 0 };
+      function writeBlur() {
+        blurNode.setAttribute("stdDeviation", B.v.toFixed(2) + " 0");
+        streakEl.style.filter = B.v > 0.01 ? "url(#f02-streakf)" : "none";
+      }
+      writeBlur();
+
+      var tl = gsap.timeline({ paused: true, onUpdate: function () { render(); writeBlur(); } });
+      function ft(target, from, to, pos) { if (pos > 0) to.immediateRender = false; tl.fromTo(target, from, to, pos); }
+
+      // pages qui se retournent : l'axe est le bord haut (incliné de -2deg comme la page)
+      gsap.set($("flipA"), { rotation: -2, rotationX: -70, transformPerspective: 1700, transformOrigin: "540px 230px" });
+      gsap.set($("flipA-in"), { rotation: 2, transformOrigin: "540px 230px", filter: "brightness(0.72)" });
+      gsap.set($("flipB"), { rotation: -2, rotationX: 0, transformPerspective: 1700, transformOrigin: "540px 230px" });
+      gsap.set($("flipB-in"), { rotation: 2, transformOrigin: "540px 230px" });
+      // état final de 01-lundi : l'ombre du post-it de « Lundi » serrée sous lui, le crayon roulé
+      gsap.set($("pshadowA"), { opacity: 0.30, scale: 1.0, rotation: 5, x: 6, y: 16, filter: "blur(10px)" });
+      gsap.set($("pencil-in"), { y: 20 });
+      gsap.set($("facets"), { y: -12 });
+
+      /* ---- piste caméra ---- */
+      // 0.00 → 0.30 atterrissage du whip : y -260 → 0, échelle 1.35 → 1.05, flou 8 → 0 (même fenêtre, power3.out)
+      ft(C, { y: -260, s: 1.35, b: 8 }, { y: 0, s: 1.05, b: 0, duration: 0.30, ease: "power3.out" }, 0);
+      // 0.30 → 2.80 dérive lente qui ne s'arrête pas (échelle) ; panoramique qui suit le post-it (+40 px vers la droite)
+      ft(C, { s: 1.05 }, { s: 1.075, duration: 2.50, ease: "none" }, 0.30);
+      ft(C, { x: 0 }, { x: -10, duration: 1.00, ease: "none" }, 0.30);
+      ft(C, { x: -10 }, { x: -44, duration: 0.65, ease: "power2.inOut" }, 1.30);
+      ft(C, { x: -44 }, { x: -50, duration: 0.85, ease: "none" }, 1.95);
+      // 2.80 → 3.07 whip vers le bas (power3.in) : y -260, échelle 1.35, flou 0 → 8 px (en cours à la couture)
+      ft(C, { x: -50, y: 0, s: 1.075, b: 0 }, { x: 0, y: -260, s: 1.35, b: 8, duration: 0.27, ease: "power3.in" }, 2.80);
+
+      /* ---- 0.00 la page « Lundi » finit de partir (-70 → -100deg, 0.15 s) ---- */
+      ft($("flipA"), { rotationX: -70 }, { rotationX: -100, duration: 0.15, ease: "power2.out" }, 0);
+      ft($("flipA"), { opacity: 1 }, { opacity: 0, duration: 0.001, ease: "none" }, 0.15);
+
+      /* ---- le post-it repoussé ---- */
+      // 0.95 un doigt invisible le décolle : il se soulève, son ombre s'ouvre
+      ft($("postit"), { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.03, duration: 0.25, ease: "power3.out" }, 0.95);
+      ft($("pshadow"), { opacity: 0.30, scale: 1, rotation: 5, x: 6, y: 16, filter: "blur(10px)" },
+        { opacity: 0.36, scale: 1.02, rotation: 5, x: 20, y: 42, filter: "blur(20px)", duration: 0.25, ease: "power3.out" }, 0.95);
+      // 1.30 il glisse vers le coin de la page : x +260, y +320, rotation 5 → -8deg, 0.45 s power3.inOut
+      ft($("postit"), { x: 0, y: 0, rotation: 5 }, { x: 260, y: 320, rotation: -8, duration: 0.45, ease: "power3.inOut" }, 1.30);
+      ft($("pshadow"), { x: 20, y: 42, rotation: 5 }, { x: 280, y: 362, rotation: -8, duration: 0.45, ease: "power3.inOut" }, 1.30);
+      // flou de vitesse 6 px sur l'axe du glissement : 0 → 6 sur la première moitié, 6 → 0 sur la seconde (pic = vitesse max)
+      ft(B, { v: 0 }, { v: 6, duration: 0.225, ease: "power3.in" }, 1.30);
+      ft(B, { v: 6 }, { v: 0, duration: 0.225, ease: "power3.out" }, 1.525);
+      // 1.75 il se recolle au coin : retombe, son ombre se resserre
+      ft($("postit"), { scale: 1.03 }, { scale: 1, duration: 0.20, ease: "power3.out" }, 1.75);
+      ft($("pshadow"), { opacity: 0.36, scale: 1.02, x: 280, y: 362, filter: "blur(20px)" },
+        { opacity: 0.30, scale: 1, x: 266, y: 336, filter: "blur(10px)", duration: 0.20, ease: "power3.out" }, 1.75);
+      // 1.80 la marque « Jeudi → » apparaît là où il atterrit
+      ft($("note"), { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: 0.30, ease: "power3.out" }, 1.80);
+
+      /* ---- 2.64 la page « Dimanche » existe sous « Mercredi » ; 2.67 « Mercredi » se retourne vers le haut ---- */
+      ft($("page3"), { opacity: 0 }, { opacity: 1, duration: 0.001, ease: "none" }, 2.64);
+      ft($("flipB"), { rotationX: 0 }, { rotationX: -70, duration: 0.40, ease: "power3.in" }, 2.67);
+      ft($("flipB-in"), { filter: "brightness(1)" }, { filter: "brightness(0.72)", duration: 0.40, ease: "power2.in" }, 2.67);
+
+      /* ---- la phrase de la voix : mot par mot, chaque mot 1 image avant son repère ---- */
+      Array.prototype.forEach.call(document.querySelectorAll("#f02-sub .pm-w"), function (w) {
+        var cue = parseFloat(w.getAttribute("data-cue")) - 1 / 30;
+        ft(w, { opacity: 0, y: 8, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power3.out" }, cue);
+      });
+      // 2.09 la boîte rouge se trace sous « repousses. » (de la gauche, 0.16 s)
+      ft($("box"), { scaleX: 0 }, { scaleX: 1, duration: 0.16, ease: "power3.out" }, 2.09);
+      // 2.60 le sous-titre s'en va (flou 6, 0.14 s)
+      ft($("sub"), { opacity: 1, filter: "blur(0px)" }, { opacity: 0, filter: "blur(6px)", duration: 0.14, ease: "power2.in" }, 2.60);
+
+      // longueur exacte du plan
+      tl.set({}, {}, DUR);
+      // première image = handoff_in, avant tout seek
+      render();
+      window.__timelines = window.__timelines || {};
+      window.__timelines[FID] = tl;
+    })();
+  </script>
+</template>
