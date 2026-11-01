@@ -1,71 +1,70 @@
-# {{TITRE_DU_FILM}} : trois directions de storyboard (à choisir avant d'écrire le storyboard complet)
+# Plus malin que le diable : trois directions de storyboard
 
-<!--
-Modèle de l'étape 4 de la méthode (premier prompt : « Propose-moi 3 directions de storyboard vraiment différentes pour
-ce script, avec 3 images de style chacune »). Copie-le en <projet>/DIRECTIONS.md, remplace chaque {{...}}
-(grep -n "{{" DIRECTIONS.md ne doit rien afficher), puis supprime ce commentaire.
+Même voix (Algenib, montage de 38,5 s), même musique, mêmes bruitages pour les trois directions : seule la mise en
+scène change. Format 9:16, 1080 × 1920. Sous-titre mot par mot dans la bande y 1330 à 1470, au-dessus de l'interface
+Reels. Couverture : maquette en attendant la vraie couverture de l'ebook.
 
-- Lis d'abord patterns/STORYBOARD-CRAFT.md (les 10 lois) et patterns/PATTERNS.md (quoi montrer).
-- Trois directions VRAIMENT différentes : trois lieux, trois façons de faire le pont entre les idées, pas trois
-  habillages du même film. Même script, même voix, même minutage pour les trois (chaque musique ira avec chaque image).
-- Une image de style = une image figée du futur film, en qualité finale (vraies interfaces, vraie typographie, vraie
-  lumière), avec le mouvement suggéré dans l'image elle-même (flou de mouvement, flou de profondeur, élément qui arrive
-  trop grand et flou). Une page HTML autonome de 1920 × 1080 par image, dans <projet>/styleframes/<A1 à C3>.html, rendue
-  en PNG par : python3 .claude/skills/motion-design/scripts/render-styleframes.py <projet>
-- Choisis les trois moments de chaque direction là où elle se joue : l'accroche, le cœur de la douleur, le retournement
-  ou la preuve. Donne leur temps exact dans la voix.
-- Montre les 9 images côte à côte, direction par direction, et attends le choix. Corriger une image coûte dix fois
-  moins cher que corriger une vidéo.
-Exemple rempli : examples/C-le-devis-v7a/DIRECTIONS.md.
--->
+Palette commune : nuit `#0e0b12`, papier `#f1e8d8`, rouge diable `#e2372b` (la petite voix, la boîte du mot clé),
+or `#f4b53f` (la solution, après la bascule). Polices : Fraunces (titres) et Instrument Sans (sous-titres), licence OFL.
 
-Même voix, même musique, mêmes bruitages pour les trois directions : l'horloge ne bouge pas, seule la mise en scène
-change. Grammaire visée : `patterns/STORYBOARD-CRAFT.md` (un monde, une caméra qui s'y déplace, un objet-pont à chaque
-transition, deux vitesses, un événement toutes les 0,5 à 1 s, rien d'immobile). Vraies interfaces, épurées et
-actuelles : {{INTERFACES_ET_CAPTURES_DE_REFERENCE}}.
+## Minutage global de la voix (secondes du film, depuis `onsets.json`)
 
-## Minutage global de la voix (secondes du film)
+Lundi 0.49 · commencer 2.23 · Mercredi 3.93 · repousses 5.39 · Dimanche 6.93 · bougé 9.05 · [gag muet 9.4 à 12.7] ·
+Ce n'est pas 12.78 · talent 13.66 · C'est une petite voix 14.95 · attendre 17.32 · pour toi 18.55 · demain 19.92 ·
+mieux 21.13 · Et si tu étais plus malin qu'elle 22.74 · [bascule sur noir 24.6 à 26.2] · Plus malin que le diable 26.24 ·
+ebook 28.10 · ruses 29.00 · une par une 30.15 · répondre 32.22 · Télécharge-le 33.24 · dessous 35.33 · [fin 35.6 à 38.5]
 
-{{MOT TEMPS · MOT TEMPS · … (depuis onsets.json ; marque le pivot, par exemple [Stop. 14.02, musique coupée])}}
+## A. « Le calendrier de la nuit » (recommandée)
 
-## A. « {{NOM_A}} » {{(recommandée)}}
+**Concept.** Le film se passe sur un agenda papier posé sous une lampe, la nuit. Les jours défilent, la tâche
+« Commencer » glisse de case en case, et la petite voix est une ombre à cornes projetée sur la page. À la bascule, la
+page se déchire et la couverture de l'ebook apparaît derrière, dans une lumière dorée. Tout le monde a déjà repoussé
+une tâche dans un agenda : on se reconnaît en une seconde.
 
-**Concept.** {{En deux ou trois phrases : le lieu du film (le décor que la caméra parcourt), ce qu'il dit du message,
-pourquoi il sert cette voix. Ce qui change entre le monde de la douleur et celui de la solution.}}
+**Fil des objets-ponts.** Le post-it « Commencer » arrive trop grand et flou, se colle sur lundi → il glisse sur
+mercredi puis dimanche (la caméra le suit en panoramique) → au gag, le réveil du lundi suivant sonne sur la page →
+l'ombre à cornes grandit sur la page (« une petite voix ») → chaque excuse devient un post-it qu'elle colle (« attendre »,
+« pas pour toi », « demain ») → bascule : noir, puis la page se déchire en deux → la couverture sort de la déchirure →
+les excuses se font barrer une par une → le post-it « Commencer » revient et se coche → bouton « Télécharger l'ebook ».
+Mécanismes signature : le post-it qui glisse, l'ombre qui grandit. Rime : le lundi du début revient, coché.
 
-**Fil des objets-ponts.** {{Le parcours de la caméra et, à chaque idée de la voix, l'objet qui survit et change de rôle :
-« mot ou temps : objet → nouveau rôle ». Par exemple : le prix arrive trop grand et se pose dans sa case ; la case
-grandit et devient le téléphone ; le devis rétrécit en notification. Nomme les 1 ou 2 mécanismes signature qui
-reviendront 4 à 8 fois, et la rime (le geste de la fin qui rejoue le début).}}
+**Images de style.**
+- A1 (1,8 s) : l'agenda sur « Lundi », le post-it « Commencer » qui arrive trop grand et flou.
+- A2 (17,3 s) : « Mercredi », « Commencer » barré, l'ombre à cornes sur la page, le post-it « Demain. promis ».
+- A3 (26,6 s) : la page déchirée, la couverture dans la lumière dorée, « malin » souligné.
 
-**Images de style à dessiner.**
-- A1 ({{t}} s) : {{cadrage, sujet net, avant-plan flou, fond, lumière, ce qui est en mouvement, texte à l'écran}}
-- A2 ({{t}} s) : {{…}}
-- A3 ({{t}} s) : {{…}}
+## B. « Le théâtre d'ombres »
 
-## B. « {{NOM_B}} »
+**Concept.** Un mur éclairé par une lampe, des silhouettes en ombres chinoises. Une personne à son bureau ; derrière son
+épaule, une ombre à cornes aux yeux rouges grandit à chaque excuse. À la bascule, la lumière tourne : l'ombre du diable
+rétrécit jusqu'à devenir minuscule, et la couverture devient la source de lumière.
 
-**Concept.** {{…}}
+**Fil des objets-ponts.** Le mot « Lundi » projeté sur le mur → la personne au bureau → l'ombre derrière l'épaule grandit
+→ elle souffle les excuses, qui s'écrivent en ombres → bascule : la lampe s'éteint → une lumière dorée revient depuis la
+couverture → l'ombre du diable rapetisse dans un coin. Signature : l'échelle de l'ombre.
 
-**Fil des objets-ponts.** {{…}}
+**Images de style.**
+- B1 (1,8 s) : le mur, « Lundi » en ombre, la personne au bureau.
+- B2 (17,3 s) : l'ombre à cornes aux yeux rouges derrière l'épaule.
+- B3 (26,6 s) : la couverture lumineuse, le diable minuscule en bas à droite.
 
-**Images de style à dessiner.**
-- B1 ({{t}} s) : {{…}}
-- B2 ({{t}} s) : {{…}}
-- B3 ({{t}} s) : {{…}}
+## C. « Le téléphone »
 
-## C. « {{NOM_C}} »
+**Concept.** Tout se passe sur un écran de téléphone, comme dans le fil Facebook : l'alarme « Commencer mon projet »
+répétée, puis la petite voix qui envoie des notifications la nuit (« Attends encore un peu », « Ce n'est pas pour
+toi », « Demain, ce sera mieux »). À la bascule, l'écran devient noir, puis la page de l'ebook s'affiche avec le bouton.
+Très « natif », il ressemble à du contenu plutôt qu'à une pub.
 
-**Concept.** {{…}}
+**Fil des objets-ponts.** L'alarme de 7 h → glissée sur « Répéter » → l'heure saute à 23 h 47 → les notifications de « La
+petite voix » s'empilent → bascule : écran noir → la couverture s'allume sur l'écran → le bouton « Télécharger ».
+Signature : la notification qui tombe.
 
-**Fil des objets-ponts.** {{…}}
-
-**Images de style à dessiner.**
-- C1 ({{t}} s) : {{…}}
-- C2 ({{t}} s) : {{…}}
-- C3 ({{t}} s) : {{…}}
+**Images de style.**
+- C1 (1,8 s) : l'écran verrouillé, 7:00, l'alarme « Commencer mon projet ».
+- C2 (17,3 s) : 23:47, trois notifications de « La petite voix ».
+- C3 (26,6 s) : la couverture sur l'écran, le bouton « Télécharger l'ebook ».
 
 ## Choix
 
-Direction retenue : {{lettre}}, {{avec ses emprunts éventuels aux deux autres, par exemple un objet-pont de B}}.
-Images de style de référence pour la charte et le storyboard : {{styleframes/A1.png, A2.png, A3.png}}.
+Direction retenue : à choisir. Recommandation : **A**, en reprenant de C la notification de « La petite voix » pour le
+gag muet (l'écran du réveil posé sur l'agenda).

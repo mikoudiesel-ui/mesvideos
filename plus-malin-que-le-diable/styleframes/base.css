@@ -1,0 +1,50 @@
+@font-face { font-family: "Fraunces"; font-weight: 600; src: url("../assets/fonts/fraunces-latin-600-normal.woff2"); }
+@font-face { font-family: "Fraunces"; font-weight: 900; src: url("../assets/fonts/fraunces-latin-900-normal.woff2"); }
+@font-face { font-family: "Fraunces"; font-weight: 600; font-style: italic; src: url("../assets/fonts/fraunces-latin-600-italic.woff2"); }
+@font-face { font-family: "Instrument Sans"; font-weight: 500; src: url("../assets/fonts/instrument-sans-latin-500-normal.woff2"); }
+@font-face { font-family: "Instrument Sans"; font-weight: 700; src: url("../assets/fonts/instrument-sans-latin-700-normal.woff2"); }
+
+:root {
+  --nuit: #0e0b12;
+  --nuit-2: #1a1420;
+  --papier: #f1e8d8;
+  --encre: #1b1612;
+  --diable: #e2372b;   /* accent : la petite voix, la boîte du mot clé */
+  --or: #f4b53f;       /* la solution, après la bascule */
+  --gris: #8d8496;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--nuit); }
+body { position: relative; font-family: "Instrument Sans", sans-serif; color: var(--papier); }
+.abs { position: absolute; }
+
+/* Sous-titre : bande centrée, y 1330 à 1470 (au-dessus de l'interface Reels), mot par mot */
+.sub {
+  position: absolute; left: 90px; right: 90px; top: 1330px; height: 140px;
+  display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0 18px;
+  font: 700 62px/1.15 "Instrument Sans", sans-serif; text-align: center; letter-spacing: -0.01em;
+  text-shadow: 0 4px 24px rgba(0,0,0,.55);
+}
+.sub .w.off { opacity: .0; }
+.sub .w.late { opacity: .35; filter: blur(3px); }
+.box { background: var(--diable); color: #fff; padding: 0 14px 4px; border-radius: 10px; text-shadow: none; }
+.box.or { background: var(--or); color: var(--encre); }
+.trait { position: relative; }
+.trait::after { content: ""; position: absolute; left: -4%; right: -4%; bottom: -8px; height: 10px;
+  background: var(--or); border-radius: 10px 40px 10px 40px; transform: rotate(-1.5deg); }
+
+/* Couverture de l'ebook (maquette en attendant la vraie) */
+.cover {
+  position: absolute; width: 560px; height: 800px; border-radius: 10px 18px 18px 10px;
+  background: radial-gradient(120% 80% at 50% 18%, #3a1414 0%, #150b0d 55%, #07060a 100%);
+  box-shadow: 0 60px 120px rgba(0,0,0,.6), inset 14px 0 0 rgba(255,255,255,.06), inset 18px 0 30px rgba(0,0,0,.6);
+  overflow: hidden; color: var(--papier); text-align: center;
+}
+.cover .k { position: absolute; top: 70px; left: 0; right: 0; font: 500 24px "Instrument Sans"; letter-spacing: .35em; color: var(--or); }
+.cover .t { position: absolute; top: 210px; left: 40px; right: 40px; font: 900 96px/0.95 "Fraunces", serif; }
+.cover .t i { font-style: italic; font-weight: 600; color: var(--diable); display: block; font-size: 110px; }
+.cover .horns { position: absolute; left: 50%; top: 612px; width: 120px; height: 66px; transform: translateX(-50%); }
+.cover .a { position: absolute; bottom: 60px; left: 0; right: 0; font: 500 26px "Instrument Sans"; color: var(--gris); letter-spacing: .1em; }
+.grain::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .16; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='.9' numOctaves='2'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>"); }
+.tag { position: absolute; left: 40px; top: 40px; font: 500 22px "Instrument Sans"; color: rgba(255,255,255,.4); letter-spacing: .08em; }
