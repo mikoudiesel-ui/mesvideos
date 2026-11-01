@@ -217,7 +217,6 @@
 
       /* ---- scène 1 : la déchirure ---- */
       // 0.00 les deux moitiés s'écartent et basculent ; le noir glisse sur son liseré de papier (la fibre apparaît)
-      gsap.set([$("halfL"), $("halfR")], { transformOrigin: "50% 960px" });
       gsap.set($("halfL"), { transformOrigin: "1240px 960px" });
       gsap.set($("halfR"), { transformOrigin: "40px 960px" });
       ft($("halfL"), { x: 0, rotation: 0 }, { x: -520, rotation: -7, duration: 0.60, ease: "power3.out" }, 0);
