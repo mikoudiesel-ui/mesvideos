@@ -120,9 +120,21 @@
   /* le reflet à cornes dans le verre noir */
   #f04-glass { position: absolute; left: 0; top: 0; width: 780px; height: 1130px; z-index: 4; opacity: 0; pointer-events: none;
     background: linear-gradient(118deg, rgba(255,255,255,0) 30%, rgba(200,190,230,.07) 44%, rgba(255,255,255,0) 58%); }
-  #f04-refl { position: absolute; left: 420px; top: 300px; width: 260px; height: 312px; z-index: 4; opacity: 0; pointer-events: none;
-    filter: blur(1.5px); transform-origin: 130px 312px; }
+  /* même dessin et même place que dans la séquence 05, qui le reçoit à .22 et l'efface */
+  #f04-refl { position: absolute; left: 290px; top: 360px; width: 200px; height: 240px; z-index: 4; opacity: 0; pointer-events: none;
+    transform-origin: 100px 240px; }
   #f04-refl svg { display: block; overflow: visible; }
+  /* état hérité de la séquence 03 : l'heure « 23:12 » dans l'en-tête, l'ombre portée du post-it, l'écran noir #000 */
+  #f04-clock { left: 716px; top: 18px; }
+  #f04-pshadow { position: absolute; left: 470px; top: 600px; width: 420px; height: 330px; border-radius: 6px; background: rgba(8,6,12,.9);
+    transform-origin: 210px 165px; opacity: .30; transform: translate(6px,16px) rotate(4deg); filter: blur(10px); }
+  #f04-off { position: absolute; left: 0; top: 0; width: 780px; height: 1130px; background: #000; }
+  /* le crayon de la séquence 03 (bord gauche) et celui de la séquence 05 (bord droit), au premier plan */
+  #f04-pencil { position: absolute; left: -170px; top: 1232px; width: 580px; height: 44px; transform: rotate(-18deg); transform-origin: 0 22px; }
+  #f04-pencil-in { position: absolute; left: 0; top: 0; width: 580px; height: 44px; filter: blur(19px); opacity: .7; }
+  #f04-pencil2 { position: absolute; left: 1250px; top: 1600px; width: 580px; height: 44px; transform: rotate(-162deg); transform-origin: 0 22px; }
+  #f04-pencil2-in { position: absolute; left: 0; top: 0; width: 580px; height: 44px; filter: blur(18px); opacity: .92; }
+  #f04-pencil-in svg, #f04-pencil2-in svg { display: block; overflow: visible; }
   /* le pouce : forme sombre et douce, pivot sur la pulpe (posée sur « Répéter ») */
   #f04-thumb { position: absolute; left: 425px; top: 1410px; width: 160px; height: 600px; opacity: 0;
     transform-origin: 80px 40px; will-change: transform; }
@@ -148,10 +160,12 @@
           <div class="pm-page" id="f04-page">
             <div class="pm-page-head"></div>
             <div class="pm-ring" style="left:120px"></div><div class="pm-ring" style="left:250px"></div><div class="pm-ring" style="left:380px"></div><div class="pm-ring" style="left:510px"></div><div class="pm-ring" style="left:640px"></div>
+            <div class="pm-date" id="f04-clock">23:12</div>
             <div class="pm-day">Dimanche</div>
             <div class="pm-date">9 NOVEMBRE</div>
             <div class="pm-rule" style="top:400px"></div><div class="pm-rule" style="top:490px"></div><div class="pm-rule" style="top:580px"></div><div class="pm-rule" style="top:670px"></div><div class="pm-rule" style="top:760px"></div><div class="pm-rule" style="top:850px"></div><div class="pm-rule" style="top:940px"></div>
           </div>
+          <div id="f04-pshadow"></div>
           <div class="pm-postit" id="f04-postit" style="left:470px;top:600px;transform:rotate(4deg)">
             <div class="pm-postit-t">Commencer</div>
             <div class="pm-postit-s"><span class="pm-check"><svg viewBox="0 0 46 46"><path id="f04-tick" d="M6 24 L18 36 L42 4" fill="none" stroke="#1b1612" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="60" stroke-dashoffset="60"/></svg></span>mon projet</div>
@@ -159,6 +173,7 @@
           <div id="f04-spill"></div>
           <div class="pm-phone" id="f04-phone" style="left:150px;top:760px">
             <div class="pm-island"></div>
+            <div id="f04-off"></div>
             <div id="f04-screen">
               <div class="pm-lock"></div>
               <div class="pm-lock-date">lundi 10 novembre</div>
@@ -169,25 +184,44 @@
             <div class="pm-ripple" id="f04-ripple"></div>
             <div id="f04-glass"></div>
             <div id="f04-refl">
-              <svg width="260" height="312" viewBox="0 0 200 240">
-                <defs>
-                  <linearGradient id="f04-rg" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0" stop-color="#e2372b" stop-opacity=".75"/>
-                    <stop offset=".55" stop-color="#e2372b" stop-opacity=".45"/>
-                    <stop offset="1" stop-color="#e2372b" stop-opacity="0"/>
-                  </linearGradient>
-                </defs>
-                <path d="M100 70 C64 70 48 96 50 128 C30 146 18 186 16 240 L184 240 C182 186 170 146 150 128 C152 96 136 70 100 70Z" fill="url(#f04-rg)"/>
-                <path d="M72 84 C54 60 56 30 76 10 C74 40 82 62 94 74Z M128 84 C146 60 144 30 124 10 C126 40 118 62 106 74Z" fill="#e2372b" fill-opacity=".8"/>
-                <path d="M74 112 Q82 106 90 113" fill="none" stroke="#ffb3a6" stroke-width="3.5" stroke-linecap="round"/>
-                <path d="M110 113 Q118 106 126 112" fill="none" stroke="#ffb3a6" stroke-width="3.5" stroke-linecap="round"/>
-                <path d="M76 128 Q100 150 124 128" fill="none" stroke="#ffb3a6" stroke-width="4" stroke-linecap="round"/>
-              </svg>
+              <svg width="200" height="240" viewBox="0 0 380 450"><path d="M190 120 C120 120 90 170 92 230 C60 260 40 330 40 450 L340 450 C340 330 320 260 288 230 C290 170 260 120 190 120Z" fill="#e2372b"/><path d="M140 140 C110 90 118 40 150 10 C146 60 160 100 180 122Z M240 140 C270 90 262 40 230 10 C234 60 220 100 200 122Z" fill="#e2372b"/><path d="M150 200 C170 226 210 226 230 200" fill="none" stroke="#050407" stroke-width="10" stroke-linecap="round"/></svg>
             </div>
           </div>
           <!-- le pouce : sa pulpe (80, 40) se pose sur le bout droit de « Répéter » (monde 505, 1450), le mot reste lisible -->
           <div id="f04-thumb"><div id="f04-thumb-in"><div id="f04-nail"></div></div></div>
         </div>
+      </div>
+      <!-- premier plan : les crayons (parallaxe 1,5 fois celle de la page) -->
+      <div class="f04-g" id="f04-fg">
+        <div id="f04-pencil">
+          <div id="f04-pencil-in">
+            <svg width="580" height="44" viewBox="0 0 580 44">
+              <defs><clipPath id="f04-pclip"><rect x="0" y="0" width="490" height="44"/></clipPath></defs>
+              <rect x="0" y="0" width="490" height="44" fill="#2c3048"/>
+              <g clip-path="url(#f04-pclip)"><g id="f04-facets">
+                <rect x="0" y="-14" width="490" height="10" fill="#4a5070"/>
+                <rect x="0" y="6" width="490" height="9" fill="#5d6488"/>
+                <rect x="0" y="28" width="490" height="10" fill="#1e2133"/>
+                <rect x="0" y="50" width="490" height="10" fill="#4a5070"/>
+              </g></g>
+              <path d="M490 0 L566 19 L566 25 L490 44 Z" fill="#cfa77a"/>
+              <path d="M490 0 L566 19 L490 14 Z" fill="#e2c39c"/>
+              <path d="M548 14.5 L580 22 L548 29.5 Z" fill="#26232a"/>
+            </svg>
+          </div>
+        </div>
+        <div class="f04-g" id="f04-p2wrap"><div id="f04-pencil2">
+          <div id="f04-pencil2-in">
+            <svg width="580" height="44" viewBox="0 0 580 44">
+              <rect x="0" y="0" width="490" height="44" fill="#2c3048"/>
+              <rect x="0" y="6" width="490" height="9" fill="#5d6488"/>
+              <rect x="0" y="28" width="490" height="10" fill="#1e2133"/>
+              <path d="M490 0 L566 19 L566 25 L490 44 Z" fill="#cfa77a"/>
+              <path d="M490 0 L566 19 L490 14 Z" fill="#e2c39c"/>
+              <path d="M548 14.5 L580 22 L548 29.5 Z" fill="#26232a"/>
+            </svg>
+          </div>
+        </div></div>
       </div>
     </div>
 
@@ -202,26 +236,47 @@
     (function () {
       var FID = "04-alarme", DUR = 2.3;
       function $(id) { return document.getElementById("f04-" + id); }
-      var camEl = $("cam"), focusEl = $("focus");
-      // première image = handoff_in, avant tout seek
+      var camEl = $("cam"), focusEl = $("focus"), fgEl = $("fg"), phoneEl = $("phone");
+      // première image = handoff_in = dernière image de la séquence 03, avant tout seek
       gsap.set(camEl, { x: 0, y: 120, scale: 1.10, transformOrigin: "540px 860px" });
+      gsap.set(fgEl, { x: 0, y: 180, scale: 1.15, transformOrigin: "540px 860px" });
       gsap.set(focusEl, { filter: "blur(6px)" });
+      gsap.set(phoneEl, { transformOrigin: "390px 0px" });
+      gsap.set($("pencil-in"), { y: 20 });
+      gsap.set($("facets"), { y: -12 });
+      gsap.set($("p2wrap"), { y: 900 });
 
-      /* ---- piste caméra : #cam porte x, y, scale (origine 540 860) ; le flou de bougé porte sur #f04-focus ---- */
       var tl = gsap.timeline({ paused: true });
       function ft(target, from, to, pos) { if (pos > 0) to.immediateRender = false; tl.fromTo(target, from, to, pos); }
       // première moitié d'un power3.inOut ramenée à [0, 1] : le mouvement est « en cours » (à pleine vitesse) à la couture
       var pio = gsap.parseEase("power3.inOut");
       function halfInOut(p) { return pio(p * 0.5) * 2; }
 
+      /* ---- piste caméra : #cam (x, y, scale, origine 540 860) ; premier plan #f04-fg à 1,5 fois (x, y, scale - 1) ---- */
       // 0.00 → 0.30 atterrissage sur cam-phone (le téléphone entier, interface au-dessus de la coupure), flou 6 → 0
       ft(camEl, { x: 0, y: 120, scale: 1.10 }, { x: 0, y: -400, scale: 1.10, duration: 0.30, ease: "power3.out" }, 0);
+      ft(fgEl, { x: 0, y: 180, scale: 1.15 }, { x: 0, y: -600, scale: 1.15, duration: 0.30, ease: "power3.out" }, 0);
       ft(focusEl, { filter: "blur(6px)" }, { filter: "blur(0px)", duration: 0.30, ease: "power3.out" }, 0);
+      // le crayon de la séquence 03 file hors champ le long de son axe pendant l'atterrissage
+      ft($("pencil-in"), { x: 0 }, { x: -760, duration: 0.30, ease: "power3.out" }, 0);
       // 0.30 → 2.00 dérive qui ne s'arrête pas : échelle 1.10 → 1.12
       ft(camEl, { scale: 1.10 }, { scale: 1.12, duration: 1.70, ease: "none" }, 0.30);
-      // 2.00 → 2.30 recul + panoramique à droite, en cours à la couture : cam(220, 0, 1.15), flou 8 px
-      ft(camEl, { x: 0, y: -400, scale: 1.12 }, { x: 220, y: 0, scale: 1.15, duration: 0.30, ease: halfInOut }, 2.00);
+      ft(fgEl, { scale: 1.15 }, { scale: 1.18, duration: 1.70, ease: "none" }, 0.30);
+      // 2.00 → 2.30 recul + panoramique (le monde glisse à gauche), en cours à la couture, flou 0 → 8 px :
+      // dernière image = première image de la séquence 05 : #cam translate(-220, 0) scale 1.15, téléphone posé à l'échelle .62
+      ft(camEl, { x: 0, y: -400, scale: 1.12 }, { x: -220, y: 0, scale: 1.15, duration: 0.30, ease: halfInOut }, 2.00);
+      ft(fgEl, { x: 0, y: -600, scale: 1.18 }, { x: -330, y: 0, scale: 1.225, duration: 0.30, ease: halfInOut }, 2.00);
       ft(focusEl, { filter: "blur(0px)" }, { filter: "blur(8px)", duration: 0.30, ease: halfInOut }, 2.00);
+      ft(phoneEl, { scale: 1 }, { scale: 0.62, duration: 0.30, ease: halfInOut }, 2.00);
+      // le crayon de la séquence 05 entre par le bas droit avec le recul
+      ft($("p2wrap"), { y: 900 }, { y: 0, duration: 0.30, ease: halfInOut }, 2.00);
+
+      /* ---- passage discret de l'état 03 à l'état 05, hors du regard (en-tête hors champ, post-it derrière le téléphone) ---- */
+      ft($("clock"), { opacity: 1 }, { opacity: 0, duration: 0.25, ease: "none" }, 0.35);
+      ft($("pshadow"), { opacity: 0.30 }, { opacity: 0, duration: 1.00, ease: "power1.inOut" }, 0.50);
+      ft($("postit"), { rotation: 4 }, { rotation: 5, duration: 1.20, ease: "power1.inOut" }, 0.50);
+      // l'écran noir #000 de la séquence 03 cède la place au verre #050407 sous l'écran allumé
+      ft($("off"), { opacity: 1 }, { opacity: 0, duration: 0.01, ease: "none" }, 0.32);
 
       /* ---- 0.20 l'écran s'allume : écran verrouillé, « lundi 10 novembre », « 7:00 » ---- */
       ft($("screen"), { opacity: 0 }, { opacity: 1, duration: 0.10, ease: "power2.out" }, 0.20);
@@ -261,9 +316,9 @@
       /* ---- 1.40 le petit reflet à cornes sourit dans le verre noir ---- */
       ft($("glass"), { opacity: 0 }, { opacity: 1, duration: 0.30, ease: "power2.out" }, 1.40);
       ft($("refl"), { opacity: 0, scale: 0.94 }, { opacity: 0.5, scale: 1, duration: 0.30, ease: "power3.out" }, 1.40);
-      // 1.90 il s'efface lentement : encore faible à la couture (il devient l'ombre de la séquence 05)
-      ft($("refl"), { opacity: 0.5 }, { opacity: 0.14, duration: 0.40, ease: "power1.in" }, 1.90);
-      ft($("glass"), { opacity: 1 }, { opacity: 0.4, duration: 0.40, ease: "power1.in" }, 1.90);
+      // 1.90 il s'efface : .22 à la couture, la valeur où la séquence 05 le reprend (il devient l'ombre sur la page)
+      ft($("refl"), { opacity: 0.5 }, { opacity: 0.22, duration: 0.40, ease: "power1.in" }, 1.90);
+      ft($("glass"), { opacity: 1 }, { opacity: 0, duration: 0.40, ease: "power1.in" }, 1.90);
 
       // longueur exacte du plan
       tl.set({}, {}, DUR);
