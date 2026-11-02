@@ -118,7 +118,9 @@
   #f02-streak-in { transform: rotate(-50.9deg); transform-origin: 0 0; }
   #f02-pshadow { position: absolute; left: 470px; top: 600px; width: 420px; height: 330px; border-radius: 6px; background: rgba(8,6,12,.9);
     transform-origin: 210px 165px; will-change: transform, filter; }
-  #f02-postit { will-change: transform; }
+  /* le post-it de « Mercredi » apparaît juste après la couture, pendant le flou de caméra */
+  #f02-postit { will-change: transform; opacity: 0; }
+  #f02-pshadow { opacity: 0; }
   /* la marque « Jeudi → » là où il atterrit */
   #f02-note { left: 450px; top: 925px; opacity: 0; white-space: nowrap; }
   /* le crayon au premier plan, flou, coupé par le bord gauche */
@@ -273,23 +275,26 @@
       // 0.30 → 2.80 dérive lente qui ne s'arrête pas (échelle) ; panoramique qui suit le post-it (+40 px vers la droite)
       camSeg({ s: 1.05 }, { s: 1.075 }, 2.50, "none", 0.30);
       camSeg({ x: 0 }, { x: -10 }, 1.00, "none", 0.30);
-      camSeg({ x: -10 }, { x: -44 }, 0.65, "power2.inOut", 1.30);
-      camSeg({ x: -44 }, { x: -50 }, 0.85, "none", 1.95);
+      camSeg({ x: -10 }, { x: -54 }, 0.65, "power2.inOut", 1.30);
+      camSeg({ x: -54 }, { x: -60 }, 0.85, "none", 1.95);
       // 2.80 → 3.07 whip vers le bas (power3.in) : y -260, échelle 1.35, flou 0 → 8 px (en cours à la couture)
-      camSeg({ x: -50, y: 0, s: 1.075, b: 0 }, { x: 0, y: -260, s: 1.35, b: 8 }, 0.27, "power3.in", 2.80);
+      camSeg({ x: -60, y: 0, s: 1.075, b: 0 }, { x: 0, y: -260, s: 1.35, b: 8 }, 0.27, "power3.in", 2.80);
 
       /* ---- 0.00 la page « Lundi » finit de partir (-70 → -100deg, 0.15 s) ---- */
       ft($("flipA"), { rotationX: -70 }, { rotationX: -100, duration: 0.15, ease: "power2.out" }, 0);
       ft($("flipA"), { opacity: 1 }, { opacity: 0, duration: 0.001, ease: "none" }, 0.15);
 
       /* ---- le post-it repoussé ---- */
+      // 0.10 il est déjà là quand « Lundi » est partie (né pendant le flou de l'atterrissage, après la couture)
+      ft($("postit"), { opacity: 0, scale: 1.04, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.14, ease: "power3.out" }, 0.10);
+      ft($("pshadow"), { opacity: 0 }, { opacity: 0.30, duration: 0.14, ease: "power3.out" }, 0.10);
       // 0.95 un doigt invisible le décolle : il se soulève, son ombre s'ouvre
       ft($("postit"), { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.03, duration: 0.25, ease: "power3.out" }, 0.95);
       ft($("pshadow"), { opacity: 0.30, scale: 1, rotation: 5, x: 6, y: 16, filter: "blur(10px)" },
         { opacity: 0.36, scale: 1.02, rotation: 5, x: 20, y: 42, filter: "blur(20px)", duration: 0.25, ease: "power3.out" }, 0.95);
-      // 1.30 il glisse vers le coin de la page : x +260, y +320, rotation 5 → -8deg, 0.45 s power3.inOut
-      ft($("postit"), { x: 0, y: 0, rotation: 5 }, { x: 260, y: 320, rotation: -8, duration: 0.45, ease: "power3.inOut" }, 1.30);
-      ft($("pshadow"), { x: 20, y: 42, rotation: 5 }, { x: 280, y: 362, rotation: -8, duration: 0.45, ease: "power3.inOut" }, 1.30);
+      // 1.30 il glisse vers le coin de la page : x +220, y +320, rotation 5 → -8deg, 0.45 s power3.inOut
+      ft($("postit"), { x: 0, y: 0, rotation: 5 }, { x: 220, y: 320, rotation: -8, duration: 0.45, ease: "power3.inOut" }, 1.30);
+      ft($("pshadow"), { x: 20, y: 42, rotation: 5 }, { x: 240, y: 362, rotation: -8, duration: 0.45, ease: "power3.inOut" }, 1.30);
       // flou de vitesse 6 px sur l'axe du glissement : 0 → 6 sur la première moitié, 6 → 0 sur la seconde (pic = vitesse max)
       tl.set(streakEl, { filter: "url(#f02-streakf)" }, 1.30);
       ft(blurNode, { attr: { stdDeviation: "0 0" } }, { attr: { stdDeviation: "6 0" }, duration: 0.225, ease: "power3.in" }, 1.30);
@@ -297,8 +302,8 @@
       tl.set(streakEl, { filter: "none" }, 1.75);
       // 1.75 il se recolle au coin : retombe, son ombre se resserre
       ft($("postit"), { scale: 1.03 }, { scale: 1, duration: 0.20, ease: "power3.out" }, 1.75);
-      ft($("pshadow"), { opacity: 0.36, scale: 1.02, x: 280, y: 362, filter: "blur(20px)" },
-        { opacity: 0.30, scale: 1, x: 266, y: 336, filter: "blur(10px)", duration: 0.20, ease: "power3.out" }, 1.75);
+      ft($("pshadow"), { opacity: 0.36, scale: 1.02, x: 240, y: 362, filter: "blur(20px)" },
+        { opacity: 0.30, scale: 1, x: 226, y: 336, filter: "blur(10px)", duration: 0.20, ease: "power3.out" }, 1.75);
       // 1.80 la marque « Jeudi → » apparaît là où il atterrit
       ft($("note"), { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: 0.30, ease: "power3.out" }, 1.80);
 
