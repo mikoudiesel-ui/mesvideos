@@ -30,7 +30,7 @@ patterns: ../patterns/STORYBOARD-CRAFT.md, ../patterns/PATTERNS.md
 - scene: Hook with the presenter: the photo of Awa on her sofa holding the tablet (AI image, assets/img/awa-photo.webp), the camera punches in on her face; a red post-it « Demain » slams onto the wall at the top right; « rêve » in a red box; small tag « Image IA »
 - duration: 2.52s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/01-awa-accroche.html
 - voiceover: "Chaque « demain » te coûte un rêve."
 - type: hook
@@ -58,7 +58,7 @@ Scene 1 (0.00 à 2.52 s) : P1, Awa et le post-it
 - scene: The planner page « Lundi »: the post-it « Commencer » lands; the page flips to « Dimanche », the post-it is still there, unchecked; the lamp dims
 - duration: 4.80s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/02-semaine.html
 - voiceover: "Lundi, tu te promets de commencer. Dimanche... rien n'a bougé."
 - type: pain_point
@@ -96,7 +96,7 @@ Scene 2 (2.40 à 4.80 s) : P2, dimanche, rien
 - scene: Loss aversion: a big red counter « semaines perdues » rolls 1 → 52 over the dimmed planner
 - duration: 2.06s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/03-cout.html
 - voiceover: "Encore une semaine perdue."
 - type: pain_point
@@ -124,7 +124,7 @@ Scene 1 (0.00 à 2.06 s) : P1, le compteur
 - scene: The horned shadow rises behind the planner page; red eyes open on « petite voix »
 - duration: 4.19s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/04-petite-voix.html
 - voiceover: "Ce n'est pas un manque de talent, c'est une petite voix."
 - type: pain_point
@@ -152,7 +152,7 @@ Scene 1 (0.00 à 4.19 s) : P1, l'ombre
 - scene: Black, a gold crack tears the frame open onto Awa holding the tablet; the tablet screen now shows the cover of « Plus malin que le diable »; the camera pushes into the tablet until the cover fills the frame exactly where frame 6 starts
 - duration: 3.81s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/05-awa-revelation.html
 - voiceover: "Et ce livre la démasque : Plus malin que le diable."
 - type: turn
@@ -180,7 +180,7 @@ Scene 1 (0.00 à 3.81 s) : P1, la tablette
 - scene: The cover moves up; three green-ticked benefit lines fall in under it, one per phrase
 - duration: 5.50s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/06-benefices.html
 - voiceover: "Tu vas reconnaître ses ruses, lui répondre, et passer enfin à l'action."
 - type: benefits
@@ -208,7 +208,7 @@ Scene 1 (0.00 à 5.50 s) : P1, trois coches
 - scene: The offer, colour-coded like the neuromarketing guide: the benefit lines slide out; a gold BONUS card, a blue guarantee badge and the gold price « 990 F » fall in one by one under the cover
 - duration: 8.20s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/06b-offre.html
 - voiceover: "En bonus : Réfléchissez et devenez riche. Satisfait ou remboursé. Et tout ça pour seulement neuf cent quatre-vingt-dix francs."
 - type: offer
@@ -236,7 +236,7 @@ Scene 1 (0.00 à 8.20 s) : P1, bonus, garantie, prix
 - scene: End card: the cover, the green button « Oui, je le veux maintenant » (white text); a cursor clicks it; the post-it « Commencer » lands on the cover and gets ticked; an arrow points down to the ad's link
 - duration: 7.12s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/07-fin.html
 - voiceover: "Clique sur « Je le veux ». Ta prochaine semaine commence maintenant."
 - type: cta
