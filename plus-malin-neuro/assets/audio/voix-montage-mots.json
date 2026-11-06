@@ -1,5 +1,5 @@
 {
- "duration": 30.0,
+ "duration": 38.2,
  "words": [
   {
    "w": "Chaque",
@@ -267,54 +267,134 @@
    "end": 22.37
   },
   {
+   "w": "En",
+   "start": 23.14,
+   "end": 23.35
+  },
+  {
+   "w": "bonus:",
+   "start": 23.35,
+   "end": 23.72
+  },
+  {
+   "w": "Réfléchissez",
+   "start": 24.18,
+   "end": 24.74
+  },
+  {
+   "w": "et",
+   "start": 24.74,
+   "end": 24.9
+  },
+  {
+   "w": "devenez",
+   "start": 24.9,
+   "end": 25.33
+  },
+  {
+   "w": "riche.",
+   "start": 25.33,
+   "end": 25.63
+  },
+  {
+   "w": "Satisfait",
+   "start": 26.6,
+   "end": 27.13
+  },
+  {
+   "w": "ou",
+   "start": 27.13,
+   "end": 27.35
+  },
+  {
+   "w": "remboursé.",
+   "start": 27.35,
+   "end": 27.88
+  },
+  {
+   "w": "Et",
+   "start": 28.7,
+   "end": 28.96
+  },
+  {
+   "w": "tout",
+   "start": 28.96,
+   "end": 29.21
+  },
+  {
+   "w": "ça",
+   "start": 29.21,
+   "end": 29.47
+  },
+  {
+   "w": "pour",
+   "start": 29.47,
+   "end": 29.72
+  },
+  {
+   "w": "seulement",
+   "start": 29.72,
+   "end": 30.37
+  },
+  {
+   "w": "990",
+   "start": 30.37,
+   "end": 30.62
+  },
+  {
+   "w": "F.",
+   "start": 30.62,
+   "end": 30.88
+  },
+  {
    "w": "Clique",
-   "start": 23.4,
-   "end": 23.71
+   "start": 31.6,
+   "end": 31.91
   },
   {
    "w": "sur",
-   "start": 23.71,
-   "end": 23.88
+   "start": 31.91,
+   "end": 32.08
   },
   {
    "w": "«Je",
-   "start": 23.88,
-   "end": 24.05
+   "start": 32.08,
+   "end": 32.25
   },
   {
    "w": "le",
-   "start": 24.05,
-   "end": 24.23
+   "start": 32.25,
+   "end": 32.43
   },
   {
    "w": "veux».",
-   "start": 24.23,
-   "end": 24.4
+   "start": 32.43,
+   "end": 32.6
   },
   {
    "w": "Ta",
-   "start": 25.18,
-   "end": 25.34
+   "start": 33.38,
+   "end": 33.54
   },
   {
    "w": "prochaine",
-   "start": 25.34,
-   "end": 25.73
+   "start": 33.54,
+   "end": 33.93
   },
   {
    "w": "semaine",
-   "start": 25.73,
-   "end": 26.13
+   "start": 33.93,
+   "end": 34.33
   },
   {
    "w": "commence",
-   "start": 26.13,
-   "end": 26.52
+   "start": 34.33,
+   "end": 34.72
   },
   {
    "w": "maintenant.",
-   "start": 26.52,
-   "end": 26.92
+   "start": 34.72,
+   "end": 35.12
   }
  ]
 }

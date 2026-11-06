@@ -1,8 +1,8 @@
 ---
 format: 1080x1920
-duration: "30.00s"
+duration: "38.20s"
 message: "Chaque « demain » te coûte un rêve ; l'ebook « Plus malin que le diable » démasque la petite voix qui te fait attendre."
-arc: Hook → Problem → Cost → Diagnosis → Reveal → Benefits → CTA
+arc: Hook → Problem → Cost → Diagnosis → Reveal → Benefits → Offer → CTA
 audience: "Personnes de 25 à 55 ans qui repoussent un projet, sur Facebook et Instagram (Reels, Stories, fil)"
 mode: autonomous
 captions: disabled
@@ -203,7 +203,35 @@ Scene 1 (0.00 à 5.50 s) : P1, trois coches
   SON : pop at 1.18, 2.12, 4.56
   IMAGE CLÉ : 4.90 : the cover on top, three green-ticked benefits under it
 
-## Frame 7: L'appel à l'action · 22.88 → 30.00
+## Frame 7: L'offre · 22.88 → 31.08
+
+- scene: The offer, colour-coded like the neuromarketing guide: the benefit lines slide out; a gold BONUS card, a blue guarantee badge and the gold price « 990 F » fall in one by one under the cover
+- duration: 8.20s
+- transition_in: cut
+- status: outline
+- src: compositions/frames/06b-offre.html
+- voiceover: "En bonus : Réfléchissez et devenez riche. Satisfait ou remboursé. Et tout ça pour seulement neuf cent quatre-vingt-dix francs."
+- type: offer
+- blueprint: kinetic-type-beats (Adapt)
+- focal: the offer rows
+- rules: counting-dynamic-scale
+- world: light
+- handoff_in: à 0.00 : the cover scaled .62 at the top (centred, top 120) ; the three ticked benefit lines under it ; no subtitle ; camera drift
+- handoff_out: à 8.20 : three offer rows at x 140 (cover .62 at the top, centred, top 120): row 1 at y 860 = a gold pill « BONUS » (Instrument Sans 700, 30 px, #1b1612 on #f4b53f, radius 30, padding 8 22) followed by « Réfléchissez et devenez riche » (Instrument Sans 700, 44 px, #f4b53f) ; row 2 at y 990 = a blue shield icon 64 px (#3b82f6, white check inside) followed by « Satisfait ou remboursé » (Instrument Sans 700, 54 px, #f1e8d8) ; row 3 at y 1100 = « 990 F » (Fraunces 900, 120 px, #f4b53f, gold glow) ; no subtitle ; camera drift
+
+Word cues: En@0.26 bonus@0.47 Réfléchissez@1.30 et@1.86 devenez@2.02 riche@2.45 Satisfait@3.72 ou@4.25 remboursé@4.47 Et@5.82 tout@6.08 ça@6.33 pour@6.59 seulement@6.84 990@7.49 F@7.74
+
+Scene 1 (0.00 à 8.20 s) : P1, bonus, garantie, prix
+  TEXTE ÉCRAN : subtitle « En bonus : Réfléchissez et devenez riche. » [boîte : bonus] GOLD (.pm-box.gold, dark text) at 0.45 ; then « Satisfait ou remboursé. » [boîte : remboursé] BLUE (#3b82f6, white text) at 4.45 ; then « Et tout ça pour seulement 990 F. » [boîte : 990 F] GOLD at 7.47 ; each chunk replaces the previous ; the three rows as in handoff_out
+  IMAGE DE DÉPART : handoff_in.
+  ÉTAPES : 0.10 the benefit lines slide out to the left fast (x -900, 0.3 s power3.in) ; 0.40 row 1 « BONUS » pill pops (scale 0 → 1, 0.2 s) and at 1.28 its title rushes in from the camera (scale 1.6 → 1, blur 10 → 0, 0.35 s expo.out) with a gold sparkle burst (finite) ; 2.60 a gold sheen sweeps across row 1 ; 3.40 chunk swap ; 3.70 row 2 falls in (y -40 → 0, blur 8 → 0, 0.3 s), its shield pops at 4.47 and pulses blue once ; 5.60 chunk swap ; 5.80 row 3 « 990 F » rushes in from the camera (scale 2 → 1, blur 14 → 0, 0.3 s expo.out) and lands with a small shake at 7.49, its gold glow swells once ; 7.95 subtitle leaves
+  PISTE CAMÉRA : drift scale 1.00 → 1.03 linear, compensated like frame 6 so the last image lands on handoff_out numbers
+  COUCHES ET PROFONDEUR : gold halo ; cover ; rows
+  OBJET-PONT ET VECTEUR : the rows → the CTA
+  SON : sparkle at 0.32 ; pop at 1.32 ; chime at 3.74 ; pop at 5.84 ; impact-bass-1 at 7.22
+  IMAGE CLÉ : 7.80 : the cover on top, BONUS card, blue guarantee and « 990 F » in gold under it
+
+## Frame 8: L'appel à l'action · 31.08 → 38.20
 
 - scene: End card: the cover, the green button « Oui, je le veux maintenant » (white text); a cursor clicks it; the post-it « Commencer » lands on the cover and gets ticked; an arrow points down to the ad's link
 - duration: 7.12s
@@ -216,7 +244,7 @@ Scene 1 (0.00 à 5.50 s) : P1, trois coches
 - focal: the green button
 - rules: cursor-click-ripple
 - world: light
-- handoff_in: à 0.00 : the cover scaled .62 at the top (centred, top 120) ; the three ticked benefit lines under it ; no subtitle ; camera drift
+- handoff_in: à 0.00 : three offer rows at x 140 (cover .62 at the top, centred, top 120): row 1 at y 860 = a gold pill « BONUS » (Instrument Sans 700, 30 px, #1b1612 on #f4b53f, radius 30, padding 8 22) followed by « Réfléchissez et devenez riche » (Instrument Sans 700, 44 px, #f4b53f) ; row 2 at y 990 = a blue shield icon 64 px (#3b82f6, white check inside) followed by « Satisfait ou remboursé » (Instrument Sans 700, 54 px, #f1e8d8) ; row 3 at y 1100 = « 990 F » (Fraunces 900, 120 px, #f4b53f, gold glow) ; no subtitle ; camera drift
 - handoff_out: à 7.12 : end of film ; cover, ticked post-it, green button, arrow ; living hold
 
 Word cues: Clique@0.52 sur@0.83 Je@1.00 le@1.17 veux@1.35 Ta@2.30 prochaine@2.46 semaine@2.85 commence@3.25 maintenant@3.64
@@ -224,7 +252,7 @@ Word cues: Clique@0.52 sur@0.83 Je@1.00 le@1.17 veux@1.35 Ta@2.30 prochaine@2.46
 Scene 1 (0.00 à 7.12 s) : P1, le clic
   TEXTE ÉCRAN : subtitle « Clique sur « Je le veux ». » [boîte : Je le veux] GREEN at 0.98 ; then « Ta prochaine semaine commence maintenant. » [trait : maintenant] gold at 3.64 ; button copy « Oui, je le veux maintenant » (the reference .pm-cta restyled: background #22b573, text #ffffff, glow rgba(34,181,115,.45)) at left 110, top 1150
   IMAGE DE DÉPART : handoff_in.
-  ÉTAPES : 0.10 the benefit lines slide out left fast (0.25 s) ; 0.20 the cover returns to scale 1 at left 260, top 260 (0.5 s power3.inOut) ; 0.50 the green button rises from below (y +200 → 0, blur 8 → 0, 0.4 s expo.out) ; 0.98 green box ; 1.20 the cursor arrives from the right in one curved move (0.45 s power3.out) and clicks the button at 1.80 (press .96 + white ripple) ; 2.20 the post-it « Commencer » (scale .6) flies onto the cover's top-right corner ; 2.60 its tick draws (stroke-dashoffset 60 → 0, 0.3 s) ; 3.64 gold stroke under « maintenant » ; 4.30 a green arrow ↓ draws under the subtitle (y 1480 to 1600, x 540) ; 4.50 à 7.12 living hold: halo breathes once, dust in the light, the arrow nudges down twice (finite)
+  ÉTAPES : 0.10 the three offer rows slide out left fast (0.25 s) ; 0.20 the cover returns to scale 1 at left 260, top 260 (0.5 s power3.inOut) ; 0.50 the green button rises from below (y +200 → 0, blur 8 → 0, 0.4 s expo.out) ; 0.98 green box ; 1.20 the cursor arrives from the right in one curved move (0.45 s power3.out) and clicks the button at 1.80 (press .96 + white ripple) ; 2.20 the post-it « Commencer » (scale .6) flies onto the cover's top-right corner ; 2.60 its tick draws (stroke-dashoffset 60 → 0, 0.3 s) ; 3.64 gold stroke under « maintenant » ; 4.30 a green arrow ↓ draws under the subtitle (y 1480 to 1600, x 540) ; 4.50 à 7.12 living hold: halo breathes once, dust in the light, the arrow nudges down twice (finite)
   PISTE CAMÉRA : drift scale 1.00 → 1.03 linear, never stops
   COUCHES ET PROFONDEUR : halo ; cover ; post-it ; button ; cursor
   OBJET-PONT ET VECTEUR : end
