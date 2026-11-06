@@ -13,7 +13,7 @@ cd "$(dirname "$0")"
 export HYPERFRAMES_NO_TELEMETRY=1 DO_NOT_TRACK=1 HYPERFRAMES_SKIP_SKILLS=1 HYPERFRAMES_NO_UPDATE_CHECK=1
 
 # ---- settings (times in seconds on the final timeline, see STORYBOARD.md) ------------------------------------------
-FIRST_FRAME="01-lundi"      # id of the first frame (basename of its src, without .html)
+FIRST_FRAME="01-accroche"      # id of the first frame (basename of its src, without .html)
 END_CARD="07-fin"          # id of the end card frame (the iris opens it)
 TOTAL="38.2"               # final duration = STORYBOARD duration = TOTAL in build-audio.sh
 AUDIO="assets/audio/${MIX:-mix.wav}"   # mix from build-audio.sh or build-music-options.py (MIX=mix-M2.wav bash assemble.sh); empty = silent
