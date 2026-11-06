@@ -1,0 +1,400 @@
+{
+ "duration": 38.2,
+ "words": [
+  {
+   "w": "Chaque",
+   "start": 0.32,
+   "end": 0.71
+  },
+  {
+   "w": "«demain»",
+   "start": 0.71,
+   "end": 1.1
+  },
+  {
+   "w": "te",
+   "start": 1.28,
+   "end": 1.45
+  },
+  {
+   "w": "coûte",
+   "start": 1.45,
+   "end": 1.75
+  },
+  {
+   "w": "un",
+   "start": 1.75,
+   "end": 1.91
+  },
+  {
+   "w": "rêve.",
+   "start": 1.91,
+   "end": 2.21
+  },
+  {
+   "w": "Lundi,",
+   "start": 2.84,
+   "end": 3.2
+  },
+  {
+   "w": "tu",
+   "start": 3.43,
+   "end": 3.56
+  },
+  {
+   "w": "te",
+   "start": 3.56,
+   "end": 3.7
+  },
+  {
+   "w": "promets",
+   "start": 3.7,
+   "end": 3.94
+  },
+  {
+   "w": "de",
+   "start": 3.94,
+   "end": 4.07
+  },
+  {
+   "w": "commencer.",
+   "start": 4.07,
+   "end": 4.41
+  },
+  {
+   "w": "Dimanche...",
+   "start": 5.17,
+   "end": 5.69
+  },
+  {
+   "w": "rien",
+   "start": 6.29,
+   "end": 6.44
+  },
+  {
+   "w": "n'a",
+   "start": 6.44,
+   "end": 6.58
+  },
+  {
+   "w": "bougé.",
+   "start": 6.58,
+   "end": 6.84
+  },
+  {
+   "w": "Encore",
+   "start": 7.81,
+   "end": 8.1
+  },
+  {
+   "w": "une",
+   "start": 8.1,
+   "end": 8.3
+  },
+  {
+   "w": "semaine",
+   "start": 8.3,
+   "end": 8.59
+  },
+  {
+   "w": "perdue.",
+   "start": 8.59,
+   "end": 8.79
+  },
+  {
+   "w": "Ce",
+   "start": 9.96,
+   "end": 10.1
+  },
+  {
+   "w": "n'est",
+   "start": 10.1,
+   "end": 10.23
+  },
+  {
+   "w": "pas",
+   "start": 10.23,
+   "end": 10.37
+  },
+  {
+   "w": "un",
+   "start": 10.37,
+   "end": 10.51
+  },
+  {
+   "w": "manque",
+   "start": 10.51,
+   "end": 10.75
+  },
+  {
+   "w": "de",
+   "start": 10.75,
+   "end": 10.89
+  },
+  {
+   "w": "talent,",
+   "start": 10.89,
+   "end": 11.13
+  },
+  {
+   "w": "c'est",
+   "start": 11.94,
+   "end": 12.1
+  },
+  {
+   "w": "une",
+   "start": 12.1,
+   "end": 12.37
+  },
+  {
+   "w": "petite",
+   "start": 12.53,
+   "end": 12.98
+  },
+  {
+   "w": "voix.",
+   "start": 12.98,
+   "end": 13.16
+  },
+  {
+   "w": "Et",
+   "start": 13.98,
+   "end": 14.14
+  },
+  {
+   "w": "ce",
+   "start": 14.14,
+   "end": 14.31
+  },
+  {
+   "w": "livre",
+   "start": 14.31,
+   "end": 14.6
+  },
+  {
+   "w": "la",
+   "start": 14.6,
+   "end": 14.76
+  },
+  {
+   "w": "démasque:",
+   "start": 14.76,
+   "end": 15.18
+  },
+  {
+   "w": "Plus",
+   "start": 15.79,
+   "end": 15.99
+  },
+  {
+   "w": "malin",
+   "start": 15.99,
+   "end": 16.34
+  },
+  {
+   "w": "que",
+   "start": 16.34,
+   "end": 16.54
+  },
+  {
+   "w": "le",
+   "start": 16.54,
+   "end": 16.74
+  },
+  {
+   "w": "diable.",
+   "start": 16.74,
+   "end": 17.09
+  },
+  {
+   "w": "Tu",
+   "start": 17.67,
+   "end": 17.81
+  },
+  {
+   "w": "vas",
+   "start": 17.81,
+   "end": 17.95
+  },
+  {
+   "w": "reconnaître",
+   "start": 17.95,
+   "end": 18.42
+  },
+  {
+   "w": "ses",
+   "start": 18.42,
+   "end": 18.56
+  },
+  {
+   "w": "ruses,",
+   "start": 18.56,
+   "end": 18.81
+  },
+  {
+   "w": "lui",
+   "start": 19.38,
+   "end": 19.5
+  },
+  {
+   "w": "répondre,",
+   "start": 19.5,
+   "end": 19.82
+  },
+  {
+   "w": "et",
+   "start": 20.58,
+   "end": 20.82
+  },
+  {
+   "w": "passer",
+   "start": 20.82,
+   "end": 21.26
+  },
+  {
+   "w": "enfin",
+   "start": 21.26,
+   "end": 21.69
+  },
+  {
+   "w": "à",
+   "start": 21.69,
+   "end": 21.94
+  },
+  {
+   "w": "l'action.",
+   "start": 21.94,
+   "end": 22.37
+  },
+  {
+   "w": "En",
+   "start": 23.14,
+   "end": 23.35
+  },
+  {
+   "w": "bonus:",
+   "start": 23.35,
+   "end": 23.72
+  },
+  {
+   "w": "Réfléchissez",
+   "start": 24.18,
+   "end": 24.74
+  },
+  {
+   "w": "et",
+   "start": 24.74,
+   "end": 24.9
+  },
+  {
+   "w": "devenez",
+   "start": 24.9,
+   "end": 25.33
+  },
+  {
+   "w": "riche.",
+   "start": 25.33,
+   "end": 25.63
+  },
+  {
+   "w": "Satisfait",
+   "start": 26.6,
+   "end": 27.13
+  },
+  {
+   "w": "ou",
+   "start": 27.13,
+   "end": 27.35
+  },
+  {
+   "w": "remboursé.",
+   "start": 27.35,
+   "end": 27.88
+  },
+  {
+   "w": "Et",
+   "start": 28.7,
+   "end": 28.96
+  },
+  {
+   "w": "tout",
+   "start": 28.96,
+   "end": 29.21
+  },
+  {
+   "w": "ça",
+   "start": 29.21,
+   "end": 29.47
+  },
+  {
+   "w": "pour",
+   "start": 29.47,
+   "end": 29.72
+  },
+  {
+   "w": "seulement",
+   "start": 29.72,
+   "end": 30.37
+  },
+  {
+   "w": "990",
+   "start": 30.37,
+   "end": 30.62
+  },
+  {
+   "w": "F.",
+   "start": 30.62,
+   "end": 30.88
+  },
+  {
+   "w": "Clique",
+   "start": 31.6,
+   "end": 31.91
+  },
+  {
+   "w": "sur",
+   "start": 31.91,
+   "end": 32.08
+  },
+  {
+   "w": "«Je",
+   "start": 32.08,
+   "end": 32.25
+  },
+  {
+   "w": "le",
+   "start": 32.25,
+   "end": 32.43
+  },
+  {
+   "w": "veux».",
+   "start": 32.43,
+   "end": 32.6
+  },
+  {
+   "w": "Ta",
+   "start": 33.38,
+   "end": 33.54
+  },
+  {
+   "w": "prochaine",
+   "start": 33.54,
+   "end": 33.93
+  },
+  {
+   "w": "semaine",
+   "start": 33.93,
+   "end": 34.33
+  },
+  {
+   "w": "commence",
+   "start": 34.33,
+   "end": 34.72
+  },
+  {
+   "w": "maintenant.",
+   "start": 34.72,
+   "end": 35.12
+  }
+ ]
+}
