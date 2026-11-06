@@ -109,10 +109,14 @@
   .f07-g { position: absolute; left: 0; top: 0; width: 0; height: 0; overflow: visible; }
   /* la couverture : réduite .62 en haut au départ (état de fin de la séquence 06), elle revient à l'échelle 1 en (260, 260) */
   #f07-cover { transform-origin: 0 0; }
-  /* les trois lignes de bénéfices héritées de la séquence 06 */
+  /* les trois lignes de l'offre héritées de la séquence 06b */
   .f07-ben { position: absolute; left: 140px; height: 64px; display: flex; align-items: center; gap: 28px; white-space: nowrap;
     font: 700 54px/1 "Instrument Sans", sans-serif; color: #f1e8d8; }
   .f07-ben svg { width: 64px; height: 64px; flex: none; display: block; }
+  .f07-pill { font: 700 30px/1 "Instrument Sans", sans-serif; color: #1b1612; background: #f4b53f; border-radius: 30px; padding: 8px 22px; }
+  .f07-bonus { font: 700 44px/1 "Instrument Sans", sans-serif; color: #f4b53f; }
+  #f07-ben3 { height: auto; }
+  .f07-price { font: 900 120px/1 "Fraunces", serif; color: #f4b53f; text-shadow: 0 0 40px rgba(244,181,63,.45); }
   /* le souffle du halo : une seconde nappe dorée, éteinte au départ */
   #f07-halo2 { opacity: 0; }
   /* le post-it arrive plus tard */
@@ -157,11 +161,11 @@
           <div class="pm-cover-a">Démasque ses ruses</div>
           <div class="pm-cover-sheen" id="f07-sheen"></div>
         </div>
-        <!-- les trois bénéfices cochés (état de fin de la séquence 06) : ils sortent vite à gauche -->
+        <!-- les trois lignes de l'offre (état de fin de la séquence 06b) : elles sortent vite à gauche -->
         <div class="f07-g" id="f07-bens">
-          <div class="f07-ben" id="f07-ben1" style="top:860px"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#22b573"/><path d="M18 33 L28 43 L46 22" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>Reconnaître ses ruses</div>
-          <div class="f07-ben" id="f07-ben2" style="top:990px"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#22b573"/><path d="M18 33 L28 43 L46 22" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>Lui répondre</div>
-          <div class="f07-ben" id="f07-ben3" style="top:1120px"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#22b573"/><path d="M18 33 L28 43 L46 22" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>Passer à l’action</div>
+          <div class="f07-ben" id="f07-ben1" style="top:860px"><span class="f07-pill">BONUS</span><span class="f07-bonus">Réfléchissez et devenez riche</span></div>
+          <div class="f07-ben" id="f07-ben2" style="top:990px"><svg viewBox="0 0 64 64"><path d="M32 3 L56 12 L56 30 C56 45 46 56 32 61 C18 56 8 45 8 30 L8 12 Z" fill="#3b82f6"/><path d="M21 32 L29 40 L44 24" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>Satisfait ou remboursé</div>
+          <div class="f07-ben" id="f07-ben3" style="top:1100px"><span class="f07-price">990&nbsp;F</span></div>
         </div>
         <!-- le post-it « Commencer » : il se colle sur le coin haut droit de la couverture (centre en 800, 310 ; échelle .6 ; 6deg) -->
         <div class="pm-postit" id="f07-postit" style="left:590px;top:145px">
